@@ -1,0 +1,76 @@
+[
+  {
+    "description": "Install a package in the current directory",
+    "command": "npm install <package>",
+    "params": {
+      "package": {
+        "description": "Package name (use space-separated for multiple)"
+      }
+    }
+  },
+  {
+    "description": "Install and save to dependencies in package.json",
+    "command": "npm install --save <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Install and save to devDependencies in package.json",
+    "command": "npm install --save-dev <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Install a package globally",
+    "command": "npm install -g <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "List outdated packages in the current project",
+    "command": "npm outdated"
+  },
+  {
+    "description": "Update outdated packages to their latest matching versions",
+    "command": "npm update"
+  },
+  {
+    "description": "Update npm itself globally",
+    "command": "npm install -g npm"
+  },
+  {
+    "description": "Uninstall a package",
+    "command": "npm uninstall <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Run a script defined in package.json",
+    "command": "npm run <script>",
+    "params": {
+      "script": {
+        "description": "Script name (e.g. build, test)"
+      }
+    }
+  },
+  {
+    "description": "Run the test script",
+    "command": "npm test"
+  },
+  {
+    "description": "Install all dependencies declared in package.json",
+    "command": "npm install"
+  }
+]

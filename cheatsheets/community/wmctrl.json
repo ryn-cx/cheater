@@ -1,0 +1,60 @@
+[
+  {
+    "description": "List windows managed by the WM",
+    "command": "wmctrl -l"
+  },
+  {
+    "description": "Switch focus to a window matching a (partial) title",
+    "command": "wmctrl -a <title>",
+    "params": {
+      "title": {
+        "type": "string",
+        "description": "Partial window title"
+      }
+    }
+  },
+  {
+    "description": "Move a window to the current workspace, raise and focus it",
+    "command": "wmctrl -R <title>",
+    "params": {
+      "title": {
+        "type": "string",
+        "description": "Partial window title"
+      }
+    }
+  },
+  {
+    "description": "Switch to a workspace by index",
+    "command": "wmctrl -s <workspace>",
+    "params": {
+      "workspace": {
+        "type": "integer",
+        "description": "Zero-based workspace index"
+      }
+    }
+  },
+  {
+    "description": "Toggle fullscreen on a window",
+    "command": "wmctrl -r <title> -b toggle,fullscreen",
+    "params": {
+      "title": {
+        "type": "string",
+        "description": "Partial window title"
+      }
+    }
+  },
+  {
+    "description": "Move a window to a specific workspace",
+    "command": "wmctrl -r <title> -t <workspace>",
+    "params": {
+      "title": {
+        "type": "string",
+        "description": "Partial window title"
+      },
+      "workspace": {
+        "type": "integer",
+        "description": "Zero-based workspace index"
+      }
+    }
+  }
+]

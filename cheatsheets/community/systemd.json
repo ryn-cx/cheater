@@ -1,0 +1,31 @@
+[
+  {
+    "description": "Show total boot time",
+    "command": "systemd-analyze"
+  },
+  {
+    "description": "Show startup time per service (blame view)",
+    "command": "systemd-analyze blame"
+  },
+  {
+    "description": "Show the critical chain of services that delayed boot",
+    "command": "systemd-analyze critical-chain"
+  },
+  {
+    "description": "Plot boot time as an SVG",
+    "command": "systemd-analyze plot > <output>",
+    "defaults": {
+      "output": "boot.svg"
+    },
+    "params": {
+      "output": {
+        "type": "path",
+        "description": "Output SVG path"
+      }
+    }
+  },
+  {
+    "description": "List loaded systemd units",
+    "command": "systemctl list-units"
+  }
+]

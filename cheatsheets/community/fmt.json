@@ -1,0 +1,19 @@
+[
+  {
+    "description": "Wrap lines from a file to a given width",
+    "command": "fmt -w <width> <file>",
+    "defaults": {
+      "width": "50"
+    },
+    "params": {
+      "width": {
+        "type": "integer",
+        "description": "Maximum line width"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  }
+]

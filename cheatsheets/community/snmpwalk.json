@@ -1,0 +1,58 @@
+[
+  {
+    "description": "Walk all variables under the system tree on a host (SNMPv1)",
+    "command": "snmpwalk -Os -c <community> -v 1 <host> system",
+    "defaults": {
+      "community": "public"
+    },
+    "params": {
+      "community": {
+        "type": "string",
+        "description": "SNMP community string"
+      },
+      "host": {
+        "description": "Target host"
+      }
+    }
+  },
+  {
+    "description": "Walk variables but exclude a subtree (e.g. sysORTable)",
+    "command": "snmpwalk -Os -c <community> -v 1 -CE <subtree> <host> system",
+    "defaults": {
+      "community": "public",
+      "subtree": "sysORTable"
+    },
+    "params": {
+      "community": {
+        "type": "string",
+        "description": "SNMP community string"
+      },
+      "subtree": {
+        "description": "OID subtree name to skip"
+      },
+      "host": {
+        "description": "Target host"
+      }
+    }
+  },
+  {
+    "description": "Walk using SNMPv2c (more common today)",
+    "command": "snmpwalk -v 2c -c <community> <host> <oid>",
+    "defaults": {
+      "community": "public",
+      "oid": "1.3.6.1"
+    },
+    "params": {
+      "community": {
+        "type": "string",
+        "description": "SNMP community string"
+      },
+      "host": {
+        "description": "Target host"
+      },
+      "oid": {
+        "description": "Starting OID"
+      }
+    }
+  }
+]

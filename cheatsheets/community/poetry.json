@@ -1,0 +1,90 @@
+[
+  {
+    "description": "Regenerate the lock file without bumping versions",
+    "command": "poetry lock --no-update"
+  },
+  {
+    "description": "Create a new project skeleton",
+    "command": "poetry new <name>",
+    "params": {
+      "name": {
+        "description": "Project / package name"
+      }
+    }
+  },
+  {
+    "description": "Initialize poetry in the current directory (interactive)",
+    "command": "poetry init"
+  },
+  {
+    "description": "Install dependencies from poetry.lock",
+    "command": "poetry install"
+  },
+  {
+    "description": "Install only main dependencies (no dev group)",
+    "command": "poetry install --no-dev"
+  },
+  {
+    "description": "Update dependencies (or specific packages)",
+    "command": "poetry update <packages>",
+    "params": {
+      "packages": {
+        "type": "string",
+        "description": "Space-separated package names (blank = all)"
+      }
+    }
+  },
+  {
+    "description": "Add a dependency",
+    "command": "poetry add <package>",
+    "params": {
+      "package": {
+        "description": "Package name (with optional version constraint)"
+      }
+    }
+  },
+  {
+    "description": "Add a development dependency",
+    "command": "poetry add -D <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Remove a dependency",
+    "command": "poetry remove <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "List installed packages and their versions",
+    "command": "poetry show"
+  },
+  {
+    "description": "Build source and wheel distributions",
+    "command": "poetry build"
+  },
+  {
+    "description": "Publish the package to PyPI",
+    "command": "poetry publish"
+  },
+  {
+    "description": "Run a command in the poetry-managed env",
+    "command": "poetry run <command>",
+    "params": {
+      "command": {
+        "type": "string",
+        "description": "Command to run"
+      }
+    }
+  },
+  {
+    "description": "Activate a shell inside the poetry-managed env",
+    "command": "poetry shell"
+  }
+]

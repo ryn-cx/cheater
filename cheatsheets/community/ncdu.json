@@ -1,0 +1,69 @@
+[
+  {
+    "description": "Interactively browse disk usage of a directory",
+    "command": "ncdu <directory>",
+    "defaults": {
+      "directory": "."
+    },
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Directory to scan"
+      }
+    }
+  },
+  {
+    "description": "Save scan results to a file",
+    "command": "ncdu -o <out_file> <directory>",
+    "defaults": {
+      "directory": "."
+    },
+    "params": {
+      "out_file": {
+        "type": "path",
+        "description": "Output ncdu results file"
+      },
+      "directory": {
+        "type": "existing_dir",
+        "description": "Directory to scan"
+      }
+    }
+  },
+  {
+    "description": "Browse a previously-saved scan",
+    "command": "ncdu -f <results_file>",
+    "params": {
+      "results_file": {
+        "type": "existing_file",
+        "description": "ncdu results file"
+      }
+    }
+  },
+  {
+    "description": "Save scan results compressed with gzip",
+    "command": "ncdu -o- <directory> | gzip > <out_file>",
+    "defaults": {
+      "directory": "."
+    },
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Directory to scan"
+      },
+      "out_file": {
+        "type": "path",
+        "description": "Output .gz path"
+      }
+    }
+  },
+  {
+    "description": "Browse a gzipped saved scan",
+    "command": "zcat <results_file> | ncdu -f-",
+    "params": {
+      "results_file": {
+        "type": "existing_file",
+        "description": "Gzipped ncdu results"
+      }
+    }
+  }
+]

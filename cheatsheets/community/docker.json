@@ -1,0 +1,284 @@
+[
+  {
+    "description": "Build a docker image from a Dockerfile",
+    "command": "docker build -t <tag> <context>",
+    "defaults": {
+      "context": "."
+    },
+    "params": {
+      "tag": {
+        "description": "Image tag, e.g. myapp:latest"
+      },
+      "context": {
+        "type": "existing_dir",
+        "description": "Build context directory containing the Dockerfile"
+      }
+    }
+  },
+  {
+    "description": "Start a container with an interactive shell",
+    "command": "docker run -ti <image> /bin/bash",
+    "params": {
+      "image": {
+        "description": "Image name or id"
+      }
+    }
+  },
+  {
+    "description": "Run a container in the background (detached)",
+    "command": "docker run -d <image>",
+    "params": {
+      "image": {
+        "description": "Image name or id"
+      }
+    }
+  },
+  {
+    "description": "Open a shell in a running container",
+    "command": "docker exec -ti <container> bash",
+    "params": {
+      "container": {
+        "description": "Container name or id"
+      }
+    }
+  },
+  {
+    "description": "Inspect a container",
+    "command": "docker inspect <container>",
+    "params": {
+      "container": {
+        "description": "Container name or id"
+      }
+    }
+  },
+  {
+    "description": "Get the host process id for a container",
+    "command": "docker inspect --format '{{.State.Pid}}' <container>",
+    "params": {
+      "container": {
+        "description": "Container name or id"
+      }
+    }
+  },
+  {
+    "description": "Copy a file from host to a running container",
+    "command": "docker cp <host_path> <container>:<container_path>",
+    "params": {
+      "host_path": {
+        "type": "existing_path",
+        "description": "Source file or dir on host"
+      },
+      "container": {
+        "description": "Container name or id"
+      },
+      "container_path": {
+        "description": "Destination path inside the container"
+      }
+    }
+  },
+  {
+    "description": "Copy a file from a running container to the host",
+    "command": "docker cp <container>:<container_path> <host_path>",
+    "params": {
+      "container": {
+        "description": "Container name or id"
+      },
+      "container_path": {
+        "description": "Source path inside the container"
+      },
+      "host_path": {
+        "type": "path",
+        "description": "Destination path on host"
+      }
+    }
+  },
+  {
+    "description": "List currently running containers",
+    "command": "docker ps"
+  },
+  {
+    "description": "List all containers (including stopped)",
+    "command": "docker ps -a"
+  },
+  {
+    "description": "Remove all stopped containers",
+    "command": "docker container prune"
+  },
+  {
+    "description": "List all images",
+    "command": "docker images"
+  },
+  {
+    "description": "List image ids only",
+    "command": "docker image ls -q"
+  },
+  {
+    "description": "Save an image to a tar archive",
+    "command": "docker save -o <archive> <image>",
+    "params": {
+      "archive": {
+        "type": "path",
+        "description": "Output .tar path"
+      },
+      "image": {
+        "description": "Image name or id"
+      }
+    }
+  },
+  {
+    "description": "Load an image from a tar archive",
+    "command": "docker load -i <archive>",
+    "params": {
+      "archive": {
+        "type": "existing_file",
+        "description": "Source .tar archive"
+      }
+    }
+  },
+  {
+    "description": "Remove an image",
+    "command": "docker image rm <image>",
+    "params": {
+      "image": {
+        "description": "Image name or id"
+      }
+    }
+  },
+  {
+    "description": "Tag an image with a new tag",
+    "command": "docker image tag <source> <target>",
+    "params": {
+      "source": {
+        "description": "Existing image[:tag]"
+      },
+      "target": {
+        "description": "New image[:tag]"
+      }
+    }
+  },
+  {
+    "description": "Log into Docker Hub",
+    "command": "docker login"
+  },
+  {
+    "description": "Push an image to a registry",
+    "command": "docker push <image>",
+    "params": {
+      "image": {
+        "description": "Image:tag to push"
+      }
+    }
+  },
+  {
+    "description": "List docker networks",
+    "command": "docker network ls"
+  },
+  {
+    "description": "Create a docker network",
+    "command": "docker network create <network>",
+    "params": {
+      "network": {
+        "description": "Network name"
+      }
+    }
+  },
+  {
+    "description": "Connect a container to a network",
+    "command": "docker network connect <network> <container>",
+    "params": {
+      "network": {
+        "description": "Network name or id"
+      },
+      "container": {
+        "description": "Container name or id"
+      }
+    }
+  },
+  {
+    "description": "Disconnect a container from a network",
+    "command": "docker network disconnect <network> <container>",
+    "params": {
+      "network": {
+        "description": "Network name or id"
+      },
+      "container": {
+        "description": "Container name or id"
+      }
+    }
+  },
+  {
+    "description": "Show the logs of a container",
+    "command": "docker logs <container>",
+    "params": {
+      "container": {
+        "description": "Container name or id"
+      }
+    }
+  },
+  {
+    "description": "Run a container with a published port",
+    "command": "docker run -p <host_port>:<container_port> <image>",
+    "params": {
+      "host_port": {
+        "type": "integer",
+        "description": "Host port to expose"
+      },
+      "container_port": {
+        "type": "integer",
+        "description": "Port inside the container"
+      },
+      "image": {
+        "description": "Image name or id"
+      }
+    }
+  },
+  {
+    "description": "Create a named docker volume",
+    "command": "docker volume create <volume>",
+    "params": {
+      "volume": {
+        "description": "Volume name"
+      }
+    }
+  },
+  {
+    "description": "Inspect a docker volume",
+    "command": "docker volume inspect <volume>",
+    "params": {
+      "volume": {
+        "description": "Volume name"
+      }
+    }
+  },
+  {
+    "description": "Mount a named volume into a container",
+    "command": "docker run -v <volume>:<container_path> <image>",
+    "params": {
+      "volume": {
+        "description": "Volume name"
+      },
+      "container_path": {
+        "description": "Mount target inside the container"
+      },
+      "image": {
+        "description": "Image name or id"
+      }
+    }
+  },
+  {
+    "description": "Bind-mount the current directory into a container",
+    "command": "docker run -v \"$(pwd):<container_path>\" <image>",
+    "params": {
+      "container_path": {
+        "description": "Mount target inside the container"
+      },
+      "image": {
+        "description": "Image name or id"
+      }
+    }
+  },
+  {
+    "description": "Remove all unused volumes",
+    "command": "docker volume prune"
+  }
+]

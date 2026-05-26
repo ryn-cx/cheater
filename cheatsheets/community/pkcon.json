@@ -1,0 +1,37 @@
+[
+  {
+    "description": "Refresh cached info about available updates",
+    "command": "pkcon refresh"
+  },
+  {
+    "description": "Update installed packages",
+    "command": "pkcon update"
+  },
+  {
+    "description": "Install a package",
+    "command": "pkcon install <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Remove a package",
+    "command": "pkcon remove <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Search for a package by name",
+    "command": "pkcon search name <name>",
+    "params": {
+      "name": {
+        "description": "Search term"
+      }
+    }
+  }
+]

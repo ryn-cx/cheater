@@ -1,0 +1,126 @@
+[
+  {
+    "description": "Substitute all occurrences in a file (print to stdout)",
+    "command": "sed 's/<from>/<to>/g' <file>",
+    "params": {
+      "from": {
+        "type": "string",
+        "description": "Pattern to match"
+      },
+      "to": {
+        "type": "string",
+        "description": "Replacement"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  },
+  {
+    "description": "Substitute in place (edits the file)",
+    "command": "sed -i 's/<from>/<to>/g' <file>",
+    "params": {
+      "from": {
+        "type": "string",
+        "description": "Pattern to match"
+      },
+      "to": {
+        "type": "string",
+        "description": "Replacement"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to edit in place"
+      }
+    }
+  },
+  {
+    "description": "Substitute on stdin",
+    "command": "echo '<text>' | sed 's/<from>/<to>/g'",
+    "params": {
+      "text": {
+        "type": "string",
+        "description": "Input text"
+      },
+      "from": {
+        "type": "string",
+        "description": "Pattern to match"
+      },
+      "to": {
+        "type": "string",
+        "description": "Replacement"
+      }
+    }
+  },
+  {
+    "description": "Remove leading whitespace from every line",
+    "command": "sed -i -r 's/^\\s+//g' <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to edit"
+      }
+    }
+  },
+  {
+    "description": "Remove blank lines",
+    "command": "sed '/^$/d' <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  },
+  {
+    "description": "Insert a line BEFORE every line matching a pattern",
+    "command": "sed '/<pattern>/i\\<new_line>' <file>",
+    "params": {
+      "pattern": {
+        "type": "string",
+        "description": "Match pattern"
+      },
+      "new_line": {
+        "type": "string",
+        "description": "Line to insert"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  },
+  {
+    "description": "Append a line AFTER every line matching a pattern",
+    "command": "sed '/<pattern>/a\\<new_line>' <file>",
+    "params": {
+      "pattern": {
+        "type": "string",
+        "description": "Match pattern"
+      },
+      "new_line": {
+        "type": "string",
+        "description": "Line to append"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  },
+  {
+    "description": "Print only lines matching a pattern (like grep)",
+    "command": "sed -n '/<pattern>/p' <file>",
+    "params": {
+      "pattern": {
+        "type": "string",
+        "description": "Match pattern"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  }
+]

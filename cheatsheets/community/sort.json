@@ -1,0 +1,100 @@
+[
+  {
+    "description": "Sort a file lexicographically",
+    "command": "sort <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  },
+  {
+    "description": "Sort and deduplicate",
+    "command": "sort -u <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  },
+  {
+    "description": "Sort in reverse order",
+    "command": "sort -r <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  },
+  {
+    "description": "Sort in random order",
+    "command": "sort -R <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  },
+  {
+    "description": "Sort numerically",
+    "command": "sort -n <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  },
+  {
+    "description": "Sort to an output file",
+    "command": "sort <input> -o <output>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Input file"
+      },
+      "output": {
+        "type": "path",
+        "description": "Output file"
+      }
+    }
+  },
+  {
+    "description": "Sort using a specific temp directory (for huge files)",
+    "command": "sort -T <temp_dir> <file>",
+    "params": {
+      "temp_dir": {
+        "type": "existing_dir",
+        "description": "Directory with enough free space for temp files"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  },
+  {
+    "description": "Sort by a specific column (1-based)",
+    "command": "sort -k <column> -t '<delimiter>' <file>",
+    "defaults": {
+      "delimiter": ","
+    },
+    "params": {
+      "column": {
+        "type": "integer",
+        "description": "Column index"
+      },
+      "delimiter": {
+        "description": "Field delimiter"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  }
+]

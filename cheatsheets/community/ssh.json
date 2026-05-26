@@ -1,0 +1,176 @@
+[
+  {
+    "description": "Connect to a host using a specific private key",
+    "command": "ssh -i <identity_file> <user>@<host>",
+    "params": {
+      "identity_file": {
+        "type": "existing_file",
+        "description": "Private key file"
+      },
+      "user": {
+        "description": "Remote user"
+      },
+      "host": {
+        "description": "Remote host"
+      }
+    }
+  },
+  {
+    "description": "Connect on a non-standard port",
+    "command": "ssh -p <port> <user>@<host>",
+    "defaults": {
+      "port": "22"
+    },
+    "params": {
+      "port": {
+        "type": "integer",
+        "description": "Remote SSH port"
+      },
+      "user": {
+        "description": "Remote user"
+      },
+      "host": {
+        "description": "Remote host"
+      }
+    }
+  },
+  {
+    "description": "Forward your local SSH agent to the remote",
+    "command": "ssh -A <user>@<host>",
+    "params": {
+      "user": {
+        "description": "Remote user"
+      },
+      "host": {
+        "description": "Remote host"
+      }
+    }
+  },
+  {
+    "description": "Run a single command on a remote host (allocate TTY)",
+    "command": "ssh -t <user>@<host> '<command>'",
+    "params": {
+      "user": {
+        "description": "Remote user"
+      },
+      "host": {
+        "description": "Remote host"
+      },
+      "command": {
+        "type": "string",
+        "description": "Shell command to run remotely"
+      }
+    }
+  },
+  {
+    "description": "Forward an X session",
+    "command": "ssh -X <user>@<host>",
+    "params": {
+      "user": {
+        "description": "Remote user"
+      },
+      "host": {
+        "description": "Remote host"
+      }
+    }
+  },
+  {
+    "description": "Local port forward (-L) through an SSH tunnel",
+    "command": "ssh -f -L <local_port>:<remote_host>:<remote_port> <user>@<jump_host> -N",
+    "params": {
+      "local_port": {
+        "type": "integer",
+        "description": "Local port"
+      },
+      "remote_host": {
+        "description": "Final destination host (resolved on the jump side)"
+      },
+      "remote_port": {
+        "type": "integer",
+        "description": "Destination port"
+      },
+      "user": {
+        "description": "Jump-host user"
+      },
+      "jump_host": {
+        "description": "Jump host"
+      }
+    }
+  },
+  {
+    "description": "Start a SOCKS proxy on a local port",
+    "command": "ssh -qND <port> <user>@<host>",
+    "defaults": {
+      "port": "1080"
+    },
+    "params": {
+      "port": {
+        "type": "integer",
+        "description": "Local SOCKS port"
+      },
+      "user": {
+        "description": "Remote user"
+      },
+      "host": {
+        "description": "Remote host"
+      }
+    }
+  },
+  {
+    "description": "Tunnel an SSH connection through a SOCKS proxy",
+    "command": "ssh -o \"ProxyCommand nc -x <proxy_host>:<proxy_port> -X 4 %h %p\" <user>@<host>",
+    "params": {
+      "proxy_host": {
+        "description": "SOCKS proxy host"
+      },
+      "proxy_port": {
+        "type": "integer",
+        "description": "SOCKS proxy port"
+      },
+      "user": {
+        "description": "Remote user"
+      },
+      "host": {
+        "description": "Remote host"
+      }
+    }
+  },
+  {
+    "description": "Copy a remote tarball over SSH (no rsync available)",
+    "command": "ssh <user>@<host> \"cd <remote_dir>; tar zcf - <items>\" | tar zxf -",
+    "params": {
+      "user": {
+        "description": "Remote user"
+      },
+      "host": {
+        "description": "Remote host"
+      },
+      "remote_dir": {
+        "description": "Directory to chdir into on the remote"
+      },
+      "items": {
+        "type": "string",
+        "description": "Space-separated paths to archive on the remote"
+      }
+    }
+  },
+  {
+    "description": "Mount a remote folder over SSHFS",
+    "command": "sshfs <user>@<host>:<remote_path> <mount_point>",
+    "params": {
+      "user": {
+        "description": "Remote user"
+      },
+      "host": {
+        "description": "Remote host"
+      },
+      "remote_path": {
+        "description": "Remote folder to mount"
+      },
+      "mount_point": {
+        "type": "existing_dir",
+        "description": "Local mount directory"
+      }
+    }
+  }
+]

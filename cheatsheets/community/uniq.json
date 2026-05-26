@@ -1,0 +1,52 @@
+[
+  {
+    "description": "Show unique lines (requires sorted input)",
+    "command": "sort <file> | uniq",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  },
+  {
+    "description": "Show only non-duplicated lines",
+    "command": "sort <file> | uniq -u",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  },
+  {
+    "description": "Show only duplicated lines",
+    "command": "sort <file> | uniq -d",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  },
+  {
+    "description": "Count occurrences of each line",
+    "command": "sort <file> | uniq -c",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  },
+  {
+    "description": "Count and sort lines by frequency (descending)",
+    "command": "sort <file> | uniq -c | sort -nr",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  }
+]

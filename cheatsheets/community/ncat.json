@@ -1,0 +1,100 @@
+[
+  {
+    "description": "Connect to a host:port (default port 31337)",
+    "command": "ncat <host> <port>",
+    "params": {
+      "host": {
+        "description": "Target host"
+      },
+      "port": {
+        "type": "integer",
+        "description": "Target port"
+      }
+    }
+  },
+  {
+    "description": "Listen on a port for incoming connections",
+    "command": "ncat -l <port>",
+    "params": {
+      "port": {
+        "type": "integer",
+        "description": "Port to listen on"
+      }
+    }
+  },
+  {
+    "description": "Serve a file to the first connection (then exit)",
+    "command": "ncat -l <port> < <file>",
+    "params": {
+      "port": {
+        "type": "integer",
+        "description": "Port to listen on"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to send"
+      }
+    }
+  },
+  {
+    "description": "Serve a file to multiple connections (stays open)",
+    "command": "ncat -l --keep-open <port> < <file>",
+    "params": {
+      "port": {
+        "type": "integer",
+        "description": "Port to listen on"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to send"
+      }
+    }
+  },
+  {
+    "description": "Receive a file from a server",
+    "command": "ncat <host> <port> > <out>",
+    "params": {
+      "host": {
+        "description": "Server host"
+      },
+      "port": {
+        "type": "integer",
+        "description": "Server port"
+      },
+      "out": {
+        "type": "path",
+        "description": "Where to write the incoming bytes"
+      }
+    }
+  },
+  {
+    "description": "Listen in broker mode (multi-client relay)",
+    "command": "ncat -l --broker <port>",
+    "params": {
+      "port": {
+        "type": "integer",
+        "description": "Port to listen on"
+      }
+    }
+  },
+  {
+    "description": "Listen with SSL/TLS",
+    "command": "ncat -l --ssl <port>",
+    "params": {
+      "port": {
+        "type": "integer",
+        "description": "Port to listen on"
+      }
+    }
+  },
+  {
+    "description": "Start a multi-user chat server",
+    "command": "ncat -l --chat <port>",
+    "params": {
+      "port": {
+        "type": "integer",
+        "description": "Port to listen on"
+      }
+    }
+  }
+]

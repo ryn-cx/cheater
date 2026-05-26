@@ -1,0 +1,130 @@
+[
+  {
+    "description": "Extract an uncompressed .tar archive",
+    "command": "tar -xvf <archive>",
+    "params": {
+      "archive": {
+        "type": "existing_file",
+        "description": "Archive file"
+      }
+    }
+  },
+  {
+    "description": "Extract a .tar into a specific directory",
+    "command": "tar -xvf <archive> -C <destination>",
+    "params": {
+      "archive": {
+        "type": "existing_file",
+        "description": "Archive file"
+      },
+      "destination": {
+        "type": "existing_dir",
+        "description": "Where to extract"
+      }
+    }
+  },
+  {
+    "description": "Create an uncompressed .tar archive",
+    "command": "tar -cvf <archive> <source>",
+    "params": {
+      "archive": {
+        "type": "path",
+        "description": "Output archive path"
+      },
+      "source": {
+        "type": "existing_path",
+        "description": "File or directory to archive"
+      }
+    }
+  },
+  {
+    "description": "Extract a .tar.gz / .tgz archive",
+    "command": "tar -xzvf <archive>",
+    "params": {
+      "archive": {
+        "type": "existing_file",
+        "description": "Archive file"
+      }
+    }
+  },
+  {
+    "description": "Create a .tar.gz archive",
+    "command": "tar -czvf <archive> <source>",
+    "params": {
+      "archive": {
+        "type": "path",
+        "description": "Output .tgz path"
+      },
+      "source": {
+        "type": "existing_path",
+        "description": "File or directory to archive"
+      }
+    }
+  },
+  {
+    "description": "List the contents of a .tar.gz archive",
+    "command": "tar -tzvf <archive>",
+    "params": {
+      "archive": {
+        "type": "existing_file",
+        "description": "Archive file"
+      }
+    }
+  },
+  {
+    "description": "Extract a .tar.bz2 archive",
+    "command": "tar -xjvf <archive>",
+    "params": {
+      "archive": {
+        "type": "existing_file",
+        "description": "Archive file"
+      }
+    }
+  },
+  {
+    "description": "Create a .tar.bz2 archive",
+    "command": "tar -cjvf <archive> <source>",
+    "params": {
+      "archive": {
+        "type": "path",
+        "description": "Output .tar.bz2 path"
+      },
+      "source": {
+        "type": "existing_path",
+        "description": "File or directory to archive"
+      }
+    }
+  },
+  {
+    "description": "Create a .tar.gz excluding certain glob patterns",
+    "command": "tar -czvf <archive> --exclude=<pattern> <source>",
+    "params": {
+      "archive": {
+        "type": "path",
+        "description": "Output .tgz path"
+      },
+      "pattern": {
+        "type": "string",
+        "description": "Exclude glob (e.g. '*.tmp')"
+      },
+      "source": {
+        "type": "existing_path",
+        "description": "File or directory to archive"
+      }
+    }
+  },
+  {
+    "description": "Append a file to an existing .tar archive",
+    "command": "tar -rf <archive> <file>",
+    "params": {
+      "archive": {
+        "type": "existing_file",
+        "description": "Existing .tar archive"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to append"
+      }
+    }
+  }
+]

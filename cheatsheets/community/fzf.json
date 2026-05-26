@@ -1,0 +1,57 @@
+[
+  {
+    "description": "Fuzzy-find a file in the current directory",
+    "command": "fzf"
+  },
+  {
+    "description": "Fuzzy-pick a file then cat it",
+    "command": "cat $(fzf)"
+  },
+  {
+    "description": "Case-sensitive fuzzy find",
+    "command": "fzf +i"
+  },
+  {
+    "description": "Case-insensitive fuzzy find",
+    "command": "fzf -i"
+  },
+  {
+    "description": "Multi-select files (Tab to pick) and rm them",
+    "command": "rm -rf $(fzf --multi)"
+  },
+  {
+    "description": "Run a preview command per selection",
+    "command": "fzf --preview \"<preview_cmd>\"",
+    "defaults": {
+      "preview_cmd": "file {}"
+    },
+    "params": {
+      "preview_cmd": {
+        "type": "string",
+        "description": "Command to run for each candidate (use {} for the path)"
+      }
+    }
+  },
+  {
+    "description": "Pipe finds into fzf with a preview",
+    "command": "find . -type f -name \"<pattern>\" | fzf --preview \"<preview_cmd>\"",
+    "defaults": {
+      "pattern": "*.txt",
+      "preview_cmd": "head {}"
+    },
+    "params": {
+      "pattern": {
+        "type": "string",
+        "description": "Filename glob to find"
+      },
+      "preview_cmd": {
+        "type": "string",
+        "description": "Preview command (use {} for the path)"
+      }
+    }
+  },
+  {
+    "description": "Display a border around the fzf prompt",
+    "command": "fzf --border sharp"
+  }
+]

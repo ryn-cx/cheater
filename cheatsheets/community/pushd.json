@@ -1,0 +1,20 @@
+[
+  {
+    "description": "Push the current dir onto the stack and chdir to a new one",
+    "command": "pushd <directory>",
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Directory to switch to"
+      }
+    }
+  },
+  {
+    "description": "Show the current directory stack",
+    "command": "dirs -v"
+  },
+  {
+    "description": "Swap the top two directories on the stack",
+    "command": "pushd"
+  }
+]

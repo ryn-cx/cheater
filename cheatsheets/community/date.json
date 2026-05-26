@@ -1,0 +1,70 @@
+[
+  {
+    "description": "Print the current date in ISO format (YYYY-MM-DD)",
+    "command": "date +\"%F\""
+  },
+  {
+    "description": "Print the current time (HH:MM:SS)",
+    "command": "date +\"%T\""
+  },
+  {
+    "description": "Print the date in a format suitable for filenames",
+    "command": "date +\"%Y%m%d_%H%M%S\""
+  },
+  {
+    "description": "Print the abbreviated weekday name",
+    "command": "date +\"%a\""
+  },
+  {
+    "description": "Print the full month name",
+    "command": "date +\"%B\""
+  },
+  {
+    "description": "Print the four-digit year",
+    "command": "date +\"%Y\""
+  },
+  {
+    "description": "Print the current timezone name",
+    "command": "date +%Z"
+  },
+  {
+    "description": "Print the date in RFC format (with TZ offset)",
+    "command": "date -R"
+  },
+  {
+    "description": "Print the date in UTC",
+    "command": "date -u"
+  },
+  {
+    "description": "Convert a Unix timestamp to a date (GNU/Linux)",
+    "command": "date -d @<timestamp>",
+    "params": {
+      "timestamp": {
+        "type": "integer",
+        "description": "Unix epoch seconds"
+      }
+    }
+  },
+  {
+    "description": "Convert a Unix timestamp to a date (BSD/macOS)",
+    "command": "date -r <timestamp>",
+    "params": {
+      "timestamp": {
+        "type": "integer",
+        "description": "Unix epoch seconds"
+      }
+    }
+  },
+  {
+    "description": "Print the date in a specific timezone",
+    "command": "TZ='<tz>' date",
+    "defaults": {
+      "tz": "America/Los_Angeles"
+    },
+    "params": {
+      "tz": {
+        "description": "Timezone name (e.g. America/New_York, Europe/Berlin)"
+      }
+    }
+  }
+]

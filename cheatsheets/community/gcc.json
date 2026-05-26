@@ -1,0 +1,100 @@
+[
+  {
+    "description": "Compile a C source file (default output: a.out)",
+    "command": "gcc <source>",
+    "params": {
+      "source": {
+        "type": "existing_file",
+        "description": "C source file"
+      }
+    }
+  },
+  {
+    "description": "Compile with a custom output filename",
+    "command": "gcc -o <output> <source>",
+    "params": {
+      "output": {
+        "type": "path",
+        "description": "Output binary path"
+      },
+      "source": {
+        "type": "existing_file",
+        "description": "C source file"
+      }
+    }
+  },
+  {
+    "description": "Compile with debug symbols",
+    "command": "gcc -g -o <output> <source>",
+    "params": {
+      "output": {
+        "type": "path",
+        "description": "Output binary path"
+      },
+      "source": {
+        "type": "existing_file",
+        "description": "C source file"
+      }
+    }
+  },
+  {
+    "description": "Compile with maximum debug info for gdb",
+    "command": "gcc -ggdb3 -o <output> <source>",
+    "params": {
+      "output": {
+        "type": "path",
+        "description": "Output binary path"
+      },
+      "source": {
+        "type": "existing_file",
+        "description": "C source file"
+      }
+    }
+  },
+  {
+    "description": "Build for 64-bit target",
+    "command": "gcc -m64 -o <output> <source>",
+    "params": {
+      "output": {
+        "type": "path",
+        "description": "Output binary path"
+      },
+      "source": {
+        "type": "existing_file",
+        "description": "C source file"
+      }
+    }
+  },
+  {
+    "description": "Add an include directory (treated as system, no warnings)",
+    "command": "gcc -isystem <include_dir> -o <output> <source>",
+    "params": {
+      "include_dir": {
+        "type": "existing_dir",
+        "description": "Include directory"
+      },
+      "output": {
+        "type": "path",
+        "description": "Output binary path"
+      },
+      "source": {
+        "type": "existing_file",
+        "description": "C source file"
+      }
+    }
+  },
+  {
+    "description": "Build a Windows GUI binary with MinGW (no console)",
+    "command": "gcc -mwindows -o <output> <source>",
+    "params": {
+      "output": {
+        "type": "path",
+        "description": "Output .exe path"
+      },
+      "source": {
+        "type": "existing_file",
+        "description": "C source file"
+      }
+    }
+  }
+]

@@ -1,0 +1,140 @@
+[
+  {
+    "description": "Sync local directory to a remote host over SSH (archive, compressed, verbose)",
+    "command": "rsync -avz <source> <user>@<host>:<destination>",
+    "params": {
+      "source": {
+        "type": "existing_path",
+        "description": "Local source path"
+      },
+      "user": {
+        "description": "Remote SSH user"
+      },
+      "host": {
+        "description": "Remote host"
+      },
+      "destination": {
+        "description": "Remote destination path"
+      }
+    }
+  },
+  {
+    "description": "Sync remote directory to local (archive, compressed, verbose)",
+    "command": "rsync -avz <user>@<host>:<source> <destination>",
+    "params": {
+      "user": {
+        "description": "Remote SSH user"
+      },
+      "host": {
+        "description": "Remote host"
+      },
+      "source": {
+        "description": "Remote source path"
+      },
+      "destination": {
+        "type": "existing_path",
+        "description": "Local destination path"
+      }
+    }
+  },
+  {
+    "description": "Sync using checksums (slower but exact)",
+    "command": "rsync -avc <source> <destination>",
+    "params": {
+      "source": {
+        "type": "existing_path",
+        "description": "Source path"
+      },
+      "destination": {
+        "description": "Destination path"
+      }
+    }
+  },
+  {
+    "description": "Trailing slash on source copies the CONTENTS, not the directory itself",
+    "command": "rsync -auv <source>/ <destination>",
+    "params": {
+      "source": {
+        "type": "existing_dir",
+        "description": "Source directory (note trailing slash semantics)"
+      },
+      "destination": {
+        "description": "Destination directory"
+      }
+    }
+  },
+  {
+    "description": "Sync over SSH on a non-standard port",
+    "command": "rsync -avz -e \"ssh -p <port>\" <source> <user>@<host>:<destination>",
+    "defaults": {
+      "port": "22"
+    },
+    "params": {
+      "port": {
+        "type": "integer",
+        "description": "Remote SSH port"
+      },
+      "source": {
+        "type": "existing_path",
+        "description": "Local source path"
+      },
+      "user": {
+        "description": "Remote SSH user"
+      },
+      "host": {
+        "description": "Remote host"
+      },
+      "destination": {
+        "description": "Remote destination path"
+      }
+    }
+  },
+  {
+    "description": "Sync using a specific SSH identity key",
+    "command": "rsync -avz -e \"ssh -i <identity_file>\" <source> <destination>",
+    "params": {
+      "identity_file": {
+        "type": "existing_file",
+        "description": "SSH private key file"
+      },
+      "source": {
+        "type": "existing_path",
+        "description": "Source path"
+      },
+      "destination": {
+        "description": "Destination path"
+      }
+    }
+  },
+  {
+    "description": "Use sudo on the remote side to access privileged files",
+    "command": "rsync -avz --rsync-path=\"sudo rsync\" <user>@<host>:<source> <destination>",
+    "params": {
+      "user": {
+        "description": "Remote SSH user"
+      },
+      "host": {
+        "description": "Remote host"
+      },
+      "source": {
+        "description": "Remote source path"
+      },
+      "destination": {
+        "description": "Local destination path"
+      }
+    }
+  },
+  {
+    "description": "Dry-run a sync (show what would change without copying)",
+    "command": "rsync -avzn <source> <destination>",
+    "params": {
+      "source": {
+        "type": "existing_path",
+        "description": "Source path"
+      },
+      "destination": {
+        "description": "Destination path"
+      }
+    }
+  }
+]

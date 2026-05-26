@@ -1,0 +1,38 @@
+[
+  {
+    "description": "Show the man page for a command",
+    "command": "man <command>",
+    "params": {
+      "command": {
+        "description": "Command name"
+      }
+    }
+  },
+  {
+    "description": "Convert a man page to PDF",
+    "command": "man -t <command> | ps2pdf - <output>",
+    "params": {
+      "command": {
+        "description": "Command whose man page to convert"
+      },
+      "output": {
+        "type": "path",
+        "description": "Output PDF path"
+      }
+    }
+  },
+  {
+    "description": "Search the man index for a keyword",
+    "command": "man -k <keyword>",
+    "params": {
+      "keyword": {
+        "type": "string",
+        "description": "Keyword to search for"
+      }
+    }
+  },
+  {
+    "description": "View the ASCII reference chart",
+    "command": "man 7 ascii"
+  }
+]

@@ -1,0 +1,55 @@
+[
+  {
+    "description": "Show a recursive tree of the current directory",
+    "command": "tree"
+  },
+  {
+    "description": "Show a tree of a specific directory",
+    "command": "tree <directory>",
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Directory to show"
+      }
+    }
+  },
+  {
+    "description": "Hide empty directories",
+    "command": "tree --prune"
+  },
+  {
+    "description": "Show hidden files too",
+    "command": "tree -a"
+  },
+  {
+    "description": "Show only directories, up to a maximum depth",
+    "command": "tree -d -L <depth> <directory>",
+    "defaults": {
+      "depth": "2",
+      "directory": "."
+    },
+    "params": {
+      "depth": {
+        "type": "integer",
+        "description": "Maximum recursion depth"
+      },
+      "directory": {
+        "type": "existing_dir",
+        "description": "Root directory"
+      }
+    }
+  },
+  {
+    "description": "Show file sizes (human-readable)",
+    "command": "tree -h <directory>",
+    "defaults": {
+      "directory": "."
+    },
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Root directory"
+      }
+    }
+  }
+]

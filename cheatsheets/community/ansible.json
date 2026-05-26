@@ -1,0 +1,22 @@
+[
+  {
+    "description": "Run a shell command on a host group from an inventory file",
+    "command": "ansible -u <user> -i <inventory> <group> -m shell -a \"<command>\"",
+    "params": {
+      "user": {
+        "description": "Remote SSH user"
+      },
+      "inventory": {
+        "type": "existing_file",
+        "description": "Path to the inventory file"
+      },
+      "group": {
+        "description": "Inventory host group to target"
+      },
+      "command": {
+        "type": "string",
+        "description": "Shell command to execute on each host"
+      }
+    }
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "description": "Gracefully terminate a process (SIGTERM)",
+    "command": "kill -15 <pid>",
+    "params": {
+      "pid": {
+        "type": "integer",
+        "description": "Process id"
+      }
+    }
+  },
+  {
+    "description": "Forcefully kill a process (SIGKILL)",
+    "command": "kill -9 <pid>",
+    "params": {
+      "pid": {
+        "type": "integer",
+        "description": "Process id"
+      }
+    }
+  },
+  {
+    "description": "Send a specific signal by name",
+    "command": "kill -<signal> <pid>",
+    "defaults": {
+      "signal": "HUP"
+    },
+    "params": {
+      "signal": {
+        "description": "Signal name (HUP, INT, TERM, USR1, USR2, ...)"
+      },
+      "pid": {
+        "type": "integer",
+        "description": "Process id"
+      }
+    }
+  },
+  {
+    "description": "Kill all processes matching a name",
+    "command": "pkill <name>",
+    "params": {
+      "name": {
+        "description": "Process name pattern"
+      }
+    }
+  }
+]

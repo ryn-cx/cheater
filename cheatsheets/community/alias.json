@@ -1,0 +1,28 @@
+[
+  {
+    "description": "Show all current shell aliases",
+    "command": "alias"
+  },
+  {
+    "description": "Create an alias",
+    "command": "alias <name>='<command>'",
+    "params": {
+      "name": {
+        "description": "Alias name to define"
+      },
+      "command": {
+        "type": "string",
+        "description": "Command the alias expands to"
+      }
+    }
+  },
+  {
+    "description": "Remove an alias",
+    "command": "unalias <name>",
+    "params": {
+      "name": {
+        "description": "Alias name to remove"
+      }
+    }
+  }
+]

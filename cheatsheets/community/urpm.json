@@ -1,0 +1,47 @@
+[
+  {
+    "description": "Fuzzy-search for a package",
+    "command": "urpmq -Y <package>",
+    "params": {
+      "package": {
+        "description": "Search term"
+      }
+    }
+  },
+  {
+    "description": "Check whether a package is installed",
+    "command": "rpm -q <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Install a package",
+    "command": "sudo urpmi <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Download a package without installing",
+    "command": "urpmi --no-install <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Uninstall a package",
+    "command": "sudo urpme <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  }
+]

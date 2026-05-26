@@ -1,0 +1,82 @@
+[
+  {
+    "description": "headers (without double qutation marks(\"))",
+    "command": "\"# h1 header\"\n\"###### h6 header\""
+  },
+  {
+    "description": "blockquotes",
+    "command": "> first level and paragraph\n>> second level and first paragraph\n>\n> first level and second paragraph"
+  },
+  {
+    "description": "collapsed text",
+    "command": "To create a collapsible section (collapsed by default) showing the text \"Collapsed Item Title\", use this:\n<details>\n    <summary>Collapsed Item Title<summary>\n    <p>Collapsed content<p>\n    <p>Other collapsed content.<p>\n<details>"
+  },
+  {
+    "description": "lists",
+    "command": "Sub-bullets can be done with 2+ spaces or 1 tab\n## unordered - use *, +, or -\n* Red\n  * sub-bullet\n    * sub-sub-bullet\n* Green\n  - sub with dash\n  + sub with plus\n* Blue"
+  },
+  {
+    "description": "ordered",
+    "command": "1. First\n  1. First sub-item <-- this is the best supported format\n2. Second\n  * Unordered  <-- this also appears to be a widely supported format\n3. Third\n  a. Lettered  <-- there is mixed support for this format\n4. Fourth\n  i. using roman numerals  <-- there is mixed support for this format\n  ii. more stuff"
+  },
+  {
+    "description": "check list",
+    "command": "There is limited support for rendering check lists:\n- [ ] incomplete task\n    - [ ] incomplete sub-task\n    - [x] complete sub-task\n- [x] complete task"
+  },
+  {
+    "description": "code code block with 4 spaces/1 tab",
+    "command": "regular text\n        code code code"
+  },
+  {
+    "description": "in-line code",
+    "command": "or:\nUse the `printf()` function"
+  },
+  {
+    "description": "code block with syntax support",
+    "command": "or a code block (optionally specifying the language, more details here: https://rdmd.readme.io/docs/code-blocks):\n```shell\nalias ltr='ls -ltr'\nalias latr='ls -latr'\n```"
+  },
+  {
+    "description": "key bindings",
+    "command": "<kbd>⌘F<kbd>"
+  },
+  {
+    "description": "hr's (horizontal rules) - three or more of the following",
+    "command": "***\n---\n___"
+  },
+  {
+    "description": "links",
+    "command": "The \"Title\" is optional\nThis is [an example](http://example.com \"Title\") inline link."
+  },
+  {
+    "description": "Links to Headings",
+    "command": "Assuming you have a heading called `# My First Heading` then link is the case-insensitive string with spaces replaced by dashes:\n[Visible Link Text](#my-first-heading \"Hover-text link title\")"
+  },
+  {
+    "description": "image",
+    "command": "![Alt Text](/path/to/file.png)"
+  },
+  {
+    "description": "formatting",
+    "command": "Italic:\n*em* _em_"
+  },
+  {
+    "description": "Bold:",
+    "command": "Bold: \n**strong** __strong__"
+  },
+  {
+    "description": "~~strikethrough~~",
+    "command": "~~strikethrough~~"
+  },
+  {
+    "description": "Table Alignment",
+    "command": "The alignment applies to the table data, not the header."
+  },
+  {
+    "description": "Left-aligned Stuff | Right-aligned Stuff | Center-aligned St...",
+    "command": "Left-aligned Stuff | Right-aligned Stuff | Center-aligned Stuff\n| :--- | ---: | :---:\nSome left stuff   | Some right stuff  | Some center stuff \nSome left stuff   | Some right stuff  | Some center stuff"
+  },
+  {
+    "description": "Special Characters in Tables",
+    "command": "First Header  | Second Header\n------------- | -------------\nSome stuff   | things about stuff\nOther Stuff  |  A \\| B"
+  }
+]

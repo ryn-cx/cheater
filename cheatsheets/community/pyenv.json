@@ -1,0 +1,67 @@
+[
+  {
+    "description": "Install a specific Python version",
+    "command": "pyenv install <version>",
+    "params": {
+      "version": {
+        "description": "Python version, e.g. 3.12.0"
+      }
+    }
+  },
+  {
+    "description": "Set the global default Python version",
+    "command": "pyenv global <version>",
+    "params": {
+      "version": {
+        "description": "Installed Python version"
+      }
+    }
+  },
+  {
+    "description": "Set the Python version for the current directory",
+    "command": "pyenv local <version>",
+    "params": {
+      "version": {
+        "description": "Installed Python version"
+      }
+    }
+  },
+  {
+    "description": "Create a virtualenv from a specific Python (needs pyenv-virtualenv)",
+    "command": "pyenv virtualenv <version> <name>",
+    "params": {
+      "version": {
+        "description": "Python version to base the virtualenv on"
+      },
+      "name": {
+        "description": "Virtualenv name"
+      }
+    }
+  },
+  {
+    "description": "Activate a virtualenv in the current shell (needs pyenv-virtualenv)",
+    "command": "pyenv activate <name>",
+    "params": {
+      "name": {
+        "description": "Virtualenv name"
+      }
+    }
+  },
+  {
+    "description": "Uninstall a specific Python version",
+    "command": "pyenv uninstall <version>",
+    "params": {
+      "version": {
+        "description": "Installed Python version"
+      }
+    }
+  },
+  {
+    "description": "List installed Python versions",
+    "command": "pyenv versions"
+  },
+  {
+    "description": "Show the active Python version",
+    "command": "pyenv version"
+  }
+]

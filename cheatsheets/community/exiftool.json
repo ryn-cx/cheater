@@ -1,0 +1,38 @@
+[
+  {
+    "description": "Delete all metadata in a file",
+    "command": "exiftool -all= <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to strip metadata from"
+      }
+    }
+  },
+  {
+    "description": "Show all metadata in a file",
+    "command": "exiftool <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to inspect"
+      }
+    }
+  },
+  {
+    "description": "Show a specific EXIF tag for a file",
+    "command": "exiftool -<tag> <file>",
+    "defaults": {
+      "tag": "DateTimeOriginal"
+    },
+    "params": {
+      "tag": {
+        "description": "EXIF tag name"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to inspect"
+      }
+    }
+  }
+]

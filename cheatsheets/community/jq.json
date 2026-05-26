@@ -1,0 +1,133 @@
+[
+  {
+    "description": "Pretty-print a JSON file",
+    "command": "jq \".\" < <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input JSON file"
+      }
+    }
+  },
+  {
+    "description": "Access the value at a key",
+    "command": "jq '.<key>' <file>",
+    "params": {
+      "key": {
+        "description": "Top-level key name"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Input JSON file"
+      }
+    }
+  },
+  {
+    "description": "Access the first element of an array",
+    "command": "jq '.[0]' <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input JSON file"
+      }
+    }
+  },
+  {
+    "description": "Slice an array (Python-style start:stop)",
+    "command": "jq '.[<start>:<stop>]' <file>",
+    "defaults": {
+      "start": "0",
+      "stop": "3"
+    },
+    "params": {
+      "start": {
+        "type": "integer",
+        "description": "Start index"
+      },
+      "stop": {
+        "type": "integer",
+        "description": "Stop index (exclusive)"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Input JSON file"
+      }
+    }
+  },
+  {
+    "description": "List the keys of the top-level object",
+    "command": "jq keys <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input JSON file"
+      }
+    }
+  },
+  {
+    "description": "Sort an array of objects by a key",
+    "command": "jq '.<array> | sort_by(.<key>)' <file>",
+    "params": {
+      "array": {
+        "description": "Array key"
+      },
+      "key": {
+        "description": "Sort key"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Input JSON file"
+      }
+    }
+  },
+  {
+    "description": "Count the elements of an array",
+    "command": "jq '.<array> | length' <file>",
+    "params": {
+      "array": {
+        "description": "Array key"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Input JSON file"
+      }
+    }
+  },
+  {
+    "description": "Project specific fields from each element of an array",
+    "command": "jq '.<array>[] | {<fields>}' <file>",
+    "params": {
+      "array": {
+        "description": "Array key"
+      },
+      "fields": {
+        "type": "string",
+        "description": "Comma-separated field names (e.g. id,name)"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Input JSON file"
+      }
+    }
+  },
+  {
+    "description": "Filter array elements by a field's value",
+    "command": "jq '.<array>[] | select(.<field> == \"<value>\")' <file>",
+    "params": {
+      "array": {
+        "description": "Array key"
+      },
+      "field": {
+        "description": "Field name"
+      },
+      "value": {
+        "type": "string",
+        "description": "Value to match"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Input JSON file"
+      }
+    }
+  }
+]

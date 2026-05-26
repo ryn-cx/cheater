@@ -1,0 +1,56 @@
+[
+  {
+    "description": "Compress a file in place (file -> file.gz)",
+    "command": "gzip <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to compress"
+      }
+    }
+  },
+  {
+    "description": "Compress to stdout, keeping the original",
+    "command": "gzip -c <file> > <output>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to compress"
+      },
+      "output": {
+        "type": "path",
+        "description": "Output .gz path"
+      }
+    }
+  },
+  {
+    "description": "Decompress a .gz file",
+    "command": "gzip -d <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": ".gz file to decompress"
+      }
+    }
+  },
+  {
+    "description": "Show compression ratios of one or more .gz files",
+    "command": "gzip -l <files>",
+    "params": {
+      "files": {
+        "type": "existing_file_list",
+        "description": ".gz files to inspect"
+      }
+    }
+  },
+  {
+    "description": "Recursively compress all files under a directory",
+    "command": "gzip -r <directory>",
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Directory whose files to compress"
+      }
+    }
+  }
+]

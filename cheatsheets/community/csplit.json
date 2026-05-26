@@ -1,0 +1,42 @@
+[
+  {
+    "description": "Split a file on a regex pattern",
+    "command": "csplit <file> '/<pattern>/'",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input file to split"
+      },
+      "pattern": {
+        "type": "string",
+        "description": "Regex pattern that marks each split point"
+      }
+    }
+  },
+  {
+    "description": "Split with custom output filename prefix and extension",
+    "command": "csplit -f '<prefix>' -b '<suffix_format>' <file> '/<pattern>/' '{*}'",
+    "defaults": {
+      "prefix": "part-",
+      "suffix_format": "%d.txt"
+    },
+    "params": {
+      "prefix": {
+        "type": "string",
+        "description": "Output filename prefix"
+      },
+      "suffix_format": {
+        "type": "string",
+        "description": "printf-style suffix format (e.g. %d.txt)"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Input file to split"
+      },
+      "pattern": {
+        "type": "string",
+        "description": "Regex pattern that marks each split point"
+      }
+    }
+  }
+]

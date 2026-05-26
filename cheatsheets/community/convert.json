@@ -1,0 +1,101 @@
+[
+  {
+    "description": "Convert an image from one format to another",
+    "command": "convert <input> <output>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Source image (jpg, png, pdf, ...)"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination path (format inferred from extension)"
+      }
+    }
+  },
+  {
+    "description": "Resize an image to a fixed width, proportional height",
+    "command": "convert <input> -resize <width>x <output>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Source image"
+      },
+      "width": {
+        "type": "integer",
+        "description": "Target width in pixels"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination image path"
+      }
+    }
+  },
+  {
+    "description": "Resize an image to a fixed height, proportional width",
+    "command": "convert <input> -resize x<height> <output>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Source image"
+      },
+      "height": {
+        "type": "integer",
+        "description": "Target height in pixels"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination image path"
+      }
+    }
+  },
+  {
+    "description": "Resize an image to exact width and height",
+    "command": "convert <input> -resize <width>x<height> <output>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Source image"
+      },
+      "width": {
+        "type": "integer",
+        "description": "Target width in pixels"
+      },
+      "height": {
+        "type": "integer",
+        "description": "Target height in pixels"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination image path"
+      }
+    }
+  },
+  {
+    "description": "Convert each page of a PDF to an image (auto-numbered)",
+    "command": "convert -density <dpi> <input> -quality <quality> '<output_pattern>'",
+    "defaults": {
+      "dpi": "150",
+      "quality": "80",
+      "output_pattern": "output-%d.jpg"
+    },
+    "params": {
+      "dpi": {
+        "type": "integer",
+        "description": "Rendering DPI"
+      },
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      },
+      "quality": {
+        "type": "integer",
+        "description": "Output JPEG quality (1-100)"
+      },
+      "output_pattern": {
+        "type": "string",
+        "description": "Output filename pattern (e.g. output-%d.jpg)"
+      }
+    }
+  }
+]

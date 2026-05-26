@@ -1,0 +1,11 @@
+[
+  {
+    "description": "Generate changes",
+    "command": "uv run alembic revision --autogenerate -m <description>",
+    "params": {
+      "description": {
+        "type": "string"
+      }
+    }
+  }
+]

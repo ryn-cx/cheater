@@ -1,0 +1,72 @@
+[
+  {
+    "description": "Concatenate all PDFs in the current directory into one",
+    "command": "pdftk *.pdf cat output <output>",
+    "params": {
+      "output": {
+        "type": "path",
+        "description": "Output PDF path"
+      }
+    }
+  },
+  {
+    "description": "Concatenate specific PDFs into one (order = input order)",
+    "command": "pdftk <inputs> cat output <output>",
+    "params": {
+      "inputs": {
+        "type": "existing_file_list",
+        "description": "Input PDFs"
+      },
+      "output": {
+        "type": "path",
+        "description": "Output PDF path"
+      }
+    }
+  },
+  {
+    "description": "Extract a page range from a PDF",
+    "command": "pdftk <input> cat <pages> output <output>",
+    "defaults": {
+      "pages": "1-3"
+    },
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      },
+      "pages": {
+        "type": "string",
+        "description": "Page range (e.g. 2-3, 1-5,10)"
+      },
+      "output": {
+        "type": "path",
+        "description": "Output PDF path"
+      }
+    }
+  },
+  {
+    "description": "Combine specific pages from two PDFs (via handles)",
+    "command": "pdftk A=<first> B=<second> cat <selection> output <output>",
+    "defaults": {
+      "selection": "A1-5 B3"
+    },
+    "params": {
+      "first": {
+        "type": "existing_file",
+        "description": "First PDF (handle A)"
+      },
+      "second": {
+        "type": "existing_file",
+        "description": "Second PDF (handle B)"
+      },
+      "selection": {
+        "type": "string",
+        "description": "Selection using handles, e.g. A1-5 B3"
+      },
+      "output": {
+        "type": "path",
+        "description": "Output PDF path"
+      }
+    }
+  }
+]

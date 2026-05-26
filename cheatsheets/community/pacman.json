@@ -1,0 +1,88 @@
+[
+  {
+    "description": "Search the package database",
+    "command": "pacman -Ss <package>",
+    "params": {
+      "package": {
+        "description": "Search term"
+      }
+    }
+  },
+  {
+    "description": "Sync local DB and upgrade all packages",
+    "command": "sudo pacman -Syu"
+  },
+  {
+    "description": "Install one or more packages",
+    "command": "sudo pacman -S <package>",
+    "params": {
+      "package": {
+        "description": "Package name(s), space-separated"
+      }
+    }
+  },
+  {
+    "description": "Uninstall a package",
+    "command": "sudo pacman -R <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Uninstall a package and unused dependencies",
+    "command": "sudo pacman -Rcs <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Show info about a package",
+    "command": "pacman -Si <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Install a package from a local .pkg.tar.zst file",
+    "command": "sudo pacman -U <pkg_file>",
+    "params": {
+      "pkg_file": {
+        "type": "existing_file",
+        "description": "Built package file"
+      }
+    }
+  },
+  {
+    "description": "List explicitly installed packages",
+    "command": "pacman -Qe"
+  },
+  {
+    "description": "List orphan packages (installed deps no longer required)",
+    "command": "pacman -Qdt"
+  },
+  {
+    "description": "List files installed by a package",
+    "command": "pacman -Ql <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Find which package owns a file",
+    "command": "pacman -Qo <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File path to look up"
+      }
+    }
+  }
+]

@@ -1,0 +1,85 @@
+[
+  {
+    "description": "Open a TCP connection with source port and timeout",
+    "command": "nc -p <src_port> -w <timeout> <host> <port>",
+    "params": {
+      "src_port": {
+        "type": "integer",
+        "description": "Local source port"
+      },
+      "timeout": {
+        "type": "integer",
+        "description": "Connect timeout in seconds"
+      },
+      "host": {
+        "description": "Destination host"
+      },
+      "port": {
+        "type": "integer",
+        "description": "Destination port"
+      }
+    }
+  },
+  {
+    "description": "Open a UDP connection to a host:port",
+    "command": "nc -u <host> <port>",
+    "params": {
+      "host": {
+        "description": "Destination host"
+      },
+      "port": {
+        "type": "integer",
+        "description": "Destination port"
+      }
+    }
+  },
+  {
+    "description": "Connect using a specific source IP",
+    "command": "nc -s <source_ip> <host> <port>",
+    "params": {
+      "source_ip": {
+        "description": "Local source IP"
+      },
+      "host": {
+        "description": "Destination host"
+      },
+      "port": {
+        "type": "integer",
+        "description": "Destination port"
+      }
+    }
+  },
+  {
+    "description": "Listen on a Unix domain socket",
+    "command": "nc -lU <socket_path>",
+    "params": {
+      "socket_path": {
+        "type": "path",
+        "description": "Path of the Unix socket to create"
+      }
+    }
+  },
+  {
+    "description": "Listen on a TCP port (server mode)",
+    "command": "nc -l <port>",
+    "params": {
+      "port": {
+        "type": "integer",
+        "description": "Port to listen on"
+      }
+    }
+  },
+  {
+    "description": "Scan a port to check if it's open",
+    "command": "nc -zv <host> <port>",
+    "params": {
+      "host": {
+        "description": "Target host"
+      },
+      "port": {
+        "type": "integer",
+        "description": "Target port"
+      }
+    }
+  }
+]

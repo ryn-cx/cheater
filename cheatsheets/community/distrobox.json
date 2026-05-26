@@ -1,0 +1,112 @@
+[
+  {
+    "description": "Create a distrobox from a container image",
+    "command": "distrobox-create <container> --image <image>",
+    "defaults": {
+      "image": "ubuntu:latest"
+    },
+    "params": {
+      "container": {
+        "description": "Name to give the new distrobox"
+      },
+      "image": {
+        "description": "Container image (e.g. ubuntu:latest, fedora:latest)"
+      }
+    }
+  },
+  {
+    "description": "List all distrobox containers (verbose)",
+    "command": "distrobox-list --verbose"
+  },
+  {
+    "description": "Enter a distrobox shell",
+    "command": "distrobox-enter <container>",
+    "params": {
+      "container": {
+        "description": "Distrobox name"
+      }
+    }
+  },
+  {
+    "description": "Run a command on the host from inside a distrobox",
+    "command": "distrobox-host-exec <command>",
+    "params": {
+      "command": {
+        "type": "string",
+        "description": "Host command to run"
+      }
+    }
+  },
+  {
+    "description": "Export an app from the container to the host menu",
+    "command": "distrobox-export --app <app>",
+    "params": {
+      "app": {
+        "description": "App name (e.g. firefox, atom)"
+      }
+    }
+  },
+  {
+    "description": "Export a binary from the container to the host",
+    "command": "distrobox-export --bin <binary> --export-path <host_dir>",
+    "defaults": {
+      "host_dir": "$HOME/.local/bin"
+    },
+    "params": {
+      "binary": {
+        "description": "Path to the binary inside the container"
+      },
+      "host_dir": {
+        "description": "Host directory to place the wrapper in"
+      }
+    }
+  },
+  {
+    "description": "Un-export an app previously exported from a container",
+    "command": "distrobox-export --app <app> --delete",
+    "params": {
+      "app": {
+        "description": "App name to un-export"
+      }
+    }
+  },
+  {
+    "description": "Upgrade packages inside a distrobox",
+    "command": "distrobox-upgrade <container>",
+    "params": {
+      "container": {
+        "description": "Distrobox name"
+      }
+    }
+  },
+  {
+    "description": "Clone a distrobox",
+    "command": "distrobox-create --clone <source> <new_name>",
+    "params": {
+      "source": {
+        "description": "Existing distrobox to clone"
+      },
+      "new_name": {
+        "description": "Name for the clone"
+      }
+    }
+  },
+  {
+    "description": "Stop a running distrobox",
+    "command": "distrobox-stop <container>",
+    "params": {
+      "container": {
+        "description": "Distrobox name"
+      }
+    }
+  },
+  {
+    "description": "Force-remove a distrobox",
+    "command": "distrobox-rm <container> --force",
+    "params": {
+      "container": {
+        "description": "Distrobox name"
+      }
+    }
+  }
+]

@@ -1,0 +1,136 @@
+[
+  {
+    "description": "Show the status of a service",
+    "command": "systemctl status <unit>",
+    "params": {
+      "unit": {
+        "description": "Unit name (e.g. nginx.service)"
+      }
+    }
+  },
+  {
+    "description": "Start a service",
+    "command": "sudo systemctl start <unit>",
+    "params": {
+      "unit": {
+        "description": "Unit name"
+      }
+    }
+  },
+  {
+    "description": "Stop a service",
+    "command": "sudo systemctl stop <unit>",
+    "params": {
+      "unit": {
+        "description": "Unit name"
+      }
+    }
+  },
+  {
+    "description": "Restart a service",
+    "command": "sudo systemctl restart <unit>",
+    "params": {
+      "unit": {
+        "description": "Unit name"
+      }
+    }
+  },
+  {
+    "description": "Reload a service's configuration",
+    "command": "sudo systemctl reload <unit>",
+    "params": {
+      "unit": {
+        "description": "Unit name"
+      }
+    }
+  },
+  {
+    "description": "Edit a unit's configuration (drop-in override)",
+    "command": "sudo systemctl edit <unit>",
+    "params": {
+      "unit": {
+        "description": "Unit name"
+      }
+    }
+  },
+  {
+    "description": "Reload systemd's manager configuration",
+    "command": "sudo systemctl daemon-reload"
+  },
+  {
+    "description": "Enable a service to start at boot",
+    "command": "sudo systemctl enable <unit>",
+    "params": {
+      "unit": {
+        "description": "Unit name"
+      }
+    }
+  },
+  {
+    "description": "Disable a service from starting at boot",
+    "command": "sudo systemctl disable <unit>",
+    "params": {
+      "unit": {
+        "description": "Unit name"
+      }
+    }
+  },
+  {
+    "description": "Manage a user-scope service",
+    "command": "systemctl --user <action> <unit>",
+    "defaults": {
+      "action": "restart"
+    },
+    "params": {
+      "action": {
+        "description": "start, stop, restart, enable, disable, status"
+      },
+      "unit": {
+        "description": "User unit name"
+      }
+    }
+  },
+  {
+    "description": "List active units",
+    "command": "systemctl list-units"
+  },
+  {
+    "description": "List only service units",
+    "command": "systemctl list-units -at service"
+  },
+  {
+    "description": "List currently running services",
+    "command": "systemctl list-units -t service --state running"
+  },
+  {
+    "description": "List unit files and whether they're enabled",
+    "command": "systemctl list-unit-files -at service"
+  },
+  {
+    "description": "Show low-level settings of a service",
+    "command": "systemctl show <unit>",
+    "params": {
+      "unit": {
+        "description": "Unit name"
+      }
+    }
+  },
+  {
+    "description": "List the dependencies of a service",
+    "command": "systemctl list-dependencies <unit>",
+    "params": {
+      "unit": {
+        "description": "Unit name"
+      }
+    }
+  },
+  {
+    "description": "Switch to a different target (runlevel-style)",
+    "command": "sudo systemctl isolate <target>",
+    "params": {
+      "target": {
+        "description": "Target unit (e.g. multi-user.target)"
+      }
+    }
+  }
+]

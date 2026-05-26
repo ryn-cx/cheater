@@ -1,0 +1,29 @@
+[
+  {
+    "description": "Send one or more files to the trash",
+    "command": "trash <files>",
+    "params": {
+      "files": {
+        "type": "existing_file_list",
+        "description": "Files to trash"
+      }
+    }
+  },
+  {
+    "description": "List items currently in the trash",
+    "command": "trash -v --list"
+  },
+  {
+    "description": "Restore a file from the trash",
+    "command": "trash --restore <name>",
+    "params": {
+      "name": {
+        "description": "Name of the trashed item"
+      }
+    }
+  },
+  {
+    "description": "Empty the trash",
+    "command": "trash --empty"
+  }
+]

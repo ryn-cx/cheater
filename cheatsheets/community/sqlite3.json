@@ -1,0 +1,80 @@
+[
+  {
+    "description": "Open or create a database and launch the interactive shell",
+    "command": "sqlite3 <database>",
+    "params": {
+      "database": {
+        "type": "path",
+        "description": "Path to the SQLite database file"
+      }
+    }
+  },
+  {
+    "description": "Execute a single SQL statement on a database",
+    "command": "sqlite3 <database> \"<query>\"",
+    "params": {
+      "database": {
+        "type": "existing_file",
+        "description": "Path to the SQLite database file"
+      },
+      "query": {
+        "type": "string",
+        "description": "SQL statement"
+      }
+    }
+  },
+  {
+    "description": "List tables in a database",
+    "command": "sqlite3 <database> \".tables\"",
+    "params": {
+      "database": {
+        "type": "existing_file",
+        "description": "Path to the SQLite database file"
+      }
+    }
+  },
+  {
+    "description": "Show schema for a specific table",
+    "command": "sqlite3 <database> \".schema '<table>'\"",
+    "params": {
+      "database": {
+        "type": "existing_file",
+        "description": "Path to the SQLite database file"
+      },
+      "table": {
+        "description": "Table name"
+      }
+    }
+  },
+  {
+    "description": "Import a CSV file into a new table",
+    "command": "sqlite3 <database> \".import <csv_file> <table>\"",
+    "params": {
+      "database": {
+        "type": "existing_file",
+        "description": "Path to the SQLite database file"
+      },
+      "csv_file": {
+        "type": "existing_file",
+        "description": "Source CSV file"
+      },
+      "table": {
+        "description": "Target table name"
+      }
+    }
+  },
+  {
+    "description": "Dump a database to SQL",
+    "command": "sqlite3 <database> .dump > <out>",
+    "params": {
+      "database": {
+        "type": "existing_file",
+        "description": "Path to the SQLite database file"
+      },
+      "out": {
+        "type": "path",
+        "description": "Output .sql file"
+      }
+    }
+  }
+]

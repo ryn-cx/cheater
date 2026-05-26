@@ -1,0 +1,79 @@
+[
+  {
+    "description": "Create a new virtual environment",
+    "command": "virtualenv <env_dir>",
+    "params": {
+      "env_dir": {
+        "type": "path",
+        "description": "Directory to create the env in"
+      }
+    }
+  },
+  {
+    "description": "Create a virtualenv that inherits system site packages",
+    "command": "virtualenv --system-site-packages <env_dir>",
+    "params": {
+      "env_dir": {
+        "type": "path",
+        "description": "Directory to create the env in"
+      }
+    }
+  },
+  {
+    "description": "Create a virtualenv with a specific Python interpreter",
+    "command": "virtualenv <env_dir> -p <python_path>",
+    "defaults": {
+      "python_path": "python3.12"
+    },
+    "params": {
+      "env_dir": {
+        "type": "path",
+        "description": "Directory to create the env in"
+      },
+      "python_path": {
+        "description": "Python interpreter (name on PATH or full path)"
+      }
+    }
+  },
+  {
+    "description": "Activate a virtualenv in the current shell",
+    "command": "source <env_dir>/bin/activate",
+    "params": {
+      "env_dir": {
+        "type": "existing_dir",
+        "description": "Virtualenv directory"
+      }
+    }
+  },
+  {
+    "description": "Deactivate the current virtualenv",
+    "command": "deactivate"
+  },
+  {
+    "description": "Create an env using virtualenvwrapper",
+    "command": "mkvirtualenv <name>",
+    "params": {
+      "name": {
+        "description": "Environment name (stored under $WORKON_HOME)"
+      }
+    }
+  },
+  {
+    "description": "Switch to a virtualenvwrapper-managed env",
+    "command": "workon <name>",
+    "params": {
+      "name": {
+        "description": "Environment name"
+      }
+    }
+  },
+  {
+    "description": "Delete a virtualenvwrapper-managed env",
+    "command": "rmvirtualenv <name>",
+    "params": {
+      "name": {
+        "description": "Environment name"
+      }
+    }
+  }
+]

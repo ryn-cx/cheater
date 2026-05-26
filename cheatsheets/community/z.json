@@ -1,0 +1,50 @@
+[
+  {
+    "description": "Jump to the most-frequently-visited directory matching a name",
+    "command": "z <pattern>",
+    "params": {
+      "pattern": {
+        "description": "Substring of the target directory"
+      }
+    }
+  },
+  {
+    "description": "Jump to a directory matching all of multiple substrings",
+    "command": "z <a> <b>",
+    "params": {
+      "a": {
+        "description": "First substring"
+      },
+      "b": {
+        "description": "Second substring"
+      }
+    }
+  },
+  {
+    "description": "Jump to the highest-ranked matching directory",
+    "command": "z -r <pattern>",
+    "params": {
+      "pattern": {
+        "description": "Substring"
+      }
+    }
+  },
+  {
+    "description": "Jump to the most-recently-accessed matching directory",
+    "command": "z -t <pattern>",
+    "params": {
+      "pattern": {
+        "description": "Substring"
+      }
+    }
+  },
+  {
+    "description": "List candidate directories matching a pattern",
+    "command": "z -l <pattern>",
+    "params": {
+      "pattern": {
+        "description": "Substring"
+      }
+    }
+  }
+]

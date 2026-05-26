@@ -1,0 +1,43 @@
+[
+  {
+    "description": "Find packages matching a phrase",
+    "command": "aptitude search <phrase>",
+    "params": {
+      "phrase": {
+        "type": "string",
+        "description": "Search phrase"
+      }
+    }
+  },
+  {
+    "description": "Display the package record",
+    "command": "aptitude show <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Install one or more packages",
+    "command": "aptitude install <package>",
+    "params": {
+      "package": {
+        "description": "Package name(s), space-separated"
+      }
+    }
+  },
+  {
+    "description": "Remove one or more packages",
+    "command": "aptitude remove <package>",
+    "params": {
+      "package": {
+        "description": "Package name(s), space-separated"
+      }
+    }
+  },
+  {
+    "description": "Clean unneeded packages from the download cache",
+    "command": "aptitude autoclean"
+  }
+]

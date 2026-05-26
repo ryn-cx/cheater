@@ -1,0 +1,62 @@
+[
+  {
+    "description": "Hexdump a file",
+    "command": "xxd <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to hexdump"
+      }
+    }
+  },
+  {
+    "description": "Convert text to a hex stream",
+    "command": "echo '<text>' | xxd -p",
+    "params": {
+      "text": {
+        "type": "string",
+        "description": "Input text"
+      }
+    }
+  },
+  {
+    "description": "Convert a hex stream back to text",
+    "command": "echo '<hex>' | xxd -r -p",
+    "params": {
+      "hex": {
+        "description": "Hex string (no spaces, no 0x)"
+      }
+    }
+  },
+  {
+    "description": "Hexdump with a smaller column width",
+    "command": "xxd -c <cols> <file>",
+    "defaults": {
+      "cols": "8"
+    },
+    "params": {
+      "cols": {
+        "type": "integer",
+        "description": "Bytes per row"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to hexdump"
+      }
+    }
+  },
+  {
+    "description": "Write back from a hex dump (reverse)",
+    "command": "xxd -r <hexdump_file> <output>",
+    "params": {
+      "hexdump_file": {
+        "type": "existing_file",
+        "description": "Hexdump-format input"
+      },
+      "output": {
+        "type": "path",
+        "description": "Reconstructed binary path"
+      }
+    }
+  }
+]

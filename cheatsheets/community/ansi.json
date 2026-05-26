@@ -1,0 +1,34 @@
+[
+  {
+    "description": "Reset",
+    "command": "Color_Off='\\e[0m'       # Text Reset"
+  },
+  {
+    "description": "Regular Colors",
+    "command": "Black='\\e[0;30m'        # Black\nRed='\\e[0;31m'          # Red\nGreen='\\e[0;32m'        # Green\nYellow='\\e[0;33m'       # Yellow\nBlue='\\e[0;34m'         # Blue\nPurple='\\e[0;35m'       # Purple\nCyan='\\e[0;36m'         # Cyan\nWhite='\\e[0;37m'        # White"
+  },
+  {
+    "description": "Bold",
+    "command": "BBlack='\\e[1;30m'       # Black\nBRed='\\e[1;31m'         # Red\nBGreen='\\e[1;32m'       # Green\nBYellow='\\e[1;33m'      # Yellow\nBBlue='\\e[1;34m'        # Blue\nBPurple='\\e[1;35m'      # Purple\nBCyan='\\e[1;36m'        # Cyan\nBWhite='\\e[1;37m'       # White"
+  },
+  {
+    "description": "Underline",
+    "command": "UBlack='\\e[4;30m'       # Black\nURed='\\e[4;31m'         # Red\nUGreen='\\e[4;32m'       # Green\nUYellow='\\e[4;33m'      # Yellow\nUBlue='\\e[4;34m'        # Blue\nUPurple='\\e[4;35m'      # Purple\nUCyan='\\e[4;36m'        # Cyan\nUWhite='\\e[4;37m'       # White"
+  },
+  {
+    "description": "Background",
+    "command": "On_Black='\\e[40m'       # Black\nOn_Red='\\e[41m'         # Red\nOn_Green='\\e[42m'       # Green\nOn_Yellow='\\e[43m'      # Yellow\nOn_Blue='\\e[44m'        # Blue\nOn_Purple='\\e[45m'      # Purple\nOn_Cyan='\\e[46m'        # Cyan\nOn_White='\\e[47m'       # White"
+  },
+  {
+    "description": "High Intensity",
+    "command": "IBlack='\\e[0;90m'       # Black\nIRed='\\e[0;91m'         # Red\nIGreen='\\e[0;92m'       # Green\nIYellow='\\e[0;93m'      # Yellow\nIBlue='\\e[0;94m'        # Blue\nIPurple='\\e[0;95m'      # Purple\nICyan='\\e[0;96m'        # Cyan\nIWhite='\\e[0;97m'       # White"
+  },
+  {
+    "description": "Bold High Intensity",
+    "command": "BIBlack='\\e[1;90m'      # Black\nBIRed='\\e[1;91m'        # Red\nBIGreen='\\e[1;92m'      # Green\nBIYellow='\\e[1;93m'     # Yellow\nBIBlue='\\e[1;94m'       # Blue\nBIPurple='\\e[1;95m'     # Purple\nBICyan='\\e[1;96m'       # Cyan\nBIWhite='\\e[1;97m'      # White"
+  },
+  {
+    "description": "High Intensity backgrounds",
+    "command": "On_IBlack='\\e[0;100m'   # Black\nOn_IRed='\\e[0;101m'     # Red\nOn_IGreen='\\e[0;102m'   # Green\nOn_IYellow='\\e[0;103m'  # Yellow\nOn_IBlue='\\e[0;104m'    # Blue\nOn_IPurple='\\e[0;105m'  # Purple\nOn_ICyan='\\e[0;106m'    # Cyan\nOn_IWhite='\\e[0;107m'   # White"
+  }
+]

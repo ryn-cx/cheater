@@ -1,0 +1,44 @@
+[
+  {
+    "description": "Print lines appearing in both sorted files",
+    "command": "comm -12 <(sort <file1>) <(sort <file2>)",
+    "params": {
+      "file1": {
+        "type": "existing_file",
+        "description": "First file"
+      },
+      "file2": {
+        "type": "existing_file",
+        "description": "Second file"
+      }
+    }
+  },
+  {
+    "description": "Print lines appearing only in the first sorted file",
+    "command": "comm -23 <(sort <file1>) <(sort <file2>)",
+    "params": {
+      "file1": {
+        "type": "existing_file",
+        "description": "File whose unique lines to print"
+      },
+      "file2": {
+        "type": "existing_file",
+        "description": "Comparison file"
+      }
+    }
+  },
+  {
+    "description": "Print lines appearing only in the second sorted file",
+    "command": "comm -13 <(sort <file1>) <(sort <file2>)",
+    "params": {
+      "file1": {
+        "type": "existing_file",
+        "description": "Comparison file"
+      },
+      "file2": {
+        "type": "existing_file",
+        "description": "File whose unique lines to print"
+      }
+    }
+  }
+]

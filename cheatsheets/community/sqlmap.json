@@ -1,0 +1,128 @@
+[
+  {
+    "description": "Test a URL with POST data and try to print the database banner",
+    "command": "sqlmap --url=\"<url>\" --data=\"<post_data>\" --banner",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "Target URL"
+      },
+      "post_data": {
+        "type": "string",
+        "description": "POST body parameters"
+      }
+    }
+  },
+  {
+    "description": "Test using a saved HTTP request file",
+    "command": "sqlmap -r <request_file>",
+    "params": {
+      "request_file": {
+        "type": "existing_file",
+        "description": "Saved HTTP request"
+      }
+    }
+  },
+  {
+    "description": "Fingerprint the backend DB (more info than --banner)",
+    "command": "sqlmap -r <request_file> --fingerprint",
+    "params": {
+      "request_file": {
+        "type": "existing_file",
+        "description": "Saved HTTP request"
+      }
+    }
+  },
+  {
+    "description": "Get the current DB user, current database, and server hostname",
+    "command": "sqlmap -r <request_file> --current-user --current-db --hostname",
+    "params": {
+      "request_file": {
+        "type": "existing_file",
+        "description": "Saved HTTP request"
+      }
+    }
+  },
+  {
+    "description": "Check whether the current user is a DBA",
+    "command": "sqlmap -r <request_file> --is-dba",
+    "params": {
+      "request_file": {
+        "type": "existing_file",
+        "description": "Saved HTTP request"
+      }
+    }
+  },
+  {
+    "description": "Enumerate databases",
+    "command": "sqlmap -r <request_file> --dbs",
+    "params": {
+      "request_file": {
+        "type": "existing_file",
+        "description": "Saved HTTP request"
+      }
+    }
+  },
+  {
+    "description": "List tables of a database",
+    "command": "sqlmap -r <request_file> -D <database> --tables",
+    "params": {
+      "request_file": {
+        "type": "existing_file",
+        "description": "Saved HTTP request"
+      },
+      "database": {
+        "description": "Database name"
+      }
+    }
+  },
+  {
+    "description": "List columns of a table",
+    "command": "sqlmap -r <request_file> -D <database> -T <table> --columns",
+    "params": {
+      "request_file": {
+        "type": "existing_file",
+        "description": "Saved HTTP request"
+      },
+      "database": {
+        "description": "Database name"
+      },
+      "table": {
+        "description": "Table name"
+      }
+    }
+  },
+  {
+    "description": "Dump rows from a column",
+    "command": "sqlmap -r <request_file> -D <database> -T <table> -C <column> --dump",
+    "params": {
+      "request_file": {
+        "type": "existing_file",
+        "description": "Saved HTTP request"
+      },
+      "database": {
+        "description": "Database name"
+      },
+      "table": {
+        "description": "Table name"
+      },
+      "column": {
+        "description": "Column name"
+      }
+    }
+  },
+  {
+    "description": "Execute a custom SQL query through the injection point",
+    "command": "sqlmap -r <request_file> --sql-query=\"<query>\"",
+    "params": {
+      "request_file": {
+        "type": "existing_file",
+        "description": "Saved HTTP request"
+      },
+      "query": {
+        "type": "string",
+        "description": "SQL query"
+      }
+    }
+  }
+]

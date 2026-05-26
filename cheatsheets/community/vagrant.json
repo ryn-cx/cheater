@@ -1,0 +1,52 @@
+[
+  {
+    "description": "Initialize a Vagrantfile in the current directory",
+    "command": "vagrant init"
+  },
+  {
+    "description": "Initialize a Vagrantfile from a specific box",
+    "command": "vagrant init <box>",
+    "params": {
+      "box": {
+        "description": "Box identifier (e.g. hashicorp/precise32)"
+      }
+    }
+  },
+  {
+    "description": "Add a box to the local Vagrant catalog",
+    "command": "vagrant box add <box>",
+    "params": {
+      "box": {
+        "description": "Box identifier"
+      }
+    }
+  },
+  {
+    "description": "Start (or resume) the VM",
+    "command": "vagrant up"
+  },
+  {
+    "description": "SSH into the running VM",
+    "command": "vagrant ssh"
+  },
+  {
+    "description": "Gracefully halt the VM",
+    "command": "vagrant halt"
+  },
+  {
+    "description": "Suspend the VM (memory state preserved)",
+    "command": "vagrant suspend"
+  },
+  {
+    "description": "Destroy the VM (wipes all its state)",
+    "command": "vagrant destroy"
+  },
+  {
+    "description": "Restart the VM and re-run provisioning",
+    "command": "vagrant reload --provision"
+  },
+  {
+    "description": "Show current VM status",
+    "command": "vagrant status"
+  }
+]

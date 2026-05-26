@@ -1,0 +1,35 @@
+[
+  {
+    "description": "List every process on the system",
+    "command": "ps aux"
+  },
+  {
+    "description": "Show processes as a tree",
+    "command": "ps axjf"
+  },
+  {
+    "description": "List every process belonging to a user",
+    "command": "ps -u <username>",
+    "params": {
+      "username": {
+        "description": "User name"
+      }
+    }
+  },
+  {
+    "description": "List processes with a custom column format",
+    "command": "ps -eo pid,user,command"
+  },
+  {
+    "description": "Find a process without matching grep itself",
+    "command": "ps aux | grep '[<first>]<rest>'",
+    "params": {
+      "first": {
+        "description": "First letter of the process name"
+      },
+      "rest": {
+        "description": "Remaining letters"
+      }
+    }
+  }
+]

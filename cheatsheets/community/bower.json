@@ -1,0 +1,84 @@
+[
+  {
+    "description": "Install a package",
+    "command": "bower install <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Install a package directly from GitHub",
+    "command": "bower install <user>/<repo>",
+    "params": {
+      "user": {
+        "description": "GitHub user or organization"
+      },
+      "repo": {
+        "description": "Repository name"
+      }
+    }
+  },
+  {
+    "description": "Install a specific version of a package",
+    "command": "bower install <package>#<version>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      },
+      "version": {
+        "description": "Version tag, branch, or ref"
+      }
+    }
+  },
+  {
+    "description": "Install and save the dependency to bower.json",
+    "command": "bower install <package> --save",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Show info about a package",
+    "command": "bower info <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "List installed packages",
+    "command": "bower list"
+  },
+  {
+    "description": "Search for a package by name",
+    "command": "bower search <package>",
+    "params": {
+      "package": {
+        "description": "Package name or search phrase"
+      }
+    }
+  },
+  {
+    "description": "Update a package to its newest version",
+    "command": "bower update <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Uninstall a local package",
+    "command": "bower uninstall <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  }
+]

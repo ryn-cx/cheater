@@ -1,0 +1,58 @@
+[
+  {
+    "description": "Compile, test, and package the project",
+    "command": "mvn package"
+  },
+  {
+    "description": "Clean the build output directory",
+    "command": "mvn clean"
+  },
+  {
+    "description": "Clean then full install (compile, test, package, install to local repo)",
+    "command": "mvn clean install"
+  },
+  {
+    "description": "Install without running tests",
+    "command": "mvn install -DskipTests"
+  },
+  {
+    "description": "Show the resolved effective dependency tree",
+    "command": "mvn dependency:tree"
+  },
+  {
+    "description": "Manually fetch a specific artifact",
+    "command": "mvn org.apache.maven.plugins:maven-dependency-plugin:get -Dartifact=<group>:<artifact>:<version> -Dpackaging=<packaging> -Dtransitive=false",
+    "defaults": {
+      "packaging": "jar"
+    },
+    "params": {
+      "group": {
+        "description": "Maven group id"
+      },
+      "artifact": {
+        "description": "Artifact id"
+      },
+      "version": {
+        "description": "Version string"
+      },
+      "packaging": {
+        "description": "Packaging type (jar, pom, war, ...)"
+      }
+    }
+  },
+  {
+    "description": "Run a specific Maven phase against a single module",
+    "command": "mvn -pl <module> <phase>",
+    "defaults": {
+      "phase": "test"
+    },
+    "params": {
+      "module": {
+        "description": "Module path or artifactId"
+      },
+      "phase": {
+        "description": "Maven lifecycle phase"
+      }
+    }
+  }
+]

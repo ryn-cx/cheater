@@ -1,0 +1,30 @@
+[
+  {
+    "description": "To set an unread marker on all windows",
+    "command": "Ctrl-s Ctrl-u"
+  },
+  {
+    "description": "To switch to the left buffer",
+    "command": "Ctrl-p, Alt-left"
+  },
+  {
+    "description": "To switch to the right buffer",
+    "command": "Ctrl-n, Alt-right"
+  },
+  {
+    "description": "To switch to the next buffer with activity",
+    "command": "Alt-a"
+  },
+  {
+    "description": "To switch buffers",
+    "command": "Alt-0...9"
+  },
+  {
+    "description": "To scroll buffer title",
+    "command": "F9/F10"
+  },
+  {
+    "description": "To scroll nick list",
+    "command": "F11/F12"
+  }
+]

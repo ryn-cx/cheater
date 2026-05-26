@@ -1,0 +1,62 @@
+[
+  {
+    "description": "Add a user to a group (additive — keeps existing groups)",
+    "command": "sudo usermod -aG <group> <username>",
+    "defaults": {
+      "group": "sudo"
+    },
+    "params": {
+      "group": {
+        "description": "Group name (e.g. sudo, docker, wheel)"
+      },
+      "username": {
+        "description": "Username"
+      }
+    }
+  },
+  {
+    "description": "Set a user's primary group",
+    "command": "sudo usermod -g <group> <username>",
+    "params": {
+      "group": {
+        "description": "Primary group"
+      },
+      "username": {
+        "description": "Username"
+      }
+    }
+  },
+  {
+    "description": "Change a user's login shell",
+    "command": "sudo usermod -s <shell> <username>",
+    "defaults": {
+      "shell": "/bin/bash"
+    },
+    "params": {
+      "shell": {
+        "description": "Shell path (e.g. /bin/zsh)"
+      },
+      "username": {
+        "description": "Username"
+      }
+    }
+  },
+  {
+    "description": "Lock a user account",
+    "command": "sudo usermod -L <username>",
+    "params": {
+      "username": {
+        "description": "Username"
+      }
+    }
+  },
+  {
+    "description": "Unlock a user account",
+    "command": "sudo usermod -U <username>",
+    "params": {
+      "username": {
+        "description": "Username"
+      }
+    }
+  }
+]

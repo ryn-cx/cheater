@@ -1,0 +1,82 @@
+[
+  {
+    "description": "Detect a file's character encoding",
+    "command": "nkf -g <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to inspect"
+      }
+    }
+  },
+  {
+    "description": "Convert a file in place to UTF-8",
+    "command": "nkf -w --overwrite <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to convert"
+      }
+    }
+  },
+  {
+    "description": "Convert a file in place to EUC-JP",
+    "command": "nkf -e --overwrite <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to convert"
+      }
+    }
+  },
+  {
+    "description": "Convert a file in place to Shift-JIS",
+    "command": "nkf -s --overwrite <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to convert"
+      }
+    }
+  },
+  {
+    "description": "Convert a file in place to ISO-2022-JP",
+    "command": "nkf -j --overwrite <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to convert"
+      }
+    }
+  },
+  {
+    "description": "Convert line endings to Unix (LF) in place",
+    "command": "nkf -Lu --overwrite <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to convert"
+      }
+    }
+  },
+  {
+    "description": "Convert line endings to Windows (CRLF) in place",
+    "command": "nkf -Lw --overwrite <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to convert"
+      }
+    }
+  },
+  {
+    "description": "Convert line endings to old Mac (CR) in place",
+    "command": "nkf -Lm --overwrite <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to convert"
+      }
+    }
+  }
+]

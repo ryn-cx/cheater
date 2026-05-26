@@ -1,0 +1,31 @@
+[
+  {
+    "description": "Convert bytes to a human-readable IEC string (e.g. 1.0MiB)",
+    "command": "numfmt --to=iec --suffix=B --padding=<padding> <bytes>",
+    "defaults": {
+      "padding": "7"
+    },
+    "params": {
+      "padding": {
+        "type": "integer",
+        "description": "Column width to pad the output to"
+      },
+      "bytes": {
+        "type": "integer",
+        "description": "Number of bytes to format"
+      }
+    }
+  },
+  {
+    "description": "Convert a human-readable size back to bytes",
+    "command": "numfmt --from=iec <human_size>",
+    "defaults": {
+      "human_size": "1MiB"
+    },
+    "params": {
+      "human_size": {
+        "description": "Human size (e.g. 1MiB, 2K, 500M)"
+      }
+    }
+  }
+]

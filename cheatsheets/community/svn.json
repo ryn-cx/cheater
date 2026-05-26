@@ -1,0 +1,92 @@
+[
+  {
+    "description": "Update a working copy from the repository",
+    "command": "svn update <path>",
+    "defaults": {
+      "path": "."
+    },
+    "params": {
+      "path": {
+        "type": "existing_path",
+        "description": "Working-copy path"
+      }
+    }
+  },
+  {
+    "description": "Show changed files in the working copy",
+    "command": "svn status"
+  },
+  {
+    "description": "Diff local changes against the repository",
+    "command": "svn diff <file>",
+    "params": {
+      "file": {
+        "type": "existing_path",
+        "description": "File or directory to diff"
+      }
+    }
+  },
+  {
+    "description": "Add files or directories under version control",
+    "command": "svn add <path>",
+    "params": {
+      "path": {
+        "type": "existing_path",
+        "description": "File or directory to add"
+      }
+    }
+  },
+  {
+    "description": "Revert local uncommitted changes",
+    "command": "svn revert <path>",
+    "params": {
+      "path": {
+        "type": "existing_path",
+        "description": "File or directory to revert"
+      }
+    }
+  },
+  {
+    "description": "Commit changes with a message",
+    "command": "svn commit -m \"<message>\" <path>",
+    "defaults": {
+      "path": "."
+    },
+    "params": {
+      "message": {
+        "type": "string",
+        "description": "Commit message"
+      },
+      "path": {
+        "type": "existing_path",
+        "description": "Working-copy path"
+      }
+    }
+  },
+  {
+    "description": "Show log history of a path",
+    "command": "svn log <path>",
+    "defaults": {
+      "path": "."
+    },
+    "params": {
+      "path": {
+        "type": "existing_path",
+        "description": "Working-copy path"
+      }
+    }
+  },
+  {
+    "description": "Checkout a working copy from a URL",
+    "command": "svn checkout <url> <target_dir>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "Repository URL"
+      },
+      "target_dir": {
+        "description": "Local directory"
+      }
+    }
+  }
+]

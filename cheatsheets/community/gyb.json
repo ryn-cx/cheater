@@ -1,0 +1,57 @@
+[
+  {
+    "description": "Estimate number and size of all mails on a Gmail account",
+    "command": "gyb --email <email> --action estimate",
+    "params": {
+      "email": {
+        "type": "string",
+        "description": "Gmail address"
+      }
+    }
+  },
+  {
+    "description": "Backup a Gmail account to a local folder",
+    "command": "gyb --email <email> --action backup --local-folder \"<folder>\"",
+    "params": {
+      "email": {
+        "type": "string",
+        "description": "Gmail address"
+      },
+      "folder": {
+        "type": "existing_dir",
+        "description": "Local backup folder"
+      }
+    }
+  },
+  {
+    "description": "Backup only important or starred mail (default local folder)",
+    "command": "gyb --email <email> --search \"<query>\"",
+    "defaults": {
+      "query": "is:important OR is:starred"
+    },
+    "params": {
+      "email": {
+        "type": "string",
+        "description": "Gmail address"
+      },
+      "query": {
+        "type": "string",
+        "description": "Gmail search query"
+      }
+    }
+  },
+  {
+    "description": "Restore a local backup folder back into a Gmail account",
+    "command": "gyb --email <email> --action restore --local-folder \"<folder>\"",
+    "params": {
+      "email": {
+        "type": "string",
+        "description": "Gmail address"
+      },
+      "folder": {
+        "type": "existing_dir",
+        "description": "Local backup folder"
+      }
+    }
+  }
+]

@@ -1,0 +1,63 @@
+[
+  {
+    "description": "List connected outputs and supported modes",
+    "command": "xrandr"
+  },
+  {
+    "description": "Enable an output at its preferred resolution",
+    "command": "xrandr --output <output> --auto",
+    "params": {
+      "output": {
+        "description": "Output name (e.g. HDMI1, eDP-1)"
+      }
+    }
+  },
+  {
+    "description": "Enable an output at a specific resolution",
+    "command": "xrandr --output <output> --mode <resolution>",
+    "defaults": {
+      "resolution": "1920x1080"
+    },
+    "params": {
+      "output": {
+        "description": "Output name"
+      },
+      "resolution": {
+        "description": "Resolution string (e.g. 1920x1080)"
+      }
+    }
+  },
+  {
+    "description": "Position an output to the right of another",
+    "command": "xrandr --output <output> --auto --right-of <other>",
+    "params": {
+      "output": {
+        "description": "Output to place"
+      },
+      "other": {
+        "description": "Output to position relative to"
+      }
+    }
+  },
+  {
+    "description": "Disable an output",
+    "command": "xrandr --output <output> --off",
+    "params": {
+      "output": {
+        "description": "Output name"
+      }
+    }
+  },
+  {
+    "description": "Mirror one output to another (same content)",
+    "command": "xrandr --output <output> --same-as <other>",
+    "params": {
+      "output": {
+        "description": "Output to mirror"
+      },
+      "other": {
+        "description": "Output to mirror from"
+      }
+    }
+  }
+]

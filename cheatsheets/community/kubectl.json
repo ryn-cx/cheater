@@ -1,0 +1,117 @@
+[
+  {
+    "description": "Show top-level kubectl help",
+    "command": "kubectl -h"
+  },
+  {
+    "description": "Show help for a specific subcommand",
+    "command": "kubectl <command> -h",
+    "params": {
+      "command": {
+        "description": "Subcommand name (e.g. get, apply, logs)"
+      }
+    }
+  },
+  {
+    "description": "List all supported resource types",
+    "command": "kubectl api-resources"
+  },
+  {
+    "description": "Show the schema for a resource",
+    "command": "kubectl explain <resource>",
+    "params": {
+      "resource": {
+        "description": "Resource name (e.g. pods, deployments)"
+      }
+    }
+  },
+  {
+    "description": "Show the schema for a specific field of a resource",
+    "command": "kubectl explain <resource>.<field>",
+    "params": {
+      "resource": {
+        "description": "Resource name"
+      },
+      "field": {
+        "description": "Dotted field path (e.g. spec.replicas)"
+      }
+    }
+  },
+  {
+    "description": "List global command-line options",
+    "command": "kubectl options"
+  },
+  {
+    "description": "Enable bash auto-completion for kubectl",
+    "command": "source <(kubectl completion bash)"
+  },
+  {
+    "description": "Get every resource in every namespace",
+    "command": "kubectl get all -A"
+  },
+  {
+    "description": "Show events sorted by creation time",
+    "command": "kubectl get events --sort-by='.metadata.creationTimestamp'"
+  },
+  {
+    "description": "Switch the kubectl context to a specific cluster",
+    "command": "kubectl config use-context <context>",
+    "params": {
+      "context": {
+        "description": "Context name"
+      }
+    }
+  },
+  {
+    "description": "List pods in a namespace",
+    "command": "kubectl get pods -n <namespace>",
+    "defaults": {
+      "namespace": "default"
+    },
+    "params": {
+      "namespace": {
+        "description": "Namespace name"
+      }
+    }
+  },
+  {
+    "description": "Stream logs from a pod",
+    "command": "kubectl logs -f <pod> -n <namespace>",
+    "defaults": {
+      "namespace": "default"
+    },
+    "params": {
+      "pod": {
+        "description": "Pod name"
+      },
+      "namespace": {
+        "description": "Namespace name"
+      }
+    }
+  },
+  {
+    "description": "Open an interactive shell in a pod",
+    "command": "kubectl exec -it <pod> -n <namespace> -- /bin/bash",
+    "defaults": {
+      "namespace": "default"
+    },
+    "params": {
+      "pod": {
+        "description": "Pod name"
+      },
+      "namespace": {
+        "description": "Namespace name"
+      }
+    }
+  },
+  {
+    "description": "Apply a manifest from a file or directory",
+    "command": "kubectl apply -f <path>",
+    "params": {
+      "path": {
+        "type": "existing_path",
+        "description": "Manifest file or directory"
+      }
+    }
+  }
+]

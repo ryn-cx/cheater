@@ -1,0 +1,45 @@
+[
+  {
+    "description": "Compress a file in place (file -> file.bz2)",
+    "command": "bzip2 -z <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to compress"
+      }
+    }
+  },
+  {
+    "description": "Decompress a file in place (file.bz2 -> file)",
+    "command": "bzip2 -d <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": ".bz2 file to decompress"
+      }
+    }
+  },
+  {
+    "description": "Compress a file to stdout",
+    "command": "bzip2 -zc <file> > <output>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to compress"
+      },
+      "output": {
+        "description": "Output .bz2 file path"
+      }
+    }
+  },
+  {
+    "description": "Decompress a file to stdout",
+    "command": "bzip2 -dc <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": ".bz2 file to decompress"
+      }
+    }
+  }
+]

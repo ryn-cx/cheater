@@ -1,0 +1,49 @@
+[
+  {
+    "description": "List shares available on an SMB server (anonymous)",
+    "command": "smbclient -L <host> -U%",
+    "params": {
+      "host": {
+        "description": "SMB server hostname or IP"
+      }
+    }
+  },
+  {
+    "description": "Connect to a specific share with credentials",
+    "command": "smbclient //<host>/<share> -U<user>%<password>",
+    "params": {
+      "host": {
+        "description": "SMB server hostname or IP"
+      },
+      "share": {
+        "description": "Share name"
+      },
+      "user": {
+        "description": "Username"
+      },
+      "password": {
+        "type": "string",
+        "description": "Password"
+      }
+    }
+  },
+  {
+    "description": "Mount an SMB share with cifs-utils",
+    "command": "sudo mount -t cifs //<host>/<share> <mount_point> -o username=<user>",
+    "params": {
+      "host": {
+        "description": "SMB server"
+      },
+      "share": {
+        "description": "Share name"
+      },
+      "mount_point": {
+        "type": "existing_dir",
+        "description": "Local mount directory"
+      },
+      "user": {
+        "description": "Username"
+      }
+    }
+  }
+]

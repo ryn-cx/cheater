@@ -1,0 +1,22 @@
+[
+  {
+    "description": "Create a cpio archive from stdin file list",
+    "command": "ls | cpio --create > <archive>",
+    "params": {
+      "archive": {
+        "type": "path",
+        "description": "Output .cpio archive path"
+      }
+    }
+  },
+  {
+    "description": "Extract a cpio archive, recreating directories",
+    "command": "cpio --extract --make-directories < <archive>",
+    "params": {
+      "archive": {
+        "type": "existing_file",
+        "description": ".cpio archive to extract"
+      }
+    }
+  }
+]

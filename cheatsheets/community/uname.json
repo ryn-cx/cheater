@@ -1,0 +1,30 @@
+[
+  {
+    "description": "Print all system information",
+    "command": "uname -a"
+  },
+  {
+    "description": "Print just the hostname",
+    "command": "uname -n"
+  },
+  {
+    "description": "Print the kernel release",
+    "command": "uname -r"
+  },
+  {
+    "description": "Print the kernel version string",
+    "command": "uname -v"
+  },
+  {
+    "description": "Print the hardware architecture (e.g. x86_64)",
+    "command": "uname -m"
+  },
+  {
+    "description": "Print the kernel name (e.g. Linux)",
+    "command": "uname -s"
+  },
+  {
+    "description": "Print the operating system (e.g. GNU/Linux)",
+    "command": "uname -o"
+  }
+]

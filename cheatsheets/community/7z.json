@@ -1,0 +1,84 @@
+[
+  {
+    "description": "Add files to a 7z archive with default settings",
+    "command": "7z a <archive> <files>",
+    "params": {
+      "archive": {
+        "type": "path",
+        "description": "Path to the .7z archive to create or append to"
+      },
+      "files": {
+        "type": "existing_file_list",
+        "description": "One or more files to add to the archive"
+      }
+    }
+  },
+  {
+    "description": "Add files to a 7z archive with max compression",
+    "command": "7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on <archive> <dir>",
+    "params": {
+      "archive": {
+        "type": "path",
+        "description": "Path to the .7z archive to create or append to"
+      },
+      "dir": {
+        "type": "existing_dir",
+        "description": "Directory whose contents to add"
+      }
+    }
+  },
+  {
+    "description": "Add files to a 7z archive with no compression (store only)",
+    "command": "7z a -m0=copy <archive> <dir>",
+    "params": {
+      "archive": {
+        "type": "path",
+        "description": "Path to the .7z archive to create or append to"
+      },
+      "dir": {
+        "type": "existing_dir",
+        "description": "Directory whose contents to add"
+      }
+    }
+  },
+  {
+    "description": "Extract a 7z archive (flat)",
+    "command": "7z e <archive>",
+    "params": {
+      "archive": {
+        "type": "existing_file",
+        "description": "The 7z archive to extract"
+      }
+    }
+  },
+  {
+    "description": "Extract a 7z archive preserving full paths",
+    "command": "7z x <archive>",
+    "params": {
+      "archive": {
+        "type": "existing_file",
+        "description": "The 7z archive to extract"
+      }
+    }
+  },
+  {
+    "description": "List contents of a 7z archive",
+    "command": "7z l <archive>",
+    "params": {
+      "archive": {
+        "type": "existing_file",
+        "description": "The 7z archive to inspect"
+      }
+    }
+  },
+  {
+    "description": "Test integrity of a 7z archive",
+    "command": "7z t <archive>",
+    "params": {
+      "archive": {
+        "type": "existing_file",
+        "description": "The 7z archive to test"
+      }
+    }
+  }
+]

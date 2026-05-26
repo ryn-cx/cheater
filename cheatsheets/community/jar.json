@@ -1,0 +1,59 @@
+[
+  {
+    "description": "Archive all files in the current directory into a jar",
+    "command": "jar cf <jar_file> *",
+    "params": {
+      "jar_file": {
+        "type": "path",
+        "description": "Output .jar path"
+      }
+    }
+  },
+  {
+    "description": "Create a jar using a pre-existing manifest",
+    "command": "jar cfm <jar_file> <manifest> *",
+    "params": {
+      "jar_file": {
+        "type": "path",
+        "description": "Output .jar path"
+      },
+      "manifest": {
+        "type": "existing_file",
+        "description": "Manifest file"
+      }
+    }
+  },
+  {
+    "description": "Extract all files from a jar in the current directory",
+    "command": "jar xf <jar_file>",
+    "params": {
+      "jar_file": {
+        "type": "existing_file",
+        "description": ".jar to extract"
+      }
+    }
+  },
+  {
+    "description": "Extract specific entries from a jar",
+    "command": "jar xf <jar_file> <entry>",
+    "params": {
+      "jar_file": {
+        "type": "existing_file",
+        "description": ".jar to extract from"
+      },
+      "entry": {
+        "description": "Entry path inside the jar"
+      }
+    }
+  },
+  {
+    "description": "List the contents of a jar",
+    "command": "jar tf <jar_file>",
+    "params": {
+      "jar_file": {
+        "type": "existing_file",
+        "description": ".jar to inspect"
+      }
+    }
+  }
+]

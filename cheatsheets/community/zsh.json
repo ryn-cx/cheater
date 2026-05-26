@@ -1,0 +1,134 @@
+[
+  {
+    "description": "Recursive glob: list every .txt file under the cwd",
+    "command": "print -l **/*.txt"
+  },
+  {
+    "description": "Glob with a numeric range in the filename",
+    "command": "print -l **/*<<start>-<end>>.<extension>",
+    "defaults": {
+      "start": "1",
+      "end": "10",
+      "extension": "txt"
+    },
+    "params": {
+      "start": {
+        "type": "integer",
+        "description": "Range start"
+      },
+      "end": {
+        "type": "integer",
+        "description": "Range end"
+      },
+      "extension": {
+        "description": "File extension"
+      }
+    }
+  },
+  {
+    "description": "Only directories",
+    "command": "print -l **/*(/)"
+  },
+  {
+    "description": "Only regular files",
+    "command": "print -l **/*(.)"
+  },
+  {
+    "description": "Files larger than N KB",
+    "command": "print -l **/*(Lk+<kb>)",
+    "defaults": {
+      "kb": "3"
+    },
+    "params": {
+      "kb": {
+        "type": "integer",
+        "description": "Size threshold in KB"
+      }
+    }
+  },
+  {
+    "description": "Files modified in the last N hours",
+    "command": "print -l **/*(mh-<hours>)",
+    "defaults": {
+      "hours": "1"
+    },
+    "params": {
+      "hours": {
+        "type": "integer",
+        "description": "Hours since modification"
+      }
+    }
+  },
+  {
+    "description": "N most recently modified files",
+    "command": "print -l **/*(om[1,<count>])",
+    "defaults": {
+      "count": "3"
+    },
+    "params": {
+      "count": {
+        "type": "integer",
+        "description": "How many newest files to show"
+      }
+    }
+  },
+  {
+    "description": "Directories that contain a `.git` subdir",
+    "command": "print -l **/*(e:'[[ -d $REPLY/.git ]]':)"
+  },
+  {
+    "description": "Filename modifier: tail (drop directory)",
+    "command": "print -l *.txt(:t)"
+  },
+  {
+    "description": "Filename modifier: tail without extension",
+    "command": "print -l *.txt(:t:r)"
+  },
+  {
+    "description": "Filename modifier: just the extension",
+    "command": "print -l *.txt(:e)"
+  },
+  {
+    "description": "Parameter expansion: uppercase",
+    "command": "echo ${<variable>:u}",
+    "params": {
+      "variable": {
+        "description": "Variable name (no $)"
+      }
+    }
+  },
+  {
+    "description": "Parameter expansion: substitute first match",
+    "command": "echo ${<variable>:s/<from>/<to>/}",
+    "params": {
+      "variable": {
+        "description": "Variable name (no $)"
+      },
+      "from": {
+        "type": "string",
+        "description": "Pattern to match"
+      },
+      "to": {
+        "type": "string",
+        "description": "Replacement"
+      }
+    }
+  },
+  {
+    "description": "Parameter expansion: substitute every match (g modifier)",
+    "command": "echo ${<variable>:gs/<from>/<to>/}",
+    "params": {
+      "variable": {
+        "description": "Variable name (no $)"
+      },
+      "from": {
+        "type": "string",
+        "description": "Pattern to match"
+      },
+      "to": {
+        "type": "string",
+        "description": "Replacement"
+      }
+    }
+  }
+]

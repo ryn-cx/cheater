@@ -1,0 +1,55 @@
+[
+  {
+    "description": "Count words in a file",
+    "command": "wc -w <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  },
+  {
+    "description": "Count lines in a file",
+    "command": "wc -l <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  },
+  {
+    "description": "Count bytes in a file",
+    "command": "wc -c <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  },
+  {
+    "description": "Count characters (multi-byte aware) in a file",
+    "command": "wc -m <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  },
+  {
+    "description": "Count files and directories in a directory",
+    "command": "ls <directory> | wc -l",
+    "defaults": {
+      "directory": "."
+    },
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Directory to inspect"
+      }
+    }
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "description": "Serve the current directory over HTTP (Python 3)",
+    "command": "python -m http.server <port>",
+    "defaults": {
+      "port": "8000"
+    },
+    "params": {
+      "port": {
+        "type": "integer",
+        "description": "Port to listen on"
+      }
+    }
+  },
+  {
+    "description": "Run a debugging SMTP server that prints messages to stdout",
+    "command": "python -m smtpd -n -c DebuggingServer <host>:<port>",
+    "defaults": {
+      "host": "localhost",
+      "port": "1025"
+    },
+    "params": {
+      "host": {
+        "description": "Host to bind to"
+      },
+      "port": {
+        "type": "integer",
+        "description": "Port to listen on"
+      }
+    }
+  },
+  {
+    "description": "Pretty-print a JSON file",
+    "command": "python -m json.tool <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input JSON file"
+      }
+    }
+  },
+  {
+    "description": "Run a one-liner",
+    "command": "python -c '<code>'",
+    "params": {
+      "code": {
+        "type": "string",
+        "description": "Python code"
+      }
+    }
+  },
+  {
+    "description": "Show installed Python version",
+    "command": "python --version"
+  }
+]

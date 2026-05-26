@@ -1,0 +1,74 @@
+[
+  {
+    "description": "Open a file in vim",
+    "command": "vim <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to open"
+      }
+    }
+  },
+  {
+    "description": "Open multiple files (one per buffer)",
+    "command": "vim <files>",
+    "params": {
+      "files": {
+        "type": "existing_file_list",
+        "description": "Files to open"
+      }
+    }
+  },
+  {
+    "description": "Open vim and jump to a specific line",
+    "command": "vim +<line> <file>",
+    "params": {
+      "line": {
+        "type": "integer",
+        "description": "Line number"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to open"
+      }
+    }
+  },
+  {
+    "description": "Open vim and run a command on startup",
+    "command": "vim -c '<command>' <file>",
+    "params": {
+      "command": {
+        "type": "string",
+        "description": "Vim ex command (e.g. '%s/foo/bar/g')"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to open"
+      }
+    }
+  },
+  {
+    "description": "Open vim in read-only mode (view)",
+    "command": "vim -R <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to view"
+      }
+    }
+  },
+  {
+    "description": "Open vim in diff mode for two files",
+    "command": "vimdiff <file1> <file2>",
+    "params": {
+      "file1": {
+        "type": "existing_file",
+        "description": "First file"
+      },
+      "file2": {
+        "type": "existing_file",
+        "description": "Second file"
+      }
+    }
+  }
+]

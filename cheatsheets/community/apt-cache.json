@@ -1,0 +1,48 @@
+[
+  {
+    "description": "Find packages matching a phrase",
+    "command": "apt-cache search <phrase>",
+    "params": {
+      "phrase": {
+        "type": "string",
+        "description": "Search phrase"
+      }
+    }
+  },
+  {
+    "description": "Display the package record",
+    "command": "apt-cache show <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Show reverse dependencies of a package",
+    "command": "apt-cache rdepends <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Show versions and dependencies of a package",
+    "command": "apt-cache showpkg <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Show installation status and available versions",
+    "command": "apt-cache policy <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  }
+]

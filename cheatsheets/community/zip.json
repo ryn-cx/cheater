@@ -1,0 +1,62 @@
+[
+  {
+    "description": "Create a zip archive from files",
+    "command": "zip <archive> <files>",
+    "params": {
+      "archive": {
+        "type": "path",
+        "description": "Output .zip path"
+      },
+      "files": {
+        "type": "existing_file_list",
+        "description": "Files to include"
+      }
+    }
+  },
+  {
+    "description": "Create a zip archive from a whole directory (recursive)",
+    "command": "zip -r <archive> <directory>",
+    "params": {
+      "archive": {
+        "type": "path",
+        "description": "Output .zip path"
+      },
+      "directory": {
+        "type": "existing_dir",
+        "description": "Source directory"
+      }
+    }
+  },
+  {
+    "description": "Create a password-protected zip",
+    "command": "zip -P <password> <archive> <files>",
+    "params": {
+      "password": {
+        "type": "string",
+        "description": "Archive password"
+      },
+      "archive": {
+        "type": "path",
+        "description": "Output .zip path"
+      },
+      "files": {
+        "type": "existing_file_list",
+        "description": "Files to include"
+      }
+    }
+  },
+  {
+    "description": "Join a split zip (.zip, .z01, .z02) into one file",
+    "command": "zip -FF <split_zip> --out <joined>",
+    "params": {
+      "split_zip": {
+        "type": "existing_file",
+        "description": "Main .zip of a split set"
+      },
+      "joined": {
+        "type": "path",
+        "description": "Output joined .zip"
+      }
+    }
+  }
+]

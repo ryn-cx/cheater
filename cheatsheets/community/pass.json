@@ -1,0 +1,100 @@
+[
+  {
+    "description": "Initialize the password store with a GPG id",
+    "command": "pass init <gpg_id>",
+    "params": {
+      "gpg_id": {
+        "description": "GPG key id or email"
+      }
+    }
+  },
+  {
+    "description": "Re-encrypt a subdirectory with one or more recipients",
+    "command": "pass init -p <path> <gpg_ids>",
+    "params": {
+      "path": {
+        "description": "Subdirectory path within the store"
+      },
+      "gpg_ids": {
+        "type": "string",
+        "description": "Space-separated GPG ids"
+      }
+    }
+  },
+  {
+    "description": "Insert (create or overwrite) a password entry",
+    "command": "pass insert <path>",
+    "params": {
+      "path": {
+        "description": "Entry path within the store"
+      }
+    }
+  },
+  {
+    "description": "Insert a multi-line entry",
+    "command": "pass insert -m <path>",
+    "params": {
+      "path": {
+        "description": "Entry path within the store"
+      }
+    }
+  },
+  {
+    "description": "Generate a random password of a given length",
+    "command": "pass generate <path> <length>",
+    "defaults": {
+      "length": "20"
+    },
+    "params": {
+      "path": {
+        "description": "Entry path within the store"
+      },
+      "length": {
+        "type": "integer",
+        "description": "Password length"
+      }
+    }
+  },
+  {
+    "description": "Show the contents of the store as a tree",
+    "command": "pass"
+  },
+  {
+    "description": "Edit an existing entry",
+    "command": "pass edit <path>",
+    "params": {
+      "path": {
+        "description": "Entry path within the store"
+      }
+    }
+  },
+  {
+    "description": "Display the value of an entry",
+    "command": "pass <path>",
+    "params": {
+      "path": {
+        "description": "Entry path within the store"
+      }
+    }
+  },
+  {
+    "description": "Copy a specific line of an entry to the clipboard",
+    "command": "pass -c <line> <path>",
+    "defaults": {
+      "line": "1"
+    },
+    "params": {
+      "line": {
+        "type": "integer",
+        "description": "Line number (1-based; 0 means first line)"
+      },
+      "path": {
+        "description": "Entry path within the store"
+      }
+    }
+  },
+  {
+    "description": "Initialize a git repo inside the store (auto-commits changes)",
+    "command": "pass git init"
+  }
+]

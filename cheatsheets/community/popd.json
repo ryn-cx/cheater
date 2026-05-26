@@ -1,0 +1,10 @@
+[
+  {
+    "description": "Pop the top of the directory stack and chdir there",
+    "command": "popd"
+  },
+  {
+    "description": "Show the current directory stack",
+    "command": "dirs -v"
+  }
+]

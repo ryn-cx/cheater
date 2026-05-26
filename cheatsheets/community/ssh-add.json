@@ -1,0 +1,44 @@
+[
+  {
+    "description": "Add a private key to the ssh-agent",
+    "command": "ssh-add <key_file>",
+    "params": {
+      "key_file": {
+        "type": "existing_file",
+        "description": "Private key file"
+      }
+    }
+  },
+  {
+    "description": "Add a key and store its passphrase in the macOS keychain",
+    "command": "ssh-add -K <key_file>",
+    "params": {
+      "key_file": {
+        "type": "existing_file",
+        "description": "Private key file"
+      }
+    }
+  },
+  {
+    "description": "List the public keys currently held by the agent",
+    "command": "ssh-add -L"
+  },
+  {
+    "description": "List fingerprints of keys in the agent",
+    "command": "ssh-add -l"
+  },
+  {
+    "description": "Remove a specific key from the agent",
+    "command": "ssh-add -d <key_file>",
+    "params": {
+      "key_file": {
+        "type": "existing_file",
+        "description": "Private key file"
+      }
+    }
+  },
+  {
+    "description": "Remove every key from the agent",
+    "command": "ssh-add -D"
+  }
+]

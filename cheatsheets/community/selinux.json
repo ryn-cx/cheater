@@ -1,0 +1,112 @@
+[
+  {
+    "description": "Show the current SELinux mode (enforcing/permissive/disabled)",
+    "command": "getenforce"
+  },
+  {
+    "description": "Show detailed SELinux status",
+    "command": "sestatus"
+  },
+  {
+    "description": "Set SELinux mode to permissive (runtime only)",
+    "command": "sudo setenforce 0"
+  },
+  {
+    "description": "Set SELinux mode to enforcing",
+    "command": "sudo setenforce 1"
+  },
+  {
+    "description": "Show SELinux contexts of files in a directory",
+    "command": "ls -Z <directory>",
+    "defaults": {
+      "directory": "."
+    },
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Directory to inspect"
+      }
+    }
+  },
+  {
+    "description": "List all SELinux booleans",
+    "command": "getsebool -a"
+  },
+  {
+    "description": "Set an SELinux boolean persistently",
+    "command": "sudo setsebool <boolean> <value> -P",
+    "defaults": {
+      "value": "1"
+    },
+    "params": {
+      "boolean": {
+        "description": "Boolean name"
+      },
+      "value": {
+        "description": "0 or 1"
+      }
+    }
+  },
+  {
+    "description": "Change the SELinux type of a file (runtime)",
+    "command": "sudo chcon -t <type> <path>",
+    "params": {
+      "type": {
+        "description": "SELinux type, e.g. httpd_sys_content_t"
+      },
+      "path": {
+        "type": "existing_path",
+        "description": "Target file or directory"
+      }
+    }
+  },
+  {
+    "description": "Reset SELinux contexts under a path to policy defaults",
+    "command": "sudo restorecon -vR <path>",
+    "params": {
+      "path": {
+        "type": "existing_path",
+        "description": "Target file or directory"
+      }
+    }
+  },
+  {
+    "description": "Add a persistent SELinux fcontext rule for a path",
+    "command": "sudo semanage fcontext -a -t <type> \"<path_regex>\"",
+    "params": {
+      "type": {
+        "description": "SELinux type"
+      },
+      "path_regex": {
+        "type": "string",
+        "description": "Path regex (e.g. '/foo(/.*)?')"
+      }
+    }
+  },
+  {
+    "description": "View setroubleshoot alerts from the journal",
+    "command": "sudo journalctl -t setroubleshoot"
+  },
+  {
+    "description": "Generate and install a custom policy module from audit logs",
+    "command": "grep <keyword> /var/log/audit/audit.log | audit2allow -M <module>",
+    "params": {
+      "keyword": {
+        "type": "string",
+        "description": "Search term to filter the audit log"
+      },
+      "module": {
+        "description": "Output module name (no extension)"
+      }
+    }
+  },
+  {
+    "description": "Install a compiled SELinux policy module (.pp)",
+    "command": "sudo semodule -i <module>.pp",
+    "params": {
+      "module": {
+        "description": "Policy module name"
+      }
+    }
+  }
+]

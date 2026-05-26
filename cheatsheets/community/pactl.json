@@ -1,0 +1,44 @@
+[
+  {
+    "description": "Increase the default sink's volume by a percentage",
+    "command": "pactl set-sink-volume @DEFAULT_SINK@ +<percent>%",
+    "defaults": {
+      "percent": "5"
+    },
+    "params": {
+      "percent": {
+        "type": "integer",
+        "description": "Increment percentage"
+      }
+    }
+  },
+  {
+    "description": "Decrease the default sink's volume by a percentage",
+    "command": "pactl set-sink-volume @DEFAULT_SINK@ -<percent>%",
+    "defaults": {
+      "percent": "5"
+    },
+    "params": {
+      "percent": {
+        "type": "integer",
+        "description": "Decrement percentage"
+      }
+    }
+  },
+  {
+    "description": "Toggle mute on the default sink",
+    "command": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+  },
+  {
+    "description": "Show PulseAudio server info",
+    "command": "pactl info"
+  },
+  {
+    "description": "List all known sinks",
+    "command": "pactl list sinks short"
+  },
+  {
+    "description": "List all known sources",
+    "command": "pactl list sources short"
+  }
+]

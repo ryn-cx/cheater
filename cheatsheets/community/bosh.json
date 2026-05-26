@@ -1,0 +1,146 @@
+[
+  {
+    "description": "List all BOSH deployments by name",
+    "command": "bosh deps --column=name"
+  },
+  {
+    "description": "List a deployment's VMs with vital resource usage",
+    "command": "bosh -d <deployment> vms --vitals",
+    "params": {
+      "deployment": {
+        "description": "BOSH deployment name"
+      }
+    }
+  },
+  {
+    "description": "SSH into a deployment VM",
+    "command": "bosh -d <deployment> ssh <instance_group>/<instance>",
+    "params": {
+      "deployment": {
+        "description": "BOSH deployment name"
+      },
+      "instance_group": {
+        "description": "Instance group name"
+      },
+      "instance": {
+        "description": "Instance guid or index"
+      }
+    }
+  },
+  {
+    "description": "Run a shell command on all VMs of an instance group",
+    "command": "bosh -d <deployment> ssh <instance_group> -c '<command>'",
+    "params": {
+      "deployment": {
+        "description": "BOSH deployment name"
+      },
+      "instance_group": {
+        "description": "Instance group name"
+      },
+      "command": {
+        "type": "string",
+        "description": "Shell command to run on each VM"
+      }
+    }
+  },
+  {
+    "description": "List a deployment's errands",
+    "command": "bosh -d <deployment> errands",
+    "params": {
+      "deployment": {
+        "description": "BOSH deployment name"
+      }
+    }
+  },
+  {
+    "description": "Run an errand on all colocated VMs",
+    "command": "bosh -d <deployment> run-errand <errand_name>",
+    "params": {
+      "deployment": {
+        "description": "BOSH deployment name"
+      },
+      "errand_name": {
+        "description": "Errand to run"
+      }
+    }
+  },
+  {
+    "description": "Run an errand on a specific VM",
+    "command": "bosh -d <deployment> run-errand <errand_name> --instance <instance_group>/<instance>",
+    "params": {
+      "deployment": {
+        "description": "BOSH deployment name"
+      },
+      "errand_name": {
+        "description": "Errand to run"
+      },
+      "instance_group": {
+        "description": "Instance group name"
+      },
+      "instance": {
+        "description": "Instance guid or index"
+      }
+    }
+  },
+  {
+    "description": "List a deployment's tasks",
+    "command": "bosh -d <deployment> tasks",
+    "params": {
+      "deployment": {
+        "description": "BOSH deployment name"
+      }
+    }
+  },
+  {
+    "description": "List recent deployment tasks",
+    "command": "bosh -d <deployment> tasks --recent",
+    "params": {
+      "deployment": {
+        "description": "BOSH deployment name"
+      }
+    }
+  },
+  {
+    "description": "Show a task's status and stream its output",
+    "command": "bosh -d <deployment> task <task_id>",
+    "params": {
+      "deployment": {
+        "description": "BOSH deployment name"
+      },
+      "task_id": {
+        "type": "integer",
+        "description": "Task id"
+      }
+    }
+  },
+  {
+    "description": "Recreate a VM safely, restoring last successful state",
+    "command": "bosh -d <deployment> recreate <instance_group>/<instance>",
+    "params": {
+      "deployment": {
+        "description": "BOSH deployment name"
+      },
+      "instance_group": {
+        "description": "Instance group name"
+      },
+      "instance": {
+        "description": "Instance guid or index"
+      }
+    }
+  },
+  {
+    "description": "Recreate a VM aggressively, ignoring bad agents",
+    "command": "bosh -d <deployment> recreate --skip-drain --fix --no-converge <instance_group>/<instance>",
+    "params": {
+      "deployment": {
+        "description": "BOSH deployment name"
+      },
+      "instance_group": {
+        "description": "Instance group name"
+      },
+      "instance": {
+        "description": "Instance guid or index"
+      }
+    }
+  }
+]

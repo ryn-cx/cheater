@@ -1,0 +1,24 @@
+[
+  {
+    "description": "Activate (enforce) an AppArmor profile",
+    "command": "sudo aa-enforce <profile>",
+    "params": {
+      "profile": {
+        "description": "Profile name, e.g. usr.bin.firefox"
+      }
+    }
+  },
+  {
+    "description": "Disable an AppArmor profile",
+    "command": "sudo aa-disable <profile>",
+    "params": {
+      "profile": {
+        "description": "Profile name, e.g. usr.bin.firefox"
+      }
+    }
+  },
+  {
+    "description": "List currently loaded profiles",
+    "command": "sudo aa-status"
+  }
+]

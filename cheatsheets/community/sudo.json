@@ -1,0 +1,43 @@
+[
+  {
+    "description": "Run a command as root",
+    "command": "sudo <command>",
+    "params": {
+      "command": {
+        "type": "string",
+        "description": "Command to run"
+      }
+    }
+  },
+  {
+    "description": "Run a command preserving the user's environment",
+    "command": "sudo -E <command>",
+    "params": {
+      "command": {
+        "type": "string",
+        "description": "Command to run"
+      }
+    }
+  },
+  {
+    "description": "Run a command as a specific user",
+    "command": "sudo -u <user> <command>",
+    "params": {
+      "user": {
+        "description": "Target user"
+      },
+      "command": {
+        "type": "string",
+        "description": "Command to run"
+      }
+    }
+  },
+  {
+    "description": "Launch a root login shell",
+    "command": "sudo -i"
+  },
+  {
+    "description": "Edit the sudoers file safely",
+    "command": "sudo visudo"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "description": "Create new mailbox in IMAP",
+    "command": "+ When located in mailbox list (c)\n\t\tshift + C"
+  },
+  {
+    "description": "1. Select/tag them with alt+'t'",
+    "command": "1. Select/tag them with alt+'t'\n\t2. ;s in mail inbox overview for bulk operation"
+  },
+  {
+    "description": "1. In mutt’s index, hit ‘D’ (UPPERCASE D)",
+    "command": "1. In mutt’s index, hit ‘D’ (UPPERCASE D)\n\t2. It will prompt you with “Delete messages matching: “"
+  },
+  {
+    "description": "+ enter this string:",
+    "command": "+ enter this string:"
+  },
+  {
+    "description": "~A",
+    "command": "~A"
+  },
+  {
+    "description": "3. It should mark all for deletion!",
+    "command": "3. It should mark all for deletion!\n\t4. Conversely, you can do the same thing with UPPERCASE U to undelete multiple messages."
+  }
+]

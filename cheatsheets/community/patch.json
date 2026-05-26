@@ -1,0 +1,64 @@
+[
+  {
+    "description": "Apply a patch file to a single file",
+    "command": "patch <file> < <patch_file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to patch"
+      },
+      "patch_file": {
+        "type": "existing_file",
+        "description": "Patch file"
+      }
+    }
+  },
+  {
+    "description": "Reverse-apply a previously-applied patch",
+    "command": "patch -R <file> < <patch_file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to un-patch"
+      },
+      "patch_file": {
+        "type": "existing_file",
+        "description": "Patch file"
+      }
+    }
+  },
+  {
+    "description": "Apply a patch with N leading path components stripped",
+    "command": "patch -p<n> < <patch_file>",
+    "defaults": {
+      "n": "1"
+    },
+    "params": {
+      "n": {
+        "type": "integer",
+        "description": "Number of leading path components to strip"
+      },
+      "patch_file": {
+        "type": "existing_file",
+        "description": "Patch file"
+      }
+    }
+  },
+  {
+    "description": "Dry-run a patch (don't actually modify files)",
+    "command": "patch --dry-run -p<n> < <patch_file>",
+    "defaults": {
+      "n": "1"
+    },
+    "params": {
+      "n": {
+        "type": "integer",
+        "description": "Number of leading path components to strip"
+      },
+      "patch_file": {
+        "type": "existing_file",
+        "description": "Patch file"
+      }
+    }
+  }
+]

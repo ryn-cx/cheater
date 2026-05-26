@@ -1,0 +1,150 @@
+[
+  {
+    "description": "Show the ACL of a file",
+    "command": "getfacl <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File whose ACL to display"
+      }
+    }
+  },
+  {
+    "description": "Grant a user read+execute on a file",
+    "command": "setfacl -m u:<username>:rX <file>",
+    "params": {
+      "username": {
+        "description": "User to grant access to"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Target file"
+      }
+    }
+  },
+  {
+    "description": "Grant a group read+write on a file",
+    "command": "setfacl -m g:<groupname>:rw <file>",
+    "params": {
+      "groupname": {
+        "description": "Group to grant access to"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Target file"
+      }
+    }
+  },
+  {
+    "description": "Strip 'other' permissions on a file",
+    "command": "setfacl -m o::- <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Target file"
+      }
+    }
+  },
+  {
+    "description": "Set owner, group and other permissions in one call",
+    "command": "setfacl -m u::rwx,g:<groupname>:rX,o::- <file>",
+    "params": {
+      "groupname": {
+        "description": "Group whose permissions to set"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Target file"
+      }
+    }
+  },
+  {
+    "description": "Copy ACL from one file to another",
+    "command": "getfacl <source> | setfacl -M - <target>",
+    "params": {
+      "source": {
+        "type": "existing_file",
+        "description": "File to read the ACL from"
+      },
+      "target": {
+        "type": "existing_file",
+        "description": "File to apply the ACL to"
+      }
+    }
+  },
+  {
+    "description": "Apply an ACL recursively to a directory",
+    "command": "setfacl -R -m u:<username>:rX <directory>",
+    "params": {
+      "username": {
+        "description": "User to grant access to"
+      },
+      "directory": {
+        "type": "existing_dir",
+        "description": "Target directory (recursive)"
+      }
+    }
+  },
+  {
+    "description": "Remove specific user and group ACL entries from a file",
+    "command": "setfacl -x u:<username>,g:<groupname> <file>",
+    "params": {
+      "username": {
+        "description": "User entry to remove"
+      },
+      "groupname": {
+        "description": "Group entry to remove"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Target file"
+      }
+    }
+  },
+  {
+    "description": "Delete all ACLs on a file (including defaults)",
+    "command": "setfacl -b <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Target file"
+      }
+    }
+  },
+  {
+    "description": "Set a default ACL on a directory (inherited by new entries)",
+    "command": "setfacl -m d:u:<username>:rx <directory>",
+    "params": {
+      "username": {
+        "description": "User to grant default access to"
+      },
+      "directory": {
+        "type": "existing_dir",
+        "description": "Target directory"
+      }
+    }
+  },
+  {
+    "description": "Remove a default ACL entry from a directory",
+    "command": "setfacl -x d:u:<username> <directory>",
+    "params": {
+      "username": {
+        "description": "User entry to remove from defaults"
+      },
+      "directory": {
+        "type": "existing_dir",
+        "description": "Target directory"
+      }
+    }
+  },
+  {
+    "description": "Delete only the default ACLs on a directory",
+    "command": "setfacl -k <directory>",
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Target directory"
+      }
+    }
+  }
+]

@@ -1,0 +1,101 @@
+[
+  {
+    "description": "Connect to a specific database (prompts for password)",
+    "command": "psql -U <username> -h <host> -d <database>",
+    "params": {
+      "username": {
+        "description": "Postgres user"
+      },
+      "host": {
+        "description": "Server hostname"
+      },
+      "database": {
+        "description": "Database name"
+      }
+    }
+  },
+  {
+    "description": "List all databases on a server",
+    "command": "psql -U <username> -h <host> --list",
+    "params": {
+      "username": {
+        "description": "Postgres user"
+      },
+      "host": {
+        "description": "Server hostname"
+      }
+    }
+  },
+  {
+    "description": "Run a SQL query and save the output to a file",
+    "command": "psql -U <username> -d <database> -c '<query>' -o <out_file>",
+    "params": {
+      "username": {
+        "description": "Postgres user"
+      },
+      "database": {
+        "description": "Database name"
+      },
+      "query": {
+        "type": "string",
+        "description": "SQL query"
+      },
+      "out_file": {
+        "type": "path",
+        "description": "Output file"
+      }
+    }
+  },
+  {
+    "description": "Run a query and get HTML-formatted tabular output",
+    "command": "psql -U <username> -d <database> -H -c '<query>'",
+    "params": {
+      "username": {
+        "description": "Postgres user"
+      },
+      "database": {
+        "description": "Database name"
+      },
+      "query": {
+        "type": "string",
+        "description": "SQL query"
+      }
+    }
+  },
+  {
+    "description": "Export query results to a CSV file",
+    "command": "psql -U <username> -d <database> -c 'copy (<query>) to stdout with csv header;' -o <out_file>",
+    "params": {
+      "username": {
+        "description": "Postgres user"
+      },
+      "database": {
+        "description": "Database name"
+      },
+      "query": {
+        "type": "string",
+        "description": "SELECT query (without trailing ;)"
+      },
+      "out_file": {
+        "type": "path",
+        "description": "Output CSV file"
+      }
+    }
+  },
+  {
+    "description": "Run SQL from a file",
+    "command": "psql -U <username> -d <database> -f <sql_file>",
+    "params": {
+      "username": {
+        "description": "Postgres user"
+      },
+      "database": {
+        "description": "Database name"
+      },
+      "sql_file": {
+        "type": "existing_file",
+        "description": "SQL file to execute"
+      }
+    }
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "description": "List a directory (excluding hidden files)",
+    "command": "ls <directory>",
+    "defaults": {
+      "directory": "."
+    },
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Directory to list"
+      }
+    }
+  },
+  {
+    "description": "List a directory including hidden files",
+    "command": "ls -a <directory>",
+    "defaults": {
+      "directory": "."
+    },
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Directory to list"
+      }
+    }
+  },
+  {
+    "description": "Long listing with human-readable sizes",
+    "command": "ls -lh <directory>",
+    "defaults": {
+      "directory": "."
+    },
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Directory to list"
+      }
+    }
+  },
+  {
+    "description": "List entries sorted by size",
+    "command": "ls -S <directory>",
+    "defaults": {
+      "directory": "."
+    },
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Directory to list"
+      }
+    }
+  },
+  {
+    "description": "List only directories",
+    "command": "ls -d <directory>/*/ ",
+    "defaults": {
+      "directory": "."
+    },
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Directory to list under"
+      }
+    }
+  },
+  {
+    "description": "List files sorted by change time, newest first",
+    "command": "ls -ltc <directory>",
+    "defaults": {
+      "directory": "."
+    },
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Directory to list"
+      }
+    }
+  },
+  {
+    "description": "List files in a single column",
+    "command": "ls -1 <directory>",
+    "defaults": {
+      "directory": "."
+    },
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Directory to list"
+      }
+    }
+  },
+  {
+    "description": "Recursively list everything under a directory",
+    "command": "ls -R <directory>",
+    "defaults": {
+      "directory": "."
+    },
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Directory to list"
+      }
+    }
+  }
+]

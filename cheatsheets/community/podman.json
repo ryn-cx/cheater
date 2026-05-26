@@ -1,0 +1,84 @@
+[
+  {
+    "description": "List running containers",
+    "command": "podman ps"
+  },
+  {
+    "description": "List all containers (including stopped)",
+    "command": "podman ps -a"
+  },
+  {
+    "description": "Pull an image from a registry",
+    "command": "podman pull <image>",
+    "params": {
+      "image": {
+        "description": "Image reference (e.g. docker.io/library/alpine:latest)"
+      }
+    }
+  },
+  {
+    "description": "List images in local storage",
+    "command": "podman images"
+  },
+  {
+    "description": "Run a container interactively",
+    "command": "podman run -it --rm <image> <command>",
+    "defaults": {
+      "command": "/bin/sh"
+    },
+    "params": {
+      "image": {
+        "description": "Image to run"
+      },
+      "command": {
+        "type": "string",
+        "description": "Command to launch in the container"
+      }
+    }
+  },
+  {
+    "description": "Exec a shell in a running container",
+    "command": "podman exec -it <container> /bin/sh",
+    "params": {
+      "container": {
+        "description": "Container name or id"
+      }
+    }
+  },
+  {
+    "description": "Stop a running container",
+    "command": "podman stop <container>",
+    "params": {
+      "container": {
+        "description": "Container name or id"
+      }
+    }
+  },
+  {
+    "description": "Remove a container",
+    "command": "podman rm <container>",
+    "params": {
+      "container": {
+        "description": "Container name or id"
+      }
+    }
+  },
+  {
+    "description": "Remove an image",
+    "command": "podman rmi <image>",
+    "params": {
+      "image": {
+        "description": "Image name or id"
+      }
+    }
+  },
+  {
+    "description": "Stream logs from a container",
+    "command": "podman logs -f <container>",
+    "params": {
+      "container": {
+        "description": "Container name or id"
+      }
+    }
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "description": "Install a package",
+    "command": "dnf install <package>",
+    "params": {
+      "package": {
+        "description": "Package name (or names, space-separated)"
+      }
+    }
+  },
+  {
+    "description": "Find packages matching a phrase",
+    "command": "dnf search <phrase>",
+    "params": {
+      "phrase": {
+        "type": "string",
+        "description": "Search phrase"
+      }
+    }
+  },
+  {
+    "description": "Find which package provides an executable",
+    "command": "dnf provides <executable>",
+    "params": {
+      "executable": {
+        "description": "Executable name or path"
+      }
+    }
+  },
+  {
+    "description": "Download a package without installing (requires dnf-plugins-core)",
+    "command": "dnf download <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Install build dependencies for a SRPM or .spec (requires dnf-plugins-core)",
+    "command": "dnf builddep <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": ".src.rpm or .spec file"
+      }
+    }
+  },
+  {
+    "description": "List installed packages",
+    "command": "dnf list installed"
+  },
+  {
+    "description": "Remove a package",
+    "command": "dnf remove <package>",
+    "params": {
+      "package": {
+        "description": "Package name to remove"
+      }
+    }
+  },
+  {
+    "description": "Update all packages",
+    "command": "dnf upgrade"
+  }
+]

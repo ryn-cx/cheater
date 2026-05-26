@@ -1,0 +1,50 @@
+[
+  {
+    "description": "Create a directory with specific owner, group, and mode",
+    "command": "install -o <username> -g <groupname> -m <mode> -d <directory>",
+    "defaults": {
+      "mode": "700"
+    },
+    "params": {
+      "username": {
+        "description": "Owner of the new directory"
+      },
+      "groupname": {
+        "description": "Group of the new directory"
+      },
+      "mode": {
+        "description": "Permission mode in octal (e.g. 700, 755)"
+      },
+      "directory": {
+        "type": "path",
+        "description": "Directory path to create"
+      }
+    }
+  },
+  {
+    "description": "Copy a file and set ownership and mode in one step",
+    "command": "install -o <username> -g <groupname> -m <mode> <source> <destination>",
+    "defaults": {
+      "mode": "755"
+    },
+    "params": {
+      "username": {
+        "description": "Owner of the installed file"
+      },
+      "groupname": {
+        "description": "Group of the installed file"
+      },
+      "mode": {
+        "description": "Permission mode in octal"
+      },
+      "source": {
+        "type": "existing_file",
+        "description": "Source file"
+      },
+      "destination": {
+        "type": "path",
+        "description": "Destination path"
+      }
+    }
+  }
+]

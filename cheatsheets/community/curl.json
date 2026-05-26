@@ -1,0 +1,133 @@
+[
+  {
+    "description": "Download a file (prints to stdout)",
+    "command": "curl <url>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "URL to fetch"
+      }
+    }
+  },
+  {
+    "description": "Download and save as a given filename",
+    "command": "curl <url> -o <outfile>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "URL to fetch"
+      },
+      "outfile": {
+        "type": "path",
+        "description": "Local filename to write to"
+      }
+    }
+  },
+  {
+    "description": "Download and save using the URL's filename",
+    "command": "curl -O <url>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "URL to fetch (filename inferred)"
+      }
+    }
+  },
+  {
+    "description": "Download a file with HTTP basic authentication",
+    "command": "curl -u <username>:<password> <url>",
+    "params": {
+      "username": {
+        "description": "Auth username"
+      },
+      "password": {
+        "type": "string",
+        "description": "Auth password"
+      },
+      "url": {
+        "type": "string",
+        "description": "URL to fetch"
+      }
+    }
+  },
+  {
+    "description": "Download through an HTTP proxy",
+    "command": "curl -x <proxy_host>:<proxy_port> <url>",
+    "params": {
+      "proxy_host": {
+        "description": "Proxy host"
+      },
+      "proxy_port": {
+        "type": "integer",
+        "description": "Proxy port"
+      },
+      "url": {
+        "type": "string",
+        "description": "URL to fetch"
+      }
+    }
+  },
+  {
+    "description": "Resume a previously failed download",
+    "command": "curl -C - -o <outfile> <url>",
+    "params": {
+      "outfile": {
+        "description": "Partial file to resume into"
+      },
+      "url": {
+        "type": "string",
+        "description": "URL to fetch"
+      }
+    }
+  },
+  {
+    "description": "Fetch only the HTTP response headers",
+    "command": "curl -I <url>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "URL to fetch"
+      }
+    }
+  },
+  {
+    "description": "Limit the download rate",
+    "command": "curl --limit-rate <rate> -O <url>",
+    "defaults": {
+      "rate": "1000B"
+    },
+    "params": {
+      "rate": {
+        "description": "Rate limit (e.g. 1000B, 100K, 1M)"
+      },
+      "url": {
+        "type": "string",
+        "description": "URL to fetch"
+      }
+    }
+  },
+  {
+    "description": "Get only the HTTP status code",
+    "command": "curl -o /dev/null -w '%{http_code}\\n' -s -I <url>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "URL to probe"
+      }
+    }
+  },
+  {
+    "description": "POST JSON data",
+    "command": "curl -X POST -H 'Content-Type: application/json' -d '<json>' <url>",
+    "params": {
+      "json": {
+        "type": "string",
+        "description": "JSON request body"
+      },
+      "url": {
+        "type": "string",
+        "description": "Endpoint URL"
+      }
+    }
+  }
+]

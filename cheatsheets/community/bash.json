@@ -1,0 +1,37 @@
+[
+  {
+    "description": "For-loop over files in the current directory",
+    "command": "for file in *; do\n    echo $file found\ndone"
+  },
+  {
+    "description": "Case statement on the first argument",
+    "command": "case \"$1\" in\n    0) echo \"zero found\";;\n    1) echo \"one found\";;\n    2) echo \"two found\";;\n    3*) echo \"something beginning with 3 found\";;\nesac"
+  },
+  {
+    "description": "Turn on shell tracing (debug mode)",
+    "command": "set -x"
+  },
+  {
+    "description": "Turn off shell tracing",
+    "command": "set +x"
+  },
+  {
+    "description": "Get exit status of the Nth command in a pipeline",
+    "command": "echo ${PIPESTATUS[<n>]}",
+    "params": {
+      "n": {
+        "type": "integer",
+        "description": "Zero-based index into PIPESTATUS"
+      }
+    }
+  },
+  {
+    "description": "Create a lock file (fails if it already exists)",
+    "command": "( set -o noclobber; echo > <lockfile> ) || echo 'Failed to create lock file'",
+    "params": {
+      "lockfile": {
+        "description": "Path of the lock file to create"
+      }
+    }
+  }
+]

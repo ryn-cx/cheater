@@ -1,0 +1,83 @@
+[
+  {
+    "description": "Show the last 10 lines of a file",
+    "command": "tail <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to read"
+      }
+    }
+  },
+  {
+    "description": "Show the last N lines of a file",
+    "command": "tail -n <count> <file>",
+    "defaults": {
+      "count": "50"
+    },
+    "params": {
+      "count": {
+        "type": "integer",
+        "description": "Number of lines"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to read"
+      }
+    }
+  },
+  {
+    "description": "Show lines starting at line N",
+    "command": "tail -n +<start> <file>",
+    "defaults": {
+      "start": "100"
+    },
+    "params": {
+      "start": {
+        "type": "integer",
+        "description": "Starting line number"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to read"
+      }
+    }
+  },
+  {
+    "description": "Show the last N bytes of a file",
+    "command": "tail -c <bytes> <file>",
+    "defaults": {
+      "bytes": "1024"
+    },
+    "params": {
+      "bytes": {
+        "type": "integer",
+        "description": "Number of bytes"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to read"
+      }
+    }
+  },
+  {
+    "description": "Follow a growing file",
+    "command": "tail -f <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to follow"
+      }
+    }
+  },
+  {
+    "description": "Follow a file even if it's rotated/recreated",
+    "command": "tail -F <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to follow"
+      }
+    }
+  }
+]

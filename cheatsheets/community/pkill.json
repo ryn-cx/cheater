@@ -1,0 +1,36 @@
+[
+  {
+    "description": "Kill processes by exact name",
+    "command": "pkill <name>",
+    "params": {
+      "name": {
+        "description": "Process name"
+      }
+    }
+  },
+  {
+    "description": "Kill processes matching a substring of the full command line",
+    "command": "pkill -f <pattern>",
+    "params": {
+      "pattern": {
+        "type": "string",
+        "description": "Substring or regex to match"
+      }
+    }
+  },
+  {
+    "description": "Send a specific signal to matching processes",
+    "command": "pkill -<signal> <name>",
+    "defaults": {
+      "signal": "HUP"
+    },
+    "params": {
+      "signal": {
+        "description": "Signal name (HUP, TERM, KILL, USR1, ...)"
+      },
+      "name": {
+        "description": "Process name"
+      }
+    }
+  }
+]

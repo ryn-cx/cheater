@@ -1,0 +1,35 @@
+[
+  {
+    "description": "Kill a process by pid",
+    "command": "fkill <pid>",
+    "params": {
+      "pid": {
+        "type": "integer",
+        "description": "Process id to kill"
+      }
+    }
+  },
+  {
+    "description": "Kill processes by name (case insensitive)",
+    "command": "fkill <name>",
+    "params": {
+      "name": {
+        "description": "Process name (e.g. safari)"
+      }
+    }
+  },
+  {
+    "description": "Kill the process listening on a port",
+    "command": "fkill :<port>",
+    "params": {
+      "port": {
+        "type": "integer",
+        "description": "Listening port"
+      }
+    }
+  },
+  {
+    "description": "Open the interactive process picker",
+    "command": "fkill"
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "description": "Loop over an explicit list of values",
+    "command": "for i in <values>; do\n  echo $i\ndone",
+    "defaults": {
+      "values": "1 2 3 4 5"
+    },
+    "params": {
+      "values": {
+        "type": "string",
+        "description": "Space-separated values"
+      }
+    }
+  },
+  {
+    "description": "Loop over files matching a glob in the current directory",
+    "command": "for f in <glob>; do\n  echo $f\ndone",
+    "defaults": {
+      "glob": "*.jpg"
+    },
+    "params": {
+      "glob": {
+        "type": "string",
+        "description": "Filename glob"
+      }
+    }
+  },
+  {
+    "description": "Loop a specific number of times (seq)",
+    "command": "for i in $(seq 1 <count>); do\n  echo $i\ndone",
+    "defaults": {
+      "count": "10"
+    },
+    "params": {
+      "count": {
+        "type": "integer",
+        "description": "Number of iterations"
+      }
+    }
+  },
+  {
+    "description": "C-style for loop in bash",
+    "command": "for ((i=1; i<=<count>; ++i)); do\n  echo $i\ndone",
+    "defaults": {
+      "count": "10"
+    },
+    "params": {
+      "count": {
+        "type": "integer",
+        "description": "Upper bound (inclusive)"
+      }
+    }
+  },
+  {
+    "description": "Loop using brace expansion",
+    "command": "for i in {<start>..<end>}; do\n  echo $i\ndone",
+    "defaults": {
+      "start": "1",
+      "end": "10"
+    },
+    "params": {
+      "start": {
+        "type": "integer",
+        "description": "Range start"
+      },
+      "end": {
+        "type": "integer",
+        "description": "Range end (inclusive)"
+      }
+    }
+  }
+]

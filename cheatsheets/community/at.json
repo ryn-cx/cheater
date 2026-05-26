@@ -1,0 +1,26 @@
+[
+  {
+    "description": "Schedule a one-time task (then type the command and press Ctrl-d)",
+    "command": "at <time>",
+    "params": {
+      "time": {
+        "type": "string",
+        "description": "When to run: now, midnight, noon, teatime, HH:MM, MM/DD/YY, or 'now + N minutes|hours|days|weeks'"
+      }
+    }
+  },
+  {
+    "description": "List pending at jobs",
+    "command": "atq"
+  },
+  {
+    "description": "Remove a scheduled at job by id",
+    "command": "atrm <id>",
+    "params": {
+      "id": {
+        "type": "integer",
+        "description": "Job id (from atq)"
+      }
+    }
+  }
+]

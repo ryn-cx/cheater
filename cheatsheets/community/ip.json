@@ -1,0 +1,111 @@
+[
+  {
+    "description": "Show all interfaces with addresses",
+    "command": "ip addr"
+  },
+  {
+    "description": "Bring an interface up or down",
+    "command": "sudo ip link set dev <interface> <state>",
+    "defaults": {
+      "state": "up"
+    },
+    "params": {
+      "interface": {
+        "description": "Network interface (e.g. eth0, wlan0)"
+      },
+      "state": {
+        "description": "up or down"
+      }
+    }
+  },
+  {
+    "description": "Add a static IP to an interface",
+    "command": "sudo ip addr add <ip_cidr> dev <interface>",
+    "params": {
+      "ip_cidr": {
+        "description": "IP address with prefix (e.g. 192.168.1.100/24)"
+      },
+      "interface": {
+        "description": "Network interface"
+      }
+    }
+  },
+  {
+    "description": "Remove an IP address from an interface",
+    "command": "sudo ip addr del <ip_cidr> dev <interface>",
+    "params": {
+      "ip_cidr": {
+        "description": "IP address with prefix"
+      },
+      "interface": {
+        "description": "Network interface"
+      }
+    }
+  },
+  {
+    "description": "Remove all IP addresses from an interface",
+    "command": "sudo ip address flush dev <interface>",
+    "params": {
+      "interface": {
+        "description": "Network interface"
+      }
+    }
+  },
+  {
+    "description": "Show the routing table",
+    "command": "ip route"
+  },
+  {
+    "description": "Show the IPv6 routing table",
+    "command": "ip -6 route"
+  },
+  {
+    "description": "Add a default route via a gateway",
+    "command": "sudo ip route add default via <gateway>",
+    "params": {
+      "gateway": {
+        "description": "Gateway IP address"
+      }
+    }
+  },
+  {
+    "description": "Add a route via a specific interface",
+    "command": "sudo ip route add <network> dev <interface>",
+    "params": {
+      "network": {
+        "description": "Destination network (e.g. 192.168.0.0/24)"
+      },
+      "interface": {
+        "description": "Network interface"
+      }
+    }
+  },
+  {
+    "description": "Show which route would be used to reach a destination",
+    "command": "ip route get to <destination>",
+    "defaults": {
+      "destination": "8.8.8.8"
+    },
+    "params": {
+      "destination": {
+        "description": "Destination IP"
+      }
+    }
+  },
+  {
+    "description": "Change an interface's MAC address",
+    "command": "sudo ip link set dev <interface> address <mac>",
+    "params": {
+      "interface": {
+        "description": "Network interface"
+      },
+      "mac": {
+        "description": "MAC address (e.g. aa:bb:cc:dd:ee:ff)"
+      }
+    }
+  },
+  {
+    "description": "Show the neighbor (ARP/NDP) table",
+    "command": "ip neighbor show"
+  }
+]

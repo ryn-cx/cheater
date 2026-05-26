@@ -1,0 +1,10 @@
+[
+  {
+    "description": "Print the current working directory",
+    "command": "pwd"
+  },
+  {
+    "description": "Print the physical (symlink-resolved) cwd",
+    "command": "pwd -P"
+  }
+]

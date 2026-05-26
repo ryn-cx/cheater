@@ -1,0 +1,47 @@
+[
+  {
+    "description": "Wipe a USB device and write a bootable Windows installer",
+    "command": "sudo woeusb --device <iso> <device>",
+    "params": {
+      "iso": {
+        "type": "existing_file",
+        "description": "Windows ISO file"
+      },
+      "device": {
+        "description": "USB device, e.g. /dev/sdb"
+      }
+    }
+  },
+  {
+    "description": "Make an existing partition bootable with Windows files (no wipe)",
+    "command": "sudo woeusb --partition <iso> <partition>",
+    "params": {
+      "iso": {
+        "type": "existing_file",
+        "description": "Windows ISO file"
+      },
+      "partition": {
+        "description": "USB partition, e.g. /dev/sdb1"
+      }
+    }
+  },
+  {
+    "description": "Specify the target filesystem (FAT or NTFS)",
+    "command": "sudo woeusb --tgt-fs <fs> --device <iso> <device>",
+    "defaults": {
+      "fs": "NTFS"
+    },
+    "params": {
+      "fs": {
+        "description": "FAT or NTFS"
+      },
+      "iso": {
+        "type": "existing_file",
+        "description": "Windows ISO file"
+      },
+      "device": {
+        "description": "USB device"
+      }
+    }
+  }
+]

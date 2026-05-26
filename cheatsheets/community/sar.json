@@ -1,0 +1,115 @@
+[
+  {
+    "description": "Report CPU utilization every N seconds for M iterations",
+    "command": "sar -u <interval> <count>",
+    "defaults": {
+      "interval": "2",
+      "count": "5"
+    },
+    "params": {
+      "interval": {
+        "type": "integer",
+        "description": "Seconds between samples"
+      },
+      "count": {
+        "type": "integer",
+        "description": "Number of samples"
+      }
+    }
+  },
+  {
+    "description": "Report CPU usage for a single core",
+    "command": "sar -P <core> <interval> <count>",
+    "defaults": {
+      "core": "1",
+      "interval": "1",
+      "count": "3"
+    },
+    "params": {
+      "core": {
+        "type": "integer",
+        "description": "CPU core index"
+      },
+      "interval": {
+        "type": "integer",
+        "description": "Seconds between samples"
+      },
+      "count": {
+        "type": "integer",
+        "description": "Number of samples"
+      }
+    }
+  },
+  {
+    "description": "Report memory usage",
+    "command": "sar -r <interval> <count>",
+    "defaults": {
+      "interval": "1",
+      "count": "3"
+    },
+    "params": {
+      "interval": {
+        "type": "integer",
+        "description": "Seconds between samples"
+      },
+      "count": {
+        "type": "integer",
+        "description": "Number of samples"
+      }
+    }
+  },
+  {
+    "description": "Report swap activity",
+    "command": "sar -S <interval> <count>",
+    "defaults": {
+      "interval": "1",
+      "count": "3"
+    },
+    "params": {
+      "interval": {
+        "type": "integer",
+        "description": "Seconds between samples"
+      },
+      "count": {
+        "type": "integer",
+        "description": "Number of samples"
+      }
+    }
+  },
+  {
+    "description": "Report per-block-device I/O",
+    "command": "sar -d <interval> <count>",
+    "defaults": {
+      "interval": "1",
+      "count": "3"
+    },
+    "params": {
+      "interval": {
+        "type": "integer",
+        "description": "Seconds between samples"
+      },
+      "count": {
+        "type": "integer",
+        "description": "Number of samples"
+      }
+    }
+  },
+  {
+    "description": "Report network interface stats (excluding lo)",
+    "command": "sar -n DEV <interval> <count> | grep -v lo",
+    "defaults": {
+      "interval": "1",
+      "count": "3"
+    },
+    "params": {
+      "interval": {
+        "type": "integer",
+        "description": "Seconds between samples"
+      },
+      "count": {
+        "type": "integer",
+        "description": "Number of samples"
+      }
+    }
+  }
+]

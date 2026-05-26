@@ -1,0 +1,42 @@
+[
+  {
+    "description": "Open a file in the less pager",
+    "command": "less <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to view"
+      }
+    }
+  },
+  {
+    "description": "Open in follow-mode (tail -f equivalent)",
+    "command": "less +F <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to follow"
+      }
+    }
+  },
+  {
+    "description": "Open without wrapping long lines",
+    "command": "less -S <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to view"
+      }
+    }
+  },
+  {
+    "description": "Open without clearing the terminal on exit",
+    "command": "less -X <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to view"
+      }
+    }
+  }
+]

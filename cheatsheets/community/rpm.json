@@ -1,0 +1,101 @@
+[
+  {
+    "description": "Install an RPM package (verbose, with hash progress)",
+    "command": "sudo rpm -ivh <rpm_file>",
+    "params": {
+      "rpm_file": {
+        "type": "existing_file",
+        "description": "Path to the .rpm file"
+      }
+    }
+  },
+  {
+    "description": "Upgrade an installed RPM",
+    "command": "sudo rpm -Uvh <rpm_file>",
+    "params": {
+      "rpm_file": {
+        "type": "existing_file",
+        "description": "Path to the .rpm file"
+      }
+    }
+  },
+  {
+    "description": "Remove an installed package",
+    "command": "sudo rpm -e <package>",
+    "params": {
+      "package": {
+        "description": "Installed package name"
+      }
+    }
+  },
+  {
+    "description": "Remove a package, ignoring its dependents",
+    "command": "sudo rpm -e --nodeps <package>",
+    "params": {
+      "package": {
+        "description": "Installed package name"
+      }
+    }
+  },
+  {
+    "description": "Find which package installed a file",
+    "command": "rpm -qf <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to look up"
+      }
+    }
+  },
+  {
+    "description": "List files installed by a package",
+    "command": "rpm -ql <package>",
+    "params": {
+      "package": {
+        "description": "Installed package name"
+      }
+    }
+  },
+  {
+    "description": "List files inside an .rpm file (without installing)",
+    "command": "rpm -qpl <rpm_file>",
+    "params": {
+      "rpm_file": {
+        "type": "existing_file",
+        "description": "Path to the .rpm file"
+      }
+    }
+  },
+  {
+    "description": "List installed packages that require something",
+    "command": "rpm -q --whatrequires <target>",
+    "params": {
+      "target": {
+        "description": "Package or file path"
+      }
+    }
+  },
+  {
+    "description": "List all installed packages",
+    "command": "rpm -qa"
+  },
+  {
+    "description": "Verify a package's files against the manifest",
+    "command": "rpm -V <package>",
+    "params": {
+      "package": {
+        "description": "Installed package name"
+      }
+    }
+  },
+  {
+    "description": "Check signature of an RPM file",
+    "command": "rpm -K <rpm_file>",
+    "params": {
+      "rpm_file": {
+        "type": "existing_file",
+        "description": "Path to the .rpm file"
+      }
+    }
+  }
+]

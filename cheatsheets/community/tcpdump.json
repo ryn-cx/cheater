@@ -1,0 +1,93 @@
+[
+  {
+    "description": "Capture all packets on an interface",
+    "command": "sudo tcpdump -i <interface>",
+    "defaults": {
+      "interface": "eth0"
+    },
+    "params": {
+      "interface": {
+        "description": "Network interface (e.g. eth0, any)"
+      }
+    }
+  },
+  {
+    "description": "Capture packets to/from a specific host",
+    "command": "sudo tcpdump host <host>",
+    "params": {
+      "host": {
+        "description": "Hostname or IP"
+      }
+    }
+  },
+  {
+    "description": "Capture on all interfaces for a host:port (numeric output)",
+    "command": "sudo tcpdump -nn -i any host <host> and port <port>",
+    "params": {
+      "host": {
+        "description": "Hostname or IP"
+      },
+      "port": {
+        "type": "integer",
+        "description": "Port number"
+      }
+    }
+  },
+  {
+    "description": "Show packet payloads as ASCII (handy for HTTP)",
+    "command": "sudo tcpdump -i any -A host <host> and port <port>",
+    "params": {
+      "host": {
+        "description": "Hostname or IP"
+      },
+      "port": {
+        "type": "integer",
+        "description": "Port number"
+      }
+    }
+  },
+  {
+    "description": "Capture and write packets to a pcap file",
+    "command": "sudo tcpdump -w <pcap_file>",
+    "params": {
+      "pcap_file": {
+        "type": "path",
+        "description": "Output pcap path"
+      }
+    }
+  },
+  {
+    "description": "Read packets from a pcap file",
+    "command": "tcpdump -r <pcap_file>",
+    "params": {
+      "pcap_file": {
+        "type": "existing_file",
+        "description": "Input pcap path"
+      }
+    }
+  },
+  {
+    "description": "Show only TCP SYN+FIN packets (session start/end)",
+    "command": "sudo tcpdump 'tcp[tcpflags] & (tcp-syn|tcp-fin) != 0'"
+  },
+  {
+    "description": "Capture from multiple host filters",
+    "command": "sudo tcpdump 'host (<host1> or <host2>) and port <port>' -i any",
+    "params": {
+      "host1": {
+        "description": "First host"
+      },
+      "host2": {
+        "description": "Second host"
+      },
+      "port": {
+        "type": "integer",
+        "description": "Port number"
+      }
+    }
+  },
+  {
+    "description": "Hex+ASCII dump per packet",
+    "command": "sudo tcpdump -XX"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "description": "Render text as ASCII art using figlet",
+    "command": "figlet <text>",
+    "params": {
+      "text": {
+        "type": "string",
+        "description": "Text to render"
+      }
+    }
+  },
+  {
+    "description": "Render text as ASCII art with a border using toilet",
+    "command": "toilet -F border <text>",
+    "params": {
+      "text": {
+        "type": "string",
+        "description": "Text to render"
+      }
+    }
+  },
+  {
+    "description": "Render text as ASCII art using toilet",
+    "command": "toilet <text>",
+    "params": {
+      "text": {
+        "type": "string",
+        "description": "Text to render"
+      }
+    }
+  }
+]

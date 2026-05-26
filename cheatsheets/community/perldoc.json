@@ -1,0 +1,64 @@
+[
+  {
+    "description": "Read the docs for a perl built-in function",
+    "command": "perldoc -f <function>",
+    "params": {
+      "function": {
+        "description": "Built-in function name (e.g. open, sprintf)"
+      }
+    }
+  },
+  {
+    "description": "Read the docs for a perl built-in variable",
+    "command": "perldoc -v '<variable>'",
+    "params": {
+      "variable": {
+        "type": "string",
+        "description": "Variable name (e.g. $_)"
+      }
+    }
+  },
+  {
+    "description": "List the table of contents of perl's docs",
+    "command": "perldoc perltoc"
+  },
+  {
+    "description": "View a specific perldoc page",
+    "command": "perldoc <page>",
+    "defaults": {
+      "page": "perldsc"
+    },
+    "params": {
+      "page": {
+        "description": "Perldoc page name"
+      }
+    }
+  },
+  {
+    "description": "Read an installed module's documentation",
+    "command": "perldoc <module>",
+    "params": {
+      "module": {
+        "description": "Module name (e.g. Some::Module)"
+      }
+    }
+  },
+  {
+    "description": "Show the path to a module's documentation file",
+    "command": "perldoc -l <module>",
+    "params": {
+      "module": {
+        "description": "Module name"
+      }
+    }
+  },
+  {
+    "description": "Show the raw source of a module's docs",
+    "command": "perldoc -m <module>",
+    "params": {
+      "module": {
+        "description": "Module name"
+      }
+    }
+  }
+]

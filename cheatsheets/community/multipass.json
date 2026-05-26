@@ -1,0 +1,50 @@
+[
+  {
+    "description": "Show multipass help (no args lists options)",
+    "command": "multipass"
+  },
+  {
+    "description": "List existing VMs",
+    "command": "multipass list"
+  },
+  {
+    "description": "Find what VM images are available to download",
+    "command": "multipass find"
+  },
+  {
+    "description": "Download and start a VM with a given name",
+    "command": "multipass launch -v --name <name>",
+    "params": {
+      "name": {
+        "description": "Name for the new VM"
+      }
+    }
+  },
+  {
+    "description": "Open a shell inside a running VM",
+    "command": "multipass shell <name>",
+    "params": {
+      "name": {
+        "description": "VM name"
+      }
+    }
+  },
+  {
+    "description": "Stop a running VM",
+    "command": "multipass stop <name>",
+    "params": {
+      "name": {
+        "description": "VM name"
+      }
+    }
+  },
+  {
+    "description": "Delete a VM",
+    "command": "multipass delete <name>",
+    "params": {
+      "name": {
+        "description": "VM name"
+      }
+    }
+  }
+]

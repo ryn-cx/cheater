@@ -1,0 +1,66 @@
+[
+  {
+    "description": "Sync to the newest slackbuilds.org tree",
+    "command": "sport r"
+  },
+  {
+    "description": "Fuzzy-search the slackbuilds tree for packages",
+    "command": "sport s <packages>",
+    "params": {
+      "packages": {
+        "type": "string",
+        "description": "Space-separated search terms"
+      }
+    }
+  },
+  {
+    "description": "View info and README of a package",
+    "command": "sport c <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Build a package without installing it",
+    "command": "sport i --build-only <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Build and install one or more packages",
+    "command": "sport i <packages>",
+    "params": {
+      "packages": {
+        "type": "string",
+        "description": "Space-separated package names"
+      }
+    }
+  },
+  {
+    "description": "Build and install from the current directory",
+    "command": "sport i ."
+  },
+  {
+    "description": "Upgrade instead of install",
+    "command": "INSTALLER=upgradepkg sport i <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Check whether a package is installed",
+    "command": "sport k <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  }
+]

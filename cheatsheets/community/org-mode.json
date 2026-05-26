@@ -1,0 +1,34 @@
+[
+  {
+    "description": "Begin org-mode                               ALT-x org-mode",
+    "command": "Begin org-mode                               ALT-x org-mode\n  Save                                         CTRL-x CTRL-s\n  Export in other file formats (eg HTML,PDF)   CTRL-c CTRL-e"
+  },
+  {
+    "description": "Section heading                              *",
+    "command": "Section heading                              *\n  New headline                                 ALT-return\n  Move headline up or down                     ALT-up_arrow/down_arrow\n  Adjust indent depth of headline              ALT-left_arrow/right_arrow\n  Open/collapse section                        TAB\n  Open/collapse All                            CTRL-TAB"
+  },
+  {
+    "description": "Mark list item as TODO                       ** TODO",
+    "command": "Mark list item as TODO                       ** TODO\n  Cycle through workflow                       SHIFT-left_arrow/right_arrow\n  Show only outstanding TODO                   items CTRL-c CTRL-v"
+  },
+  {
+    "description": "Table column separator                       Vertical/pipe c...",
+    "command": "Table column separator                       Vertical/pipe character\n  Reorganize table                             TAB\n  Move column                                  ALT-left_arrow/right_arrow\n  Move row                                     ALT-up_arrow/down_arrow"
+  },
+  {
+    "description": "*bold*",
+    "command": "*bold*\n  /italic/\n  _underlined_\n  =code=\n  ~verbatim~\n  +strike-through+"
+  },
+  {
+    "description": "Header         -*- mode: org -*-",
+    "command": "Header         -*- mode: org -*-"
+  },
+  {
+    "description": "To make org-mode automatically wrap lines:",
+    "command": "To make org-mode automatically wrap lines:"
+  },
+  {
+    "description": "(add-hook 'org-mode-hook",
+    "command": "(add-hook 'org-mode-hook\n              '(lambda ()\n                 (visual-line-mode 1)))"
+  }
+]

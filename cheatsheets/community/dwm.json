@@ -1,0 +1,94 @@
+[
+  {
+    "description": "Basic",
+    "command": "Basic\n=====\n# launch terminal.\n[Shift]+[Mod]+[Enter]"
+  },
+  {
+    "description": "show/hide bar.",
+    "command": "[Mod]+[b]"
+  },
+  {
+    "description": "dmenu for running programs like the x#www#browser.",
+    "command": "[Mod]+[p]"
+  },
+  {
+    "description": "push acive window from stack to master, or pulls last used window from stack onto master.",
+    "command": "[Mod]+[Enter]"
+  },
+  {
+    "description": "focus on next/previous window in current tag.",
+    "command": "[Mod] + [j / k]"
+  },
+  {
+    "description": "increases / decreases master size.",
+    "command": "[Mod] + [h / l]"
+  },
+  {
+    "description": "Navigation",
+    "command": "Navigation\n==========\n# moves your focus to tag 2.\n[Mod]+[2]"
+  },
+  {
+    "description": "move active window to the 2 tag.",
+    "command": "[Shift]+[Mod]+[2]"
+  },
+  {
+    "description": "increases / decreases number of windows on master",
+    "command": "[Mod] + [i / d]"
+  },
+  {
+    "description": "move focus between screens (multi monitor setup)",
+    "command": "[Mod] + [, / .]"
+  },
+  {
+    "description": "move active window to different screen.",
+    "command": "[Shift]+[Mod]+[, / .]"
+  },
+  {
+    "description": "view all windows on screen.",
+    "command": "[Mod]+[0]"
+  },
+  {
+    "description": "make focused window appear on all tags.",
+    "command": "[Shift]+[Mod]+[0]"
+  },
+  {
+    "description": "kill active window.",
+    "command": "[Shift]+[Mod]+[c]"
+  },
+  {
+    "description": "quit dwm cleanly.",
+    "command": "[Shift]+[Mod]+[q]"
+  },
+  {
+    "description": "Layout",
+    "command": "Layout\n======\n# tiled mode. []=\n[Mod]+[t]"
+  },
+  {
+    "description": "floating mode. ><>",
+    "command": "[Mod]+[f]"
+  },
+  {
+    "description": "monocle mode. [M] (single window fullscreen)",
+    "command": "[Mod]+[m]"
+  },
+  {
+    "description": "Floating",
+    "command": "Floating\n========\n# to resize the floating window.\n[Mod]+[R M B]"
+  },
+  {
+    "description": "to move the floating window around.",
+    "command": "[Mod]+[L M B]"
+  },
+  {
+    "description": "toggles to the previous layout mode.",
+    "command": "[Mod]+[Space]"
+  },
+  {
+    "description": "to make an individual window float.",
+    "command": "[Mod]+[Shift]+[Space]"
+  },
+  {
+    "description": "to make an individual window un#float.",
+    "command": "[Mod]+[M M B]"
+  }
+]

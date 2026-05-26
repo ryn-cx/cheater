@@ -1,0 +1,53 @@
+[
+  {
+    "description": "Create an empty file (or update mtime if it exists)",
+    "command": "touch <file>",
+    "params": {
+      "file": {
+        "type": "path",
+        "description": "File to touch"
+      }
+    }
+  },
+  {
+    "description": "Set a file's modification time to a specific value",
+    "command": "touch -d \"<time>\" <file>",
+    "defaults": {
+      "time": "2 days ago 10:00"
+    },
+    "params": {
+      "time": {
+        "type": "string",
+        "description": "Free-form time string (e.g. '12am', 'yesterday 6am', 'tomorrow 04:00')"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Target file"
+      }
+    }
+  },
+  {
+    "description": "Copy mtime from one file to another",
+    "command": "touch -r <reference> <target>",
+    "params": {
+      "reference": {
+        "type": "existing_file",
+        "description": "File whose mtime to copy"
+      },
+      "target": {
+        "type": "existing_file",
+        "description": "File whose mtime to set"
+      }
+    }
+  },
+  {
+    "description": "Update only the access time",
+    "command": "touch -a <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Target file"
+      }
+    }
+  }
+]

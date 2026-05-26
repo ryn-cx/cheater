@@ -1,0 +1,56 @@
+[
+  {
+    "description": "Copy your loaded SSH keys to a remote host",
+    "command": "ssh-copy-id <user>@<host>",
+    "params": {
+      "user": {
+        "description": "Remote user"
+      },
+      "host": {
+        "description": "Remote host"
+      }
+    }
+  },
+  {
+    "description": "Copy keys to a remote on a non-standard port",
+    "command": "ssh-copy-id -p <port> <user>@<host>",
+    "defaults": {
+      "port": "22"
+    },
+    "params": {
+      "port": {
+        "type": "integer",
+        "description": "Remote SSH port"
+      },
+      "user": {
+        "description": "Remote user"
+      },
+      "host": {
+        "description": "Remote host"
+      }
+    }
+  },
+  {
+    "description": "Copy a specific public key to a remote on a non-standard port",
+    "command": "ssh-copy-id -i <pub_key> \"<user>@<host> -p <port>\"",
+    "defaults": {
+      "port": "22"
+    },
+    "params": {
+      "pub_key": {
+        "type": "existing_file",
+        "description": "Public key file (.pub)"
+      },
+      "user": {
+        "description": "Remote user"
+      },
+      "host": {
+        "description": "Remote host"
+      },
+      "port": {
+        "type": "integer",
+        "description": "Remote SSH port"
+      }
+    }
+  }
+]

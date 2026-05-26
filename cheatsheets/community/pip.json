@@ -1,0 +1,90 @@
+[
+  {
+    "description": "Install a package",
+    "command": "pip install <package>",
+    "params": {
+      "package": {
+        "description": "Package name (or names, space-separated)"
+      }
+    }
+  },
+  {
+    "description": "Install a package into the user site",
+    "command": "pip install --user <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Upgrade a package",
+    "command": "pip install --upgrade <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Write current versions of installed packages to a file",
+    "command": "pip freeze > <requirements>",
+    "defaults": {
+      "requirements": "requirements.txt"
+    },
+    "params": {
+      "requirements": {
+        "type": "path",
+        "description": "Path to write to"
+      }
+    }
+  },
+  {
+    "description": "Install packages from a requirements file",
+    "command": "pip install -r <requirements>",
+    "params": {
+      "requirements": {
+        "type": "existing_file",
+        "description": "Requirements file"
+      }
+    }
+  },
+  {
+    "description": "Show details about a package",
+    "command": "pip show <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "List outdated packages",
+    "command": "pip list --outdated"
+  },
+  {
+    "description": "Upgrade every outdated package",
+    "command": "pip list --outdated --format=freeze | cut -d = -f 1 | xargs -n1 pip install -U"
+  },
+  {
+    "description": "Install a specific version of a package",
+    "command": "pip install -I '<package>==<version>'",
+    "params": {
+      "package": {
+        "description": "Package name"
+      },
+      "version": {
+        "description": "Version string"
+      }
+    }
+  },
+  {
+    "description": "Uninstall a package",
+    "command": "pip uninstall <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  }
+]

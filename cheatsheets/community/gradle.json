@@ -1,0 +1,50 @@
+[
+  {
+    "description": "Compile, test, and package the project",
+    "command": "gradle build"
+  },
+  {
+    "description": "Build but skip a specific task",
+    "command": "gradle build -x <task>",
+    "defaults": {
+      "task": "test"
+    },
+    "params": {
+      "task": {
+        "description": "Task to skip"
+      }
+    }
+  },
+  {
+    "description": "Build without network access (offline)",
+    "command": "gradle build --offline"
+  },
+  {
+    "description": "Clear the build directory",
+    "command": "gradle clean"
+  },
+  {
+    "description": "Refresh dependencies and rebuild from scratch",
+    "command": "gradle clean build --refresh-dependencies"
+  },
+  {
+    "description": "List the project's dependencies",
+    "command": "gradle dependencies"
+  },
+  {
+    "description": "List runnable tasks in the project",
+    "command": "gradle tasks"
+  },
+  {
+    "description": "List every task, including internal ones",
+    "command": "gradle tasks --all"
+  },
+  {
+    "description": "Initialize a new gradle build in the current directory",
+    "command": "gradle init"
+  },
+  {
+    "description": "Initialize a new Java library project",
+    "command": "gradle init --type java-library"
+  }
+]

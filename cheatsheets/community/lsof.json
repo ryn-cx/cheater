@@ -1,0 +1,81 @@
+[
+  {
+    "description": "List all IPv4 network files",
+    "command": "sudo lsof -i4"
+  },
+  {
+    "description": "List all IPv6 network files",
+    "command": "sudo lsof -i6"
+  },
+  {
+    "description": "List all open sockets",
+    "command": "lsof -i"
+  },
+  {
+    "description": "Find which program is using a specific TCP port",
+    "command": "lsof -i TCP:<port>",
+    "params": {
+      "port": {
+        "type": "integer",
+        "description": "TCP port number"
+      }
+    }
+  },
+  {
+    "description": "List connections to a specific host",
+    "command": "lsof -i@<host>",
+    "params": {
+      "host": {
+        "description": "Hostname or IP address"
+      }
+    }
+  },
+  {
+    "description": "List processes accessing a file or directory",
+    "command": "lsof <path>",
+    "params": {
+      "path": {
+        "type": "existing_path",
+        "description": "File or directory to query"
+      }
+    }
+  },
+  {
+    "description": "List all files open by a specific user",
+    "command": "lsof -u <username>",
+    "params": {
+      "username": {
+        "description": "User name or uid"
+      }
+    }
+  },
+  {
+    "description": "List all files used by processes of a given command name",
+    "command": "lsof -c <command>",
+    "params": {
+      "command": {
+        "description": "Command/process name"
+      }
+    }
+  },
+  {
+    "description": "List all files held open by a specific process",
+    "command": "lsof -p <pid>",
+    "params": {
+      "pid": {
+        "type": "integer",
+        "description": "Process id"
+      }
+    }
+  },
+  {
+    "description": "List files open under a mount point (helpful before unmount)",
+    "command": "lsof +f -- <mount_point>",
+    "params": {
+      "mount_point": {
+        "type": "existing_dir",
+        "description": "Mount point"
+      }
+    }
+  }
+]

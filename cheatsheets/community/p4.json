@@ -1,0 +1,34 @@
+[
+  {
+    "description": "Print client and server configuration info",
+    "command": "p4 info"
+  },
+  {
+    "description": "Open a file and add it to the depot",
+    "command": "p4 add <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to add"
+      }
+    }
+  },
+  {
+    "description": "Check out a file for editing",
+    "command": "p4 edit <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to check out"
+      }
+    }
+  },
+  {
+    "description": "Submit pending changes (interactive)",
+    "command": "p4 submit"
+  },
+  {
+    "description": "Sync workspace to latest",
+    "command": "p4 sync"
+  }
+]

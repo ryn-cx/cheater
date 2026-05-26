@@ -1,0 +1,55 @@
+[
+  {
+    "description": "Start, stop, or restart the auditd service",
+    "command": "service auditd <action>",
+    "defaults": {
+      "action": "restart"
+    },
+    "params": {
+      "action": {
+        "description": "One of: start, stop, restart, reload"
+      }
+    }
+  },
+  {
+    "description": "List active audit rules",
+    "command": "auditctl -l"
+  },
+  {
+    "description": "Add a temporary watch rule on a file",
+    "command": "auditctl -w <file> -p <permission> -k <identifier>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to watch"
+      },
+      "permission": {
+        "description": "Permission letters: r (read), w (write), x (execute), a (attribute)"
+      },
+      "identifier": {
+        "description": "Rule identifier/label"
+      }
+    }
+  },
+  {
+    "description": "Edit permanent audit rules",
+    "command": "vim /etc/audit/rules.d/audit.rules"
+  },
+  {
+    "description": "Reload auditd configuration",
+    "command": "service auditd reload"
+  },
+  {
+    "description": "Search the audit log by identifier (interpreted)",
+    "command": "ausearch -i -k <identifier>",
+    "params": {
+      "identifier": {
+        "description": "Rule identifier to filter by"
+      }
+    }
+  },
+  {
+    "description": "Show aureport reporting options",
+    "command": "aureport --help"
+  }
+]

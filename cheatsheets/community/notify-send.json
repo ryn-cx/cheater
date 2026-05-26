@@ -1,0 +1,52 @@
+[
+  {
+    "description": "Send a desktop notification via D-Bus",
+    "command": "notify-send -i <icon> -a <app_name> \"<summary>\" \"<body>\"",
+    "params": {
+      "icon": {
+        "description": "Icon file path or name"
+      },
+      "app_name": {
+        "description": "App name to attribute the notification to"
+      },
+      "summary": {
+        "type": "string",
+        "description": "Notification title"
+      },
+      "body": {
+        "type": "string",
+        "description": "Notification body text"
+      }
+    }
+  },
+  {
+    "description": "Send a quick notification (just summary)",
+    "command": "notify-send \"<summary>\"",
+    "params": {
+      "summary": {
+        "type": "string",
+        "description": "Notification title"
+      }
+    }
+  },
+  {
+    "description": "Send a notification with explicit urgency",
+    "command": "notify-send -u <urgency> \"<summary>\" \"<body>\"",
+    "defaults": {
+      "urgency": "normal"
+    },
+    "params": {
+      "urgency": {
+        "description": "low, normal, or critical"
+      },
+      "summary": {
+        "type": "string",
+        "description": "Notification title"
+      },
+      "body": {
+        "type": "string",
+        "description": "Notification body"
+      }
+    }
+  }
+]

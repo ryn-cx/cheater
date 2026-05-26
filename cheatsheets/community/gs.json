@@ -1,0 +1,36 @@
+[
+  {
+    "description": "Shrink a PDF using ghostscript",
+    "command": "gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=<output> <input>",
+    "params": {
+      "output": {
+        "type": "path",
+        "description": "Output PDF path"
+      },
+      "input": {
+        "type": "existing_file",
+        "description": "Input PDF"
+      }
+    }
+  },
+  {
+    "description": "Shrink a PDF with explicit quality preset",
+    "command": "gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dPDFSETTINGS=/<preset> -sOutputFile=<output> <input>",
+    "defaults": {
+      "preset": "ebook"
+    },
+    "params": {
+      "preset": {
+        "description": "screen, ebook, printer, prepress, default"
+      },
+      "output": {
+        "type": "path",
+        "description": "Output PDF path"
+      },
+      "input": {
+        "type": "existing_file",
+        "description": "Input PDF"
+      }
+    }
+  }
+]

@@ -1,0 +1,117 @@
+[
+  {
+    "description": "List existing environments",
+    "command": "conda env list"
+  },
+  {
+    "description": "Create a new environment",
+    "command": "conda create --name <environment>",
+    "params": {
+      "environment": {
+        "description": "Environment name"
+      }
+    }
+  },
+  {
+    "description": "Create a new environment pinned to a Python version",
+    "command": "conda create --name <environment> python=<version>",
+    "defaults": {
+      "version": "3.10"
+    },
+    "params": {
+      "environment": {
+        "description": "Environment name"
+      },
+      "version": {
+        "description": "Python version (e.g. 3.10)"
+      }
+    }
+  },
+  {
+    "description": "Install packages from a requirements file",
+    "command": "conda install --file <requirements>",
+    "params": {
+      "requirements": {
+        "type": "existing_file",
+        "description": "Path to a requirements file"
+      }
+    }
+  },
+  {
+    "description": "Clone an environment",
+    "command": "conda create --clone <source_env> --name <new_env>",
+    "params": {
+      "source_env": {
+        "description": "Existing environment to clone from"
+      },
+      "new_env": {
+        "description": "Name for the new environment"
+      }
+    }
+  },
+  {
+    "description": "Activate an environment",
+    "command": "conda activate <environment>",
+    "params": {
+      "environment": {
+        "description": "Environment to activate"
+      }
+    }
+  },
+  {
+    "description": "Deactivate the current environment",
+    "command": "conda deactivate"
+  },
+  {
+    "description": "Remove an environment by name",
+    "command": "conda env remove --name <environment>",
+    "params": {
+      "environment": {
+        "description": "Environment to remove"
+      }
+    }
+  },
+  {
+    "description": "Remove an environment by path",
+    "command": "conda env remove --prefix <env_path>",
+    "params": {
+      "env_path": {
+        "type": "existing_dir",
+        "description": "Path to the environment directory"
+      }
+    }
+  },
+  {
+    "description": "List packages in a named environment",
+    "command": "conda list --name <environment>",
+    "params": {
+      "environment": {
+        "description": "Environment to inspect"
+      }
+    }
+  },
+  {
+    "description": "List packages in the currently activated environment",
+    "command": "conda list"
+  },
+  {
+    "description": "Export the current environment to a YAML file",
+    "command": "conda env export > <out_file>",
+    "params": {
+      "out_file": {
+        "type": "path",
+        "description": "Path to write the environment YAML to"
+      }
+    }
+  },
+  {
+    "description": "Export only manually-installed packages (no auto deps)",
+    "command": "conda env export --from-history > <out_file>",
+    "params": {
+      "out_file": {
+        "type": "path",
+        "description": "Path to write the environment YAML to"
+      }
+    }
+  }
+]

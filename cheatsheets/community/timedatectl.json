@@ -1,0 +1,47 @@
+[
+  {
+    "description": "Show the current time, date, and timezone",
+    "command": "timedatectl"
+  },
+  {
+    "description": "Set the system timezone",
+    "command": "sudo timedatectl set-timezone <timezone>",
+    "defaults": {
+      "timezone": "America/Los_Angeles"
+    },
+    "params": {
+      "timezone": {
+        "description": "IANA timezone (e.g. America/New_York, Europe/Paris)"
+      }
+    }
+  },
+  {
+    "description": "Set the system time manually",
+    "command": "sudo timedatectl set-time \"<datetime>\"",
+    "defaults": {
+      "datetime": "2025-01-01 12:00:00"
+    },
+    "params": {
+      "datetime": {
+        "type": "string",
+        "description": "YYYY-MM-DD HH:MM:SS"
+      }
+    }
+  },
+  {
+    "description": "Enable or disable NTP synchronization",
+    "command": "sudo timedatectl set-ntp <state>",
+    "defaults": {
+      "state": "true"
+    },
+    "params": {
+      "state": {
+        "description": "true or false"
+      }
+    }
+  },
+  {
+    "description": "List all timezones",
+    "command": "timedatectl list-timezones"
+  }
+]

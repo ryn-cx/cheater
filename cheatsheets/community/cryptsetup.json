@@ -1,0 +1,39 @@
+[
+  {
+    "description": "Open a LUKS-encrypted partition as a named mapper device",
+    "command": "cryptsetup open --type luks <device> <name>",
+    "params": {
+      "device": {
+        "description": "Block device, e.g. /dev/sdb1"
+      },
+      "name": {
+        "description": "Mapper name (appears under /dev/mapper/<name>)"
+      }
+    }
+  },
+  {
+    "description": "Open a LUKS partition using a key file",
+    "command": "cryptsetup open --type luks --key-file <key_file> <device> <name>",
+    "params": {
+      "key_file": {
+        "type": "existing_file",
+        "description": "Path to the LUKS key file"
+      },
+      "device": {
+        "description": "Block device, e.g. /dev/sdb1"
+      },
+      "name": {
+        "description": "Mapper name"
+      }
+    }
+  },
+  {
+    "description": "Close an open LUKS mapping",
+    "command": "cryptsetup close <name>",
+    "params": {
+      "name": {
+        "description": "Mapper name to close"
+      }
+    }
+  }
+]

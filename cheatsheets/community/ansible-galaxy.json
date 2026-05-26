@@ -1,0 +1,60 @@
+[
+  {
+    "description": "Install a role",
+    "command": "ansible-galaxy install <user>.<role>",
+    "params": {
+      "user": {
+        "description": "Galaxy user/organization name"
+      },
+      "role": {
+        "description": "Role name"
+      }
+    }
+  },
+  {
+    "description": "Remove a role",
+    "command": "ansible-galaxy remove <user>.<role>",
+    "params": {
+      "user": {
+        "description": "Galaxy user/organization name"
+      },
+      "role": {
+        "description": "Role name"
+      }
+    }
+  },
+  {
+    "description": "List installed roles",
+    "command": "ansible-galaxy list"
+  },
+  {
+    "description": "Search for a role",
+    "command": "ansible-galaxy search <role>",
+    "params": {
+      "role": {
+        "description": "Role name to search for"
+      }
+    }
+  },
+  {
+    "description": "Create a new role skeleton",
+    "command": "ansible-galaxy init <role>",
+    "params": {
+      "role": {
+        "description": "Name for the new role"
+      }
+    }
+  },
+  {
+    "description": "Show info for a role",
+    "command": "ansible-galaxy role info <user>.<role>",
+    "params": {
+      "user": {
+        "description": "Galaxy user/organization name"
+      },
+      "role": {
+        "description": "Role name"
+      }
+    }
+  }
+]

@@ -1,0 +1,450 @@
+[
+  {
+    "description": "Select specific pages from a PDF",
+    "command": "cpdf <input> <page_spec> -o <output>",
+    "defaults": {
+      "page_spec": "1-3,6"
+    },
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      },
+      "page_spec": {
+        "type": "string",
+        "description": "Page spec (e.g. 1-3,6 or 'even' or 'odd' or '2-end')"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination PDF"
+      }
+    }
+  },
+  {
+    "description": "Merge multiple PDFs into one",
+    "command": "cpdf -merge <inputs> -o <output>",
+    "params": {
+      "inputs": {
+        "type": "existing_file_list",
+        "description": "PDF files to merge in order"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination PDF"
+      }
+    }
+  },
+  {
+    "description": "Split a PDF into N-page chunks",
+    "command": "cpdf -split <input> -o <output_pattern> -chunk <chunk_size>",
+    "defaults": {
+      "output_pattern": "Chunk%%%.pdf",
+      "chunk_size": "10"
+    },
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      },
+      "output_pattern": {
+        "type": "string",
+        "description": "Output filename pattern with %%% for the index"
+      },
+      "chunk_size": {
+        "type": "integer",
+        "description": "Pages per chunk"
+      }
+    }
+  },
+  {
+    "description": "Split a PDF on bookmark boundaries",
+    "command": "cpdf -split-bookmarks 0 <input> -o '@N.pdf'",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      }
+    }
+  },
+  {
+    "description": "Scale a PDF's pages by a factor",
+    "command": "cpdf -scale-page \"<sx> <sy>\" <input> -o <output>",
+    "defaults": {
+      "sx": "2",
+      "sy": "2"
+    },
+    "params": {
+      "sx": {
+        "description": "X-axis scale factor"
+      },
+      "sy": {
+        "description": "Y-axis scale factor"
+      },
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination PDF"
+      }
+    }
+  },
+  {
+    "description": "Scale a PDF to fit a standard paper size",
+    "command": "cpdf -scale-to-fit <paper> <input> -o <output>",
+    "defaults": {
+      "paper": "usletterportrait"
+    },
+    "params": {
+      "paper": {
+        "description": "Paper size (e.g. usletterportrait, a4portrait)"
+      },
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination PDF"
+      }
+    }
+  },
+  {
+    "description": "Rotate pages by an angle",
+    "command": "cpdf -rotate-contents <degrees> <input> -o <output>",
+    "defaults": {
+      "degrees": "90"
+    },
+    "params": {
+      "degrees": {
+        "type": "integer",
+        "description": "Rotation angle in degrees"
+      },
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination PDF"
+      }
+    }
+  },
+  {
+    "description": "Crop pages to a rectangle (points)",
+    "command": "cpdf -crop \"0 0 <width>pt <height>pt\" <input> -o <output>",
+    "params": {
+      "width": {
+        "type": "integer",
+        "description": "Crop width in points"
+      },
+      "height": {
+        "type": "integer",
+        "description": "Crop height in points"
+      },
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination PDF"
+      }
+    }
+  },
+  {
+    "description": "Encrypt a PDF with 128-bit encryption",
+    "command": "cpdf -encrypt 128bit <owner_pw> <user_pw> <input> -o <output>",
+    "params": {
+      "owner_pw": {
+        "type": "string",
+        "description": "Owner password"
+      },
+      "user_pw": {
+        "type": "string",
+        "description": "User password"
+      },
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination PDF"
+      }
+    }
+  },
+  {
+    "description": "Decrypt a PDF using the owner password",
+    "command": "cpdf -decrypt <input> owner=<owner_pw> -o <output>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Encrypted PDF"
+      },
+      "owner_pw": {
+        "type": "string",
+        "description": "Owner password"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination PDF"
+      }
+    }
+  },
+  {
+    "description": "Compress data streams in a PDF",
+    "command": "cpdf -compress <input> -o <output>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination PDF"
+      }
+    }
+  },
+  {
+    "description": "Decompress data streams in a PDF",
+    "command": "cpdf -decompress <input> -o <output>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination PDF"
+      }
+    }
+  },
+  {
+    "description": "List the bookmarks in a PDF",
+    "command": "cpdf -list-bookmarks <input>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      }
+    }
+  },
+  {
+    "description": "Add bookmarks from a text file",
+    "command": "cpdf -add-bookmarks <bookmarks> <input> -o <output>",
+    "params": {
+      "bookmarks": {
+        "type": "existing_file",
+        "description": "Bookmarks definition file"
+      },
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination PDF"
+      }
+    }
+  },
+  {
+    "description": "Stamp one PDF on top of another",
+    "command": "cpdf -stamp-on <watermark> <input> -o <output>",
+    "params": {
+      "watermark": {
+        "type": "existing_file",
+        "description": "Watermark PDF to stamp on top"
+      },
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination PDF"
+      }
+    }
+  },
+  {
+    "description": "Add page numbers and a date to every page",
+    "command": "cpdf -topleft 10 -font Courier -add-text \"Page %Page\\nDate %d-%m-%Y\" <input> -o <output>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination PDF"
+      }
+    }
+  },
+  {
+    "description": "Two-up impose a PDF (stack pages)",
+    "command": "cpdf -twoup-stack <input> -o <output>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination PDF"
+      }
+    }
+  },
+  {
+    "description": "Insert blank pages after specified page numbers",
+    "command": "cpdf -pad-after <pages> <input> -o <output>",
+    "defaults": {
+      "pages": "1,3,4"
+    },
+    "params": {
+      "pages": {
+        "type": "string",
+        "description": "Comma-separated page numbers"
+      },
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination PDF"
+      }
+    }
+  },
+  {
+    "description": "List annotations in a PDF",
+    "command": "cpdf -list-annotations <input>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      }
+    }
+  },
+  {
+    "description": "Copy annotations from one PDF to another",
+    "command": "cpdf -copy-annotations <source> <input> -o <output>",
+    "params": {
+      "source": {
+        "type": "existing_file",
+        "description": "PDF to copy annotations from"
+      },
+      "input": {
+        "type": "existing_file",
+        "description": "PDF to receive annotations"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination PDF"
+      }
+    }
+  },
+  {
+    "description": "Set a PDF's document title",
+    "command": "cpdf -set-title \"<title>\" <input> -o <output>",
+    "params": {
+      "title": {
+        "type": "string",
+        "description": "New document title"
+      },
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination PDF"
+      }
+    }
+  },
+  {
+    "description": "Set metadata XML on a PDF",
+    "command": "cpdf -set-metadata <metadata> <input> -o <output>",
+    "params": {
+      "metadata": {
+        "type": "existing_file",
+        "description": "Metadata XML file"
+      },
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination PDF"
+      }
+    }
+  },
+  {
+    "description": "Attach a file to a PDF",
+    "command": "cpdf -attach-file <attachment> <input> -o <output>",
+    "params": {
+      "attachment": {
+        "type": "existing_file",
+        "description": "File to attach"
+      },
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination PDF"
+      }
+    }
+  },
+  {
+    "description": "Remove all attachments from a PDF",
+    "command": "cpdf -remove-files <input> -o <output>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination PDF"
+      }
+    }
+  },
+  {
+    "description": "Blacken all text in a PDF (redaction-style)",
+    "command": "cpdf -blacktext <input> -o <output>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination PDF"
+      }
+    }
+  },
+  {
+    "description": "Ensure all lines are at least N points wide",
+    "command": "cpdf -thinlines <width>pt <input> -o <output>",
+    "defaults": {
+      "width": "2"
+    },
+    "params": {
+      "width": {
+        "type": "integer",
+        "description": "Minimum line width in points"
+      },
+      "input": {
+        "type": "existing_file",
+        "description": "Source PDF"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination PDF"
+      }
+    }
+  }
+]

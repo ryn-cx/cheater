@@ -1,0 +1,64 @@
+[
+  {
+    "description": "Submit a new batch job",
+    "command": "sbatch <job_script>",
+    "params": {
+      "job_script": {
+        "type": "existing_file",
+        "description": "Job submission script"
+      }
+    }
+  },
+  {
+    "description": "List all jobs for a user",
+    "command": "squeue -u <user>",
+    "params": {
+      "user": {
+        "description": "Username"
+      }
+    }
+  },
+  {
+    "description": "Cancel a job by id",
+    "command": "scancel <job_id>",
+    "params": {
+      "job_id": {
+        "type": "integer",
+        "description": "Job id"
+      }
+    }
+  },
+  {
+    "description": "Cancel a job by name",
+    "command": "scancel --name <job_name>",
+    "params": {
+      "job_name": {
+        "description": "Job name"
+      }
+    }
+  },
+  {
+    "description": "Show detailed info for a job",
+    "command": "scontrol show jobid -dd <job_id>",
+    "params": {
+      "job_id": {
+        "type": "integer",
+        "description": "Job id"
+      }
+    }
+  },
+  {
+    "description": "Show resource stats for a running job",
+    "command": "sstat --format=AveCPU,AvePages,AveRSS,AveVMSize,JobID -j <job_id> --allsteps",
+    "params": {
+      "job_id": {
+        "type": "integer",
+        "description": "Job id"
+      }
+    }
+  },
+  {
+    "description": "Show cluster info / node status",
+    "command": "sinfo"
+  }
+]

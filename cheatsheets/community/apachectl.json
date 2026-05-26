@@ -1,0 +1,6 @@
+[
+  {
+    "description": "Test Apache configuration file syntax",
+    "command": "apachectl configtest"
+  }
+]

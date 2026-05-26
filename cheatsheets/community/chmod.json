@@ -1,0 +1,61 @@
+[
+  {
+    "description": "Add execute permission for all roles",
+    "command": "chmod a+x <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Target file"
+      }
+    }
+  },
+  {
+    "description": "Set user to rwx and group/other to read-only (symbolic)",
+    "command": "chmod u=rwx,go=r <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Target file"
+      }
+    }
+  },
+  {
+    "description": "Remove write permission for all roles (symbolic)",
+    "command": "chmod a-w <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Target file"
+      }
+    }
+  },
+  {
+    "description": "Set permissions using octal notation",
+    "command": "chmod <mode> <file>",
+    "defaults": {
+      "mode": "644"
+    },
+    "params": {
+      "mode": {
+        "description": "Octal mode (e.g. 644, 755, 666, 700)"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Target file"
+      }
+    }
+  },
+  {
+    "description": "Apply permissions recursively to a directory tree",
+    "command": "chmod -R <mode> <directory>",
+    "params": {
+      "mode": {
+        "description": "Octal mode or symbolic spec"
+      },
+      "directory": {
+        "type": "existing_dir",
+        "description": "Target directory"
+      }
+    }
+  }
+]

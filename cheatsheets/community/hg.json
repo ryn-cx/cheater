@@ -1,0 +1,44 @@
+[
+  {
+    "description": "Clone a repository",
+    "command": "hg clone <url>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "Repository URL"
+      }
+    }
+  },
+  {
+    "description": "Add files to the mercurial tracker",
+    "command": "hg add <path>",
+    "params": {
+      "path": {
+        "type": "existing_path",
+        "description": "File or directory to add"
+      }
+    }
+  },
+  {
+    "description": "Commit all tracked changes with a message",
+    "command": "hg commit -m \"<message>\"",
+    "params": {
+      "message": {
+        "type": "string",
+        "description": "Commit message"
+      }
+    }
+  },
+  {
+    "description": "Push commits to the default remote",
+    "command": "hg push"
+  },
+  {
+    "description": "Pull changes from the default remote",
+    "command": "hg pull"
+  },
+  {
+    "description": "Pull and rebase local commits on top",
+    "command": "hg pull --rebase"
+  }
+]

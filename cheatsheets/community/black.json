@@ -1,0 +1,32 @@
+[
+  {
+    "description": "Format Python code in a file or directory",
+    "command": "black <path>",
+    "params": {
+      "path": {
+        "type": "existing_path",
+        "description": "File or directory to format"
+      }
+    }
+  },
+  {
+    "description": "Check whether code is already well-formatted (exit code 1 if not)",
+    "command": "black --check <path>",
+    "params": {
+      "path": {
+        "type": "existing_path",
+        "description": "File or directory to check"
+      }
+    }
+  },
+  {
+    "description": "Show the changes that would be applied",
+    "command": "black --diff <path>",
+    "params": {
+      "path": {
+        "type": "existing_path",
+        "description": "File or directory to diff"
+      }
+    }
+  }
+]

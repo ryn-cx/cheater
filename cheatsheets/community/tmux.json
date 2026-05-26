@@ -1,0 +1,67 @@
+[
+  {
+    "description": "Start a new tmux session",
+    "command": "tmux"
+  },
+  {
+    "description": "Start a new named session",
+    "command": "tmux new -s <session>",
+    "params": {
+      "session": {
+        "description": "Session name"
+      }
+    }
+  },
+  {
+    "description": "List existing sessions",
+    "command": "tmux ls"
+  },
+  {
+    "description": "Attach to the most recent session",
+    "command": "tmux attach"
+  },
+  {
+    "description": "Attach to a specific session by name",
+    "command": "tmux attach -t <session>",
+    "params": {
+      "session": {
+        "description": "Session name"
+      }
+    }
+  },
+  {
+    "description": "Force-detach an existing attachment and reattach",
+    "command": "tmux attach -d -t <session>",
+    "params": {
+      "session": {
+        "description": "Session name"
+      }
+    }
+  },
+  {
+    "description": "Kill a specific session",
+    "command": "tmux kill-session -t <session>",
+    "params": {
+      "session": {
+        "description": "Session name"
+      }
+    }
+  },
+  {
+    "description": "Kill every tmux server and all sessions",
+    "command": "tmux kill-server"
+  },
+  {
+    "description": "Start a shared session via a socket file",
+    "command": "tmux -S <socket_path>",
+    "defaults": {
+      "socket_path": "/tmp/shared.sock"
+    },
+    "params": {
+      "socket_path": {
+        "type": "path",
+        "description": "Path to the shared socket"
+      }
+    }
+  }
+]

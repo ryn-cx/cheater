@@ -1,0 +1,138 @@
+[
+  {
+    "description": "Create a physical volume (PV) on a disk",
+    "command": "sudo pvcreate <device>",
+    "params": {
+      "device": {
+        "description": "Block device (e.g. /dev/sda)"
+      }
+    }
+  },
+  {
+    "description": "Display info about a physical volume",
+    "command": "sudo pvdisplay <device>",
+    "params": {
+      "device": {
+        "description": "Block device path"
+      }
+    }
+  },
+  {
+    "description": "Create a volume group (VG) from one PV",
+    "command": "sudo vgcreate <vg_name> <device>",
+    "params": {
+      "vg_name": {
+        "description": "Volume group name"
+      },
+      "device": {
+        "description": "Block device path"
+      }
+    }
+  },
+  {
+    "description": "Display info about a volume group",
+    "command": "sudo vgdisplay <vg_name>",
+    "params": {
+      "vg_name": {
+        "description": "Volume group name"
+      }
+    }
+  },
+  {
+    "description": "Add a physical volume to an existing volume group",
+    "command": "sudo vgextend <vg_name> <device>",
+    "params": {
+      "vg_name": {
+        "description": "Volume group name"
+      },
+      "device": {
+        "description": "Block device to add"
+      }
+    }
+  },
+  {
+    "description": "Move data off a PV, then remove it from the VG",
+    "command": "sudo pvmove <device> && sudo vgreduce <vg_name> <device>",
+    "params": {
+      "device": {
+        "description": "Block device to evict"
+      },
+      "vg_name": {
+        "description": "Volume group name"
+      }
+    }
+  },
+  {
+    "description": "Deactivate a volume group (e.g. before physical removal)",
+    "command": "sudo vgchange --activate n <vg_name>",
+    "params": {
+      "vg_name": {
+        "description": "Volume group name"
+      }
+    }
+  },
+  {
+    "description": "Create a logical volume",
+    "command": "sudo lvcreate --name <lv_name> --size <size> <vg_name>",
+    "defaults": {
+      "size": "8G"
+    },
+    "params": {
+      "lv_name": {
+        "description": "Logical volume name"
+      },
+      "size": {
+        "description": "Size with unit (e.g. 8G, 500M)"
+      },
+      "vg_name": {
+        "description": "Volume group name"
+      }
+    }
+  },
+  {
+    "description": "Extend the size of a logical volume",
+    "command": "sudo lvextend --size <size> <vg_name>/<lv_name>",
+    "params": {
+      "size": {
+        "description": "New size (e.g. 16G)"
+      },
+      "vg_name": {
+        "description": "Volume group name"
+      },
+      "lv_name": {
+        "description": "Logical volume name"
+      }
+    }
+  },
+  {
+    "description": "Reduce the size of a logical volume (resize FS first!)",
+    "command": "sudo lvreduce --size <size> <vg_name>/<lv_name>",
+    "params": {
+      "size": {
+        "description": "New (smaller) size"
+      },
+      "vg_name": {
+        "description": "Volume group name"
+      },
+      "lv_name": {
+        "description": "Logical volume name"
+      }
+    }
+  },
+  {
+    "description": "Remove a logical volume",
+    "command": "sudo lvremove <vg_name>/<lv_name>",
+    "params": {
+      "vg_name": {
+        "description": "Volume group name"
+      },
+      "lv_name": {
+        "description": "Logical volume name"
+      }
+    }
+  },
+  {
+    "description": "Show kernel's view of active RAID/MD arrays",
+    "command": "cat /proc/mdstat"
+  }
+]

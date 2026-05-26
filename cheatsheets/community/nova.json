@@ -1,0 +1,61 @@
+[
+  {
+    "description": "List VMs in the current OpenStack tenant",
+    "command": "nova list"
+  },
+  {
+    "description": "List VMs across all tenants (admin only)",
+    "command": "nova list --all-tenants"
+  },
+  {
+    "description": "Boot a VM on a specific host",
+    "command": "nova boot --nic net-id=<net_id> --image <image_id> --flavor <flavor> --availability-zone nova:<host> <name>",
+    "params": {
+      "net_id": {
+        "description": "Network id"
+      },
+      "image_id": {
+        "description": "Image id"
+      },
+      "flavor": {
+        "description": "Flavor name or id"
+      },
+      "host": {
+        "description": "Compute host name"
+      },
+      "name": {
+        "description": "Name for the new VM"
+      }
+    }
+  },
+  {
+    "description": "Stop a running server",
+    "command": "nova stop <server>",
+    "params": {
+      "server": {
+        "description": "VM name or id"
+      }
+    }
+  },
+  {
+    "description": "Start a stopped server",
+    "command": "nova start <server>",
+    "params": {
+      "server": {
+        "description": "VM name or id"
+      }
+    }
+  },
+  {
+    "description": "Attach a network interface to a VM",
+    "command": "nova interface-attach --net-id <net_id> <server>",
+    "params": {
+      "net_id": {
+        "description": "Network id"
+      },
+      "server": {
+        "description": "VM name or id"
+      }
+    }
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "description": "Convert HTML to Markdown",
+    "command": "pandoc -f html -t markdown -i <input> -o <output>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "HTML input file"
+      },
+      "output": {
+        "type": "path",
+        "description": "Markdown output file"
+      }
+    }
+  },
+  {
+    "description": "Convert Markdown to HTML",
+    "command": "pandoc -f markdown -t html -i <input> -o <output>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Markdown input file"
+      },
+      "output": {
+        "type": "path",
+        "description": "HTML output file"
+      }
+    }
+  },
+  {
+    "description": "Convert Markdown to PDF (requires LaTeX)",
+    "command": "pandoc <input> -o <output>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Markdown input"
+      },
+      "output": {
+        "type": "path",
+        "description": "PDF output file"
+      }
+    }
+  },
+  {
+    "description": "Convert Markdown to DOCX",
+    "command": "pandoc -f markdown -t docx -o <output> <input>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Markdown input"
+      },
+      "output": {
+        "type": "path",
+        "description": "DOCX output file"
+      }
+    }
+  }
+]

@@ -1,0 +1,19 @@
+[
+  {
+    "description": "Format C/C++ in K&R style (3 spaces, no tabs, 120-char lines)",
+    "command": "indent -i3 -kr -nut -l<width> <file>",
+    "defaults": {
+      "width": "120"
+    },
+    "params": {
+      "width": {
+        "type": "integer",
+        "description": "Maximum line width"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "C/C++ source file"
+      }
+    }
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "description": "Display all hardware details (lshw)",
+    "command": "sudo lshw"
+  },
+  {
+    "description": "List currently loaded kernel modules",
+    "command": "lsmod"
+  },
+  {
+    "description": "List all available kernel modules",
+    "command": "find /lib/modules/$(uname -r) -type f -iname \"*.ko\""
+  },
+  {
+    "description": "Load a kernel module",
+    "command": "sudo modprobe <module>",
+    "params": {
+      "module": {
+        "description": "Kernel module name"
+      }
+    }
+  },
+  {
+    "description": "Remove a kernel module",
+    "command": "sudo modprobe -r <module>",
+    "params": {
+      "module": {
+        "description": "Kernel module name"
+      }
+    }
+  },
+  {
+    "description": "List devices connected to the PCI bus",
+    "command": "lspci"
+  },
+  {
+    "description": "Verbose PCI dump (hex)",
+    "command": "lspci -vvxxx"
+  },
+  {
+    "description": "Show CPU hardware info",
+    "command": "cat /proc/cpuinfo"
+  },
+  {
+    "description": "Show memory hardware info",
+    "command": "cat /proc/meminfo"
+  },
+  {
+    "description": "Show the kernel ring buffer",
+    "command": "dmesg"
+  },
+  {
+    "description": "Show only kernel-tagged messages",
+    "command": "dmesg --kernel"
+  }
+]

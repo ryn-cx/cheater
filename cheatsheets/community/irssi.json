@@ -1,0 +1,46 @@
+[
+  {
+    "description": "To connect to an IRC server",
+    "command": "/connect <server>"
+  },
+  {
+    "description": "To join a channel",
+    "command": "/join #<channel>"
+  },
+  {
+    "description": "To set a nickname",
+    "command": "/nick <nickname>"
+  },
+  {
+    "description": "To send a private message to a user",
+    "command": "/msg <nickname>"
+  },
+  {
+    "description": "To close the current channel window",
+    "command": "/wc"
+  },
+  {
+    "description": "To switch between channel windows",
+    "command": "ALT+<number>, eg. ALT+1, ALT+2"
+  },
+  {
+    "description": "To list the nicknames within the active channel",
+    "command": "/names"
+  },
+  {
+    "description": "To change the channel topic",
+    "command": "/topic <description>"
+  },
+  {
+    "description": "To limit channel background noise (joins, parts, quits, etc.)",
+    "command": "/ignore #foo,#bar JOINS PARTS QUITS NICKS   # Quieten only channels `#foo`, `#bar`\n/ignore * JOINS PARTS QUITS NICKS           # Quieten all channels"
+  },
+  {
+    "description": "To save the current Irssi session config into the configuration file",
+    "command": "/save"
+  },
+  {
+    "description": "To quit Irssi",
+    "command": "/exit"
+  }
+]

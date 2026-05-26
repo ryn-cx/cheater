@@ -1,0 +1,69 @@
+[
+  {
+    "description": "Shred a file with N overwrite passes (verbose)",
+    "command": "shred -n <passes> -v <file>",
+    "defaults": {
+      "passes": "5"
+    },
+    "params": {
+      "passes": {
+        "type": "integer",
+        "description": "Number of overwrite passes"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to shred"
+      }
+    }
+  },
+  {
+    "description": "Shred a file and finish with a zero pass",
+    "command": "shred -n <passes> -vz <file>",
+    "defaults": {
+      "passes": "5"
+    },
+    "params": {
+      "passes": {
+        "type": "integer",
+        "description": "Number of overwrite passes"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to shred"
+      }
+    }
+  },
+  {
+    "description": "Shred, then truncate and unlink the file",
+    "command": "shred -n <passes> -vzu <file>",
+    "defaults": {
+      "passes": "5"
+    },
+    "params": {
+      "passes": {
+        "type": "integer",
+        "description": "Number of overwrite passes"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to shred and remove"
+      }
+    }
+  },
+  {
+    "description": "Shred a whole block device (destroys data!)",
+    "command": "sudo shred -n <passes> -vz <device>",
+    "defaults": {
+      "passes": "5"
+    },
+    "params": {
+      "passes": {
+        "type": "integer",
+        "description": "Number of overwrite passes"
+      },
+      "device": {
+        "description": "Block device (e.g. /dev/sda)"
+      }
+    }
+  }
+]

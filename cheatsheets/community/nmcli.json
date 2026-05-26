@@ -1,0 +1,95 @@
+[
+  {
+    "description": "Connect to a WiFi network",
+    "command": "nmcli d wifi connect <ssid> password <password> iface <interface>",
+    "params": {
+      "ssid": {
+        "type": "string",
+        "description": "SSID of the access point"
+      },
+      "password": {
+        "type": "string",
+        "description": "WiFi password"
+      },
+      "interface": {
+        "description": "Wireless interface (e.g. wlan0)"
+      }
+    }
+  },
+  {
+    "description": "Disconnect a WiFi interface",
+    "command": "nmcli d wifi disconnect iface <interface>",
+    "params": {
+      "interface": {
+        "description": "Wireless interface"
+      }
+    }
+  },
+  {
+    "description": "Show WiFi radio status (enabled/disabled)",
+    "command": "nmcli radio wifi"
+  },
+  {
+    "description": "Enable or disable the WiFi radio",
+    "command": "nmcli radio wifi <state>",
+    "defaults": {
+      "state": "on"
+    },
+    "params": {
+      "state": {
+        "description": "on or off"
+      }
+    }
+  },
+  {
+    "description": "List all available WiFi access points",
+    "command": "nmcli dev wifi list"
+  },
+  {
+    "description": "Rescan for WiFi networks",
+    "command": "nmcli dev wifi rescan"
+  },
+  {
+    "description": "List all known connections",
+    "command": "nmcli con"
+  },
+  {
+    "description": "List only currently active connections",
+    "command": "nmcli con show --active"
+  },
+  {
+    "description": "Show all network devices and their status",
+    "command": "nmcli dev status"
+  },
+  {
+    "description": "Add a dynamic ethernet connection",
+    "command": "nmcli con add type ethernet con-name <name> ifname <interface>",
+    "params": {
+      "name": {
+        "description": "Connection name"
+      },
+      "interface": {
+        "description": "Network interface (e.g. eth0)"
+      }
+    }
+  },
+  {
+    "description": "Import an OpenVPN profile from a .ovpn file",
+    "command": "nmcli con import type openvpn file <ovpn_file>",
+    "params": {
+      "ovpn_file": {
+        "type": "existing_file",
+        "description": ".ovpn profile path"
+      }
+    }
+  },
+  {
+    "description": "Bring up a connection by name",
+    "command": "nmcli con up <name>",
+    "params": {
+      "name": {
+        "description": "Connection name"
+      }
+    }
+  }
+]

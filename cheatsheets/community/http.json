@@ -1,0 +1,155 @@
+[
+  {
+    "description": "Send a custom HTTP method with headers and JSON fields (HTTPie)",
+    "command": "http <method> <url> <fields>",
+    "defaults": {
+      "method": "PUT"
+    },
+    "params": {
+      "method": {
+        "description": "HTTP method (GET, POST, PUT, PATCH, DELETE)"
+      },
+      "url": {
+        "type": "string",
+        "description": "Target URL"
+      },
+      "fields": {
+        "type": "string",
+        "description": "Space-separated name=value JSON fields"
+      }
+    }
+  },
+  {
+    "description": "Submit a form (POST application/x-www-form-urlencoded)",
+    "command": "http -f POST <url> <fields>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "Target URL"
+      },
+      "fields": {
+        "type": "string",
+        "description": "Space-separated name=value form fields"
+      }
+    }
+  },
+  {
+    "description": "Verbose: print the request and the response",
+    "command": "http -v <url>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "Target URL"
+      }
+    }
+  },
+  {
+    "description": "Upload a file as the request body",
+    "command": "http <method> <url> < <file>",
+    "defaults": {
+      "method": "POST"
+    },
+    "params": {
+      "method": {
+        "description": "HTTP method"
+      },
+      "url": {
+        "type": "string",
+        "description": "Target URL"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File whose contents to send as the body"
+      }
+    }
+  },
+  {
+    "description": "Download a file (wget-style with progress)",
+    "command": "http --download <url>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "URL to download"
+      }
+    }
+  },
+  {
+    "description": "Use HTTP basic auth",
+    "command": "http -a <username>:<password> <url>",
+    "params": {
+      "username": {
+        "description": "Username"
+      },
+      "password": {
+        "type": "string",
+        "description": "Password"
+      },
+      "url": {
+        "type": "string",
+        "description": "Target URL"
+      }
+    }
+  },
+  {
+    "description": "Send via an HTTP proxy",
+    "command": "http --proxy=http:<proxy_url> <url>",
+    "params": {
+      "proxy_url": {
+        "type": "string",
+        "description": "Proxy URL (e.g. http://10.10.1.10:3128)"
+      },
+      "url": {
+        "type": "string",
+        "description": "Target URL"
+      }
+    }
+  },
+  {
+    "description": "Skip SSL certificate verification",
+    "command": "http --verify=no <url>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "Target URL"
+      }
+    }
+  },
+  {
+    "description": "Use a client-side certificate for SSL",
+    "command": "http --cert=<cert> --cert-key=<key> <url>",
+    "params": {
+      "cert": {
+        "type": "existing_file",
+        "description": "Client certificate file"
+      },
+      "key": {
+        "type": "existing_file",
+        "description": "Private key file"
+      },
+      "url": {
+        "type": "string",
+        "description": "Target URL"
+      }
+    }
+  },
+  {
+    "description": "Save and reuse a named session for auth/headers",
+    "command": "http --session=<session> -a <username>:<password> <url>",
+    "params": {
+      "session": {
+        "description": "Session name or path to session file"
+      },
+      "username": {
+        "description": "Username"
+      },
+      "password": {
+        "type": "string",
+        "description": "Password"
+      },
+      "url": {
+        "type": "string",
+        "description": "Target URL"
+      }
+    }
+  }
+]

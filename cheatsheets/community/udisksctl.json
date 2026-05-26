@@ -1,0 +1,38 @@
+[
+  {
+    "description": "Show info about a block device",
+    "command": "udisksctl info -b <device>",
+    "params": {
+      "device": {
+        "description": "Block device path (e.g. /dev/sdb1)"
+      }
+    }
+  },
+  {
+    "description": "Mount a block device",
+    "command": "udisksctl mount --block-device <device>",
+    "params": {
+      "device": {
+        "description": "Block device path"
+      }
+    }
+  },
+  {
+    "description": "Unmount a block device",
+    "command": "udisksctl unmount --block-device <device>",
+    "params": {
+      "device": {
+        "description": "Block device path"
+      }
+    }
+  },
+  {
+    "description": "Power off a removable block device",
+    "command": "udisksctl power-off --block-device <device>",
+    "params": {
+      "device": {
+        "description": "Block device path"
+      }
+    }
+  }
+]

@@ -1,0 +1,15 @@
+[
+  {
+    "description": "Encrypt a string and store it under a named variable",
+    "command": "ansible-vault encrypt_string '<plaintext>' --name '<variable>'",
+    "params": {
+      "plaintext": {
+        "type": "string",
+        "description": "Plaintext value to encrypt"
+      },
+      "variable": {
+        "description": "Variable name to store the encrypted value under"
+      }
+    }
+  }
+]

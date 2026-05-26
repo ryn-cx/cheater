@@ -1,0 +1,129 @@
+[
+  {
+    "description": "Update MacPorts and sync the ports tree",
+    "command": "sudo port selfupdate"
+  },
+  {
+    "description": "List currently outdated ports",
+    "command": "port echo outdated"
+  },
+  {
+    "description": "Upgrade all outdated ports",
+    "command": "sudo port upgrade outdated"
+  },
+  {
+    "description": "List inactive ports (older versions superseded by new installs)",
+    "command": "port echo inactive"
+  },
+  {
+    "description": "Uninstall all inactive ports",
+    "command": "sudo port uninstall inactive"
+  },
+  {
+    "description": "Install a port",
+    "command": "sudo port install <port>",
+    "params": {
+      "port": {
+        "description": "Port name"
+      }
+    }
+  },
+  {
+    "description": "Uninstall a port",
+    "command": "sudo port uninstall <port>",
+    "params": {
+      "port": {
+        "description": "Port name"
+      }
+    }
+  },
+  {
+    "description": "Clean up all temp assets of a port",
+    "command": "sudo port clean -f --all <port>",
+    "params": {
+      "port": {
+        "description": "Port name"
+      }
+    }
+  },
+  {
+    "description": "Upgrade a single port",
+    "command": "sudo port upgrade <port>",
+    "params": {
+      "port": {
+        "description": "Port name"
+      }
+    }
+  },
+  {
+    "description": "Deactivate a port (without uninstalling)",
+    "command": "sudo port deactivate <port>",
+    "params": {
+      "port": {
+        "description": "Port name"
+      }
+    }
+  },
+  {
+    "description": "Activate a deactivated port",
+    "command": "sudo port activate <port>",
+    "params": {
+      "port": {
+        "description": "Port name"
+      }
+    }
+  },
+  {
+    "description": "Search for a port by name",
+    "command": "port search <name>",
+    "params": {
+      "name": {
+        "description": "Search term"
+      }
+    }
+  },
+  {
+    "description": "Show info about a port",
+    "command": "port info <port>",
+    "params": {
+      "port": {
+        "description": "Port name"
+      }
+    }
+  },
+  {
+    "description": "List ports the user explicitly installed",
+    "command": "port echo requested"
+  },
+  {
+    "description": "List all installed ports",
+    "command": "port echo installed"
+  },
+  {
+    "description": "List direct dependencies of a port",
+    "command": "port deps <port>",
+    "params": {
+      "port": {
+        "description": "Port name"
+      }
+    }
+  },
+  {
+    "description": "List recursive dependencies of a port",
+    "command": "port rdeps <port>",
+    "params": {
+      "port": {
+        "description": "Port name"
+      }
+    }
+  },
+  {
+    "description": "List the files installed by a port",
+    "command": "port contents <port>",
+    "params": {
+      "port": {
+        "description": "Port name"
+      }
+    }
+  }
+]

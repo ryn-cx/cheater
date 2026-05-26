@@ -1,0 +1,110 @@
+[
+  {
+    "description": "Create a new Picocli-based CLI script",
+    "command": "jbang init --template=cli <name>.java",
+    "params": {
+      "name": {
+        "description": "Script name (without .java)"
+      }
+    }
+  },
+  {
+    "description": "Edit a jbang script in VS Code",
+    "command": "jbang edit --open=code <script>",
+    "params": {
+      "script": {
+        "type": "existing_file",
+        "description": "jbang script file"
+      }
+    }
+  },
+  {
+    "description": "Edit a script in IntelliJ with live dependency refresh",
+    "command": "jbang edit --live --open=idea <script>",
+    "params": {
+      "script": {
+        "type": "existing_file",
+        "description": "jbang script file"
+      }
+    }
+  },
+  {
+    "description": "Build a script's cached artifact without running it",
+    "command": "jbang build <script>",
+    "params": {
+      "script": {
+        "type": "existing_file",
+        "description": "jbang script file"
+      }
+    }
+  },
+  {
+    "description": "Run a jbang script with arguments",
+    "command": "jbang <script> <args>",
+    "params": {
+      "script": {
+        "type": "existing_file",
+        "description": "jbang script file"
+      },
+      "args": {
+        "type": "string",
+        "description": "Program arguments"
+      }
+    }
+  },
+  {
+    "description": "Debug a script (jbang will print the debug port)",
+    "command": "jbang --debug <script> <args>",
+    "params": {
+      "script": {
+        "type": "existing_file",
+        "description": "jbang script file"
+      },
+      "args": {
+        "type": "string",
+        "description": "Program arguments"
+      }
+    }
+  },
+  {
+    "description": "Run a script from a remote URL",
+    "command": "jbang <url>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "Script URL"
+      }
+    }
+  },
+  {
+    "description": "Run a jar by Maven coordinates",
+    "command": "jbang <coordinates> <args>",
+    "params": {
+      "coordinates": {
+        "description": "groupId:artifactId:version (e.g. RELEASE)"
+      },
+      "args": {
+        "type": "string",
+        "description": "Program arguments"
+      }
+    }
+  },
+  {
+    "description": "Install a JDK for jbang",
+    "command": "jbang jdk install <version>",
+    "params": {
+      "version": {
+        "type": "integer",
+        "description": "JDK major version"
+      }
+    }
+  },
+  {
+    "description": "List JDKs installed by jbang",
+    "command": "jbang jdk list"
+  },
+  {
+    "description": "Clear the jbang cache",
+    "command": "jbang cache clear"
+  }
+]

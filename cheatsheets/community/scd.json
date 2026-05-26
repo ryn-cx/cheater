@@ -1,0 +1,49 @@
+[
+  {
+    "description": "Index paths recursively (first-time setup)",
+    "command": "scd -ar <path>",
+    "params": {
+      "path": {
+        "type": "existing_dir",
+        "description": "Path to index"
+      }
+    }
+  },
+  {
+    "description": "Change to a directory matching a substring",
+    "command": "scd <pattern>",
+    "params": {
+      "pattern": {
+        "description": "Substring or regex"
+      }
+    }
+  },
+  {
+    "description": "Match all of multiple substrings",
+    "command": "scd <a> <b> <c>",
+    "params": {
+      "a": {
+        "description": "First substring"
+      },
+      "b": {
+        "description": "Second substring"
+      },
+      "c": {
+        "description": "Third substring"
+      }
+    }
+  },
+  {
+    "description": "Show the picker and the top 20 candidates",
+    "command": "scd -v"
+  },
+  {
+    "description": "Alias the current directory under a short name",
+    "command": "scd --alias=<alias>",
+    "params": {
+      "alias": {
+        "description": "Alias name"
+      }
+    }
+  }
+]

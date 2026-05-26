@@ -1,0 +1,14 @@
+[
+  {
+    "description": "Show current time, uptime, users, and load averages",
+    "command": "uptime"
+  },
+  {
+    "description": "Show only how long the system has been running (pretty)",
+    "command": "uptime -p"
+  },
+  {
+    "description": "Show the date/time the system booted",
+    "command": "uptime -s"
+  }
+]

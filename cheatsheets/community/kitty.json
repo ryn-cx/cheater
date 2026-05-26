@@ -1,0 +1,26 @@
+[
+  {
+    "description": "Scrolling",
+    "command": "ctrl+shift+up        - Line up\nctrl+shift+down      - Line down\nctrl+shift+page_up   - Page up\nctrl+shift+page_down - Page down\nctrl+shift+home      - Top\nctrl+shift+end       - Bottom\nctrl+shift+z         - Previous shell prompt\nctrl+shift+x         - Next shell prompt\nctrl+shift+h         - Browse scrollback in less\nctrl+shift+g         - Browse last cmd output"
+  },
+  {
+    "description": "Tabs",
+    "command": "ctrl+shift+t         - New tab\nctrl+shift+q         - Close tab\nctrl+shift+right     - Next tab\nctrl+shift+left      - Previous tab\nctrl+shift+l         - Next layout\nctrl+shift+.         - Move tab forward\nctrl+shift+,         - Move tab backward\nctrl+shift+alt+t     - Set tab title"
+  },
+  {
+    "description": "Fonts and clipboard",
+    "command": "ctrl+shift+c         - Copy to clipboard\t    \nctrl+shift+v         - Paste from clipboard\t\nctrl+shift+s         - Paste from selection\t\nctrl+shift+equal     - Increase font size\t\nctrl+shift+minus     - Decrease font size\t\nctrl+shift+backspace - Restore font size"
+  },
+  {
+    "description": "Windows",
+    "command": "ctrl+shift+enter     - New window\nctrl+shift+n         - New OS window\nctrl+shift+w         - Close window\nctrl+shift+]         - Next window\nctrl+shift+[         - Previous window\nctrl+shift+f         - Move window forward\nctrl+shift+b         - Move window backward\nctrl+shift+`         - Move window to top\nctrl+shift+f7        - Visually focus window\nctrl+shift+f8        - Visually swap window\n# Focus specific window\nctrl+shift+1, ctrl+shift+2 … ctrl+shift+0"
+  },
+  {
+    "description": "Open/select",
+    "command": "ctrl+shift+e         - Open URL\nctrl+shift+p>f       - Insert selected path\nctrl+shift+p>shft+f  - Open selected path\nctrl+shift+p>l       - Insert selected line\nctrl+shift+p>w       - Insert selected word\nctrl+shift+p>h       - Insert selected hash\nctrl+shift+p>n       - Open the selected file at the selected line\nctrl+shift+p>y       - Open the selected hyperlink"
+  },
+  {
+    "description": "Configuration",
+    "command": "ctrl+shift+f2        - Open kitty config file in $EDITOR\nctrl+shift+f5        - Reload kitty config in current window\nctrl+shift+f6        - Display current kitty configuration without editing"
+  }
+]

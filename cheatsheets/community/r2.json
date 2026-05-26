@@ -1,0 +1,136 @@
+[
+  {
+    "description": "Open a binary in radare2",
+    "command": "r2 <executable>",
+    "params": {
+      "executable": {
+        "type": "existing_file",
+        "description": "Binary to analyze"
+      }
+    }
+  },
+  {
+    "description": "Open a binary and analyze everything (-A)",
+    "command": "r2 -A <executable>",
+    "params": {
+      "executable": {
+        "type": "existing_file",
+        "description": "Binary to analyze"
+      }
+    }
+  },
+  {
+    "description": "Open a binary in write mode",
+    "command": "r2 -w <executable>",
+    "params": {
+      "executable": {
+        "type": "existing_file",
+        "description": "Binary to edit"
+      }
+    }
+  },
+  {
+    "description": "Run r2 and execute commands then exit",
+    "command": "r2 -qc '<commands>' <executable>",
+    "params": {
+      "commands": {
+        "type": "string",
+        "description": "Semicolon-separated r2 commands"
+      },
+      "executable": {
+        "type": "existing_file",
+        "description": "Binary to analyze"
+      }
+    }
+  },
+  {
+    "description": "Open a binary in debugger mode",
+    "command": "r2 -d <executable>",
+    "params": {
+      "executable": {
+        "type": "existing_file",
+        "description": "Program to debug"
+      }
+    }
+  },
+  {
+    "description": "Assemble a single instruction",
+    "command": "rasm2 -a <arch> '<instruction>'",
+    "defaults": {
+      "arch": "x86"
+    },
+    "params": {
+      "arch": {
+        "description": "Architecture (x86, arm, arm64, mips, ...)"
+      },
+      "instruction": {
+        "type": "string",
+        "description": "Assembly instruction"
+      }
+    }
+  },
+  {
+    "description": "Disassemble hex bytes",
+    "command": "rasm2 -a <arch> -d <hex>",
+    "defaults": {
+      "arch": "x86"
+    },
+    "params": {
+      "arch": {
+        "description": "Architecture"
+      },
+      "hex": {
+        "description": "Hex string of bytes"
+      }
+    }
+  },
+  {
+    "description": "Show binary info (rabin2)",
+    "command": "rabin2 -I <executable>",
+    "params": {
+      "executable": {
+        "type": "existing_file",
+        "description": "Binary to inspect"
+      }
+    }
+  },
+  {
+    "description": "Find a literal string inside a binary",
+    "command": "rafind2 -X -s \"<string>\" <file>",
+    "params": {
+      "string": {
+        "type": "string",
+        "description": "Literal string to look for"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to scan"
+      }
+    }
+  },
+  {
+    "description": "Diff two binaries (graph mode)",
+    "command": "radiff2 -a <arch> -b <bits> -C <orig> <patched>",
+    "defaults": {
+      "arch": "x86",
+      "bits": "32"
+    },
+    "params": {
+      "arch": {
+        "description": "Architecture"
+      },
+      "bits": {
+        "type": "integer",
+        "description": "Bits (32 or 64)"
+      },
+      "orig": {
+        "type": "existing_file",
+        "description": "Original binary"
+      },
+      "patched": {
+        "type": "existing_file",
+        "description": "Patched binary"
+      }
+    }
+  }
+]

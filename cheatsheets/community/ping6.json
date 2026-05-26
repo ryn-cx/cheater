@@ -1,0 +1,30 @@
+[
+  {
+    "description": "Discover IPv6 neighbors via the all-nodes multicast",
+    "command": "ping6 -I <interface> ff02::1",
+    "defaults": {
+      "interface": "eth0"
+    },
+    "params": {
+      "interface": {
+        "description": "Network interface"
+      }
+    }
+  },
+  {
+    "description": "Ping an IPv6 host with N packets",
+    "command": "ping6 -c <count> <host>",
+    "defaults": {
+      "count": "5"
+    },
+    "params": {
+      "count": {
+        "type": "integer",
+        "description": "Number of pings"
+      },
+      "host": {
+        "description": "IPv6 address or hostname"
+      }
+    }
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "description": "Show a file from a specific line number",
+    "command": "more +<line> <file>",
+    "defaults": {
+      "line": "1"
+    },
+    "params": {
+      "line": {
+        "type": "integer",
+        "description": "Starting line number"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to view"
+      }
+    }
+  },
+  {
+    "description": "View a file in the more pager",
+    "command": "more <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to view"
+      }
+    }
+  }
+]

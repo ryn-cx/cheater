@@ -1,0 +1,58 @@
+[
+  {
+    "description": "Initialize perlbrew (first-time setup)",
+    "command": "perlbrew init"
+  },
+  {
+    "description": "List perls available to install",
+    "command": "perlbrew available"
+  },
+  {
+    "description": "Install a specific Perl version",
+    "command": "perlbrew install <version>",
+    "params": {
+      "version": {
+        "description": "Perl version, e.g. perl-5.38.0"
+      }
+    }
+  },
+  {
+    "description": "List installed perls",
+    "command": "perlbrew list"
+  },
+  {
+    "description": "Switch the current shell to a specific perl",
+    "command": "perlbrew switch <version>",
+    "params": {
+      "version": {
+        "description": "Installed perl version"
+      }
+    }
+  },
+  {
+    "description": "Run a program against all installed perls",
+    "command": "perlbrew exec perl <program>",
+    "params": {
+      "program": {
+        "type": "existing_file",
+        "description": "Perl program file"
+      }
+    }
+  },
+  {
+    "description": "List installed CPAN modules on the current perl",
+    "command": "perlbrew list-modules"
+  },
+  {
+    "description": "Clone modules from one perl version to another",
+    "command": "perlbrew clone-modules <from> <to>",
+    "params": {
+      "from": {
+        "description": "Source perl version"
+      },
+      "to": {
+        "description": "Destination perl version"
+      }
+    }
+  }
+]

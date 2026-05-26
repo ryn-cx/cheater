@@ -1,0 +1,38 @@
+[
+  {
+    "description": "List all block devices with their partitioning",
+    "command": "lsblk"
+  },
+  {
+    "description": "Show only SCSI devices",
+    "command": "lsblk --scsi"
+  },
+  {
+    "description": "Show details for a specific block device",
+    "command": "lsblk <device>",
+    "defaults": {
+      "device": "/dev/sda"
+    },
+    "params": {
+      "device": {
+        "description": "Block device path"
+      }
+    }
+  },
+  {
+    "description": "Show TRIM support columns (DISC-GRAN, DISC-MAX)",
+    "command": "lsblk --discard"
+  },
+  {
+    "description": "Show filesystem info on each device",
+    "command": "lsblk --fs"
+  },
+  {
+    "description": "Print as JSON",
+    "command": "lsblk --json"
+  },
+  {
+    "description": "Print as a flat list (no tree)",
+    "command": "lsblk --list"
+  }
+]

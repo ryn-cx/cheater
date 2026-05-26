@@ -1,0 +1,58 @@
+[
+  {
+    "description": "Update the Homebrew formula database",
+    "command": "brew update"
+  },
+  {
+    "description": "Upgrade all installed formulae",
+    "command": "brew upgrade"
+  },
+  {
+    "description": "Upgrade a specific formula",
+    "command": "brew upgrade <formula>",
+    "params": {
+      "formula": {
+        "description": "Formula name"
+      }
+    }
+  },
+  {
+    "description": "Install a formula",
+    "command": "brew install <formula>",
+    "params": {
+      "formula": {
+        "description": "Formula name"
+      }
+    }
+  },
+  {
+    "description": "Install a cask",
+    "command": "brew install --cask <formula>",
+    "params": {
+      "formula": {
+        "description": "Cask name"
+      }
+    }
+  },
+  {
+    "description": "Uninstall a formula",
+    "command": "brew uninstall <formula>",
+    "params": {
+      "formula": {
+        "description": "Formula name"
+      }
+    }
+  },
+  {
+    "description": "List installed formulae",
+    "command": "brew list"
+  },
+  {
+    "description": "Diagnose common Homebrew problems",
+    "command": "brew doctor"
+  },
+  {
+    "description": "Clean up old versions and cache",
+    "command": "brew cleanup"
+  }
+]

@@ -1,0 +1,168 @@
+[
+  {
+    "description": "Scan a single target with default options",
+    "command": "nmap <target>",
+    "params": {
+      "target": {
+        "description": "Hostname, IP, or CIDR"
+      }
+    }
+  },
+  {
+    "description": "Scan targets listed in a file",
+    "command": "nmap -iL <target_list>",
+    "params": {
+      "target_list": {
+        "type": "existing_file",
+        "description": "File of targets, one per line"
+      }
+    }
+  },
+  {
+    "description": "Scan over IPv6",
+    "command": "nmap -6 <target>",
+    "params": {
+      "target": {
+        "description": "Hostname or IPv6 address"
+      }
+    }
+  },
+  {
+    "description": "Detect the OS of a target",
+    "command": "nmap -O --osscan-guess <target>",
+    "params": {
+      "target": {
+        "description": "Hostname or IP"
+      }
+    }
+  },
+  {
+    "description": "Save scan output to a text file",
+    "command": "nmap -oN <out_file> <target>",
+    "params": {
+      "out_file": {
+        "type": "path",
+        "description": "Output text file"
+      },
+      "target": {
+        "description": "Hostname or IP"
+      }
+    }
+  },
+  {
+    "description": "Save scan output as XML",
+    "command": "nmap -oX <out_file> <target>",
+    "params": {
+      "out_file": {
+        "type": "path",
+        "description": "Output XML file"
+      },
+      "target": {
+        "description": "Hostname or IP"
+      }
+    }
+  },
+  {
+    "description": "Aggressive scan (OS, version, scripts, traceroute)",
+    "command": "nmap -A <target>",
+    "params": {
+      "target": {
+        "description": "Hostname or IP"
+      }
+    }
+  },
+  {
+    "description": "Fast scan (no DNS, high parallelism, min rate)",
+    "command": "nmap -T5 --min-parallelism=<parallel> -n --min-rate=<rate> <target>",
+    "defaults": {
+      "parallel": "50",
+      "rate": "300"
+    },
+    "params": {
+      "parallel": {
+        "type": "integer",
+        "description": "Minimum parallel probes"
+      },
+      "rate": {
+        "type": "integer",
+        "description": "Minimum packets per second"
+      },
+      "target": {
+        "description": "Hostname or IP"
+      }
+    }
+  },
+  {
+    "description": "Traceroute to a target",
+    "command": "nmap --traceroute <target>",
+    "params": {
+      "target": {
+        "description": "Hostname or IP"
+      }
+    }
+  },
+  {
+    "description": "Ping-only scan a network (no port scan)",
+    "command": "nmap -sP <network>",
+    "defaults": {
+      "network": "192.168.0.0/24"
+    },
+    "params": {
+      "network": {
+        "description": "Target network (CIDR)"
+      }
+    }
+  },
+  {
+    "description": "Force a TCP-connect scan",
+    "command": "nmap -sT <target>",
+    "params": {
+      "target": {
+        "description": "Hostname or IP"
+      }
+    }
+  },
+  {
+    "description": "UDP scan",
+    "command": "sudo nmap -sU <target>",
+    "params": {
+      "target": {
+        "description": "Hostname or IP"
+      }
+    }
+  },
+  {
+    "description": "Service/version detection",
+    "command": "nmap -sV <target>",
+    "params": {
+      "target": {
+        "description": "Hostname or IP"
+      }
+    }
+  },
+  {
+    "description": "Run a script category",
+    "command": "nmap --script <category> <target>",
+    "defaults": {
+      "category": "default,safe"
+    },
+    "params": {
+      "category": {
+        "type": "string",
+        "description": "Comma-separated category names or script names"
+      },
+      "target": {
+        "description": "Hostname or IP"
+      }
+    }
+  },
+  {
+    "description": "Scan SSH (port 22) across a network",
+    "command": "nmap -p 22 <network>",
+    "params": {
+      "network": {
+        "description": "Target network (CIDR or host)"
+      }
+    }
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "description": "Start all containers from docker-compose.yml",
+    "command": "docker-compose up"
+  },
+  {
+    "description": "Start all containers from a specific compose file",
+    "command": "docker-compose -f <compose_file> up",
+    "params": {
+      "compose_file": {
+        "type": "existing_file",
+        "description": "Path to the compose YAML file"
+      }
+    }
+  },
+  {
+    "description": "Start all containers in the background",
+    "command": "docker-compose up -d"
+  },
+  {
+    "description": "Rebuild images before starting all containers",
+    "command": "docker-compose up --build"
+  },
+  {
+    "description": "Start only specific services",
+    "command": "docker-compose up <services>",
+    "params": {
+      "services": {
+        "type": "string",
+        "description": "Space-separated list of service names"
+      }
+    }
+  },
+  {
+    "description": "List running compose services",
+    "command": "docker-compose ps"
+  },
+  {
+    "description": "Stop all running containers",
+    "command": "docker-compose stop"
+  },
+  {
+    "description": "Stop and remove containers, networks, images, and volumes",
+    "command": "docker-compose down --rmi all --volumes"
+  },
+  {
+    "description": "Follow logs from all containers",
+    "command": "docker-compose logs --follow"
+  },
+  {
+    "description": "Follow logs from a specific container",
+    "command": "docker-compose logs --follow <service>",
+    "params": {
+      "service": {
+        "description": "Service name"
+      }
+    }
+  },
+  {
+    "description": "Show the environment variables of a service",
+    "command": "docker-compose run <service> env",
+    "params": {
+      "service": {
+        "description": "Service name"
+      }
+    }
+  }
+]

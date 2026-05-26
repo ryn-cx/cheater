@@ -1,0 +1,62 @@
+[
+  {
+    "description": "Show the PHP version",
+    "command": "php -v"
+  },
+  {
+    "description": "List installed PHP modules",
+    "command": "php -m"
+  },
+  {
+    "description": "Show phpinfo() output",
+    "command": "php -i"
+  },
+  {
+    "description": "Lint a PHP file (syntax check)",
+    "command": "php -l <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "PHP file to check"
+      }
+    }
+  },
+  {
+    "description": "Lint all .php files under the current directory in parallel",
+    "command": "find . -name \"*.php\" -print0 | xargs -0 -n1 -P<jobs> php -l",
+    "defaults": {
+      "jobs": "8"
+    },
+    "params": {
+      "jobs": {
+        "type": "integer",
+        "description": "Parallel processes"
+      }
+    }
+  },
+  {
+    "description": "Open the interactive PHP REPL",
+    "command": "php -a"
+  },
+  {
+    "description": "Find which php.ini files are loaded",
+    "command": "php -i | grep 'php.ini'"
+  },
+  {
+    "description": "Start a local dev webserver",
+    "command": "php -S <host>:<port>",
+    "defaults": {
+      "host": "localhost",
+      "port": "3000"
+    },
+    "params": {
+      "host": {
+        "description": "Host to bind to"
+      },
+      "port": {
+        "type": "integer",
+        "description": "Port to listen on"
+      }
+    }
+  }
+]

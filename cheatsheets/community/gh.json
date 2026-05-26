@@ -1,0 +1,63 @@
+[
+  {
+    "description": "View the current repo's README",
+    "command": "gh repo view"
+  },
+  {
+    "description": "List issues in the current repo",
+    "command": "gh issue list"
+  },
+  {
+    "description": "View a specific issue by number",
+    "command": "gh issue view <issue_number>",
+    "params": {
+      "issue_number": {
+        "type": "integer",
+        "description": "Issue number"
+      }
+    }
+  },
+  {
+    "description": "Create an issue (interactive)",
+    "command": "gh issue create"
+  },
+  {
+    "description": "Create a pull request from the current branch (interactive)",
+    "command": "gh pr create"
+  },
+  {
+    "description": "Create a public gist from a file with a description",
+    "command": "gh gist create <file> -d \"<description>\" -w -p",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to gist"
+      },
+      "description": {
+        "type": "string",
+        "description": "Gist description"
+      }
+    }
+  },
+  {
+    "description": "Create a custom label in the current repo",
+    "command": "gh label create <label>",
+    "params": {
+      "label": {
+        "description": "Label name"
+      }
+    }
+  },
+  {
+    "description": "Clone a repo by owner/name",
+    "command": "gh repo clone <owner>/<repo>",
+    "params": {
+      "owner": {
+        "description": "GitHub user or organization"
+      },
+      "repo": {
+        "description": "Repository name"
+      }
+    }
+  }
+]

@@ -1,0 +1,40 @@
+[
+  {
+    "description": "Reboot the system immediately",
+    "command": "sudo shutdown -r now"
+  },
+  {
+    "description": "Power off the system immediately",
+    "command": "sudo shutdown -h now"
+  },
+  {
+    "description": "Reboot after N minutes",
+    "command": "sudo shutdown -r +<minutes>",
+    "defaults": {
+      "minutes": "5"
+    },
+    "params": {
+      "minutes": {
+        "type": "integer",
+        "description": "Minutes to wait"
+      }
+    }
+  },
+  {
+    "description": "Schedule a reboot at a specific time",
+    "command": "sudo shutdown -r <time>",
+    "defaults": {
+      "time": "22:00"
+    },
+    "params": {
+      "time": {
+        "type": "string",
+        "description": "HH:MM time"
+      }
+    }
+  },
+  {
+    "description": "Cancel a scheduled shutdown",
+    "command": "sudo shutdown -c"
+  }
+]

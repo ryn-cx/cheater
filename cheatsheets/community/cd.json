@@ -1,0 +1,34 @@
+[
+  {
+    "description": "Change to a directory",
+    "command": "cd <directory>",
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Directory to change into"
+      }
+    }
+  },
+  {
+    "description": "Change to the current user's home directory",
+    "command": "cd"
+  },
+  {
+    "description": "Go up one directory level",
+    "command": "cd .."
+  },
+  {
+    "description": "Return to the previous directory",
+    "command": "cd -"
+  },
+  {
+    "description": "Change to a physical directory, resolving symlinks",
+    "command": "cd -P <directory>",
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Directory to change into"
+      }
+    }
+  }
+]

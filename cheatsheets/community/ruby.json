@@ -1,0 +1,63 @@
+[
+  {
+    "description": "Serve the current directory over HTTP",
+    "command": "ruby -run -e httpd . -p <port>",
+    "defaults": {
+      "port": "8080"
+    },
+    "params": {
+      "port": {
+        "type": "integer",
+        "description": "Port to listen on"
+      }
+    }
+  },
+  {
+    "description": "Run a ruby script file",
+    "command": "ruby <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Ruby script file"
+      }
+    }
+  },
+  {
+    "description": "Run a one-liner",
+    "command": "ruby -e '<code>'",
+    "params": {
+      "code": {
+        "type": "string",
+        "description": "Ruby code"
+      }
+    }
+  },
+  {
+    "description": "Syntax-check a ruby script",
+    "command": "ruby -c <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Ruby script file"
+      }
+    }
+  },
+  {
+    "description": "Add a directory to $LOAD_PATH",
+    "command": "ruby -I<directory> <file>",
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Directory to add"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Ruby script file"
+      }
+    }
+  },
+  {
+    "description": "Show installed ruby version",
+    "command": "ruby --version"
+  }
+]

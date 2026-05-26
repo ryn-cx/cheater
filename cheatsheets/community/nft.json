@@ -1,0 +1,31 @@
+[
+  {
+    "description": "List the current nftables ruleset",
+    "command": "sudo nft list ruleset"
+  },
+  {
+    "description": "Load a ruleset from a file",
+    "command": "sudo nft -f <ruleset_file>",
+    "params": {
+      "ruleset_file": {
+        "type": "existing_file",
+        "description": "nftables ruleset file"
+      }
+    }
+  },
+  {
+    "description": "Flush all rules in a table",
+    "command": "sudo nft flush table <family> <table>",
+    "defaults": {
+      "family": "inet"
+    },
+    "params": {
+      "family": {
+        "description": "Address family (ip, ip6, inet, arp, bridge, netdev)"
+      },
+      "table": {
+        "description": "Table name"
+      }
+    }
+  }
+]

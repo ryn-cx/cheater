@@ -1,0 +1,36 @@
+[
+  {
+    "description": "Run make in parallel using distcc and zeroconf-discovered hosts",
+    "command": "ZEROCONF='+zeroconf' make -j<jobs> CXX='distcc g++'",
+    "defaults": {
+      "jobs": "4"
+    },
+    "params": {
+      "jobs": {
+        "type": "integer",
+        "description": "Number of parallel jobs"
+      }
+    }
+  },
+  {
+    "description": "Run make in parallel using a static list of distcc hosts",
+    "command": "DISTCC_HOSTS='<hosts>' make -j<jobs> CXX='distcc g++'",
+    "defaults": {
+      "jobs": "4"
+    },
+    "params": {
+      "hosts": {
+        "type": "string",
+        "description": "Space-separated list of host IPs or names"
+      },
+      "jobs": {
+        "type": "integer",
+        "description": "Number of parallel jobs"
+      }
+    }
+  },
+  {
+    "description": "Show hosts available via zeroconf",
+    "command": "ZEROCONF='+zeroconf' distcc --show-hosts"
+  }
+]

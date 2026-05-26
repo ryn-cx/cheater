@@ -1,0 +1,57 @@
+[
+  {
+    "description": "Cut a specific delimited field from stdin",
+    "command": "cut -d<delimiter> -f<field>",
+    "defaults": {
+      "delimiter": "#",
+      "field": "3"
+    },
+    "params": {
+      "delimiter": {
+        "description": "Single-character delimiter"
+      },
+      "field": {
+        "type": "integer",
+        "description": "1-based field number"
+      }
+    }
+  },
+  {
+    "description": "Cut a specific delimited field from a file",
+    "command": "cut -d<delimiter> -f<field> <file>",
+    "defaults": {
+      "delimiter": ",",
+      "field": "1"
+    },
+    "params": {
+      "delimiter": {
+        "description": "Single-character delimiter"
+      },
+      "field": {
+        "type": "integer",
+        "description": "1-based field number"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  },
+  {
+    "description": "Cut a range of characters from each line",
+    "command": "cut -c<range> <file>",
+    "defaults": {
+      "range": "1-10"
+    },
+    "params": {
+      "range": {
+        "type": "string",
+        "description": "Character range (e.g. 1-10, 5-, -3)"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  }
+]

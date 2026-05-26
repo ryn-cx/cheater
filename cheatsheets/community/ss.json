@@ -1,0 +1,39 @@
+[
+  {
+    "description": "Show all listening TCP sockets and owning processes",
+    "command": "ss -tlp"
+  },
+  {
+    "description": "Show all listening UDP sockets and owning processes",
+    "command": "ss -ulp"
+  },
+  {
+    "description": "Show all TCP sockets",
+    "command": "ss -t"
+  },
+  {
+    "description": "Show all TCP sockets connecting to a host:port",
+    "command": "ss -t dst <host>:<port>",
+    "params": {
+      "host": {
+        "description": "Destination host or IP"
+      },
+      "port": {
+        "type": "integer",
+        "description": "Destination port"
+      }
+    }
+  },
+  {
+    "description": "Show all established SSH connections (in or out)",
+    "command": "ss -t state established '( dport = :ssh or sport = :ssh )'"
+  },
+  {
+    "description": "Show sockets in all states (numeric, with PID)",
+    "command": "ss -tunap"
+  },
+  {
+    "description": "Show summary stats",
+    "command": "ss -s"
+  }
+]

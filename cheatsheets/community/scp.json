@@ -1,0 +1,106 @@
+[
+  {
+    "description": "Copy a local file to a remote host",
+    "command": "scp <file> <user>@<host>:<destination>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Local file to copy"
+      },
+      "user": {
+        "description": "Remote SSH user"
+      },
+      "host": {
+        "description": "Remote host"
+      },
+      "destination": {
+        "description": "Remote destination path"
+      }
+    }
+  },
+  {
+    "description": "Copy a remote file to the local machine",
+    "command": "scp <user>@<host>:<source> <destination>",
+    "params": {
+      "user": {
+        "description": "Remote SSH user"
+      },
+      "host": {
+        "description": "Remote host"
+      },
+      "source": {
+        "description": "Remote source path"
+      },
+      "destination": {
+        "type": "existing_path",
+        "description": "Local destination path"
+      }
+    }
+  },
+  {
+    "description": "Copy a directory recursively",
+    "command": "scp -r <source> <user>@<host>:<destination>",
+    "params": {
+      "source": {
+        "type": "existing_path",
+        "description": "Local path"
+      },
+      "user": {
+        "description": "Remote SSH user"
+      },
+      "host": {
+        "description": "Remote host"
+      },
+      "destination": {
+        "description": "Remote destination"
+      }
+    }
+  },
+  {
+    "description": "Copy via a non-standard SSH port",
+    "command": "scp -P <port> <source> <user>@<host>:<destination>",
+    "defaults": {
+      "port": "22"
+    },
+    "params": {
+      "port": {
+        "type": "integer",
+        "description": "Remote SSH port"
+      },
+      "source": {
+        "type": "existing_path",
+        "description": "Local source"
+      },
+      "user": {
+        "description": "Remote SSH user"
+      },
+      "host": {
+        "description": "Remote host"
+      },
+      "destination": {
+        "description": "Remote destination"
+      }
+    }
+  },
+  {
+    "description": "Copy between two remote hosts via a third machine",
+    "command": "scp -3 <user>@<host1>:<source> <user>@<host2>:<destination>",
+    "params": {
+      "user": {
+        "description": "Remote SSH user"
+      },
+      "host1": {
+        "description": "Source host"
+      },
+      "source": {
+        "description": "Source path"
+      },
+      "host2": {
+        "description": "Destination host"
+      },
+      "destination": {
+        "description": "Destination path"
+      }
+    }
+  }
+]

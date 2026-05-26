@@ -1,0 +1,35 @@
+[
+  {
+    "description": "Show all current shell limits",
+    "command": "ulimit -a"
+  },
+  {
+    "description": "Show the maximum number of open file descriptors",
+    "command": "ulimit -n"
+  },
+  {
+    "description": "Set the max open file descriptors for this shell",
+    "command": "ulimit -n <value>",
+    "defaults": {
+      "value": "8192"
+    },
+    "params": {
+      "value": {
+        "description": "Limit value (integer or 'unlimited')"
+      }
+    }
+  },
+  {
+    "description": "Set max process stack size (KB)",
+    "command": "ulimit -s <kb>",
+    "defaults": {
+      "kb": "8192"
+    },
+    "params": {
+      "kb": {
+        "type": "integer",
+        "description": "Stack size in KB"
+      }
+    }
+  }
+]

@@ -1,0 +1,73 @@
+[
+  {
+    "description": "Build a Slackware package from a structured directory",
+    "command": "su -c 'makepkg --linkadd y --chown n <package>'",
+    "params": {
+      "package": {
+        "description": "Package filename (e.g. foo-1.0.3-x86_64-1_tag.tgz)"
+      }
+    }
+  },
+  {
+    "description": "Install a Slackware package",
+    "command": "installpkg <pkg_file>",
+    "params": {
+      "pkg_file": {
+        "type": "existing_file",
+        "description": ".tgz package file"
+      }
+    }
+  },
+  {
+    "description": "Install to a non-standard root",
+    "command": "ROOT=<root> installpkg <pkg_file>",
+    "params": {
+      "root": {
+        "type": "existing_dir",
+        "description": "Alternate root directory"
+      },
+      "pkg_file": {
+        "type": "existing_file",
+        "description": ".tgz package file"
+      }
+    }
+  },
+  {
+    "description": "Upgrade a package, including files only in the new version",
+    "command": "upgradepkg --install-new <pkg_file>",
+    "params": {
+      "pkg_file": {
+        "type": "existing_file",
+        "description": ".tgz package file"
+      }
+    }
+  },
+  {
+    "description": "Reinstall a package (even if the version is the same)",
+    "command": "upgradepkg --reinstall <pkg_file>",
+    "params": {
+      "pkg_file": {
+        "type": "existing_file",
+        "description": ".tgz package file"
+      }
+    }
+  },
+  {
+    "description": "Remove a Slackware package",
+    "command": "removepkg <package>",
+    "params": {
+      "package": {
+        "description": "Installed package name"
+      }
+    }
+  },
+  {
+    "description": "Remove a package, keeping a backup copy",
+    "command": "removepkg -copy <package>",
+    "params": {
+      "package": {
+        "description": "Installed package name"
+      }
+    }
+  }
+]

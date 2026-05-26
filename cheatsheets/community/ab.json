@@ -1,0 +1,44 @@
+[
+  {
+    "description": "Send N requests with a given concurrency to a URL",
+    "command": "ab -n <requests> -c <concurrency> <url>",
+    "defaults": {
+      "requests": "100",
+      "concurrency": "50"
+    },
+    "params": {
+      "requests": {
+        "type": "integer",
+        "description": "Total number of requests to send"
+      },
+      "concurrency": {
+        "type": "integer",
+        "description": "Number of concurrent connections"
+      },
+      "url": {
+        "description": "Target URL"
+      }
+    }
+  },
+  {
+    "description": "Send requests for N seconds with a given concurrency to a URL",
+    "command": "ab -t <seconds> -c <concurrency> <url>",
+    "defaults": {
+      "seconds": "30",
+      "concurrency": "50"
+    },
+    "params": {
+      "seconds": {
+        "type": "integer",
+        "description": "Duration in seconds"
+      },
+      "concurrency": {
+        "type": "integer",
+        "description": "Number of concurrent connections"
+      },
+      "url": {
+        "description": "Target URL"
+      }
+    }
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "description": "List perl versions available to install",
+    "command": "plenv install --list"
+  },
+  {
+    "description": "Install a specific Perl version",
+    "command": "plenv install <version>",
+    "params": {
+      "version": {
+        "description": "Perl version (e.g. 5.38.0)"
+      }
+    }
+  },
+  {
+    "description": "Run a command using the currently active Perl",
+    "command": "plenv exec <command>",
+    "params": {
+      "command": {
+        "type": "string",
+        "description": "Command to execute"
+      }
+    }
+  },
+  {
+    "description": "Set the global default Perl",
+    "command": "plenv global <version>",
+    "params": {
+      "version": {
+        "description": "Installed Perl version"
+      }
+    }
+  },
+  {
+    "description": "Set the local (per-directory) Perl",
+    "command": "plenv local <version>",
+    "params": {
+      "version": {
+        "description": "Installed Perl version"
+      }
+    }
+  },
+  {
+    "description": "Refresh shims after installing CPAN modules",
+    "command": "plenv rehash"
+  },
+  {
+    "description": "Install cpanm into the current Perl",
+    "command": "plenv install-cpanm"
+  },
+  {
+    "description": "Migrate modules from one Perl version to another",
+    "command": "plenv migrate-modules <from> <to>",
+    "params": {
+      "from": {
+        "description": "Source Perl version"
+      },
+      "to": {
+        "description": "Destination Perl version"
+      }
+    }
+  },
+  {
+    "description": "Show the path used by plenv for a program",
+    "command": "plenv which <program>",
+    "params": {
+      "program": {
+        "description": "Program name (e.g. perl, cpanm)"
+      }
+    }
+  }
+]

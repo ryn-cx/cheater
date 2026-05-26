@@ -1,0 +1,36 @@
+[
+  {
+    "description": "Show listening ports and the processes that own them (netstat is deprecated; prefer ss)",
+    "command": "sudo netstat -lnptu"
+  },
+  {
+    "description": "Show the routing table (prefer 'ip route')",
+    "command": "netstat -r"
+  },
+  {
+    "description": "Find which process listens on a port",
+    "command": "netstat -pln | grep <port> | awk '{print $NF}'",
+    "params": {
+      "port": {
+        "type": "integer",
+        "description": "Port number"
+      }
+    }
+  },
+  {
+    "description": "Show IPv4 TCP listening sockets and the owning programs",
+    "command": "sudo netstat -vtlnp --listening -4"
+  },
+  {
+    "description": "Modern replacement for netstat -tunap",
+    "command": "ss -tunap"
+  },
+  {
+    "description": "Modern replacement for netstat -r",
+    "command": "ip route"
+  },
+  {
+    "description": "Modern replacement for netstat -i (per-interface stats)",
+    "command": "ip -s link"
+  }
+]

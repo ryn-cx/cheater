@@ -1,0 +1,32 @@
+[
+  {
+    "description": "Display the contents of a file",
+    "command": "cat <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to display"
+      }
+    }
+  },
+  {
+    "description": "Display file contents with line numbers",
+    "command": "cat -n <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to display"
+      }
+    }
+  },
+  {
+    "description": "Display file contents with line numbers (blank lines excluded)",
+    "command": "cat -b <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to display"
+      }
+    }
+  }
+]

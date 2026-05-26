@@ -1,0 +1,78 @@
+[
+  {
+    "description": "Run a configured VM",
+    "command": "quickemu --vm <vm_conf>",
+    "params": {
+      "vm_conf": {
+        "type": "existing_file",
+        "description": "Path to the VM .conf file"
+      }
+    }
+  },
+  {
+    "description": "Run a VM with a SPICE display",
+    "command": "quickemu --vm <vm_conf> --display spice",
+    "params": {
+      "vm_conf": {
+        "type": "existing_file",
+        "description": "Path to the VM .conf file"
+      }
+    }
+  },
+  {
+    "description": "Run a VM in fullscreen",
+    "command": "quickemu --vm <vm_conf> --fullscreen",
+    "params": {
+      "vm_conf": {
+        "type": "existing_file",
+        "description": "Path to the VM .conf file"
+      }
+    }
+  },
+  {
+    "description": "Create a desktop shortcut for a VM",
+    "command": "quickemu --vm <vm_conf> --shortcut",
+    "params": {
+      "vm_conf": {
+        "type": "existing_file",
+        "description": "Path to the VM .conf file"
+      }
+    }
+  },
+  {
+    "description": "Create a snapshot of a VM",
+    "command": "quickemu --vm <vm_conf> --snapshot create <tag>",
+    "params": {
+      "vm_conf": {
+        "type": "existing_file",
+        "description": "Path to the VM .conf file"
+      },
+      "tag": {
+        "description": "Snapshot tag/name"
+      }
+    }
+  },
+  {
+    "description": "Restore a VM snapshot",
+    "command": "quickemu --vm <vm_conf> --snapshot apply <tag>",
+    "params": {
+      "vm_conf": {
+        "type": "existing_file",
+        "description": "Path to the VM .conf file"
+      },
+      "tag": {
+        "description": "Snapshot tag/name"
+      }
+    }
+  },
+  {
+    "description": "Delete a VM and its config",
+    "command": "quickemu --vm <vm_conf> --delete-vm",
+    "params": {
+      "vm_conf": {
+        "type": "existing_file",
+        "description": "Path to the VM .conf file"
+      }
+    }
+  }
+]

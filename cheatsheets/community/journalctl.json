@@ -1,0 +1,93 @@
+[
+  {
+    "description": "Follow logs in real time (like tail -f)",
+    "command": "journalctl -f"
+  },
+  {
+    "description": "Show all errors since the last boot",
+    "command": "journalctl -b -p err"
+  },
+  {
+    "description": "Filter logs by a date/time period",
+    "command": "journalctl --since=\"<since>\" --until=\"<until>\"",
+    "defaults": {
+      "since": "2024-01-01",
+      "until": "2024-12-31 23:59:59"
+    },
+    "params": {
+      "since": {
+        "type": "string",
+        "description": "Start time"
+      },
+      "until": {
+        "type": "string",
+        "description": "End time"
+      }
+    }
+  },
+  {
+    "description": "List all known systemd units logged in the journal",
+    "command": "journalctl -F _SYSTEMD_UNIT"
+  },
+  {
+    "description": "Filter logs for a specific systemd unit",
+    "command": "journalctl -u <unit>",
+    "params": {
+      "unit": {
+        "description": "Systemd unit name (e.g. dbus)"
+      }
+    }
+  },
+  {
+    "description": "Filter logs by executable path",
+    "command": "journalctl <executable>",
+    "params": {
+      "executable": {
+        "type": "existing_path",
+        "description": "Full path to an executable"
+      }
+    }
+  },
+  {
+    "description": "Filter logs by process id",
+    "command": "journalctl _PID=<pid>",
+    "params": {
+      "pid": {
+        "type": "integer",
+        "description": "Process id"
+      }
+    }
+  },
+  {
+    "description": "Filter logs by command name",
+    "command": "journalctl _COMM=<command>",
+    "params": {
+      "command": {
+        "description": "Command name (e.g. sshd)"
+      }
+    }
+  },
+  {
+    "description": "List all available boots",
+    "command": "journalctl --list-boots"
+  },
+  {
+    "description": "Filter logs by user id",
+    "command": "journalctl _UID=<uid>",
+    "params": {
+      "uid": {
+        "type": "integer",
+        "description": "User id"
+      }
+    }
+  },
+  {
+    "description": "Filter logs by syslog identifier",
+    "command": "journalctl -t <identifier>",
+    "params": {
+      "identifier": {
+        "description": "Syslog identifier (e.g. systemd-resolved)"
+      }
+    }
+  }
+]

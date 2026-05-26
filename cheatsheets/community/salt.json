@@ -1,0 +1,96 @@
+[
+  {
+    "description": "Show pending minion keys",
+    "command": "salt-key -L"
+  },
+  {
+    "description": "Accept all pending keys",
+    "command": "salt-key -A"
+  },
+  {
+    "description": "Accept a pending key by name",
+    "command": "salt-key -a <target>",
+    "params": {
+      "target": {
+        "description": "Minion id"
+      }
+    }
+  },
+  {
+    "description": "Remove a key by name",
+    "command": "salt-key -D <target>",
+    "params": {
+      "target": {
+        "description": "Minion id"
+      }
+    }
+  },
+  {
+    "description": "Test reachability of a minion",
+    "command": "salt <target> test.ping",
+    "params": {
+      "target": {
+        "description": "Minion id or target expression"
+      }
+    }
+  },
+  {
+    "description": "Show active salt jobs",
+    "command": "salt-run jobs.active"
+  },
+  {
+    "description": "Kill an active job on a target",
+    "command": "salt <target> saltutil.kill_job <job_id>",
+    "params": {
+      "target": {
+        "description": "Minion id or target"
+      },
+      "job_id": {
+        "description": "Job id (jid)"
+      }
+    }
+  },
+  {
+    "description": "Copy a small file (< 100 KB) from master to a minion",
+    "command": "salt-cp <target> <source> <destination>",
+    "params": {
+      "target": {
+        "description": "Minion id or target"
+      },
+      "source": {
+        "type": "existing_file",
+        "description": "Local file on the master"
+      },
+      "destination": {
+        "description": "Remote destination path"
+      }
+    }
+  },
+  {
+    "description": "Copy a file from the salt:// filesystem to a minion",
+    "command": "salt <target> cp.get_file salt://<source> <destination>",
+    "params": {
+      "target": {
+        "description": "Minion id or target"
+      },
+      "source": {
+        "description": "Path under /srv/salt/"
+      },
+      "destination": {
+        "description": "Destination on the minion"
+      }
+    }
+  },
+  {
+    "description": "Apply a state on a target",
+    "command": "salt <target> state.apply <state_name>",
+    "params": {
+      "target": {
+        "description": "Minion id or target"
+      },
+      "state_name": {
+        "description": "State (sls) name"
+      }
+    }
+  }
+]

@@ -1,0 +1,132 @@
+[
+  {
+    "description": "Create a RAID5 array with one spare",
+    "command": "sudo mdadm --create <array> --level=raid5 --raid-devices=<count> <devices> --spare-devices=<spare>",
+    "defaults": {
+      "array": "/dev/md0",
+      "count": "4"
+    },
+    "params": {
+      "array": {
+        "description": "Array device path (e.g. /dev/md0)"
+      },
+      "count": {
+        "type": "integer",
+        "description": "Number of raid devices"
+      },
+      "devices": {
+        "type": "string",
+        "description": "Space-separated member partitions"
+      },
+      "spare": {
+        "description": "Spare partition"
+      }
+    }
+  },
+  {
+    "description": "Assemble (activate) a specific existing array",
+    "command": "sudo mdadm --assemble <array> <devices>",
+    "params": {
+      "array": {
+        "description": "Array device path"
+      },
+      "devices": {
+        "type": "string",
+        "description": "Member partitions"
+      }
+    }
+  },
+  {
+    "description": "Auto-assemble all known arrays",
+    "command": "sudo mdadm --assemble --scan"
+  },
+  {
+    "description": "Stop an assembled array",
+    "command": "sudo mdadm --stop <array>",
+    "params": {
+      "array": {
+        "description": "Array device path"
+      }
+    }
+  },
+  {
+    "description": "Query basic array configuration",
+    "command": "sudo mdadm --query <array>",
+    "params": {
+      "array": {
+        "description": "Array device path"
+      }
+    }
+  },
+  {
+    "description": "Inspect a member device's superblock",
+    "command": "sudo mdadm --query --examine <device>",
+    "params": {
+      "device": {
+        "description": "Partition path (e.g. /dev/sda1)"
+      }
+    }
+  },
+  {
+    "description": "Show detailed array configuration and status",
+    "command": "sudo mdadm --detail <array>",
+    "params": {
+      "array": {
+        "description": "Array device path"
+      }
+    }
+  },
+  {
+    "description": "Save current array config to mdadm.conf",
+    "command": "sudo mdadm --detail --scan > /etc/mdadm/mdadm.conf"
+  },
+  {
+    "description": "Erase a device's superblock (before re-using)",
+    "command": "sudo mdadm --zero-superblock <device>",
+    "params": {
+      "device": {
+        "description": "Partition path"
+      }
+    }
+  },
+  {
+    "description": "Mark a member as failed",
+    "command": "sudo mdadm --manage <array> --fail <device>",
+    "params": {
+      "array": {
+        "description": "Array device path"
+      },
+      "device": {
+        "description": "Member partition path"
+      }
+    }
+  },
+  {
+    "description": "Remove a failed member from an array",
+    "command": "sudo mdadm --manage <array> --remove <device>",
+    "params": {
+      "array": {
+        "description": "Array device path"
+      },
+      "device": {
+        "description": "Member partition path"
+      }
+    }
+  },
+  {
+    "description": "Add a new member to an existing array (triggers rebuild)",
+    "command": "sudo mdadm --manage <array> --add <device>",
+    "params": {
+      "array": {
+        "description": "Array device path"
+      },
+      "device": {
+        "description": "Member partition path"
+      }
+    }
+  },
+  {
+    "description": "Show kernel's view of active arrays",
+    "command": "cat /proc/mdstat"
+  }
+]

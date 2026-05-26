@@ -1,0 +1,118 @@
+[
+  {
+    "description": "Show differences between two files (unified format)",
+    "command": "diff -u <file1> <file2>",
+    "params": {
+      "file1": {
+        "type": "existing_file",
+        "description": "First file"
+      },
+      "file2": {
+        "type": "existing_file",
+        "description": "Second file"
+      }
+    }
+  },
+  {
+    "description": "Show differences between two directories (recursive)",
+    "command": "diff -ur <dir1> <dir2>",
+    "params": {
+      "dir1": {
+        "type": "existing_dir",
+        "description": "First directory"
+      },
+      "dir2": {
+        "type": "existing_dir",
+        "description": "Second directory"
+      }
+    }
+  },
+  {
+    "description": "Diff while ignoring whitespace changes",
+    "command": "diff -ub <file1> <file2>",
+    "params": {
+      "file1": {
+        "type": "existing_file",
+        "description": "First file"
+      },
+      "file2": {
+        "type": "existing_file",
+        "description": "Second file"
+      }
+    }
+  },
+  {
+    "description": "Diff while ignoring blank lines",
+    "command": "diff -uB <file1> <file2>",
+    "params": {
+      "file1": {
+        "type": "existing_file",
+        "description": "First file"
+      },
+      "file2": {
+        "type": "existing_file",
+        "description": "Second file"
+      }
+    }
+  },
+  {
+    "description": "Diff while ignoring case",
+    "command": "diff -ui <file1> <file2>",
+    "params": {
+      "file1": {
+        "type": "existing_file",
+        "description": "First file"
+      },
+      "file2": {
+        "type": "existing_file",
+        "description": "Second file"
+      }
+    }
+  },
+  {
+    "description": "Report only whether the files differ",
+    "command": "diff -q <file1> <file2>",
+    "params": {
+      "file1": {
+        "type": "existing_file",
+        "description": "First file"
+      },
+      "file2": {
+        "type": "existing_file",
+        "description": "Second file"
+      }
+    }
+  },
+  {
+    "description": "Diff the output of two commands or process substitutions",
+    "command": "diff <(<command1>) <(<command2>)",
+    "params": {
+      "command1": {
+        "type": "string",
+        "description": "First shell command"
+      },
+      "command2": {
+        "type": "string",
+        "description": "Second shell command"
+      }
+    }
+  },
+  {
+    "description": "Generate a patch file from a diff",
+    "command": "diff -Naur <file1> <file2> > <patch>",
+    "params": {
+      "file1": {
+        "type": "existing_file",
+        "description": "Original file"
+      },
+      "file2": {
+        "type": "existing_file",
+        "description": "Modified file"
+      },
+      "patch": {
+        "type": "path",
+        "description": "Output patch file"
+      }
+    }
+  }
+]

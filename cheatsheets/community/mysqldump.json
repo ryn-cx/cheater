@@ -1,0 +1,79 @@
+[
+  {
+    "description": "Dump a database to a SQL file (prompts for password)",
+    "command": "mysqldump -u <username> -p <database> > <out>",
+    "params": {
+      "username": {
+        "description": "MySQL username"
+      },
+      "database": {
+        "description": "Database name"
+      },
+      "out": {
+        "type": "path",
+        "description": "Output .sql file"
+      }
+    }
+  },
+  {
+    "description": "Dump a database compressed with gzip",
+    "command": "mysqldump -u <username> -p <database> | gzip -9 > <out>",
+    "params": {
+      "username": {
+        "description": "MySQL username"
+      },
+      "database": {
+        "description": "Database name"
+      },
+      "out": {
+        "type": "path",
+        "description": "Output .sql.gz file"
+      }
+    }
+  },
+  {
+    "description": "Dump all databases to a single SQL file",
+    "command": "mysqldump -u <username> -p --all-databases > <out>",
+    "params": {
+      "username": {
+        "description": "MySQL username"
+      },
+      "out": {
+        "type": "path",
+        "description": "Output .sql file"
+      }
+    }
+  },
+  {
+    "description": "Dump database structure only (no data)",
+    "command": "mysqldump --no-data -u <username> -p <database> > <out>",
+    "params": {
+      "username": {
+        "description": "MySQL username"
+      },
+      "database": {
+        "description": "Database name"
+      },
+      "out": {
+        "type": "path",
+        "description": "Output .sql file"
+      }
+    }
+  },
+  {
+    "description": "Dump database data only (no schema)",
+    "command": "mysqldump --no-create-info -u <username> -p <database> > <out>",
+    "params": {
+      "username": {
+        "description": "MySQL username"
+      },
+      "database": {
+        "description": "Database name"
+      },
+      "out": {
+        "type": "path",
+        "description": "Output .sql file"
+      }
+    }
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "description": "Download a video at the default best quality",
+    "command": "youtube-dl <url>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "Video URL"
+      }
+    }
+  },
+  {
+    "description": "Download a video in a specific format code",
+    "command": "youtube-dl -f <format> <url>",
+    "defaults": {
+      "format": "22"
+    },
+    "params": {
+      "format": {
+        "description": "Format code (e.g. 22 for 720p MP4)"
+      },
+      "url": {
+        "type": "string",
+        "description": "Video URL"
+      }
+    }
+  },
+  {
+    "description": "List all available formats for a video",
+    "command": "youtube-dl -F <url>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "Video URL"
+      }
+    }
+  },
+  {
+    "description": "Use a custom output filename template",
+    "command": "youtube-dl -o '<template>' <url>",
+    "defaults": {
+      "template": "%(uploader)s/%(upload_date)s/%(title)s.%(ext)s"
+    },
+    "params": {
+      "template": {
+        "type": "string",
+        "description": "Output path template"
+      },
+      "url": {
+        "type": "string",
+        "description": "Video URL"
+      }
+    }
+  },
+  {
+    "description": "Start a playlist from a specific position",
+    "command": "youtube-dl --playlist-start <start> <url>",
+    "defaults": {
+      "start": "1"
+    },
+    "params": {
+      "start": {
+        "type": "integer",
+        "description": "Starting playlist index"
+      },
+      "url": {
+        "type": "string",
+        "description": "Playlist URL"
+      }
+    }
+  },
+  {
+    "description": "Simulate a download (don't actually download)",
+    "command": "youtube-dl -s <url>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "Video URL"
+      }
+    }
+  },
+  {
+    "description": "Extract audio as MP3 at best quality",
+    "command": "youtube-dl --extract-audio --audio-format mp3 --audio-quality 0 <url>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "Video URL"
+      }
+    }
+  }
+]

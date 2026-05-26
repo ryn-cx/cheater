@@ -1,0 +1,45 @@
+[
+  {
+    "description": "Split a text file into pieces of N lines each",
+    "command": "split <file> -l <lines>",
+    "defaults": {
+      "lines": "1000"
+    },
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      },
+      "lines": {
+        "type": "integer",
+        "description": "Lines per output piece"
+      }
+    }
+  },
+  {
+    "description": "Split a binary file into pieces of a fixed size",
+    "command": "split <file> -b <size>",
+    "defaults": {
+      "size": "10M"
+    },
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      },
+      "size": {
+        "description": "Piece size (e.g. 10M, 500K, 1G)"
+      }
+    }
+  },
+  {
+    "description": "Concatenate previously-split pieces back into one file",
+    "command": "cat x* > <output>",
+    "params": {
+      "output": {
+        "type": "path",
+        "description": "Reassembled file"
+      }
+    }
+  }
+]

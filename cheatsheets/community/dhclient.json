@@ -1,0 +1,23 @@
+[
+  {
+    "description": "Release the current DHCP IP address",
+    "command": "sudo dhclient -r"
+  },
+  {
+    "description": "Request a new DHCP IP address (any interface)",
+    "command": "sudo dhclient"
+  },
+  {
+    "description": "Request a new DHCP IP address on a specific interface",
+    "command": "sudo dhclient <interface>",
+    "params": {
+      "interface": {
+        "description": "Network interface (e.g. eth0, wlan0)"
+      }
+    }
+  },
+  {
+    "description": "Release then renew the IP in one go",
+    "command": "sudo dhclient -r && sudo dhclient"
+  }
+]

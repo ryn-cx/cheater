@@ -1,0 +1,26 @@
+[
+  {
+    "description": "Concatenate all PDFs in the current directory into one",
+    "command": "sam2p *.pdf <output>",
+    "params": {
+      "output": {
+        "type": "path",
+        "description": "Output PDF path"
+      }
+    }
+  },
+  {
+    "description": "Convert an image to another format",
+    "command": "sam2p <input> <output>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Source image"
+      },
+      "output": {
+        "type": "path",
+        "description": "Destination image (format inferred from extension)"
+      }
+    }
+  }
+]

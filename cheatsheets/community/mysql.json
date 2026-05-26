@@ -1,0 +1,59 @@
+[
+  {
+    "description": "Connect to a remote database (prompts for password)",
+    "command": "mysql -h <host> -u <username> -p",
+    "params": {
+      "host": {
+        "description": "Database server hostname"
+      },
+      "username": {
+        "description": "MySQL username"
+      }
+    }
+  },
+  {
+    "description": "Restore a SQL dump into the server",
+    "command": "mysql -u <username> -p < <dump>",
+    "params": {
+      "username": {
+        "description": "MySQL username"
+      },
+      "dump": {
+        "type": "existing_file",
+        "description": "SQL dump file"
+      }
+    }
+  },
+  {
+    "description": "Run an inline SQL query against a database",
+    "command": "mysql -u <username> -p -e \"<query>\" <database>",
+    "params": {
+      "username": {
+        "description": "MySQL username"
+      },
+      "query": {
+        "type": "string",
+        "description": "SQL query"
+      },
+      "database": {
+        "description": "Database name"
+      }
+    }
+  },
+  {
+    "description": "Connect locally with a Unix socket",
+    "command": "mysql -u <username> -p --socket=<socket>",
+    "defaults": {
+      "socket": "/var/run/mysqld/mysqld.sock"
+    },
+    "params": {
+      "username": {
+        "description": "MySQL username"
+      },
+      "socket": {
+        "type": "existing_file",
+        "description": "Path to the MySQL socket"
+      }
+    }
+  }
+]

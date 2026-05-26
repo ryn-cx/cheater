@@ -1,0 +1,114 @@
+[
+  {
+    "description": "Compile a single .java source file",
+    "command": "javac <source>",
+    "params": {
+      "source": {
+        "type": "existing_file",
+        "description": "Java source file"
+      }
+    }
+  },
+  {
+    "description": "Compile all .java files in the current directory",
+    "command": "javac *.java"
+  },
+  {
+    "description": "Compile into a destination directory",
+    "command": "javac -d <build_dir> <source>",
+    "defaults": {
+      "build_dir": "build"
+    },
+    "params": {
+      "build_dir": {
+        "description": "Output directory for .class files"
+      },
+      "source": {
+        "type": "existing_file",
+        "description": "Java source file"
+      }
+    }
+  },
+  {
+    "description": "Compile with a source dependency directory",
+    "command": "javac -sourcepath <sourcepath> <source>",
+    "params": {
+      "sourcepath": {
+        "type": "existing_dir",
+        "description": "Source dependency directory"
+      },
+      "source": {
+        "type": "existing_file",
+        "description": "Java source file"
+      }
+    }
+  },
+  {
+    "description": "Compile with a custom classpath",
+    "command": "javac -classpath <classpath> <source>",
+    "params": {
+      "classpath": {
+        "type": "string",
+        "description": "Classpath (colon- or semicolon-separated)"
+      },
+      "source": {
+        "type": "existing_file",
+        "description": "Java source file"
+      }
+    }
+  },
+  {
+    "description": "Treat all warnings as errors",
+    "command": "javac -Werror <source>",
+    "params": {
+      "source": {
+        "type": "existing_file",
+        "description": "Java source file"
+      }
+    }
+  },
+  {
+    "description": "Compile targeting an older Java source version",
+    "command": "javac -source <version> <source>",
+    "defaults": {
+      "version": "1.8"
+    },
+    "params": {
+      "version": {
+        "description": "Source language version (e.g. 1.8, 11, 17)"
+      },
+      "source": {
+        "type": "existing_file",
+        "description": "Java source file"
+      }
+    }
+  },
+  {
+    "description": "Compile with verbose output",
+    "command": "javac -verbose *.java"
+  },
+  {
+    "description": "Show deprecated API usage warnings",
+    "command": "javac -deprecation <source>",
+    "params": {
+      "source": {
+        "type": "existing_file",
+        "description": "Java source file"
+      }
+    }
+  },
+  {
+    "description": "Include debug info in .class files",
+    "command": "javac -g <source>",
+    "params": {
+      "source": {
+        "type": "existing_file",
+        "description": "Java source file"
+      }
+    }
+  },
+  {
+    "description": "Show the installed javac version",
+    "command": "javac -version"
+  }
+]

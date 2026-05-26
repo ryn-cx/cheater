@@ -1,0 +1,26 @@
+[
+  {
+    "description": "Open a shell with one or more packages available",
+    "command": "guix shell <packages>",
+    "params": {
+      "packages": {
+        "type": "string",
+        "description": "Space-separated package names"
+      }
+    }
+  },
+  {
+    "description": "Run a single command in an environment with packages",
+    "command": "guix shell <packages> -- <command>",
+    "params": {
+      "packages": {
+        "type": "string",
+        "description": "Space-separated package names"
+      },
+      "command": {
+        "type": "string",
+        "description": "Command to run inside the shell"
+      }
+    }
+  }
+]

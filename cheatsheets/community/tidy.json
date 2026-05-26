@@ -1,0 +1,33 @@
+[
+  {
+    "description": "Tidy an HTML file (indent, wrap at column W)",
+    "command": "tidy -i -wrap <width> -o <output> <input>",
+    "defaults": {
+      "width": "160"
+    },
+    "params": {
+      "width": {
+        "type": "integer",
+        "description": "Wrap column"
+      },
+      "output": {
+        "type": "path",
+        "description": "Output HTML file"
+      },
+      "input": {
+        "type": "existing_file",
+        "description": "Input HTML file"
+      }
+    }
+  },
+  {
+    "description": "Tidy XML in place",
+    "command": "tidy -xml -i -m <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input XML file"
+      }
+    }
+  }
+]

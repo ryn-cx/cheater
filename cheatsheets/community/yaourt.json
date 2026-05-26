@@ -1,0 +1,42 @@
+[
+  {
+    "description": "Search and install a package (also queries AUR)",
+    "command": "yaourt <package>",
+    "params": {
+      "package": {
+        "description": "Package name or search term"
+      }
+    }
+  },
+  {
+    "description": "Install a specific package",
+    "command": "yaourt -S <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Sync local DB and upgrade everything including AUR and devel",
+    "command": "yaourt -Syua --devel"
+  },
+  {
+    "description": "Build a package from source",
+    "command": "yaourt -Sb <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Install without confirmation prompts",
+    "command": "yaourt -S --noconfirm <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  }
+]

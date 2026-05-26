@@ -1,0 +1,48 @@
+[
+  {
+    "description": "Lowercase all matching files",
+    "command": "rename 'y/A-Z/a-z/' <glob>",
+    "defaults": {
+      "glob": "*"
+    },
+    "params": {
+      "glob": {
+        "type": "string",
+        "description": "Files to rename"
+      }
+    }
+  },
+  {
+    "description": "Replace text in matching filenames",
+    "command": "rename 's/<from>/<to>/' <glob>",
+    "defaults": {
+      "glob": "*"
+    },
+    "params": {
+      "from": {
+        "type": "string",
+        "description": "Pattern to match (regex)"
+      },
+      "to": {
+        "type": "string",
+        "description": "Replacement"
+      },
+      "glob": {
+        "type": "string",
+        "description": "Files to rename"
+      }
+    }
+  },
+  {
+    "description": "Change file extension across many files",
+    "command": "rename 's/\\.<old>$/.<new>/' *.<old>",
+    "params": {
+      "old": {
+        "description": "Old extension (without the dot)"
+      },
+      "new": {
+        "description": "New extension"
+      }
+    }
+  }
+]

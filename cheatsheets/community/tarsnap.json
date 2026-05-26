@@ -1,0 +1,75 @@
+[
+  {
+    "description": "Back up directories to tarsnap",
+    "command": "tarsnap -c -f <archive_name> <paths>",
+    "params": {
+      "archive_name": {
+        "description": "Name for the new archive"
+      },
+      "paths": {
+        "type": "existing_file_list",
+        "description": "Files or directories to back up"
+      }
+    }
+  },
+  {
+    "description": "Dry-run a backup to see how much would be uploaded",
+    "command": "tarsnap -c -f <archive_name> --dry-run --print-stats <paths>",
+    "params": {
+      "archive_name": {
+        "description": "Name for the (hypothetical) archive"
+      },
+      "paths": {
+        "type": "existing_file_list",
+        "description": "Files or directories to estimate"
+      }
+    }
+  },
+  {
+    "description": "Copy an existing archive to a new name (metadata only)",
+    "command": "tarsnap -c -f <target_archive> @@<source_archive>",
+    "params": {
+      "target_archive": {
+        "description": "New archive name"
+      },
+      "source_archive": {
+        "description": "Existing archive name to copy"
+      }
+    }
+  },
+  {
+    "description": "List all archives",
+    "command": "tarsnap --list-archives"
+  },
+  {
+    "description": "Delete an archive",
+    "command": "tarsnap -d -f <archive_name>",
+    "params": {
+      "archive_name": {
+        "description": "Archive name to delete"
+      }
+    }
+  },
+  {
+    "description": "List the files inside an archive",
+    "command": "tarsnap -tv -f <archive_name>",
+    "params": {
+      "archive_name": {
+        "description": "Archive name to inspect"
+      }
+    }
+  },
+  {
+    "description": "Restore specific paths from an archive (no leading slash)",
+    "command": "tarsnap -x -f <archive_name> <paths>",
+    "params": {
+      "archive_name": {
+        "description": "Archive to restore from"
+      },
+      "paths": {
+        "type": "string",
+        "description": "Space-separated paths inside the archive (no leading slash)"
+      }
+    }
+  }
+]

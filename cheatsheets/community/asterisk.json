@@ -1,0 +1,40 @@
+[
+  {
+    "description": "Connect to a running Asterisk session (verbose)",
+    "command": "asterisk -rvvv"
+  },
+  {
+    "description": "Issue a command to Asterisk from the shell",
+    "command": "asterisk -rx \"<command>\"",
+    "params": {
+      "command": {
+        "type": "string",
+        "description": "Asterisk CLI command to run"
+      }
+    }
+  },
+  {
+    "description": "Originate an echo call from a SIP trunk to a number",
+    "command": "asterisk -rx \"channel originate SIP/<trunk>/<number> application echo\"",
+    "params": {
+      "trunk": {
+        "description": "SIP trunk name"
+      },
+      "number": {
+        "description": "Destination phone number"
+      }
+    }
+  },
+  {
+    "description": "List SIP peers",
+    "command": "asterisk -rx \"sip show peers\""
+  },
+  {
+    "description": "List SIP users",
+    "command": "asterisk -rx \"sip show users\""
+  },
+  {
+    "description": "Show active channels",
+    "command": "asterisk -rx \"core show channels\""
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "description": "Initialize the working directory (download providers, set up backend)",
+    "command": "terraform init"
+  },
+  {
+    "description": "Reformat configuration in the standard style",
+    "command": "terraform fmt"
+  },
+  {
+    "description": "Validate the configuration for syntax errors",
+    "command": "terraform validate"
+  },
+  {
+    "description": "Show the plan (what would change without applying)",
+    "command": "terraform plan"
+  },
+  {
+    "description": "Apply the configuration",
+    "command": "terraform apply"
+  },
+  {
+    "description": "Auto-approve and apply (CI/CD-friendly)",
+    "command": "terraform apply -auto-approve"
+  },
+  {
+    "description": "Destroy all managed resources",
+    "command": "terraform destroy"
+  },
+  {
+    "description": "Upgrade provider versions to the latest matching constraints",
+    "command": "terraform init -upgrade"
+  },
+  {
+    "description": "Update modules from their sources",
+    "command": "terraform get -update"
+  },
+  {
+    "description": "Show the current state as JSON",
+    "command": "terraform show -json"
+  },
+  {
+    "description": "List items in the state",
+    "command": "terraform state list"
+  }
+]

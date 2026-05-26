@@ -1,0 +1,44 @@
+[
+  {
+    "description": "Clear (empty) the contents of a file",
+    "command": "truncate -s 0 <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to clear"
+      }
+    }
+  },
+  {
+    "description": "Truncate or extend a file to an exact byte count",
+    "command": "truncate -s <size> <file>",
+    "defaults": {
+      "size": "100"
+    },
+    "params": {
+      "size": {
+        "description": "Size (number, or with suffix K/M/G/T/P/E/Z/Y)"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Target file"
+      }
+    }
+  },
+  {
+    "description": "Reduce a file by a relative amount",
+    "command": "truncate -s -<delta> <file>",
+    "defaults": {
+      "delta": "100"
+    },
+    "params": {
+      "delta": {
+        "description": "Bytes to remove from the end"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Target file"
+      }
+    }
+  }
+]

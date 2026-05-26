@@ -1,0 +1,362 @@
+[
+  {
+    "description": "Set your git identity (name and email)",
+    "command": "git config --global user.name \"<name>\" && git config --global user.email \"<email>\"",
+    "params": {
+      "name": {
+        "type": "string",
+        "description": "Full name to attach to commits"
+      },
+      "email": {
+        "type": "string",
+        "description": "Email address to attach to commits"
+      }
+    }
+  },
+  {
+    "description": "Set your default git editor",
+    "command": "git config --global core.editor <editor>",
+    "params": {
+      "editor": {
+        "description": "Editor command (e.g. vim, nano, code --wait)"
+      }
+    }
+  },
+  {
+    "description": "Enable colored output globally",
+    "command": "git config --global color.ui true"
+  },
+  {
+    "description": "Stage all changes for commit",
+    "command": "git add --all"
+  },
+  {
+    "description": "Stash all uncommitted changes",
+    "command": "git stash"
+  },
+  {
+    "description": "Stash changes with a message",
+    "command": "git stash push -m \"<message>\"",
+    "params": {
+      "message": {
+        "type": "string",
+        "description": "Stash description"
+      }
+    }
+  },
+  {
+    "description": "List all stashes",
+    "command": "git stash list"
+  },
+  {
+    "description": "Apply and drop the most recent stash",
+    "command": "git stash pop"
+  },
+  {
+    "description": "Apply a specific stash without dropping it",
+    "command": "git stash apply stash@{<index>}",
+    "params": {
+      "index": {
+        "type": "integer",
+        "description": "Stash index (0-based)"
+      }
+    }
+  },
+  {
+    "description": "Commit staged changes with a message",
+    "command": "git commit -m \"<message>\"",
+    "params": {
+      "message": {
+        "type": "string",
+        "description": "Commit message"
+      }
+    }
+  },
+  {
+    "description": "Amend the previous commit (re-uses staged changes)",
+    "command": "git commit --amend"
+  },
+  {
+    "description": "Discard all staged and unstaged changes",
+    "command": "git reset --hard"
+  },
+  {
+    "description": "Roll back N commits, discarding the work",
+    "command": "git reset --hard HEAD~<n>",
+    "params": {
+      "n": {
+        "type": "integer",
+        "description": "Number of commits to roll back"
+      }
+    }
+  },
+  {
+    "description": "Reset local branch to match a remote branch",
+    "command": "git reset --hard <remote>/<branch>",
+    "defaults": {
+      "remote": "origin"
+    },
+    "params": {
+      "remote": {
+        "description": "Remote name"
+      },
+      "branch": {
+        "description": "Branch name"
+      }
+    }
+  },
+  {
+    "description": "Remove all untracked files and directories",
+    "command": "git clean -f -d"
+  },
+  {
+    "description": "Remove untracked files including ignored ones",
+    "command": "git clean -f -d -x"
+  },
+  {
+    "description": "Push the current branch to a remote",
+    "command": "git push <remote> <branch>",
+    "defaults": {
+      "remote": "origin",
+      "branch": "main"
+    },
+    "params": {
+      "remote": {
+        "description": "Remote name"
+      },
+      "branch": {
+        "description": "Branch name"
+      }
+    }
+  },
+  {
+    "description": "Create an annotated tag at a specific commit",
+    "command": "git tag -a <tag> <commit> -m \"<message>\"",
+    "params": {
+      "tag": {
+        "description": "Tag name (e.g. v1.0.0)"
+      },
+      "commit": {
+        "description": "Commit SHA or ref"
+      },
+      "message": {
+        "type": "string",
+        "description": "Tag message"
+      }
+    }
+  },
+  {
+    "description": "Push a tag to a remote",
+    "command": "git push <remote> <tag>",
+    "defaults": {
+      "remote": "origin"
+    },
+    "params": {
+      "remote": {
+        "description": "Remote name"
+      },
+      "tag": {
+        "description": "Tag name"
+      }
+    }
+  },
+  {
+    "description": "Delete a tag on the remote",
+    "command": "git push --delete <remote> <tag>",
+    "defaults": {
+      "remote": "origin"
+    },
+    "params": {
+      "remote": {
+        "description": "Remote name"
+      },
+      "tag": {
+        "description": "Tag name"
+      }
+    }
+  },
+  {
+    "description": "Delete a tag locally",
+    "command": "git tag -d <tag>",
+    "params": {
+      "tag": {
+        "description": "Tag name"
+      }
+    }
+  },
+  {
+    "description": "Force-push the current branch (with-lease is safer than -f)",
+    "command": "git push --force-with-lease"
+  },
+  {
+    "description": "Delete a local branch (force, even if unmerged)",
+    "command": "git branch -D <branch>",
+    "params": {
+      "branch": {
+        "description": "Branch name"
+      }
+    }
+  },
+  {
+    "description": "Delete a local branch (only if merged)",
+    "command": "git branch -d <branch>",
+    "params": {
+      "branch": {
+        "description": "Branch name"
+      }
+    }
+  },
+  {
+    "description": "Delete a remote branch",
+    "command": "git push --delete <remote> <branch>",
+    "defaults": {
+      "remote": "origin"
+    },
+    "params": {
+      "remote": {
+        "description": "Remote name"
+      },
+      "branch": {
+        "description": "Branch name"
+      }
+    }
+  },
+  {
+    "description": "Make an existing local branch track an upstream branch",
+    "command": "git branch -u <remote>/<upstream>",
+    "defaults": {
+      "remote": "origin"
+    },
+    "params": {
+      "remote": {
+        "description": "Remote name"
+      },
+      "upstream": {
+        "description": "Upstream branch name"
+      }
+    }
+  },
+  {
+    "description": "Show line-by-line authorship for a file",
+    "command": "git blame <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to blame"
+      }
+    }
+  },
+  {
+    "description": "Show commits that will be pushed (upstream..HEAD)",
+    "command": "git log @{u}.."
+  },
+  {
+    "description": "Interactive rebase of the last N commits",
+    "command": "git rebase -i HEAD~<n>",
+    "params": {
+      "n": {
+        "type": "integer",
+        "description": "Number of commits to include"
+      }
+    }
+  },
+  {
+    "description": "Diff files without requiring a git repo",
+    "command": "git diff --no-index <file1> <file2>",
+    "params": {
+      "file1": {
+        "type": "existing_file",
+        "description": "First file"
+      },
+      "file2": {
+        "type": "existing_file",
+        "description": "Second file"
+      }
+    }
+  },
+  {
+    "description": "Update all submodules recursively",
+    "command": "git submodule update --init --recursive"
+  },
+  {
+    "description": "Shallow clone (latest commit only)",
+    "command": "git clone --depth 1 <url>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "Repository URL"
+      }
+    }
+  },
+  {
+    "description": "Convert a shallow clone to full history",
+    "command": "git pull --unshallow"
+  },
+  {
+    "description": "Create an orphan branch (no history from current branch)",
+    "command": "git checkout --orphan <branch>",
+    "params": {
+      "branch": {
+        "description": "New branch name"
+      }
+    }
+  },
+  {
+    "description": "Prune local refs to deleted remote branches",
+    "command": "git remote prune <remote>",
+    "defaults": {
+      "remote": "origin"
+    },
+    "params": {
+      "remote": {
+        "description": "Remote name"
+      }
+    }
+  },
+  {
+    "description": "Revert a commit (create a new commit that undoes it)",
+    "command": "git revert <commit>",
+    "params": {
+      "commit": {
+        "description": "Commit SHA to revert"
+      }
+    }
+  },
+  {
+    "description": "Cherry-pick a commit onto the current branch",
+    "command": "git cherry-pick <commit>",
+    "params": {
+      "commit": {
+        "description": "Commit SHA"
+      }
+    }
+  },
+  {
+    "description": "Amend the previous commit's author",
+    "command": "git commit --amend --author=\"<name> <<email>>\"",
+    "params": {
+      "name": {
+        "type": "string",
+        "description": "Author name"
+      },
+      "email": {
+        "type": "string",
+        "description": "Author email"
+      }
+    }
+  },
+  {
+    "description": "Sign a commit with GPG",
+    "command": "git commit -a -S -m \"<message>\"",
+    "params": {
+      "message": {
+        "type": "string",
+        "description": "Commit message"
+      }
+    }
+  },
+  {
+    "description": "List untracked files (respecting .gitignore)",
+    "command": "git ls-files --others --exclude-standard"
+  }
+]

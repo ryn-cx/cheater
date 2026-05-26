@@ -1,0 +1,96 @@
+[
+  {
+    "description": "Watch iptables hits, refreshing every 2 seconds",
+    "command": "watch -d -n 2 iptables -nvL"
+  },
+  {
+    "description": "Block a TCP port (and hide it from nmap)",
+    "command": "sudo iptables -A INPUT -i <interface> -p tcp --dport <port> -j REJECT --reject-with icmp-port-unreachable",
+    "defaults": {
+      "interface": "eth0"
+    },
+    "params": {
+      "interface": {
+        "description": "Network interface"
+      },
+      "port": {
+        "type": "integer",
+        "description": "TCP port to block"
+      }
+    }
+  },
+  {
+    "description": "Allow a TCP port from a specific source IP",
+    "command": "sudo iptables -A INPUT -i <interface> -p tcp --dport <port> -s <source_ip> -j ACCEPT",
+    "params": {
+      "interface": {
+        "description": "Network interface"
+      },
+      "port": {
+        "type": "integer",
+        "description": "TCP port"
+      },
+      "source_ip": {
+        "description": "Source IP allowed"
+      }
+    }
+  },
+  {
+    "description": "List rules with line numbers",
+    "command": "sudo iptables -L INPUT --line-numbers"
+  },
+  {
+    "description": "Remove a rule by line number",
+    "command": "sudo iptables -D INPUT <line_number>",
+    "params": {
+      "line_number": {
+        "type": "integer",
+        "description": "Rule line number (from -L --line-numbers)"
+      }
+    }
+  },
+  {
+    "description": "Insert a rule with a descriptive comment",
+    "command": "sudo iptables -I INPUT <line_number> -i <interface> -p tcp --dport <port> -s <source_ip> -j ACCEPT -m comment --comment \"<comment>\"",
+    "params": {
+      "line_number": {
+        "type": "integer",
+        "description": "Line number to insert at"
+      },
+      "interface": {
+        "description": "Network interface"
+      },
+      "port": {
+        "type": "integer",
+        "description": "TCP port"
+      },
+      "source_ip": {
+        "description": "Source IP"
+      },
+      "comment": {
+        "type": "string",
+        "description": "Reason for the rule"
+      }
+    }
+  },
+  {
+    "description": "Save current rules to a file (iptables-save)",
+    "command": "sudo iptables-save > <out_file>",
+    "params": {
+      "out_file": {
+        "type": "path",
+        "description": "Output rules file"
+      }
+    }
+  },
+  {
+    "description": "Restore rules from a file",
+    "command": "sudo iptables-restore < <in_file>",
+    "params": {
+      "in_file": {
+        "type": "existing_file",
+        "description": "Saved rules file"
+      }
+    }
+  }
+]

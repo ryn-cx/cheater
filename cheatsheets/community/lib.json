@@ -1,0 +1,20 @@
+[
+  {
+    "description": "List shared libraries known to the dynamic linker",
+    "command": "ldconfig -p"
+  },
+  {
+    "description": "Rebuild the dynamic linker's cache",
+    "command": "sudo ldconfig"
+  },
+  {
+    "description": "Show the shared libraries an executable needs",
+    "command": "ldd <executable>",
+    "params": {
+      "executable": {
+        "type": "existing_file",
+        "description": "Binary to inspect"
+      }
+    }
+  }
+]

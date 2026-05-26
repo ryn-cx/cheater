@@ -1,0 +1,53 @@
+[
+  {
+    "description": "Launch top with default refresh",
+    "command": "top"
+  },
+  {
+    "description": "Set the delay between updates (seconds)",
+    "command": "top -d <delay>",
+    "defaults": {
+      "delay": "1"
+    },
+    "params": {
+      "delay": {
+        "type": "integer",
+        "description": "Seconds between refreshes"
+      }
+    }
+  },
+  {
+    "description": "Show only processes owned by a user",
+    "command": "top -u <user>",
+    "params": {
+      "user": {
+        "description": "Username"
+      }
+    }
+  },
+  {
+    "description": "Run for N iterations then exit (good for logging)",
+    "command": "top -bn <iterations>",
+    "defaults": {
+      "iterations": "1"
+    },
+    "params": {
+      "iterations": {
+        "type": "integer",
+        "description": "Number of iterations"
+      }
+    }
+  },
+  {
+    "description": "Sort the display by a key",
+    "command": "top -o <key>",
+    "defaults": {
+      "key": "%CPU"
+    },
+    "params": {
+      "key": {
+        "description": "Column key (e.g. %CPU, %MEM, PID)"
+      }
+    }
+  }
+]

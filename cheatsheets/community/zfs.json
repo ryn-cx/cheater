@@ -1,0 +1,225 @@
+[
+  {
+    "description": "Create a RAID-Z1 pool from whole devices",
+    "command": "sudo zpool create <pool> raidz1 <devices>",
+    "params": {
+      "pool": {
+        "description": "Pool name"
+      },
+      "devices": {
+        "type": "string",
+        "description": "Space-separated /dev/disk/by-id/... paths"
+      }
+    }
+  },
+  {
+    "description": "Add a mirrored ZIL (log) to a pool",
+    "command": "sudo zpool add <pool> log mirror <part1> <part2>",
+    "params": {
+      "pool": {
+        "description": "Pool name"
+      },
+      "part1": {
+        "description": "First log partition"
+      },
+      "part2": {
+        "description": "Second log partition"
+      }
+    }
+  },
+  {
+    "description": "Add a read cache (L2ARC) to a pool",
+    "command": "sudo zpool add <pool> cache <partitions>",
+    "params": {
+      "pool": {
+        "description": "Pool name"
+      },
+      "partitions": {
+        "type": "string",
+        "description": "Space-separated cache partitions"
+      }
+    }
+  },
+  {
+    "description": "Import all known pools from /dev/disk/by-id",
+    "command": "sudo zpool import -d /dev/disk/by-id -aN"
+  },
+  {
+    "description": "Export (cleanly disconnect) all pools",
+    "command": "sudo zpool export -a"
+  },
+  {
+    "description": "List imported pools",
+    "command": "zpool list"
+  },
+  {
+    "description": "Show pool status",
+    "command": "zpool status <pool>",
+    "params": {
+      "pool": {
+        "description": "Pool name"
+      }
+    }
+  },
+  {
+    "description": "Verify pool integrity (data checksums)",
+    "command": "sudo zpool scrub <pool>",
+    "params": {
+      "pool": {
+        "description": "Pool name"
+      }
+    }
+  },
+  {
+    "description": "Replace a failed device in a pool",
+    "command": "sudo zpool replace <pool> <failed_device> <new_device>",
+    "params": {
+      "pool": {
+        "description": "Pool name"
+      },
+      "failed_device": {
+        "description": "Failed device id"
+      },
+      "new_device": {
+        "description": "Replacement device id"
+      }
+    }
+  },
+  {
+    "description": "Create a new file system in a pool",
+    "command": "sudo zfs create <pool>/<fs>",
+    "params": {
+      "pool": {
+        "description": "Pool name"
+      },
+      "fs": {
+        "description": "File system name"
+      }
+    }
+  },
+  {
+    "description": "Create a new volume (block device) in a pool",
+    "command": "sudo zfs create -V <size> <pool>/<vol>",
+    "defaults": {
+      "size": "10G"
+    },
+    "params": {
+      "size": {
+        "description": "Volume size (e.g. 10G)"
+      },
+      "pool": {
+        "description": "Pool name"
+      },
+      "vol": {
+        "description": "Volume name"
+      }
+    }
+  },
+  {
+    "description": "List all ZFS file systems and volumes",
+    "command": "zfs list"
+  },
+  {
+    "description": "Take a snapshot of a file system",
+    "command": "sudo zfs snapshot <pool>/<fs>@<snapshot>",
+    "params": {
+      "pool": {
+        "description": "Pool name"
+      },
+      "fs": {
+        "description": "File system name"
+      },
+      "snapshot": {
+        "description": "Snapshot name"
+      }
+    }
+  },
+  {
+    "description": "Destroy a snapshot",
+    "command": "sudo zfs destroy <pool>/<fs>@<snapshot>",
+    "params": {
+      "pool": {
+        "description": "Pool name"
+      },
+      "fs": {
+        "description": "File system name"
+      },
+      "snapshot": {
+        "description": "Snapshot name"
+      }
+    }
+  },
+  {
+    "description": "Stream a full backup of a snapshot (pipe to ssh/nc)",
+    "command": "sudo zfs send -p -R <pool>/<fs>@<snapshot>",
+    "params": {
+      "pool": {
+        "description": "Pool name"
+      },
+      "fs": {
+        "description": "File system name"
+      },
+      "snapshot": {
+        "description": "Snapshot name"
+      }
+    }
+  },
+  {
+    "description": "Stream an incremental backup between two snapshots",
+    "command": "sudo zfs send -p -R -i <pool>/<fs>@<previous> <pool>/<fs>@<snapshot>",
+    "params": {
+      "pool": {
+        "description": "Pool name"
+      },
+      "fs": {
+        "description": "File system name"
+      },
+      "previous": {
+        "description": "Previous snapshot"
+      },
+      "snapshot": {
+        "description": "New snapshot"
+      }
+    }
+  },
+  {
+    "description": "Receive a ZFS stream into a file system (forced)",
+    "command": "sudo zfs receive -F <pool>/<fs>",
+    "params": {
+      "pool": {
+        "description": "Pool name"
+      },
+      "fs": {
+        "description": "Destination file system"
+      }
+    }
+  },
+  {
+    "description": "Get all properties of a pool or fs",
+    "command": "zfs get all <target>",
+    "params": {
+      "target": {
+        "description": "Pool, fs, or volume name"
+      }
+    }
+  },
+  {
+    "description": "Set a property on a fs or volume",
+    "command": "sudo zfs set <property>=<value> <pool>/<fs>",
+    "params": {
+      "property": {
+        "description": "Property name (e.g. compression, atime)"
+      },
+      "value": {
+        "type": "string",
+        "description": "Property value"
+      },
+      "pool": {
+        "description": "Pool name"
+      },
+      "fs": {
+        "description": "File system name"
+      }
+    }
+  }
+]

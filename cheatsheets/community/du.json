@@ -1,0 +1,41 @@
+[
+  {
+    "description": "Show cumulative size of the current directory (human-readable)",
+    "command": "du -sh"
+  },
+  {
+    "description": "Show cumulative human-readable size, dereferencing symlinks",
+    "command": "du -shL"
+  },
+  {
+    "description": "Show apparent size (sparse files count their full size)",
+    "command": "du -h --apparent-size"
+  },
+  {
+    "description": "Sort entries in the current dir by size (human-readable)",
+    "command": "du -sh * | sort -rh"
+  },
+  {
+    "description": "List the N largest files and folders under the current dir",
+    "command": "du -ma | sort -nr | head -n <count>",
+    "defaults": {
+      "count": "20"
+    },
+    "params": {
+      "count": {
+        "type": "integer",
+        "description": "Number of entries to show"
+      }
+    }
+  },
+  {
+    "description": "Show usage for a specific path",
+    "command": "du -sh <path>",
+    "params": {
+      "path": {
+        "type": "existing_path",
+        "description": "File or directory to size"
+      }
+    }
+  }
+]

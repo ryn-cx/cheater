@@ -1,0 +1,44 @@
+[
+  {
+    "description": "List all configured feeds",
+    "command": "r2e list"
+  },
+  {
+    "description": "Fetch new entries and send them as email",
+    "command": "r2e run"
+  },
+  {
+    "description": "Add a new feed",
+    "command": "r2e add <feed_url>",
+    "params": {
+      "feed_url": {
+        "type": "string",
+        "description": "RSS feed URL"
+      }
+    }
+  },
+  {
+    "description": "Add a feed delivered to a specific email address",
+    "command": "r2e add <feed_url> <email>",
+    "params": {
+      "feed_url": {
+        "type": "string",
+        "description": "RSS feed URL"
+      },
+      "email": {
+        "type": "string",
+        "description": "Destination email address"
+      }
+    }
+  },
+  {
+    "description": "Delete a feed by its number in the list",
+    "command": "r2e delete <feed_number>",
+    "params": {
+      "feed_number": {
+        "type": "integer",
+        "description": "Feed number (from r2e list)"
+      }
+    }
+  }
+]

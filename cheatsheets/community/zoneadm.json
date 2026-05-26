@@ -1,0 +1,60 @@
+[
+  {
+    "description": "Halt a Solaris zone",
+    "command": "sudo zoneadm -z <zone> halt",
+    "params": {
+      "zone": {
+        "description": "Zone name"
+      }
+    }
+  },
+  {
+    "description": "Uninstall a zone (must be halted first)",
+    "command": "sudo zoneadm -z <zone> uninstall",
+    "params": {
+      "zone": {
+        "description": "Zone name"
+      }
+    }
+  },
+  {
+    "description": "Verify a zone's configuration",
+    "command": "sudo zoneadm -z <zone> verify",
+    "params": {
+      "zone": {
+        "description": "Zone name"
+      }
+    }
+  },
+  {
+    "description": "Install a configured zone",
+    "command": "sudo zoneadm -z <zone> install",
+    "params": {
+      "zone": {
+        "description": "Zone name"
+      }
+    }
+  },
+  {
+    "description": "Boot a zone",
+    "command": "sudo zoneadm -z <zone> boot",
+    "params": {
+      "zone": {
+        "description": "Zone name"
+      }
+    }
+  },
+  {
+    "description": "Reboot a zone",
+    "command": "sudo zoneadm -z <zone> reboot",
+    "params": {
+      "zone": {
+        "description": "Zone name"
+      }
+    }
+  },
+  {
+    "description": "List zones (verbose with config)",
+    "command": "zoneadm list -cv"
+  }
+]

@@ -1,0 +1,33 @@
+[
+  {
+    "description": "Switch to another user (login shell)",
+    "command": "su - <user>",
+    "params": {
+      "user": {
+        "description": "Target user"
+      }
+    }
+  },
+  {
+    "description": "Switch to another user (inherit env)",
+    "command": "su <user>",
+    "params": {
+      "user": {
+        "description": "Target user"
+      }
+    }
+  },
+  {
+    "description": "Run a single command as another user",
+    "command": "su -c '<command>' <user>",
+    "params": {
+      "command": {
+        "type": "string",
+        "description": "Command to run"
+      },
+      "user": {
+        "description": "Target user"
+      }
+    }
+  }
+]

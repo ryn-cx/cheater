@@ -1,0 +1,100 @@
+[
+  {
+    "description": "Show byte and line of the first difference between two files",
+    "command": "cmp <file1> <file2>",
+    "params": {
+      "file1": {
+        "type": "existing_file",
+        "description": "First file to compare"
+      },
+      "file2": {
+        "type": "existing_file",
+        "description": "Second file to compare"
+      }
+    }
+  },
+  {
+    "description": "Show the first differing byte (with hex/char info)",
+    "command": "cmp -b <file1> <file2>",
+    "params": {
+      "file1": {
+        "type": "existing_file",
+        "description": "First file to compare"
+      },
+      "file2": {
+        "type": "existing_file",
+        "description": "Second file to compare"
+      }
+    }
+  },
+  {
+    "description": "Show every differing byte between two files",
+    "command": "cmp -b --verbose <file1> <file2>",
+    "params": {
+      "file1": {
+        "type": "existing_file",
+        "description": "First file to compare"
+      },
+      "file2": {
+        "type": "existing_file",
+        "description": "Second file to compare"
+      }
+    }
+  },
+  {
+    "description": "Compare starting after the first N bytes",
+    "command": "cmp -i <skip> <file1> <file2>",
+    "defaults": {
+      "skip": "100"
+    },
+    "params": {
+      "skip": {
+        "type": "integer",
+        "description": "Number of leading bytes to skip in both files"
+      },
+      "file1": {
+        "type": "existing_file",
+        "description": "First file to compare"
+      },
+      "file2": {
+        "type": "existing_file",
+        "description": "Second file to compare"
+      }
+    }
+  },
+  {
+    "description": "Limit comparison to the first N bytes",
+    "command": "cmp -n <bytes> <file1> <file2>",
+    "defaults": {
+      "bytes": "200"
+    },
+    "params": {
+      "bytes": {
+        "type": "integer",
+        "description": "Maximum number of bytes to compare"
+      },
+      "file1": {
+        "type": "existing_file",
+        "description": "First file to compare"
+      },
+      "file2": {
+        "type": "existing_file",
+        "description": "Second file to compare"
+      }
+    }
+  },
+  {
+    "description": "Compare quietly — exit status only, no output",
+    "command": "cmp --quiet <file1> <file2>",
+    "params": {
+      "file1": {
+        "type": "existing_file",
+        "description": "First file to compare"
+      },
+      "file2": {
+        "type": "existing_file",
+        "description": "Second file to compare"
+      }
+    }
+  }
+]

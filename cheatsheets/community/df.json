@@ -1,0 +1,20 @@
+[
+  {
+    "description": "Print free disk space in human-readable units",
+    "command": "df -h"
+  },
+  {
+    "description": "Print disk usage for a specific path",
+    "command": "df -h <path>",
+    "params": {
+      "path": {
+        "type": "existing_path",
+        "description": "File or directory to inspect"
+      }
+    }
+  },
+  {
+    "description": "Show inode usage instead of byte usage",
+    "command": "df -ih"
+  }
+]

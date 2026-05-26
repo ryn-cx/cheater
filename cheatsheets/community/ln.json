@@ -1,0 +1,44 @@
+[
+  {
+    "description": "Create a symlink",
+    "command": "ln -s <source> <symlink>",
+    "params": {
+      "source": {
+        "type": "existing_path",
+        "description": "Target the symlink points to"
+      },
+      "symlink": {
+        "type": "path",
+        "description": "Path of the symlink to create"
+      }
+    }
+  },
+  {
+    "description": "Create or overwrite a symlink (force)",
+    "command": "ln -sf <source> <symlink>",
+    "params": {
+      "source": {
+        "type": "existing_path",
+        "description": "Target the symlink points to"
+      },
+      "symlink": {
+        "type": "path",
+        "description": "Path of the symlink to create or replace"
+      }
+    }
+  },
+  {
+    "description": "Create a hard link to an existing file",
+    "command": "ln <source> <link>",
+    "params": {
+      "source": {
+        "type": "existing_file",
+        "description": "Existing file to hard-link to"
+      },
+      "link": {
+        "type": "path",
+        "description": "New hard-link path"
+      }
+    }
+  }
+]

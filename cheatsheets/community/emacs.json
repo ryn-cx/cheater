@@ -1,0 +1,30 @@
+[
+  {
+    "description": "Launch Emacs in GUI mode",
+    "command": "emacs"
+  },
+  {
+    "description": "Launch Emacs in terminal (no-window) mode",
+    "command": "emacs -nw"
+  },
+  {
+    "description": "Open a file in Emacs",
+    "command": "emacs <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to open"
+      }
+    }
+  },
+  {
+    "description": "Open a file in terminal Emacs",
+    "command": "emacs -nw <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to open"
+      }
+    }
+  }
+]

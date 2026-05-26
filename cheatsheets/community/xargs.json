@@ -1,0 +1,92 @@
+[
+  {
+    "description": "Pipe `find` output into rm via xargs",
+    "command": "find . -name '<pattern>' | xargs rm -rf",
+    "params": {
+      "pattern": {
+        "type": "string",
+        "description": "Filename glob"
+      }
+    }
+  },
+  {
+    "description": "Safer: handle filenames with spaces",
+    "command": "find . -name '<pattern>' -print0 | xargs -0 rm -rf",
+    "params": {
+      "pattern": {
+        "type": "string",
+        "description": "Filename glob"
+      }
+    }
+  },
+  {
+    "description": "Run a command once per file via a placeholder",
+    "command": "find . -name '<pattern>' | xargs -I{} <command> '{}'",
+    "params": {
+      "pattern": {
+        "type": "string",
+        "description": "Filename glob"
+      },
+      "command": {
+        "type": "string",
+        "description": "Command using {} where the path should go"
+      }
+    }
+  },
+  {
+    "description": "Run N args per command invocation",
+    "command": "find . -name '<pattern>' | xargs -n <n> <command>",
+    "defaults": {
+      "n": "1"
+    },
+    "params": {
+      "pattern": {
+        "type": "string",
+        "description": "Filename glob"
+      },
+      "n": {
+        "type": "integer",
+        "description": "Args per invocation"
+      },
+      "command": {
+        "type": "string",
+        "description": "Command to run"
+      }
+    }
+  },
+  {
+    "description": "Run xargs in parallel (N jobs)",
+    "command": "find . -name '<pattern>' | xargs -P <parallel> -n 1 <command>",
+    "defaults": {
+      "parallel": "4"
+    },
+    "params": {
+      "pattern": {
+        "type": "string",
+        "description": "Filename glob"
+      },
+      "parallel": {
+        "type": "integer",
+        "description": "Number of parallel jobs"
+      },
+      "command": {
+        "type": "string",
+        "description": "Command to run"
+      }
+    }
+  },
+  {
+    "description": "Don't run the command if input is empty (GNU extension)",
+    "command": "find . -name '<pattern>' | xargs --no-run-if-empty <command>",
+    "params": {
+      "pattern": {
+        "type": "string",
+        "description": "Filename glob"
+      },
+      "command": {
+        "type": "string",
+        "description": "Command to run"
+      }
+    }
+  }
+]

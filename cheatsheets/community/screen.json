@@ -1,0 +1,33 @@
+[
+  {
+    "description": "Start a new named screen session",
+    "command": "screen -S <session>",
+    "params": {
+      "session": {
+        "description": "Session name"
+      }
+    }
+  },
+  {
+    "description": "Reattach a previously-detached session",
+    "command": "screen -r <session>",
+    "params": {
+      "session": {
+        "description": "Session name"
+      }
+    }
+  },
+  {
+    "description": "List all screen sessions",
+    "command": "screen -ls"
+  },
+  {
+    "description": "Quit a session from outside it",
+    "command": "screen -XS <session> quit",
+    "params": {
+      "session": {
+        "description": "Session name"
+      }
+    }
+  }
+]

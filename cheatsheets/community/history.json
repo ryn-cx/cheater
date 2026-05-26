@@ -1,0 +1,23 @@
+[
+  {
+    "description": "Show shell command history",
+    "command": "history"
+  },
+  {
+    "description": "Show the top N most-used commands from history",
+    "command": "history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] \" \" CMD[a]/count*100 \"% \" a;}' | grep -v \"./\" | column -c3 -s \" \" -t | sort -nr | nl | head -n <count>",
+    "defaults": {
+      "count": "10"
+    },
+    "params": {
+      "count": {
+        "type": "integer",
+        "description": "Number of top commands to display"
+      }
+    }
+  },
+  {
+    "description": "Clear the shell history",
+    "command": "history -c"
+  }
+]

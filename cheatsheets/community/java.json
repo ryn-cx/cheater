@@ -1,0 +1,88 @@
+[
+  {
+    "description": "Run a runnable .jar file",
+    "command": "java -jar <jar_file>",
+    "params": {
+      "jar_file": {
+        "type": "existing_file",
+        "description": "Runnable .jar to execute"
+      }
+    }
+  },
+  {
+    "description": "Run a jar with arguments passed to the program",
+    "command": "java -jar <jar_file> <args>",
+    "params": {
+      "jar_file": {
+        "type": "existing_file",
+        "description": "Runnable .jar"
+      },
+      "args": {
+        "type": "string",
+        "description": "Program arguments"
+      }
+    }
+  },
+  {
+    "description": "Show the installed java version and runtime info",
+    "command": "java -showversion"
+  },
+  {
+    "description": "Run a jar with explicit memory limits",
+    "command": "java -Xms<initial_mem> -Xmx<max_mem> -Xss<stack_size> -jar <jar_file>",
+    "defaults": {
+      "initial_mem": "256m",
+      "max_mem": "2g",
+      "stack_size": "1m"
+    },
+    "params": {
+      "initial_mem": {
+        "description": "Initial heap size (e.g. 256m)"
+      },
+      "max_mem": {
+        "description": "Maximum heap size (e.g. 2g)"
+      },
+      "stack_size": {
+        "description": "Per-thread stack size (e.g. 1m)"
+      },
+      "jar_file": {
+        "type": "existing_file",
+        "description": "Runnable .jar"
+      }
+    }
+  },
+  {
+    "description": "Run a jar with a custom classpath",
+    "command": "java -classpath <classpath> -jar <jar_file>",
+    "params": {
+      "classpath": {
+        "type": "string",
+        "description": "Classpath (colon-separated on Unix, semicolon on Windows)"
+      },
+      "jar_file": {
+        "type": "existing_file",
+        "description": "Runnable .jar"
+      }
+    }
+  },
+  {
+    "description": "Run a class with arguments",
+    "command": "java -cp <classpath> <class> <args>",
+    "defaults": {
+      "classpath": "."
+    },
+    "params": {
+      "classpath": {
+        "type": "string",
+        "description": "Classpath"
+      },
+      "class": {
+        "description": "Fully-qualified class name"
+      },
+      "args": {
+        "type": "string",
+        "description": "Program arguments"
+      }
+    }
+  }
+]

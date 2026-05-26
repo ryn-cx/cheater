@@ -1,0 +1,56 @@
+[
+  {
+    "description": "Convert DocBook XML to PDF",
+    "command": "xmlto pdf <xml_file>",
+    "params": {
+      "xml_file": {
+        "type": "existing_file",
+        "description": "Source DocBook XML"
+      }
+    }
+  },
+  {
+    "description": "Convert DocBook XML to a directory of chunked HTML",
+    "command": "xmlto -o <html_dir> html <xml_file>",
+    "params": {
+      "html_dir": {
+        "type": "existing_dir",
+        "description": "Output directory"
+      },
+      "xml_file": {
+        "type": "existing_file",
+        "description": "Source DocBook XML"
+      }
+    }
+  },
+  {
+    "description": "Convert DocBook XML to a single HTML file",
+    "command": "xmlto html-nochunks <xml_file>",
+    "params": {
+      "xml_file": {
+        "type": "existing_file",
+        "description": "Source DocBook XML"
+      }
+    }
+  },
+  {
+    "description": "Use a custom XSL stylesheet",
+    "command": "xmlto -x <stylesheet> <format> <xml_file>",
+    "defaults": {
+      "format": "pdf"
+    },
+    "params": {
+      "stylesheet": {
+        "type": "existing_file",
+        "description": "XSL stylesheet"
+      },
+      "format": {
+        "description": "Output format (pdf, html, etc.)"
+      },
+      "xml_file": {
+        "type": "existing_file",
+        "description": "Source XML"
+      }
+    }
+  }
+]

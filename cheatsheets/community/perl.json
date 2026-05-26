@@ -1,0 +1,126 @@
+[
+  {
+    "description": "Show the perl version",
+    "command": "perl -v"
+  },
+  {
+    "description": "Run a perl program",
+    "command": "perl <program> <args>",
+    "params": {
+      "program": {
+        "type": "existing_file",
+        "description": "Perl program file"
+      },
+      "args": {
+        "type": "string",
+        "description": "Program arguments"
+      }
+    }
+  },
+  {
+    "description": "Syntax-check a perl program with warnings",
+    "command": "perl -cw <program>",
+    "params": {
+      "program": {
+        "type": "existing_file",
+        "description": "Perl program file"
+      }
+    }
+  },
+  {
+    "description": "Run inline perl code",
+    "command": "perl -e '<code>'",
+    "params": {
+      "code": {
+        "type": "string",
+        "description": "Perl one-liner"
+      }
+    }
+  },
+  {
+    "description": "Run inline perl with newer language features (use 5.10+)",
+    "command": "perl -E '<code>'",
+    "params": {
+      "code": {
+        "type": "string",
+        "description": "Perl one-liner"
+      }
+    }
+  },
+  {
+    "description": "Process files line-by-line (manual output)",
+    "command": "perl -ne '<code>' <files>",
+    "params": {
+      "code": {
+        "type": "string",
+        "description": "Per-line perl code"
+      },
+      "files": {
+        "type": "existing_file_list",
+        "description": "Files to process"
+      }
+    }
+  },
+  {
+    "description": "Process files line-by-line (auto-print $_)",
+    "command": "perl -pe '<code>' <files>",
+    "params": {
+      "code": {
+        "type": "string",
+        "description": "Per-line perl code"
+      },
+      "files": {
+        "type": "existing_file_list",
+        "description": "Files to process"
+      }
+    }
+  },
+  {
+    "description": "Read an entire file into one string (-0777)",
+    "command": "perl -0777 -pe '<code>' <files>",
+    "params": {
+      "code": {
+        "type": "string",
+        "description": "Whole-file perl code"
+      },
+      "files": {
+        "type": "existing_file_list",
+        "description": "Files to process"
+      }
+    }
+  },
+  {
+    "description": "Auto-split lines into @F on whitespace",
+    "command": "perl -ane '<code>' <files>",
+    "params": {
+      "code": {
+        "type": "string",
+        "description": "Per-line perl code (uses @F)"
+      },
+      "files": {
+        "type": "existing_file_list",
+        "description": "Files to process"
+      }
+    }
+  },
+  {
+    "description": "In-place edit, backing up originals with a suffix",
+    "command": "perl -pi.<suffix> -e '<code>' <files>",
+    "defaults": {
+      "suffix": "bak"
+    },
+    "params": {
+      "suffix": {
+        "description": "Backup file suffix"
+      },
+      "code": {
+        "type": "string",
+        "description": "Per-line perl code"
+      },
+      "files": {
+        "type": "existing_file_list",
+        "description": "Files to edit"
+      }
+    }
+  }
+]

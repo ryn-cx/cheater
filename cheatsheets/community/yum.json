@@ -1,0 +1,93 @@
+[
+  {
+    "description": "Install the latest version of a package",
+    "command": "sudo yum install <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Install from a local RPM file",
+    "command": "sudo yum localinstall <rpm_file>",
+    "params": {
+      "rpm_file": {
+        "type": "existing_file",
+        "description": "Path to a .rpm file"
+      }
+    }
+  },
+  {
+    "description": "Remove a package",
+    "command": "sudo yum remove <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Search for a package",
+    "command": "yum search <package>",
+    "params": {
+      "package": {
+        "description": "Search term"
+      }
+    }
+  },
+  {
+    "description": "Find which package provides an executable",
+    "command": "yum whatprovides <executable>",
+    "params": {
+      "executable": {
+        "description": "Executable name or path"
+      }
+    }
+  },
+  {
+    "description": "Show dependencies of a package",
+    "command": "yum deplist <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Show info about a package",
+    "command": "yum info <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "List enabled repositories",
+    "command": "yum repolist"
+  },
+  {
+    "description": "List packages matching a phrase",
+    "command": "yum list <phrase>",
+    "params": {
+      "phrase": {
+        "type": "string",
+        "description": "Phrase or glob"
+      }
+    }
+  },
+  {
+    "description": "Download a source RPM (requires yum-utils)",
+    "command": "yumdownloader --source <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Update all packages",
+    "command": "sudo yum update"
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "description": "Add a journal entry via the configured text editor",
+    "command": "jrnl"
+  },
+  {
+    "description": "Add a journal entry from the command line",
+    "command": "jrnl <entry>",
+    "params": {
+      "entry": {
+        "type": "string",
+        "description": "Entry text"
+      }
+    }
+  },
+  {
+    "description": "List all tags used in the journal",
+    "command": "jrnl --tags"
+  },
+  {
+    "description": "Show entries that include a specific tag",
+    "command": "jrnl @<tag>",
+    "params": {
+      "tag": {
+        "description": "Tag name (without @)"
+      }
+    }
+  },
+  {
+    "description": "Export the entire journal as JSON",
+    "command": "jrnl --export json"
+  },
+  {
+    "description": "Show entries within a timeframe",
+    "command": "jrnl -from <from> -until <until>",
+    "defaults": {
+      "from": "2024-01-01",
+      "until": "today"
+    },
+    "params": {
+      "from": {
+        "type": "string",
+        "description": "Start date or fuzzy phrase"
+      },
+      "until": {
+        "type": "string",
+        "description": "End date or fuzzy phrase"
+      }
+    }
+  }
+]

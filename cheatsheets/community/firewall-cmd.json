@@ -1,0 +1,35 @@
+[
+  {
+    "description": "Reload the firewall (apply changes from disk)",
+    "command": "firewall-cmd --reload"
+  },
+  {
+    "description": "List all active firewall rules",
+    "command": "firewall-cmd --list-all"
+  },
+  {
+    "description": "Permanently allow a port through the firewall",
+    "command": "firewall-cmd --permanent --add-port=<port>/<protocol>",
+    "defaults": {
+      "protocol": "tcp"
+    },
+    "params": {
+      "port": {
+        "type": "integer",
+        "description": "Port number to open"
+      },
+      "protocol": {
+        "description": "tcp or udp"
+      }
+    }
+  },
+  {
+    "description": "Permanently allow a known service through the firewall",
+    "command": "firewall-cmd --permanent --add-service=<service>",
+    "params": {
+      "service": {
+        "description": "Predefined service name (e.g. http, ssh)"
+      }
+    }
+  }
+]

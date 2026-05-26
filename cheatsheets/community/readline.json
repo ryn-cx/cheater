@@ -1,0 +1,26 @@
+[
+  {
+    "description": "Moving around",
+    "command": "Moving around\nCtrl-b      Move the cursor             one character               ⇦ to the left\nCtrl-f      Move the cursor             one character               ⇨ to the right\nAlt-b       Move the cursor             one word                    ⇦ to the left\nAlt-f       Move the cursor             one word                    ⇨ to the right\nCtrl-a      Move the cursor                                         ⇤ to the start of the line\nCtrl-e      Move the cursor                                         ⇥ to the end of the line\nCtrl-x-x    Move the cursor                                         ⇤⇥ to the start, and to the end again"
+  },
+  {
+    "description": "Cut, copy and paste",
+    "command": "Cut, copy and paste\nBackspace   Delete                      the character               ⇦ to the left of the cursor\nDEL\nCtrl-d      Delete                      the character               underneath the cursor\nCtrl-u      Delete                      everything                  ⇤ from the cursor back to the line start\nCtrl-k      Delete                      everything                  ⇥ from the cursor to the end of the line\nAlt-d       Delete                      word                        ⇨ until before the next word boundary\nCtrl-w      Delete                      word                        ⇦ until after the previous word boundary\nCtrl-y      Yank/Paste                  prev. killed text           at the cursor position\nAlt-y       Yank/Paste                  prev. prev. killed text     at the cursor position"
+  },
+  {
+    "description": "History",
+    "command": "History\nCtrl-p      Move in history             one line                    ⇧ before this line\nCtrl-n      Move in history             one line                    ⇩ after this line\nAlt->       Move in history             all the lines               ⇩ to the line currently being entered\nCtrl-r      Incrementally search        the line history            ⇧ backwardly\nCtrl-s      Incrementally search        the line history            ⇩ forwardly\nCtrl-J      End an incremental search\nCtrl-G      Abort an incremental search and restore the original line\nAlt-Ctrl-y  Yank/Paste                  arg. 1 of prev. cmnd        at the cursor position\nAlt-.\nAlt-_       Yank/Paste                  last arg of prev. cmnd      at the cursor position"
+  },
+  {
+    "description": "Undo",
+    "command": "Undo\nCtrl-_\nCtrl-x\nCtrl-u      Undo the last editing command; you can undo all the way back to an empty line\nAlt-r       Undo all changes made to this line\nCtrl-l      Clear the screen, reprinting the current line at the top\nCtrl-l      Clear the screen, reprinting the current line at the top"
+  },
+  {
+    "description": "Completion",
+    "command": "Completion\nTAB         Auto-complete a name\nAlt-/       Auto-complete a name (without smart completion)\nAlt-?       List the possible completions of the preceeding text\nAlt-*       Insert all possible completions of the preceeding text"
+  },
+  {
+    "description": "Transpose",
+    "command": "Transpose\nCtrl-t      Transpose/drag              char. before the cursor     ↷ over the character at the cursor\nAlt-t       Transpose/drag              word before the cursor      ↷ over the word at/after the cursor"
+  }
+]

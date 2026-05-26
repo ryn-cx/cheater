@@ -1,0 +1,50 @@
+[
+  {
+    "description": "Start gdb on an executable",
+    "command": "gdb <executable>",
+    "params": {
+      "executable": {
+        "type": "existing_file",
+        "description": "Program to debug"
+      }
+    }
+  },
+  {
+    "description": "Start gdb passing arguments to the program",
+    "command": "gdb --args <executable> <args>",
+    "params": {
+      "executable": {
+        "type": "existing_file",
+        "description": "Program to debug"
+      },
+      "args": {
+        "type": "string",
+        "description": "Arguments to pass to the program"
+      }
+    }
+  },
+  {
+    "description": "Attach gdb to a running process",
+    "command": "gdb -p <pid>",
+    "params": {
+      "pid": {
+        "type": "integer",
+        "description": "Process id to attach to"
+      }
+    }
+  },
+  {
+    "description": "Start gdb and run a script of commands",
+    "command": "gdb -x <command_file> <executable>",
+    "params": {
+      "command_file": {
+        "type": "existing_file",
+        "description": "File containing gdb commands"
+      },
+      "executable": {
+        "type": "existing_file",
+        "description": "Program to debug"
+      }
+    }
+  }
+]

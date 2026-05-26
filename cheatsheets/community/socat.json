@@ -1,0 +1,96 @@
+[
+  {
+    "description": "Connect to a TCP server and pass stdin/stdout through",
+    "command": "socat TCP4:<host>:<port> -",
+    "params": {
+      "host": {
+        "description": "Target host"
+      },
+      "port": {
+        "type": "integer",
+        "description": "Target port"
+      }
+    }
+  },
+  {
+    "description": "Connect to an HTTPS endpoint with TLS",
+    "command": "socat openssl:<host>:<port> -",
+    "defaults": {
+      "port": "443"
+    },
+    "params": {
+      "host": {
+        "description": "Target host"
+      },
+      "port": {
+        "type": "integer",
+        "description": "Target port"
+      }
+    }
+  },
+  {
+    "description": "Listen on a TCP port, hexdump incoming data, fork per client",
+    "command": "socat -x tcp-listen:<port>,fork -",
+    "params": {
+      "port": {
+        "type": "integer",
+        "description": "Port to listen on"
+      }
+    }
+  },
+  {
+    "description": "Forward a local port to a remote host:port",
+    "command": "socat TCP4-LISTEN:<local_port>,reuseaddr,fork TCP4:<host>:<port>",
+    "params": {
+      "local_port": {
+        "type": "integer",
+        "description": "Local port to listen on"
+      },
+      "host": {
+        "description": "Remote host"
+      },
+      "port": {
+        "type": "integer",
+        "description": "Remote port"
+      }
+    }
+  },
+  {
+    "description": "Bridge a TCP port to a serial device",
+    "command": "socat TCP4-LISTEN:<port>,fork,reuseaddr <device>,raw,crnl,b<baudrate>",
+    "defaults": {
+      "baudrate": "115200"
+    },
+    "params": {
+      "port": {
+        "type": "integer",
+        "description": "Listening TCP port"
+      },
+      "device": {
+        "type": "existing_path",
+        "description": "Serial device path (e.g. /dev/ttyUSB0)"
+      },
+      "baudrate": {
+        "type": "integer",
+        "description": "Serial baud rate"
+      }
+    }
+  },
+  {
+    "description": "Tunnel UDP over TCP",
+    "command": "socat -u udp-recvfrom:<udp_port>,fork tcp:<host>:<tcp_port>",
+    "params": {
+      "udp_port": {
+        "type": "integer",
+        "description": "Local UDP port to receive on"
+      },
+      "host": {
+        "description": "Forward target host"
+      },
+      "tcp_port": {
+        "type": "integer",
+        "description": "Forward target TCP port"
+      }
+    }
+  }
+]

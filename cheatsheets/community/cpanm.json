@@ -1,0 +1,98 @@
+[
+  {
+    "description": "Install a Perl module",
+    "command": "cpanm <module>",
+    "params": {
+      "module": {
+        "description": "Perl module name, e.g. Some::Module"
+      }
+    }
+  },
+  {
+    "description": "Install from a CPAN distribution path",
+    "command": "cpanm <distro_path>",
+    "params": {
+      "distro_path": {
+        "description": "e.g. AUTHOR/Some-Module-1.00.tar.gz"
+      }
+    }
+  },
+  {
+    "description": "Install from a URL",
+    "command": "cpanm <url>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "URL to the distribution file"
+      }
+    }
+  },
+  {
+    "description": "Install from a local distribution file",
+    "command": "cpanm <distro_file>",
+    "params": {
+      "distro_file": {
+        "type": "existing_file",
+        "description": "Path to a local .tar.gz distribution"
+      }
+    }
+  },
+  {
+    "description": "Install interactively (prompts for config)",
+    "command": "cpanm --interactive <module>",
+    "params": {
+      "module": {
+        "description": "Perl module name"
+      }
+    }
+  },
+  {
+    "description": "Install from the current directory",
+    "command": "cpanm ."
+  },
+  {
+    "description": "Install all dependencies for the current directory",
+    "command": "cpanm --installdeps ."
+  },
+  {
+    "description": "Install a module and non-core deps into a local lib",
+    "command": "cpanm -L <lib_dir> <module>",
+    "defaults": {
+      "lib_dir": "extlib"
+    },
+    "params": {
+      "lib_dir": {
+        "description": "Target local-lib directory"
+      },
+      "module": {
+        "description": "Perl module name"
+      }
+    }
+  },
+  {
+    "description": "Install using a specific CPAN mirror",
+    "command": "cpanm --mirror <mirror_url> <module>",
+    "params": {
+      "mirror_url": {
+        "type": "string",
+        "description": "Mirror URL"
+      },
+      "module": {
+        "description": "Perl module name"
+      }
+    }
+  },
+  {
+    "description": "Install using only an HTTPS mirror",
+    "command": "cpanm --from <mirror_url> <module>",
+    "params": {
+      "mirror_url": {
+        "type": "string",
+        "description": "HTTPS mirror URL"
+      },
+      "module": {
+        "description": "Perl module name"
+      }
+    }
+  }
+]

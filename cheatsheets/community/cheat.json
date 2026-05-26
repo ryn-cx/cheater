@@ -1,0 +1,38 @@
+[
+  {
+    "description": "Show the cheatsheet for a command",
+    "command": "cheat <command>",
+    "params": {
+      "command": {
+        "description": "Command to look up"
+      }
+    }
+  },
+  {
+    "description": "Edit a cheatsheet",
+    "command": "cheat -e <command>",
+    "params": {
+      "command": {
+        "description": "Command's cheatsheet to edit"
+      }
+    }
+  },
+  {
+    "description": "List available cheatsheets",
+    "command": "cheat -l"
+  },
+  {
+    "description": "Search across cheatsheets",
+    "command": "cheat -s <phrase>",
+    "params": {
+      "phrase": {
+        "type": "string",
+        "description": "Search phrase"
+      }
+    }
+  },
+  {
+    "description": "Show the installed cheat version",
+    "command": "cheat -v"
+  }
+]

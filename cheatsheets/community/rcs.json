@@ -1,0 +1,100 @@
+[
+  {
+    "description": "Initially check in a file, leaving it active in the filesystem",
+    "command": "ci -u <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to check in"
+      }
+    }
+  },
+  {
+    "description": "Check a file out with a lock",
+    "command": "co -l <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to check out"
+      }
+    }
+  },
+  {
+    "description": "Print a specific revision to stdout",
+    "command": "co -p<revision> <file>",
+    "defaults": {
+      "revision": "1.1"
+    },
+    "params": {
+      "revision": {
+        "description": "Revision number, e.g. 1.1"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to inspect"
+      }
+    }
+  },
+  {
+    "description": "Overwrite the working file with a specific revision",
+    "command": "co -r<revision> <file>",
+    "defaults": {
+      "revision": "1.1"
+    },
+    "params": {
+      "revision": {
+        "description": "Revision number"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Target file"
+      }
+    }
+  },
+  {
+    "description": "Diff the working file against the latest revision",
+    "command": "rcsdiff <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to diff"
+      }
+    }
+  },
+  {
+    "description": "Diff two specific revisions of a file",
+    "command": "rcsdiff -r<rev1> -r<rev2> <file>",
+    "params": {
+      "rev1": {
+        "description": "First revision"
+      },
+      "rev2": {
+        "description": "Second revision"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to diff"
+      }
+    }
+  },
+  {
+    "description": "View the check-in log for a file",
+    "command": "rlog <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File whose history to show"
+      }
+    }
+  },
+  {
+    "description": "Break an RCS lock held by someone else",
+    "command": "rcs -u <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Locked file"
+      }
+    }
+  }
+]

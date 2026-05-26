@@ -1,0 +1,46 @@
+[
+  {
+    "description": "Show wireless settings for an interface",
+    "command": "iwconfig <interface>",
+    "defaults": {
+      "interface": "wlan0"
+    },
+    "params": {
+      "interface": {
+        "description": "Wireless interface (e.g. wlan0)"
+      }
+    }
+  },
+  {
+    "description": "Set wireless transmit power state",
+    "command": "sudo iwconfig <interface> txpower <state>",
+    "defaults": {
+      "interface": "wlan0",
+      "state": "auto"
+    },
+    "params": {
+      "interface": {
+        "description": "Wireless interface"
+      },
+      "state": {
+        "description": "on, off, or auto"
+      }
+    }
+  },
+  {
+    "description": "Change the operating mode of a wireless interface",
+    "command": "sudo iwconfig <interface> mode <mode>",
+    "defaults": {
+      "interface": "wlan0",
+      "mode": "managed"
+    },
+    "params": {
+      "interface": {
+        "description": "Wireless interface"
+      },
+      "mode": {
+        "description": "managed, ad-hoc, monitor, etc."
+      }
+    }
+  }
+]

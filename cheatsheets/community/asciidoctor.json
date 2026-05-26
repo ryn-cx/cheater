@@ -1,0 +1,78 @@
+[
+  {
+    "description": "headers",
+    "command": "= h1 header\n== h2 header"
+  },
+  {
+    "description": "blocks",
+    "command": "[quote, Somebody, Who is somebody]\n____\nQuote something\n____\n//\nNOTE: Some note\n//\n[WARNING]\n====\nSome warning\n===="
+  },
+  {
+    "description": "lists",
+    "command": ".Un-ordered list with a title\n* list item\n** sub-list item\n- hypen as sub-sub-list item\n+\nthat continues at the next line\n- {blank}\n+\n----\ncomplex content of an item\n----"
+  },
+  {
+    "description": "[%reversed,start=4]",
+    "command": "[%reversed,start=4]\n.Ordered list; reversed, started at 4\n. ordered list item\n.. ordered list sub-item\n. another list item"
+  },
+  {
+    "description": "separating adjacent lists (surrounded by blank lines)",
+    "command": "//-"
+  },
+  {
+    "description": "checklist",
+    "command": "- [*] checked\n- [x] also checked\n- [ ] not checked"
+  },
+  {
+    "description": "Description list item:: definition",
+    "command": "Description list item:: definition\n[horizontal]\nDescription list item #2:: definition"
+  },
+  {
+    "description": "links",
+    "command": "Automatic link http://example.com or\nhttp://example.com[link with title and attributes,role=external,window=_blank]\nlink:../README.adoc[Relative link to open the README file]"
+  },
+  {
+    "description": "cross reference links",
+    "command": "[[an-anchor]]inline anchor, [#other-anchor]#applied to a phrase#\nReference to <<an_anchor>> or to <<other_anchorthe_other_anchor>>"
+  },
+  {
+    "description": "image",
+    "command": "image:image.png[Alt text, title=\"Inline image\"]"
+  },
+  {
+    "description": ".Block image title",
+    "command": ".Block image title\n[caption=\"Figure 1: \",link=http://example.com/image.png]\nimage::image.jpg[Alt text, 300, 200]"
+  },
+  {
+    "description": "code",
+    "command": "....\nliteral block\n...."
+  },
+  {
+    "description": ":variable: 123",
+    "command": ":variable: 123\n.Source code title\n[source,asciidoc,subs=\"+quotes,attributes+\",options=\"nowrap\"]\n----\n:toc: right  # <p_1>\n// with var substitution (attributes+)\n:variable: definition, the value is {variable}\n// with the markup substitution (+quotes)\n// no wrapping long lines (nowrap)\n----\n<p_1> Asciidoctor sytax for the table of content"
+  },
+  {
+    "description": "include source code, stripping indentation",
+    "command": "[source,asciidoc,indent=0]\n----\ninclude::doc/document.adoc[lines=5..10]\n----"
+  },
+  {
+    "description": "formatting",
+    "command": "*bold*, **un**constrained\n_italic_, __un__constrained\n`monospace`, ``un``constrained\n`[underline]#Underline text#`\n`[overline]#overline text#`\n`[line-through]#strikethrough#`\n`[blue line-through]*bold blue and line-through*.`"
+  },
+  {
+    "description": "comment",
+    "command": "// text in the comment"
+  },
+  {
+    "description": "horizontal rules (hr)",
+    "command": "'''"
+  },
+  {
+    "description": "Non-breaking space {nbsp}",
+    "command": "Non-breaking space {nbsp}\nBreak at the end of +\nline"
+  },
+  {
+    "description": "tables",
+    "command": ".Table title\n[caption=\"Table 2: \"]\n|===\n| Name | Description\n//\n| Asciidoctor\n| Awesome way to write documentation\n//\n2+| This cell spans 2 columns\n//\n.2+| This cell spans 2 rows\n//\n| Line at the side of the spanned rows\n| Another line\n//\n|==="
+  }
+]

@@ -1,0 +1,19 @@
+[
+  {
+    "description": "Show all exported shell variables",
+    "command": "export"
+  },
+  {
+    "description": "Export an environment variable for child processes",
+    "command": "export <variable>=\"<value>\"",
+    "params": {
+      "variable": {
+        "description": "Variable name"
+      },
+      "value": {
+        "type": "string",
+        "description": "Value to assign"
+      }
+    }
+  }
+]

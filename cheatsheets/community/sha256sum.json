@@ -1,0 +1,42 @@
+[
+  {
+    "description": "Compute the SHA-256 hash of a file",
+    "command": "sha256sum <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to hash"
+      }
+    }
+  },
+  {
+    "description": "Compute a hash from a literal string",
+    "command": "echo -n \"<text>\" | sha256sum",
+    "params": {
+      "text": {
+        "type": "string",
+        "description": "Text to hash"
+      }
+    }
+  },
+  {
+    "description": "Verify checksums listed in a file",
+    "command": "sha256sum --check <checksums_file>",
+    "params": {
+      "checksums_file": {
+        "type": "existing_file",
+        "description": "File with lines: <hash>  <filename>"
+      }
+    }
+  },
+  {
+    "description": "Verify checksums, ignoring missing files",
+    "command": "sha256sum --check --ignore-missing <checksums_file>",
+    "params": {
+      "checksums_file": {
+        "type": "existing_file",
+        "description": "File with lines: <hash>  <filename>"
+      }
+    }
+  }
+]

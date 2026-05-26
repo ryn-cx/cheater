@@ -1,0 +1,81 @@
+[
+  {
+    "description": "Search for a gem",
+    "command": "gem search <package>",
+    "params": {
+      "package": {
+        "description": "Gem name or pattern"
+      }
+    }
+  },
+  {
+    "description": "Install a gem",
+    "command": "gem install <package>",
+    "params": {
+      "package": {
+        "description": "Gem name"
+      }
+    }
+  },
+  {
+    "description": "Install a gem into user space",
+    "command": "gem install --user-install <package>",
+    "params": {
+      "package": {
+        "description": "Gem name"
+      }
+    }
+  },
+  {
+    "description": "Install a specific version of a gem",
+    "command": "gem install <package> -v <version>",
+    "params": {
+      "package": {
+        "description": "Gem name"
+      },
+      "version": {
+        "description": "Version string, e.g. 1.2.3"
+      }
+    }
+  },
+  {
+    "description": "Uninstall a gem",
+    "command": "gem uninstall <package>",
+    "params": {
+      "package": {
+        "description": "Gem name"
+      }
+    }
+  },
+  {
+    "description": "Update a gem to the latest version",
+    "command": "gem update <package>",
+    "params": {
+      "package": {
+        "description": "Gem name"
+      }
+    }
+  },
+  {
+    "description": "Show details about a gem",
+    "command": "gem info <package>",
+    "params": {
+      "package": {
+        "description": "Gem name"
+      }
+    }
+  },
+  {
+    "description": "List locally installed gems",
+    "command": "gem list --local"
+  },
+  {
+    "description": "Show help for a gem subcommand",
+    "command": "gem help <command>",
+    "params": {
+      "command": {
+        "description": "Subcommand name"
+      }
+    }
+  }
+]

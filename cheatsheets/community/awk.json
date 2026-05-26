@@ -1,0 +1,72 @@
+[
+  {
+    "description": "Sum integers from a file or stream (one per line)",
+    "command": "awk '{ sum += $1 } END { print sum }' <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  },
+  {
+    "description": "Sum integers using a custom field separator",
+    "command": "awk -F \"<sep>\" '{ print $1+$2+$3 }' <file>",
+    "defaults": {
+      "sep": ":"
+    },
+    "params": {
+      "sep": {
+        "description": "Field separator character"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  },
+  {
+    "description": "Set the output field separator",
+    "command": "awk 'BEGIN { OFS=\"<sep>\" } { print $1,$2,$3 }' <file>",
+    "defaults": {
+      "sep": ":"
+    },
+    "params": {
+      "sep": {
+        "description": "Output field separator character"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  },
+  {
+    "description": "Print rows where field 2 equals a value",
+    "command": "awk '$2==\"<value>\" { print $0 }' <file>",
+    "params": {
+      "value": {
+        "type": "string",
+        "description": "Value to match against field 2"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  },
+  {
+    "description": "Print rows matching a regex",
+    "command": "awk '/<regex>/ { print $0 }' <file>",
+    "params": {
+      "regex": {
+        "type": "string",
+        "description": "Regular expression to match"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  }
+]

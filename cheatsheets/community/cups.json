@@ -1,0 +1,48 @@
+[
+  {
+    "description": "Print a file using the default printer",
+    "command": "lp <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to print"
+      }
+    }
+  },
+  {
+    "description": "Display the print queue",
+    "command": "lpq"
+  },
+  {
+    "description": "Remove a specific print job from the queue",
+    "command": "lprm <job_id>",
+    "params": {
+      "job_id": {
+        "type": "integer",
+        "description": "Job id (from lpq)"
+      }
+    }
+  },
+  {
+    "description": "Remove all of the current user's print jobs",
+    "command": "lprm -"
+  },
+  {
+    "description": "Reject new jobs for a printer",
+    "command": "cupsreject <printer>",
+    "params": {
+      "printer": {
+        "description": "Printer name"
+      }
+    }
+  },
+  {
+    "description": "Accept new jobs for a printer",
+    "command": "cupsaccept <printer>",
+    "params": {
+      "printer": {
+        "description": "Printer name"
+      }
+    }
+  }
+]

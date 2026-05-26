@@ -1,0 +1,36 @@
+[
+  {
+    "description": "Download a file (http/https/ftp/torrent/magnet URL)",
+    "command": "aria2c <url>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "Source URL"
+      }
+    }
+  },
+  {
+    "description": "Download from a torrent without saving the .torrent file",
+    "command": "aria2c --follow-torrent=mem <url>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "Torrent or magnet URL"
+      }
+    }
+  },
+  {
+    "description": "Download URLs from a list (one at a time, resume, into a directory)",
+    "command": "aria2c -j 1 -c -d <output_dir> -i <url_list>",
+    "params": {
+      "output_dir": {
+        "type": "existing_dir",
+        "description": "Directory to write downloads into"
+      },
+      "url_list": {
+        "type": "existing_file",
+        "description": "Text file with one URL per line"
+      }
+    }
+  }
+]

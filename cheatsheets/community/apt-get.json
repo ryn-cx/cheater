@@ -1,0 +1,56 @@
+[
+  {
+    "description": "Update package lists",
+    "command": "apt-get update"
+  },
+  {
+    "description": "Download and install package updates",
+    "command": "apt-get upgrade"
+  },
+  {
+    "description": "Full dist-upgrade (may remove blockers)",
+    "command": "apt-get dist-upgrade"
+  },
+  {
+    "description": "Update then dist-upgrade in one go",
+    "command": "apt-get update && apt-get dist-upgrade"
+  },
+  {
+    "description": "Install one or more packages",
+    "command": "apt-get install <package>",
+    "params": {
+      "package": {
+        "description": "Package name(s), space-separated"
+      }
+    }
+  },
+  {
+    "description": "Download a package without installing it",
+    "command": "apt-get download <package>",
+    "params": {
+      "package": {
+        "description": "Package name to download"
+      }
+    }
+  },
+  {
+    "description": "Install with custom cache/archive directories",
+    "command": "apt-get -o Dir::Cache=\"<cache_dir>\" -o Dir::Cache::archives=\"./\" install <package>",
+    "params": {
+      "cache_dir": {
+        "description": "Path to use for the apt cache directory"
+      },
+      "package": {
+        "description": "Package name to install"
+      }
+    }
+  },
+  {
+    "description": "List apt-get installed packages from dpkg log",
+    "command": "grep 'install ' /var/log/dpkg.log"
+  },
+  {
+    "description": "Keep old config files silently during batch updates",
+    "command": "apt-get update -o DPkg::Options::='--force-confold'"
+  }
+]

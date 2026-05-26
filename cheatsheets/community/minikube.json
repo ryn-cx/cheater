@@ -1,0 +1,47 @@
+[
+  {
+    "description": "Start a minikube cluster using the VirtualBox driver",
+    "command": "minikube start --vm-driver=virtualbox"
+  },
+  {
+    "description": "Start a minikube cluster with a specific driver",
+    "command": "minikube start --vm-driver=<driver>",
+    "defaults": {
+      "driver": "docker"
+    },
+    "params": {
+      "driver": {
+        "description": "Driver (docker, virtualbox, hyperkit, kvm2, ...)"
+      }
+    }
+  },
+  {
+    "description": "Print the docker env to point at minikube's docker daemon",
+    "command": "minikube docker-env"
+  },
+  {
+    "description": "Open the Kubernetes dashboard in a browser",
+    "command": "minikube dashboard"
+  },
+  {
+    "description": "List all services in the cluster",
+    "command": "minikube service list"
+  },
+  {
+    "description": "Open a service in a browser",
+    "command": "minikube service <service>",
+    "params": {
+      "service": {
+        "description": "Service name"
+      }
+    }
+  },
+  {
+    "description": "Stop the running cluster",
+    "command": "minikube stop"
+  },
+  {
+    "description": "Delete the cluster (and all its state)",
+    "command": "minikube delete"
+  }
+]

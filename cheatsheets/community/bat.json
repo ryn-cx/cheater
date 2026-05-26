@@ -1,0 +1,39 @@
+[
+  {
+    "description": "Display one or more files with syntax highlighting",
+    "command": "bat <files>",
+    "params": {
+      "files": {
+        "type": "existing_file_list",
+        "description": "One or more files to display"
+      }
+    }
+  },
+  {
+    "description": "Show and highlight non-printable characters",
+    "command": "bat -A <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to display"
+      }
+    }
+  },
+  {
+    "description": "List all supported languages",
+    "command": "bat --list-languages"
+  },
+  {
+    "description": "Force a specific language for syntax highlighting",
+    "command": "bat --language <language> <file>",
+    "params": {
+      "language": {
+        "description": "Language name (see --list-languages)"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to display"
+      }
+    }
+  }
+]

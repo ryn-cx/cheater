@@ -1,0 +1,42 @@
+[
+  {
+    "description": "Dump a file in octal format",
+    "command": "od <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Binary file to dump"
+      }
+    }
+  },
+  {
+    "description": "Dump a file in hexadecimal",
+    "command": "od -x <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Binary file to dump"
+      }
+    }
+  },
+  {
+    "description": "Dump as hex with hex offsets and space between bytes",
+    "command": "od -A x -t x1 <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Binary file to dump"
+      }
+    }
+  },
+  {
+    "description": "Dump as ASCII characters with named control chars",
+    "command": "od -c <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Binary file to dump"
+      }
+    }
+  }
+]

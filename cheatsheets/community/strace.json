@@ -1,0 +1,92 @@
+[
+  {
+    "description": "Trace system calls of a command",
+    "command": "strace <command>",
+    "params": {
+      "command": {
+        "type": "string",
+        "description": "Command to run"
+      }
+    }
+  },
+  {
+    "description": "Save the trace to a file",
+    "command": "strace -o <out_file> <command>",
+    "params": {
+      "out_file": {
+        "type": "path",
+        "description": "Output trace file"
+      },
+      "command": {
+        "type": "string",
+        "description": "Command to run"
+      }
+    }
+  },
+  {
+    "description": "Trace only a specific syscall",
+    "command": "strace -e trace=<syscall> <command>",
+    "defaults": {
+      "syscall": "open"
+    },
+    "params": {
+      "syscall": {
+        "description": "Syscall name"
+      },
+      "command": {
+        "type": "string",
+        "description": "Command to run"
+      }
+    }
+  },
+  {
+    "description": "Trace all file-related syscalls",
+    "command": "strace -e trace=file <command>",
+    "params": {
+      "command": {
+        "type": "string",
+        "description": "Command to run"
+      }
+    }
+  },
+  {
+    "description": "Trace all process-management syscalls",
+    "command": "strace -e trace=process <command>",
+    "params": {
+      "command": {
+        "type": "string",
+        "description": "Command to run"
+      }
+    }
+  },
+  {
+    "description": "Follow child processes",
+    "command": "strace -f <command>",
+    "params": {
+      "command": {
+        "type": "string",
+        "description": "Command to run"
+      }
+    }
+  },
+  {
+    "description": "Summary of syscall counts, time, and errors",
+    "command": "strace -c <command>",
+    "params": {
+      "command": {
+        "type": "string",
+        "description": "Command to run"
+      }
+    }
+  },
+  {
+    "description": "Attach to a running process",
+    "command": "strace -p <pid>",
+    "params": {
+      "pid": {
+        "type": "integer",
+        "description": "Process id to trace"
+      }
+    }
+  }
+]

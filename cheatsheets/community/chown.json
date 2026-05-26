@@ -1,0 +1,84 @@
+[
+  {
+    "description": "Change a file's owner",
+    "command": "chown <user> <file>",
+    "params": {
+      "user": {
+        "description": "Target user"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Target file"
+      }
+    }
+  },
+  {
+    "description": "Change a file's owner and group",
+    "command": "chown <user>:<group> <file>",
+    "params": {
+      "user": {
+        "description": "Target user"
+      },
+      "group": {
+        "description": "Target group"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Target file"
+      }
+    }
+  },
+  {
+    "description": "Set group to match the user's primary group",
+    "command": "chown <user>: <file>",
+    "params": {
+      "user": {
+        "description": "Target user"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Target file"
+      }
+    }
+  },
+  {
+    "description": "Change only the group, leaving owner unchanged",
+    "command": "chown :<group> <file>",
+    "params": {
+      "group": {
+        "description": "Target group"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Target file"
+      }
+    }
+  },
+  {
+    "description": "Change owner recursively under a directory",
+    "command": "chown -R <user> <directory>",
+    "params": {
+      "user": {
+        "description": "Target user"
+      },
+      "directory": {
+        "type": "existing_dir",
+        "description": "Target directory"
+      }
+    }
+  },
+  {
+    "description": "Change ownership to match another file's owner/group",
+    "command": "chown --reference=<reference> <file>",
+    "params": {
+      "reference": {
+        "type": "existing_file",
+        "description": "File whose ownership to copy"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Target file"
+      }
+    }
+  }
+]

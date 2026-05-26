@@ -1,0 +1,60 @@
+[
+  {
+    "description": "Extract a zip archive into the current directory",
+    "command": "unzip <archive>",
+    "params": {
+      "archive": {
+        "type": "existing_file",
+        "description": "Zip archive"
+      }
+    }
+  },
+  {
+    "description": "Extract a zip archive to a specific directory",
+    "command": "unzip <archive> -d <destination>",
+    "params": {
+      "archive": {
+        "type": "existing_file",
+        "description": "Zip archive"
+      },
+      "destination": {
+        "type": "existing_dir",
+        "description": "Output directory"
+      }
+    }
+  },
+  {
+    "description": "Quietly test the integrity of a zip archive",
+    "command": "unzip -tq <archive>",
+    "params": {
+      "archive": {
+        "type": "existing_file",
+        "description": "Zip archive"
+      }
+    }
+  },
+  {
+    "description": "List the contents of a zip archive",
+    "command": "unzip -l <archive>",
+    "params": {
+      "archive": {
+        "type": "existing_file",
+        "description": "Zip archive"
+      }
+    }
+  },
+  {
+    "description": "Extract a zip with a password",
+    "command": "unzip -P <password> <archive>",
+    "params": {
+      "password": {
+        "type": "string",
+        "description": "Archive password"
+      },
+      "archive": {
+        "type": "existing_file",
+        "description": "Zip archive"
+      }
+    }
+  }
+]

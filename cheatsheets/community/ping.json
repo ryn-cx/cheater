@@ -1,0 +1,68 @@
+[
+  {
+    "description": "Ping a host with N packets",
+    "command": "ping -c <count> <host>",
+    "defaults": {
+      "count": "10"
+    },
+    "params": {
+      "count": {
+        "type": "integer",
+        "description": "Number of pings"
+      },
+      "host": {
+        "description": "Hostname or IP"
+      }
+    }
+  },
+  {
+    "description": "Ping with a fixed interval between packets",
+    "command": "ping -c <count> -i <interval> <host>",
+    "defaults": {
+      "count": "10",
+      "interval": "0.5"
+    },
+    "params": {
+      "count": {
+        "type": "integer",
+        "description": "Number of pings"
+      },
+      "interval": {
+        "description": "Interval in seconds (e.g. 0.5)"
+      },
+      "host": {
+        "description": "Hostname or IP"
+      }
+    }
+  },
+  {
+    "description": "Test the MTU with a specific packet size (no fragment)",
+    "command": "ping -s <size> -c <count> -M do <host>",
+    "defaults": {
+      "size": "1472",
+      "count": "10"
+    },
+    "params": {
+      "size": {
+        "type": "integer",
+        "description": "Payload size in bytes"
+      },
+      "count": {
+        "type": "integer",
+        "description": "Number of pings"
+      },
+      "host": {
+        "description": "Hostname or IP"
+      }
+    }
+  },
+  {
+    "description": "Flood ping (requires root)",
+    "command": "sudo ping -f <host>",
+    "params": {
+      "host": {
+        "description": "Hostname or IP"
+      }
+    }
+  }
+]

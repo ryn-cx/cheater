@@ -1,0 +1,52 @@
+[
+  {
+    "description": "Search for a phrase, excluding a directory",
+    "command": "ag <phrase> --ignore-dir=<dir>",
+    "params": {
+      "phrase": {
+        "type": "string",
+        "description": "Phrase to search for"
+      },
+      "dir": {
+        "description": "Directory name to exclude from the search"
+      }
+    }
+  },
+  {
+    "description": "Search for a phrase, excluding a file",
+    "command": "ag <phrase> --ignore=<file>",
+    "params": {
+      "phrase": {
+        "type": "string",
+        "description": "Phrase to search for"
+      },
+      "file": {
+        "description": "Filename or glob to exclude"
+      }
+    }
+  },
+  {
+    "description": "Force colorized output through a pager",
+    "command": "ag <phrase> --color | less -R",
+    "params": {
+      "phrase": {
+        "type": "string",
+        "description": "Phrase to search for"
+      }
+    }
+  },
+  {
+    "description": "Search only in files whose names match a glob",
+    "command": "ag <phrase> -G <pattern>",
+    "params": {
+      "phrase": {
+        "type": "string",
+        "description": "Phrase to search for"
+      },
+      "pattern": {
+        "type": "string",
+        "description": "Glob pattern for filenames to include"
+      }
+    }
+  }
+]

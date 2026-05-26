@@ -1,0 +1,85 @@
+[
+  {
+    "description": "Clone one of your own GitHub repos",
+    "command": "git clone <repo>",
+    "params": {
+      "repo": {
+        "description": "Repo name (your user assumed)"
+      }
+    }
+  },
+  {
+    "description": "Clone someone else's GitHub repo",
+    "command": "git clone <owner>/<repo>",
+    "params": {
+      "owner": {
+        "description": "GitHub user or org"
+      },
+      "repo": {
+        "description": "Repository name"
+      }
+    }
+  },
+  {
+    "description": "Open the current repo's GitHub page section",
+    "command": "git browse -- <section>",
+    "defaults": {
+      "section": "issues"
+    },
+    "params": {
+      "section": {
+        "description": "issues, pulls, wiki, etc."
+      }
+    }
+  },
+  {
+    "description": "Fork the current repo on GitHub",
+    "command": "git fork"
+  },
+  {
+    "description": "Open a pull request for the current branch",
+    "command": "git pull-request"
+  },
+  {
+    "description": "Fetch from multiple GitHub forks at once",
+    "command": "git fetch <users>",
+    "params": {
+      "users": {
+        "type": "string",
+        "description": "Comma-separated GitHub usernames"
+      }
+    }
+  },
+  {
+    "description": "Check out a pull request as a local branch",
+    "command": "git checkout <pr_url>",
+    "params": {
+      "pr_url": {
+        "type": "string",
+        "description": "GitHub PR URL"
+      }
+    }
+  },
+  {
+    "description": "Open GitHub compare view between two refs",
+    "command": "git compare <ref1>..<ref2>",
+    "params": {
+      "ref1": {
+        "description": "First ref (e.g. v0.9)"
+      },
+      "ref2": {
+        "description": "Second ref (e.g. v1.0)"
+      }
+    }
+  },
+  {
+    "description": "Create a new GitHub repo from the current directory",
+    "command": "git create -d \"<description>\"",
+    "params": {
+      "description": {
+        "type": "string",
+        "description": "Repo description"
+      }
+    }
+  }
+]

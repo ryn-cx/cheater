@@ -1,0 +1,81 @@
+[
+  {
+    "description": "Find packages matching a phrase",
+    "command": "apt search <phrase>",
+    "params": {
+      "phrase": {
+        "type": "string",
+        "description": "Search phrase"
+      }
+    }
+  },
+  {
+    "description": "Show information about a package",
+    "command": "apt show <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Update package lists",
+    "command": "apt update"
+  },
+  {
+    "description": "Install updates (and any new dependencies)",
+    "command": "apt upgrade"
+  },
+  {
+    "description": "Full dist-upgrade (may remove packages that block upgrade)",
+    "command": "apt dist-upgrade"
+  },
+  {
+    "description": "Update then upgrade in one go",
+    "command": "apt update && apt upgrade"
+  },
+  {
+    "description": "Install one or more packages",
+    "command": "apt install <package>",
+    "params": {
+      "package": {
+        "description": "Package name(s), space-separated"
+      }
+    }
+  },
+  {
+    "description": "Uninstall a package",
+    "command": "apt remove <package>",
+    "params": {
+      "package": {
+        "description": "Package name(s), space-separated"
+      }
+    }
+  },
+  {
+    "description": "Automatically remove unused packages",
+    "command": "apt autoremove"
+  },
+  {
+    "description": "List dependencies of a package",
+    "command": "apt depends <package>",
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Remove a package along with its config files",
+    "command": "apt purge <package>",
+    "params": {
+      "package": {
+        "description": "Package name(s), space-separated"
+      }
+    }
+  },
+  {
+    "description": "List all installed packages",
+    "command": "apt list --installed"
+  }
+]

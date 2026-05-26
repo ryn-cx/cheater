@@ -1,0 +1,36 @@
+[
+  {
+    "description": "Edit the current user's crontab",
+    "command": "crontab -e"
+  },
+  {
+    "description": "List the current user's crontab",
+    "command": "crontab -l"
+  },
+  {
+    "description": "Remove the current user's crontab",
+    "command": "crontab -r"
+  },
+  {
+    "description": "Edit another user's crontab (requires root)",
+    "command": "sudo crontab -e -u <user>",
+    "params": {
+      "user": {
+        "description": "User whose crontab to edit"
+      }
+    }
+  },
+  {
+    "description": "List another user's crontab (requires root)",
+    "command": "sudo crontab -l -u <user>",
+    "params": {
+      "user": {
+        "description": "User whose crontab to list"
+      }
+    }
+  },
+  {
+    "description": "Tail cron activity from systemd journal",
+    "command": "journalctl | grep CRON"
+  }
+]

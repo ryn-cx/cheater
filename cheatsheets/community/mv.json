@@ -1,0 +1,72 @@
+[
+  {
+    "description": "Move or rename a file",
+    "command": "mv <source> <destination>",
+    "params": {
+      "source": {
+        "type": "existing_path",
+        "description": "Source file or directory"
+      },
+      "destination": {
+        "type": "path",
+        "description": "Destination path"
+      }
+    }
+  },
+  {
+    "description": "Move overwriting destination without prompting",
+    "command": "mv -f <source> <destination>",
+    "params": {
+      "source": {
+        "type": "existing_path",
+        "description": "Source file or directory"
+      },
+      "destination": {
+        "type": "path",
+        "description": "Destination path"
+      }
+    }
+  },
+  {
+    "description": "Move, prompting before overwriting an existing destination",
+    "command": "mv -i <source> <destination>",
+    "params": {
+      "source": {
+        "type": "existing_path",
+        "description": "Source file or directory"
+      },
+      "destination": {
+        "type": "path",
+        "description": "Destination path"
+      }
+    }
+  },
+  {
+    "description": "Move without ever overwriting an existing destination",
+    "command": "mv -n <source> <destination>",
+    "params": {
+      "source": {
+        "type": "existing_path",
+        "description": "Source file or directory"
+      },
+      "destination": {
+        "type": "path",
+        "description": "Destination path"
+      }
+    }
+  },
+  {
+    "description": "Move one or more files into a destination directory",
+    "command": "mv -t <destination> <files>",
+    "params": {
+      "destination": {
+        "type": "existing_dir",
+        "description": "Target directory"
+      },
+      "files": {
+        "type": "existing_file_list",
+        "description": "Files to move"
+      }
+    }
+  }
+]

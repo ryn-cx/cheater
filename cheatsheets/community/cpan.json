@@ -1,0 +1,90 @@
+[
+  {
+    "description": "Install a Perl module",
+    "command": "cpan <module>",
+    "params": {
+      "module": {
+        "description": "Perl module name, e.g. Some::Module"
+      }
+    }
+  },
+  {
+    "description": "Force-install a Perl module",
+    "command": "cpan -fi <module>",
+    "params": {
+      "module": {
+        "description": "Perl module name"
+      }
+    }
+  },
+  {
+    "description": "Install a module into local::lib",
+    "command": "cpan -I <module>",
+    "params": {
+      "module": {
+        "description": "Perl module name"
+      }
+    }
+  },
+  {
+    "description": "Install a module, skipping its tests",
+    "command": "cpan -T <module>",
+    "params": {
+      "module": {
+        "description": "Perl module name"
+      }
+    }
+  },
+  {
+    "description": "Show a module's changelog without installing",
+    "command": "cpan -C <module>",
+    "params": {
+      "module": {
+        "description": "Perl module name"
+      }
+    }
+  },
+  {
+    "description": "Show a module's details without installing",
+    "command": "cpan -D <module>",
+    "params": {
+      "module": {
+        "description": "Perl module name"
+      }
+    }
+  },
+  {
+    "description": "List close matches to a module name",
+    "command": "cpan -x <module>",
+    "params": {
+      "module": {
+        "description": "Module name to search for"
+      }
+    }
+  },
+  {
+    "description": "Download a distro without installing",
+    "command": "cpan -g <module>",
+    "params": {
+      "module": {
+        "description": "Perl module name"
+      }
+    }
+  },
+  {
+    "description": "List installed modules with their versions",
+    "command": "cpan -l"
+  },
+  {
+    "description": "Create a CPAN Autobundle of installed modules",
+    "command": "cpan -a"
+  },
+  {
+    "description": "Install the module in the current distro directory",
+    "command": "cpan ."
+  },
+  {
+    "description": "Start the interactive CPAN shell",
+    "command": "cpan"
+  }
+]

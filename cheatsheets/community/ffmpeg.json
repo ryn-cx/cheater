@@ -1,0 +1,155 @@
+[
+  {
+    "description": "Show metadata for a media file",
+    "command": "ffmpeg -i <input>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Input media file"
+      }
+    }
+  },
+  {
+    "description": "Convert all .m4a files in the current dir to .mp3",
+    "command": "for f in *.m4a; do ffmpeg -i \"$f\" -acodec libmp3lame -vn -b:a 320k \"${f%.m4a}.mp3\"; done"
+  },
+  {
+    "description": "Combine separate video and audio tracks into one file (no re-encode)",
+    "command": "ffmpeg -i <video> -i <audio> -c:v copy -c:a copy <output>",
+    "params": {
+      "video": {
+        "type": "existing_file",
+        "description": "Source video file"
+      },
+      "audio": {
+        "type": "existing_file",
+        "description": "Source audio file"
+      },
+      "output": {
+        "type": "path",
+        "description": "Output media file"
+      }
+    }
+  },
+  {
+    "description": "Burn an .ass subtitle track into a video",
+    "command": "ffmpeg -i <input> -vf ass=<subtitle> <output>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Source video"
+      },
+      "subtitle": {
+        "type": "existing_file",
+        "description": ".ass subtitle file"
+      },
+      "output": {
+        "type": "path",
+        "description": "Output video"
+      }
+    }
+  },
+  {
+    "description": "Convert WebM to MP4",
+    "command": "ffmpeg -i <input> <output>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Input .webm"
+      },
+      "output": {
+        "type": "path",
+        "description": "Output .mp4"
+      }
+    }
+  },
+  {
+    "description": "Repackage MP4 to MOV without re-encoding",
+    "command": "ffmpeg -i <input> -acodec copy -vcodec copy -f mov <output>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Input .mp4"
+      },
+      "output": {
+        "type": "path",
+        "description": "Output .mov"
+      }
+    }
+  },
+  {
+    "description": "Repackage MOV to MP4 without re-encoding",
+    "command": "ffmpeg -i <input> -vcodec copy -acodec copy <output>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Input .mov"
+      },
+      "output": {
+        "type": "path",
+        "description": "Output .mp4"
+      }
+    }
+  },
+  {
+    "description": "Render an image sequence as a video (glob, vp9)",
+    "command": "ffmpeg -r <fps> -pattern_type glob -i '<glob>' -b:v <bitrate> -s hd1080 -vcodec vp9 -an -pix_fmt yuv420p -deinterlace <output>",
+    "defaults": {
+      "fps": "18",
+      "glob": "*.png",
+      "bitrate": "21000k"
+    },
+    "params": {
+      "fps": {
+        "type": "integer",
+        "description": "Frame rate"
+      },
+      "glob": {
+        "type": "string",
+        "description": "Image-sequence glob, e.g. *.png"
+      },
+      "bitrate": {
+        "description": "Video bitrate (e.g. 21000k)"
+      },
+      "output": {
+        "type": "path",
+        "description": "Output video"
+      }
+    }
+  },
+  {
+    "description": "Extract a chunk of audio from a video file and pipe to ffplay",
+    "command": "ffmpeg -ss <start> -t <duration> -i <input> -f mp3 pipe:play | ffplay -i pipe:play -autoexit",
+    "defaults": {
+      "start": "00:00:00",
+      "duration": "10"
+    },
+    "params": {
+      "start": {
+        "description": "Start time (e.g. 00:34:24.85)"
+      },
+      "duration": {
+        "type": "integer",
+        "description": "Number of seconds to play"
+      },
+      "input": {
+        "type": "existing_file",
+        "description": "Source video"
+      }
+    }
+  },
+  {
+    "description": "Concatenate files listed in a text file (codec copy)",
+    "command": "ffmpeg -f concat -safe 0 -i <list> -c copy <output>",
+    "params": {
+      "list": {
+        "type": "existing_file",
+        "description": "Text file with lines like file '/path/to/clip.mp4'"
+      },
+      "output": {
+        "type": "path",
+        "description": "Output video"
+      }
+    }
+  }
+]

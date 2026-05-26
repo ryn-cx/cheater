@@ -1,0 +1,120 @@
+[
+  {
+    "description": "Download a URL",
+    "command": "wget <url>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "URL to download"
+      }
+    }
+  },
+  {
+    "description": "Download and save as a specific filename",
+    "command": "wget <url> -O <outfile>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "URL to download"
+      },
+      "outfile": {
+        "type": "path",
+        "description": "Local file path"
+      }
+    }
+  },
+  {
+    "description": "Download into a specific directory",
+    "command": "wget -P <directory> <url>",
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Destination directory"
+      },
+      "url": {
+        "type": "string",
+        "description": "URL to download"
+      }
+    }
+  },
+  {
+    "description": "Resume a partial download",
+    "command": "wget -c <url>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "URL to resume"
+      }
+    }
+  },
+  {
+    "description": "Download every URL from a list file",
+    "command": "wget -i <url_list>",
+    "params": {
+      "url_list": {
+        "type": "existing_file",
+        "description": "File with one URL per line"
+      }
+    }
+  },
+  {
+    "description": "Mirror a single page locally (with assets)",
+    "command": "wget -pk <url>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "Page URL"
+      }
+    }
+  },
+  {
+    "description": "Mirror a whole site",
+    "command": "wget -mk <url>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "Site root URL"
+      }
+    }
+  },
+  {
+    "description": "Only fetch response headers (no body)",
+    "command": "wget -S --spider -O - <url>",
+    "params": {
+      "url": {
+        "type": "string",
+        "description": "URL to probe"
+      }
+    }
+  },
+  {
+    "description": "Use a custom User-Agent",
+    "command": "wget -U '<user_agent>' <url>",
+    "params": {
+      "user_agent": {
+        "type": "string",
+        "description": "User-Agent string"
+      },
+      "url": {
+        "type": "string",
+        "description": "URL to download"
+      }
+    }
+  },
+  {
+    "description": "Limit download rate",
+    "command": "wget --limit-rate=<rate> <url>",
+    "defaults": {
+      "rate": "500k"
+    },
+    "params": {
+      "rate": {
+        "description": "Rate (e.g. 500k, 1m)"
+      },
+      "url": {
+        "type": "string",
+        "description": "URL to download"
+      }
+    }
+  }
+]

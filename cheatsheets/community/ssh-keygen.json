@@ -1,0 +1,85 @@
+[
+  {
+    "description": "Generate a new RSA SSH key (default 3072 bits)",
+    "command": "ssh-keygen -t rsa"
+  },
+  {
+    "description": "Generate a 4096-bit RSA key",
+    "command": "ssh-keygen -t rsa -b 4096"
+  },
+  {
+    "description": "Generate an Ed25519 key (recommended)",
+    "command": "ssh-keygen -t ed25519"
+  },
+  {
+    "description": "Generate a FIDO/U2F (hardware-backed) Ed25519 key",
+    "command": "ssh-keygen -t ed25519-sk"
+  },
+  {
+    "description": "Change the passphrase on a key file",
+    "command": "ssh-keygen -p -f <key_file>",
+    "params": {
+      "key_file": {
+        "type": "existing_file",
+        "description": "Private key file"
+      }
+    }
+  },
+  {
+    "description": "Remove the passphrase from a key (interactively)",
+    "command": "ssh-keygen -p -N '' -f <key_file>",
+    "params": {
+      "key_file": {
+        "type": "existing_file",
+        "description": "Private key file"
+      }
+    }
+  },
+  {
+    "description": "Generate a 4096-bit RSA key with a comment",
+    "command": "ssh-keygen -t rsa -b 4096 -C \"<comment>\"",
+    "defaults": {
+      "comment": "$USER@$HOSTNAME"
+    },
+    "params": {
+      "comment": {
+        "type": "string",
+        "description": "Key comment (often email or user@host)"
+      }
+    }
+  },
+  {
+    "description": "Print the fingerprint of a public key",
+    "command": "ssh-keygen -lf <key_file>",
+    "params": {
+      "key_file": {
+        "type": "existing_file",
+        "description": "Public or private key file"
+      }
+    }
+  },
+  {
+    "description": "Print the MD5 (GitHub-style) fingerprint of a key",
+    "command": "ssh-keygen -E md5 -lf <key_file>",
+    "params": {
+      "key_file": {
+        "type": "existing_file",
+        "description": "Public or private key file"
+      }
+    }
+  },
+  {
+    "description": "Recover the public key from a private key file",
+    "command": "ssh-keygen -y -f <private_key> > <public_key>",
+    "params": {
+      "private_key": {
+        "type": "existing_file",
+        "description": "Private key file"
+      },
+      "public_key": {
+        "type": "path",
+        "description": "Output public key file (.pub)"
+      }
+    }
+  }
+]

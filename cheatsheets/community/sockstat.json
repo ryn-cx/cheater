@@ -1,0 +1,14 @@
+[
+  {
+    "description": "List which users/processes are listening on which ports (FreeBSD)",
+    "command": "sudo sockstat -l"
+  },
+  {
+    "description": "List all sockets (TCP, UDP, Unix)",
+    "command": "sockstat"
+  },
+  {
+    "description": "List only TCP sockets",
+    "command": "sockstat -P tcp"
+  }
+]

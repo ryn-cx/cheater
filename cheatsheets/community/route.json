@@ -1,0 +1,46 @@
+[
+  {
+    "description": "Show the routing table with numeric addresses (no DNS)",
+    "command": "route -n"
+  },
+  {
+    "description": "Add a default gateway",
+    "command": "sudo route add default gateway <gateway>",
+    "params": {
+      "gateway": {
+        "description": "Gateway IP address"
+      }
+    }
+  },
+  {
+    "description": "Add a route to a local network via an interface",
+    "command": "sudo route add -net <network> netmask <netmask> dev <interface>",
+    "params": {
+      "network": {
+        "description": "Network IP (e.g. 192.168.0.0)"
+      },
+      "netmask": {
+        "description": "Netmask (e.g. 255.255.255.0)"
+      },
+      "interface": {
+        "description": "Network interface (e.g. eth0)"
+      }
+    }
+  },
+  {
+    "description": "Delete the current default route",
+    "command": "sudo route del default"
+  },
+  {
+    "description": "Reject (blackhole) traffic to a network",
+    "command": "sudo route add -net <network> netmask <netmask> reject",
+    "params": {
+      "network": {
+        "description": "Network IP"
+      },
+      "netmask": {
+        "description": "Netmask"
+      }
+    }
+  }
+]

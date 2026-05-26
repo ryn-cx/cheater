@@ -1,0 +1,46 @@
+[
+  {
+    "description": "Show the first 10 lines of a file",
+    "command": "head <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to read"
+      }
+    }
+  },
+  {
+    "description": "Show the first N lines of a file",
+    "command": "head -n <count> <file>",
+    "defaults": {
+      "count": "20"
+    },
+    "params": {
+      "count": {
+        "type": "integer",
+        "description": "Number of lines"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to read"
+      }
+    }
+  },
+  {
+    "description": "Show the first N bytes of a file",
+    "command": "head -c <bytes> <file>",
+    "defaults": {
+      "bytes": "1024"
+    },
+    "params": {
+      "bytes": {
+        "type": "integer",
+        "description": "Number of bytes"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to read"
+      }
+    }
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "description": "Remove an empty directory",
+    "command": "rmdir <directory>",
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Empty directory to remove"
+      }
+    }
+  },
+  {
+    "description": "Remove an empty directory with verbose output",
+    "command": "rmdir -v <directory>",
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Empty directory to remove"
+      }
+    }
+  },
+  {
+    "description": "Remove a directory and its empty parents",
+    "command": "rmdir -p <directory>",
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Empty directory to remove (with empty parents)"
+      }
+    }
+  }
+]

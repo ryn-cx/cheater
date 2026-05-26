@@ -1,0 +1,58 @@
+[
+  {
+    "description": "Remove a file",
+    "command": "rm <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to remove"
+      }
+    }
+  },
+  {
+    "description": "Recursively remove a directory and everything in it",
+    "command": "rm -rf <directory>",
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Directory to nuke"
+      }
+    }
+  },
+  {
+    "description": "Remove with prompt before each file",
+    "command": "rm -i <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to remove"
+      }
+    }
+  },
+  {
+    "description": "Force-remove ignoring missing files",
+    "command": "rm -f <file>",
+    "params": {
+      "file": {
+        "description": "File to remove (may not exist)"
+      }
+    }
+  },
+  {
+    "description": "Find a file by inode number and remove it",
+    "command": "find <directory> -inum <inode> -exec rm -i '{}' \\;",
+    "defaults": {
+      "directory": "/tmp"
+    },
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Where to search"
+      },
+      "inode": {
+        "type": "integer",
+        "description": "Inode number"
+      }
+    }
+  }
+]

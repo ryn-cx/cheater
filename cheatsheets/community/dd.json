@@ -1,0 +1,78 @@
+[
+  {
+    "description": "Copy from one block device/file to another with a block size",
+    "command": "dd if=<input> of=<output> bs=<block_size>",
+    "defaults": {
+      "block_size": "4M"
+    },
+    "params": {
+      "input": {
+        "description": "Input file or device (e.g. /dev/urandom, image.iso)"
+      },
+      "output": {
+        "description": "Output file or device"
+      },
+      "block_size": {
+        "description": "Block size (e.g. 512, 4K, 4M)"
+      }
+    }
+  },
+  {
+    "description": "Copy with a count limit (in blocks)",
+    "command": "dd if=<input> of=<output> bs=<block_size> count=<count>",
+    "defaults": {
+      "block_size": "512",
+      "count": "2"
+    },
+    "params": {
+      "input": {
+        "description": "Input file or device"
+      },
+      "output": {
+        "description": "Output file or device"
+      },
+      "block_size": {
+        "description": "Block size"
+      },
+      "count": {
+        "type": "integer",
+        "description": "Number of blocks to copy"
+      }
+    }
+  },
+  {
+    "description": "Show live progress while running (coreutils 8.24+)",
+    "command": "dd if=<input> of=<output> bs=<block_size> status=progress",
+    "defaults": {
+      "block_size": "128M"
+    },
+    "params": {
+      "input": {
+        "description": "Input file or device"
+      },
+      "output": {
+        "description": "Output file or device"
+      },
+      "block_size": {
+        "description": "Block size"
+      }
+    }
+  },
+  {
+    "description": "Create a sparse file of N MB",
+    "command": "dd if=/dev/zero of=<file> seek=<size_mb> bs=1M count=0",
+    "defaults": {
+      "size_mb": "1"
+    },
+    "params": {
+      "file": {
+        "type": "path",
+        "description": "Output file path"
+      },
+      "size_mb": {
+        "type": "integer",
+        "description": "Total size in megabytes"
+      }
+    }
+  }
+]

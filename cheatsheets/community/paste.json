@@ -1,0 +1,51 @@
+[
+  {
+    "description": "Concatenate columns from multiple files (tab-separated)",
+    "command": "paste <files>",
+    "params": {
+      "files": {
+        "type": "existing_file_list",
+        "description": "Input files to merge column-wise"
+      }
+    }
+  },
+  {
+    "description": "Arrange stdin lines into N columns",
+    "command": "ls | paste <columns>",
+    "defaults": {
+      "columns": "- - -"
+    },
+    "params": {
+      "columns": {
+        "type": "string",
+        "description": "Column placeholders (e.g. '- - -' for 3 columns)"
+      }
+    }
+  },
+  {
+    "description": "Combine pairs of lines from a file into single tab-separated lines",
+    "command": "paste -s -d '\\t\\n' <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  },
+  {
+    "description": "Join lines with a custom delimiter",
+    "command": "paste -s -d '<delimiter>' <file>",
+    "defaults": {
+      "delimiter": ","
+    },
+    "params": {
+      "delimiter": {
+        "description": "Delimiter character"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "Input file"
+      }
+    }
+  }
+]

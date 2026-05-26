@@ -1,0 +1,23 @@
+[
+  {
+    "description": "Reboot the system immediately",
+    "command": "sudo reboot"
+  },
+  {
+    "description": "Reboot at a specific clock time",
+    "command": "sudo shutdown -r <time>",
+    "defaults": {
+      "time": "22:00"
+    },
+    "params": {
+      "time": {
+        "type": "string",
+        "description": "When to reboot (HH:MM, +N for N minutes, 'now')"
+      }
+    }
+  },
+  {
+    "description": "Cancel a scheduled reboot",
+    "command": "sudo shutdown -c"
+  }
+]

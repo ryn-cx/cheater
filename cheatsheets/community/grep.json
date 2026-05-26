@@ -1,0 +1,138 @@
+[
+  {
+    "description": "Search a file for a pattern",
+    "command": "grep <pattern> <file>",
+    "params": {
+      "pattern": {
+        "type": "string",
+        "description": "Pattern to search for"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to search"
+      }
+    }
+  },
+  {
+    "description": "Case-insensitive search with line numbers",
+    "command": "grep -in <pattern> <file>",
+    "params": {
+      "pattern": {
+        "type": "string",
+        "description": "Pattern to search for"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to search"
+      }
+    }
+  },
+  {
+    "description": "Recursively search a directory",
+    "command": "grep -R <pattern> <directory>",
+    "params": {
+      "pattern": {
+        "type": "string",
+        "description": "Pattern to search for"
+      },
+      "directory": {
+        "type": "existing_dir",
+        "description": "Directory to search"
+      }
+    }
+  },
+  {
+    "description": "Read patterns from a file (one per line)",
+    "command": "grep -f <pattern_file> <file>",
+    "params": {
+      "pattern_file": {
+        "type": "existing_file",
+        "description": "File of patterns, one per line"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to search"
+      }
+    }
+  },
+  {
+    "description": "Print lines that DO NOT match the pattern",
+    "command": "grep -v <pattern> <file>",
+    "params": {
+      "pattern": {
+        "type": "string",
+        "description": "Pattern to exclude"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to search"
+      }
+    }
+  },
+  {
+    "description": "Show N lines of context before and after each match",
+    "command": "grep -B <before> -A <after> <pattern> <file>",
+    "defaults": {
+      "before": "3",
+      "after": "2"
+    },
+    "params": {
+      "before": {
+        "type": "integer",
+        "description": "Lines of context before each match"
+      },
+      "after": {
+        "type": "integer",
+        "description": "Lines of context after each match"
+      },
+      "pattern": {
+        "type": "string",
+        "description": "Pattern to search for"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to search"
+      }
+    }
+  },
+  {
+    "description": "Recursive, word-boundary, line-numbered search",
+    "command": "grep -rnw <directory> -e <pattern>",
+    "params": {
+      "directory": {
+        "type": "existing_dir",
+        "description": "Where to search"
+      },
+      "pattern": {
+        "type": "string",
+        "description": "Pattern to match as a whole word"
+      }
+    }
+  },
+  {
+    "description": "Extended regex search (PCRE-like syntax)",
+    "command": "grep -E \"<regex>\" <file>",
+    "params": {
+      "regex": {
+        "type": "string",
+        "description": "Extended regular expression"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to search"
+      }
+    }
+  },
+  {
+    "description": "Search the output of a pipeline without matching grep itself",
+    "command": "ps aux | grep '[<first_letter>]<rest>'",
+    "params": {
+      "first_letter": {
+        "description": "First letter of the process name"
+      },
+      "rest": {
+        "description": "Remaining letters of the process name"
+      }
+    }
+  }
+]

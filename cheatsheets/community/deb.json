@@ -1,0 +1,22 @@
+[
+  {
+    "description": "Extract the contents of a .deb file",
+    "command": "ar vx <deb_file>",
+    "params": {
+      "deb_file": {
+        "type": "existing_file",
+        "description": "Path to the .deb file"
+      }
+    }
+  },
+  {
+    "description": "Install a .deb file (resolving dependencies after)",
+    "command": "sudo dpkg -i <deb_file> && sudo apt-get install -f",
+    "params": {
+      "deb_file": {
+        "type": "existing_file",
+        "description": "Path to the .deb file"
+      }
+    }
+  }
+]

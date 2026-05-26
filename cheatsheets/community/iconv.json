@@ -1,0 +1,30 @@
+[
+  {
+    "description": "Convert a file's character encoding",
+    "command": "iconv -f <from_encoding> -t <to_encoding> <input> -o <output>",
+    "defaults": {
+      "from_encoding": "iso-8859-1",
+      "to_encoding": "utf-8"
+    },
+    "params": {
+      "from_encoding": {
+        "description": "Source encoding (e.g. iso-8859-1)"
+      },
+      "to_encoding": {
+        "description": "Target encoding (e.g. utf-8)"
+      },
+      "input": {
+        "type": "existing_file",
+        "description": "Input file"
+      },
+      "output": {
+        "type": "path",
+        "description": "Output file"
+      }
+    }
+  },
+  {
+    "description": "List all known iconv encodings",
+    "command": "iconv -l"
+  }
+]

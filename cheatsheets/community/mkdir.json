@@ -1,0 +1,44 @@
+[
+  {
+    "description": "Create nested directories",
+    "command": "mkdir -p <path>",
+    "params": {
+      "path": {
+        "type": "path",
+        "description": "Directory path to create (parents included)"
+      }
+    }
+  },
+  {
+    "description": "Create multiple sibling directories with brace expansion",
+    "command": "mkdir -p <parent>/{<names>}",
+    "defaults": {
+      "names": "bar,baz"
+    },
+    "params": {
+      "parent": {
+        "description": "Parent directory"
+      },
+      "names": {
+        "type": "string",
+        "description": "Comma-separated child names"
+      }
+    }
+  },
+  {
+    "description": "Create a directory with specific permissions",
+    "command": "mkdir -m <mode> <path>",
+    "defaults": {
+      "mode": "700"
+    },
+    "params": {
+      "mode": {
+        "description": "Octal permission mode"
+      },
+      "path": {
+        "type": "path",
+        "description": "Directory to create"
+      }
+    }
+  }
+]

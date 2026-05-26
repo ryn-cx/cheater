@@ -1,0 +1,61 @@
+[
+  {
+    "description": "Press a key repeatedly with a delay between presses",
+    "command": "xdotool key --repeat <repeats> --delay <delay_ms> <key>",
+    "defaults": {
+      "repeats": "10",
+      "delay_ms": "1000",
+      "key": "F5"
+    },
+    "params": {
+      "repeats": {
+        "type": "integer",
+        "description": "Number of repeats"
+      },
+      "delay_ms": {
+        "type": "integer",
+        "description": "Delay between presses (milliseconds)"
+      },
+      "key": {
+        "description": "Key name (e.g. F5, Return, ctrl+s)"
+      }
+    }
+  },
+  {
+    "description": "Type a string into the focused window",
+    "command": "xdotool type \"<text>\"",
+    "params": {
+      "text": {
+        "type": "string",
+        "description": "Text to type"
+      }
+    }
+  },
+  {
+    "description": "Click a mouse button (1=left, 2=middle, 3=right)",
+    "command": "xdotool click <button>",
+    "defaults": {
+      "button": "1"
+    },
+    "params": {
+      "button": {
+        "type": "integer",
+        "description": "Mouse button number"
+      }
+    }
+  },
+  {
+    "description": "Move the mouse to absolute screen coordinates",
+    "command": "xdotool mousemove <x> <y>",
+    "params": {
+      "x": {
+        "type": "integer",
+        "description": "X coordinate"
+      },
+      "y": {
+        "type": "integer",
+        "description": "Y coordinate"
+      }
+    }
+  }
+]

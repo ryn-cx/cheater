@@ -1,0 +1,126 @@
+[
+  {
+    "description": "Find a snap by name",
+    "command": "snap find <package>",
+    "params": {
+      "package": {
+        "description": "Snap name or search term"
+      }
+    }
+  },
+  {
+    "description": "Show info about a snap",
+    "command": "snap info <package>",
+    "params": {
+      "package": {
+        "description": "Snap name"
+      }
+    }
+  },
+  {
+    "description": "Install a snap",
+    "command": "sudo snap install <package>",
+    "params": {
+      "package": {
+        "description": "Snap name"
+      }
+    }
+  },
+  {
+    "description": "Install a snap from a specific channel",
+    "command": "sudo snap install <package> --channel=<channel>",
+    "defaults": {
+      "channel": "beta"
+    },
+    "params": {
+      "package": {
+        "description": "Snap name"
+      },
+      "channel": {
+        "description": "stable, candidate, beta, edge"
+      }
+    }
+  },
+  {
+    "description": "List installed snaps",
+    "command": "snap list"
+  },
+  {
+    "description": "Refresh all snaps",
+    "command": "sudo snap refresh"
+  },
+  {
+    "description": "Refresh a specific snap",
+    "command": "sudo snap refresh <package>",
+    "params": {
+      "package": {
+        "description": "Snap name"
+      }
+    }
+  },
+  {
+    "description": "Revert a snap to its previous version",
+    "command": "sudo snap revert <package>",
+    "params": {
+      "package": {
+        "description": "Snap name"
+      }
+    }
+  },
+  {
+    "description": "Remove a snap",
+    "command": "sudo snap remove <package>",
+    "params": {
+      "package": {
+        "description": "Snap name"
+      }
+    }
+  },
+  {
+    "description": "View recent snap transactions",
+    "command": "snap changes"
+  },
+  {
+    "description": "Download a snap (and assertions) without installing it",
+    "command": "snap download <package>",
+    "params": {
+      "package": {
+        "description": "Snap name"
+      }
+    }
+  },
+  {
+    "description": "List available interface plugs/slots",
+    "command": "snap interfaces"
+  },
+  {
+    "description": "Connect a snap plug to a slot",
+    "command": "sudo snap connect <plug> <slot>",
+    "params": {
+      "plug": {
+        "description": "Plug spec (e.g. snap:plug)"
+      },
+      "slot": {
+        "description": "Slot spec (e.g. :slot)"
+      }
+    }
+  },
+  {
+    "description": "Disable a snap",
+    "command": "sudo snap disable <package>",
+    "params": {
+      "package": {
+        "description": "Snap name"
+      }
+    }
+  },
+  {
+    "description": "Enable a snap",
+    "command": "sudo snap enable <package>",
+    "params": {
+      "package": {
+        "description": "Snap name"
+      }
+    }
+  }
+]

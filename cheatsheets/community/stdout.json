@@ -1,0 +1,78 @@
+[
+  {
+    "description": "Redirect stderr to stdout",
+    "command": "<command> 2>&1",
+    "params": {
+      "command": {
+        "type": "string",
+        "description": "Any shell command"
+      }
+    }
+  },
+  {
+    "description": "Redirect stdout to a file",
+    "command": "<command> > <file>",
+    "params": {
+      "command": {
+        "type": "string",
+        "description": "Any shell command"
+      },
+      "file": {
+        "type": "path",
+        "description": "Destination file"
+      }
+    }
+  },
+  {
+    "description": "Append stdout to a file",
+    "command": "<command> >> <file>",
+    "params": {
+      "command": {
+        "type": "string",
+        "description": "Any shell command"
+      },
+      "file": {
+        "type": "path",
+        "description": "Destination file"
+      }
+    }
+  },
+  {
+    "description": "Redirect stderr to a file",
+    "command": "<command> 2> <file>",
+    "params": {
+      "command": {
+        "type": "string",
+        "description": "Any shell command"
+      },
+      "file": {
+        "type": "path",
+        "description": "Destination file"
+      }
+    }
+  },
+  {
+    "description": "Redirect both stdout and stderr to the same file",
+    "command": "<command> > <file> 2>&1",
+    "params": {
+      "command": {
+        "type": "string",
+        "description": "Any shell command"
+      },
+      "file": {
+        "type": "path",
+        "description": "Destination file"
+      }
+    }
+  },
+  {
+    "description": "Silence both stdout and stderr",
+    "command": "<command> > /dev/null 2>&1",
+    "params": {
+      "command": {
+        "type": "string",
+        "description": "Any shell command"
+      }
+    }
+  }
+]

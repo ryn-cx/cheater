@@ -1,0 +1,203 @@
+[
+  {
+    "description": "Generate a new key pair (interactive)",
+    "command": "gpg --gen-key"
+  },
+  {
+    "description": "List all keys in the keyring",
+    "command": "gpg --list-keys"
+  },
+  {
+    "description": "Show your public key (ASCII-armored)",
+    "command": "gpg --armor --export"
+  },
+  {
+    "description": "Show the fingerprint for a key",
+    "command": "gpg --fingerprint <key_id>",
+    "params": {
+      "key_id": {
+        "description": "Key id"
+      }
+    }
+  },
+  {
+    "description": "Search a keyserver for a user's keys",
+    "command": "gpg --search-keys '<email>'",
+    "params": {
+      "email": {
+        "type": "string",
+        "description": "Email address to search for"
+      }
+    }
+  },
+  {
+    "description": "Encrypt a file for a recipient",
+    "command": "gpg --encrypt --recipient '<recipient>' <file>",
+    "params": {
+      "recipient": {
+        "type": "string",
+        "description": "Recipient identifier (email or key id)"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to encrypt"
+      }
+    }
+  },
+  {
+    "description": "Decrypt a .gpg file",
+    "command": "gpg --output <output> --decrypt <input>",
+    "params": {
+      "output": {
+        "type": "path",
+        "description": "Where to write the plaintext"
+      },
+      "input": {
+        "type": "existing_file",
+        "description": ".gpg file to decrypt"
+      }
+    }
+  },
+  {
+    "description": "Export a public key to a file",
+    "command": "gpg --output <output> --armor --export <key_id>",
+    "params": {
+      "output": {
+        "type": "path",
+        "description": "Output file path"
+      },
+      "key_id": {
+        "description": "Key id"
+      }
+    }
+  },
+  {
+    "description": "Export a private key to a file",
+    "command": "gpg --output <output> --armor --export-secret-key <key_id>",
+    "params": {
+      "output": {
+        "type": "path",
+        "description": "Output file path"
+      },
+      "key_id": {
+        "description": "Key id"
+      }
+    }
+  },
+  {
+    "description": "Import a key from a file",
+    "command": "gpg --import <key_file>",
+    "params": {
+      "key_file": {
+        "type": "existing_file",
+        "description": "Key file to import"
+      }
+    }
+  },
+  {
+    "description": "Import a private (secret) key from a file",
+    "command": "gpg --allow-secret-key-import --import <key_file>",
+    "params": {
+      "key_file": {
+        "type": "existing_file",
+        "description": "Private key file to import"
+      }
+    }
+  },
+  {
+    "description": "Generate a revocation certificate for a key",
+    "command": "gpg --output <output> --gen-revoke <key_id>",
+    "params": {
+      "output": {
+        "type": "path",
+        "description": "Revocation certificate output path"
+      },
+      "key_id": {
+        "description": "Key id"
+      }
+    }
+  },
+  {
+    "description": "Publish a key to a keyserver",
+    "command": "gpg --send-keys <key_id>",
+    "params": {
+      "key_id": {
+        "description": "Key id to publish"
+      }
+    }
+  },
+  {
+    "description": "Make a detached ASCII-armored signature for a file",
+    "command": "gpg -ba <file>",
+    "params": {
+      "file": {
+        "type": "existing_file",
+        "description": "File to sign"
+      }
+    }
+  },
+  {
+    "description": "Sign a file with a specific key",
+    "command": "gpg --default-key <key_id> -ba <file>",
+    "params": {
+      "key_id": {
+        "description": "Signing key id"
+      },
+      "file": {
+        "type": "existing_file",
+        "description": "File to sign"
+      }
+    }
+  },
+  {
+    "description": "Verify a detached signature against a downloaded file",
+    "command": "gpg --verify <signature>",
+    "params": {
+      "signature": {
+        "type": "existing_file",
+        "description": "Detached .asc/.sig file"
+      }
+    }
+  },
+  {
+    "description": "Fetch a key from a keyserver by id",
+    "command": "gpg --keyserver <keyserver> --recv-keys <key_id>",
+    "params": {
+      "keyserver": {
+        "type": "string",
+        "description": "Keyserver URL"
+      },
+      "key_id": {
+        "description": "Key id"
+      }
+    }
+  },
+  {
+    "description": "Sign another user's key",
+    "command": "gpg --sign-key <key_id>",
+    "params": {
+      "key_id": {
+        "description": "Key id to sign"
+      }
+    }
+  },
+  {
+    "description": "Edit a key (e.g. add UID, expire, revoke)",
+    "command": "gpg --edit-key <key_id>",
+    "params": {
+      "key_id": {
+        "description": "Key id to edit"
+      }
+    }
+  },
+  {
+    "description": "Securely shred a private key file after import",
+    "command": "shred -zu <key_file>",
+    "params": {
+      "key_file": {
+        "type": "existing_file",
+        "description": "Private key file to overwrite and delete"
+      }
+    }
+  }
+]

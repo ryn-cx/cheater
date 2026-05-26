@@ -1,0 +1,73 @@
+[
+  {
+    "description": "Search the current directory for a query",
+    "command": "fd <query>",
+    "params": {
+      "query": {
+        "type": "string",
+        "description": "Substring or regex to match against file names"
+      }
+    }
+  },
+  {
+    "description": "Search within a specific directory",
+    "command": "fd <query> <directory>",
+    "params": {
+      "query": {
+        "type": "string",
+        "description": "Substring or regex to match against file names"
+      },
+      "directory": {
+        "type": "existing_dir",
+        "description": "Root directory to search under"
+      }
+    }
+  },
+  {
+    "description": "Search by file extension",
+    "command": "fd -e <extension> <query>",
+    "params": {
+      "extension": {
+        "description": "File extension without the dot, e.g. txt"
+      },
+      "query": {
+        "type": "string",
+        "description": "Substring or regex"
+      }
+    }
+  },
+  {
+    "description": "Search by exact filename glob",
+    "command": "fd -g <glob>",
+    "params": {
+      "glob": {
+        "type": "string",
+        "description": "Glob pattern, e.g. '*.md'"
+      }
+    }
+  },
+  {
+    "description": "Include hidden and ignored files",
+    "command": "fd -H <query>",
+    "params": {
+      "query": {
+        "type": "string",
+        "description": "Substring or regex"
+      }
+    }
+  },
+  {
+    "description": "Exclude a path from the search",
+    "command": "fd -E <exclude> <query>",
+    "params": {
+      "exclude": {
+        "type": "string",
+        "description": "Glob to exclude"
+      },
+      "query": {
+        "type": "string",
+        "description": "Substring or regex"
+      }
+    }
+  }
+]

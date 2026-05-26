@@ -1,0 +1,34 @@
+[
+  {
+    "description": "Install or upgrade a .deb package",
+    "command": "dpkg -i <deb_file>",
+    "params": {
+      "deb_file": {
+        "type": "existing_file",
+        "description": "Path to the .deb file"
+      }
+    }
+  },
+  {
+    "description": "Remove a package including its config files",
+    "command": "dpkg -P <package>",
+    "params": {
+      "package": {
+        "description": "Package name to purge"
+      }
+    }
+  },
+  {
+    "description": "List all installed packages with versions",
+    "command": "dpkg -l"
+  },
+  {
+    "description": "Check whether a package is installed",
+    "command": "dpkg -s <package> | grep Status",
+    "params": {
+      "package": {
+        "description": "Package name to check"
+      }
+    }
+  }
+]

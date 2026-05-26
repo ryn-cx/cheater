@@ -1,0 +1,209 @@
+[
+  {
+    "description": "Find all files under the current dir (follow symlinks)",
+    "command": "find -L . -type f"
+  },
+  {
+    "description": "Find files by case-insensitive name pattern",
+    "command": "find . -iname \"<pattern>\"",
+    "defaults": {
+      "pattern": "*.jpg"
+    },
+    "params": {
+      "pattern": {
+        "type": "string",
+        "description": "Glob pattern (case-insensitive)"
+      }
+    }
+  },
+  {
+    "description": "Find directories",
+    "command": "find . -type d"
+  },
+  {
+    "description": "Find regular files",
+    "command": "find . -type f"
+  },
+  {
+    "description": "Find files with a specific octal permission",
+    "command": "find . -type f -perm <octal>",
+    "defaults": {
+      "octal": "777"
+    },
+    "params": {
+      "octal": {
+        "description": "Permission in octal (e.g. 644, 755, 777)"
+      }
+    }
+  },
+  {
+    "description": "Find files with the setuid bit set",
+    "command": "find . -xdev \\( -perm -4000 \\) -type f -print0 | xargs -0 ls -l"
+  },
+  {
+    "description": "Find files newer than N days and copy them somewhere",
+    "command": "find . -type f -ctime -<days> -print0 | xargs -0 -p cp -t <destination>",
+    "defaults": {
+      "days": "1"
+    },
+    "params": {
+      "days": {
+        "type": "integer",
+        "description": "Maximum age in days"
+      },
+      "destination": {
+        "type": "existing_dir",
+        "description": "Directory to copy matched files into"
+      }
+    }
+  },
+  {
+    "description": "Find files matching a glob and delete them",
+    "command": "find <path> -name '<pattern>' -delete",
+    "defaults": {
+      "path": "./",
+      "pattern": "*.txt"
+    },
+    "params": {
+      "path": {
+        "type": "existing_path",
+        "description": "Where to search"
+      },
+      "pattern": {
+        "type": "string",
+        "description": "Filename glob, e.g. *.txt"
+      }
+    }
+  },
+  {
+    "description": "Find files matching a glob and dump their contents",
+    "command": "find <path> -name '<pattern>' -exec cat '{}' \\;",
+    "defaults": {
+      "path": "./",
+      "pattern": "*.txt"
+    },
+    "params": {
+      "path": {
+        "type": "existing_path",
+        "description": "Where to search"
+      },
+      "pattern": {
+        "type": "string",
+        "description": "Filename glob"
+      }
+    }
+  },
+  {
+    "description": "Find files matching a glob and grep them",
+    "command": "find <path> -name '<pattern>' | xargs grep '<text>'",
+    "params": {
+      "path": {
+        "type": "existing_path",
+        "description": "Where to search"
+      },
+      "pattern": {
+        "type": "string",
+        "description": "Filename glob"
+      },
+      "text": {
+        "type": "string",
+        "description": "Text to grep for"
+      }
+    }
+  },
+  {
+    "description": "Find files larger than a size and sort by size",
+    "command": "find . -size +<size> -type f -print0 | xargs -0 ls -Ssh | sort -z",
+    "defaults": {
+      "size": "5M"
+    },
+    "params": {
+      "size": {
+        "description": "Size threshold (e.g. 5M, 1G)"
+      }
+    }
+  },
+  {
+    "description": "Find files modified more than N days ago",
+    "command": "find . -type f -mtime +<days>d -ls",
+    "defaults": {
+      "days": "7"
+    },
+    "params": {
+      "days": {
+        "type": "integer",
+        "description": "Minimum age in days"
+      }
+    }
+  },
+  {
+    "description": "Find symlinks owned by a user",
+    "command": "find . -type l -user <user> -ls",
+    "params": {
+      "user": {
+        "description": "Username or numeric uid"
+      }
+    }
+  },
+  {
+    "description": "Find and remove empty directories",
+    "command": "find . -type d -empty -exec rmdir {} \\;"
+  },
+  {
+    "description": "Find a named directory bounded to a max depth",
+    "command": "find . -maxdepth <depth> -name <name> -type d",
+    "defaults": {
+      "depth": "2",
+      "name": "build"
+    },
+    "params": {
+      "depth": {
+        "type": "integer",
+        "description": "Maximum recursion depth"
+      },
+      "name": {
+        "description": "Directory name"
+      }
+    }
+  },
+  {
+    "description": "Find files NOT under any .git directory",
+    "command": "find . ! -iwholename '*.git*' -type f"
+  },
+  {
+    "description": "Find files newer than a reference file",
+    "command": "find <path> -newer <reference>",
+    "params": {
+      "path": {
+        "type": "existing_path",
+        "description": "Where to search"
+      },
+      "reference": {
+        "type": "existing_file",
+        "description": "Reference file (compare mtime)"
+      }
+    }
+  },
+  {
+    "description": "Apply chmod to all matched files",
+    "command": "find . -type f -exec chmod <mode> {} \\;",
+    "defaults": {
+      "mode": "644"
+    },
+    "params": {
+      "mode": {
+        "description": "Octal mode"
+      }
+    }
+  },
+  {
+    "description": "Find broken symlinks",
+    "command": "find -L <path> -type l",
+    "params": {
+      "path": {
+        "type": "existing_path",
+        "description": "Where to search"
+      }
+    }
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "description": "List supported releases for an OS",
+    "command": "quickget <os>",
+    "params": {
+      "os": {
+        "description": "OS name (e.g. ubuntu, fedora, archlinux)"
+      }
+    }
+  },
+  {
+    "description": "Download an OS release and prepare a VM config",
+    "command": "quickget <os> <release>",
+    "params": {
+      "os": {
+        "description": "OS name"
+      },
+      "release": {
+        "description": "Release name (e.g. 22.04, jammy)"
+      }
+    }
+  },
+  {
+    "description": "Download a specific edition of an OS release",
+    "command": "quickget <os> <release> <edition>",
+    "params": {
+      "os": {
+        "description": "OS name"
+      },
+      "release": {
+        "description": "Release name"
+      },
+      "edition": {
+        "description": "Edition (e.g. server, desktop)"
+      }
+    }
+  },
+  {
+    "description": "List every supported OS variant as CSV",
+    "command": "quickget list"
+  }
+]

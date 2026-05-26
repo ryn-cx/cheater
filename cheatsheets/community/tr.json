@@ -1,0 +1,82 @@
+[
+  {
+    "description": "Replace one character with another in stdin",
+    "command": "echo \"<text>\" | tr '<from>' '<to>'",
+    "params": {
+      "text": {
+        "type": "string",
+        "description": "Input text"
+      },
+      "from": {
+        "description": "Character(s) to match"
+      },
+      "to": {
+        "description": "Character(s) to replace with"
+      }
+    }
+  },
+  {
+    "description": "Replace colons with newlines (e.g. split PATH)",
+    "command": "echo \"$PATH\" | tr ':' '\\n'"
+  },
+  {
+    "description": "Delete characters from stdin",
+    "command": "echo \"<text>\" | tr -d '<chars>'",
+    "params": {
+      "text": {
+        "type": "string",
+        "description": "Input text"
+      },
+      "chars": {
+        "description": "Characters to delete"
+      }
+    }
+  },
+  {
+    "description": "Squeeze runs of a character to one",
+    "command": "echo \"<text>\" | tr -s '<char>'",
+    "params": {
+      "text": {
+        "type": "string",
+        "description": "Input text"
+      },
+      "char": {
+        "description": "Character to squeeze"
+      }
+    }
+  },
+  {
+    "description": "Convert to uppercase",
+    "command": "echo \"<text>\" | tr '[:lower:]' '[:upper:]'",
+    "params": {
+      "text": {
+        "type": "string",
+        "description": "Input text"
+      }
+    }
+  },
+  {
+    "description": "Convert to lowercase",
+    "command": "echo \"<text>\" | tr '[:upper:]' '[:lower:]'",
+    "params": {
+      "text": {
+        "type": "string",
+        "description": "Input text"
+      }
+    }
+  },
+  {
+    "description": "Remove NULL bytes from a file",
+    "command": "tr -d '\\000' < <input> > <output>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Input file with NULs"
+      },
+      "output": {
+        "type": "path",
+        "description": "Output file"
+      }
+    }
+  }
+]

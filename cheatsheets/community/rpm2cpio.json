@@ -1,0 +1,22 @@
+[
+  {
+    "description": "List the contents of an .rpm file",
+    "command": "rpm2cpio <rpm_file> | cpio -vt",
+    "params": {
+      "rpm_file": {
+        "type": "existing_file",
+        "description": "Path to the .rpm file"
+      }
+    }
+  },
+  {
+    "description": "Extract the contents of an .rpm file into the current directory",
+    "command": "rpm2cpio <rpm_file> | cpio -vid",
+    "params": {
+      "rpm_file": {
+        "type": "existing_file",
+        "description": "Path to the .rpm file"
+      }
+    }
+  }
+]

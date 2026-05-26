@@ -1,0 +1,45 @@
+[
+  {
+    "description": "Show settings for a single interface",
+    "command": "ifconfig <interface>",
+    "params": {
+      "interface": {
+        "description": "Network interface (e.g. eth0)"
+      }
+    }
+  },
+  {
+    "description": "Show all interfaces (even those that are down)",
+    "command": "ifconfig -a"
+  },
+  {
+    "description": "Bring an interface up or down",
+    "command": "sudo ifconfig <interface> <state>",
+    "defaults": {
+      "state": "up"
+    },
+    "params": {
+      "interface": {
+        "description": "Network interface"
+      },
+      "state": {
+        "description": "up or down"
+      }
+    }
+  },
+  {
+    "description": "Assign a static IP address and netmask",
+    "command": "sudo ifconfig <interface> <ip_address> netmask <netmask>",
+    "params": {
+      "interface": {
+        "description": "Network interface"
+      },
+      "ip_address": {
+        "description": "IPv4 address (e.g. 192.168.1.100)"
+      },
+      "netmask": {
+        "description": "Netmask (e.g. 255.255.255.0)"
+      }
+    }
+  }
+]

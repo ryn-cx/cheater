@@ -1,0 +1,167 @@
+[
+  {
+    "description": "Generate a private RSA key",
+    "command": "openssl genrsa -out <key_file> <bits>",
+    "defaults": {
+      "key_file": "server.key",
+      "bits": "2048"
+    },
+    "params": {
+      "key_file": {
+        "type": "path",
+        "description": "Output key file path"
+      },
+      "bits": {
+        "type": "integer",
+        "description": "Key size in bits"
+      }
+    }
+  },
+  {
+    "description": "Create a Certificate Signing Request (CSR)",
+    "command": "openssl req -new -key <key_file> -out <csr_file>",
+    "params": {
+      "key_file": {
+        "type": "existing_file",
+        "description": "Private key"
+      },
+      "csr_file": {
+        "type": "path",
+        "description": "Output CSR path"
+      }
+    }
+  },
+  {
+    "description": "Sign a self-signed certificate from a CSR and key",
+    "command": "openssl x509 -req -days <days> -in <csr_file> -signkey <key_file> -out <cert_file>",
+    "defaults": {
+      "days": "365"
+    },
+    "params": {
+      "days": {
+        "type": "integer",
+        "description": "Validity in days"
+      },
+      "csr_file": {
+        "type": "existing_file",
+        "description": "CSR file"
+      },
+      "key_file": {
+        "type": "existing_file",
+        "description": "Private key"
+      },
+      "cert_file": {
+        "type": "path",
+        "description": "Output certificate path"
+      }
+    }
+  },
+  {
+    "description": "Show the contents of a CSR",
+    "command": "openssl req -text -noout -in <csr_file>",
+    "params": {
+      "csr_file": {
+        "type": "existing_file",
+        "description": "CSR file"
+      }
+    }
+  },
+  {
+    "description": "Show the contents of an X.509 certificate",
+    "command": "openssl x509 -text -noout -in <cert_file>",
+    "params": {
+      "cert_file": {
+        "type": "existing_file",
+        "description": "Certificate file"
+      }
+    }
+  },
+  {
+    "description": "Get the SHA-256 fingerprint of a certificate",
+    "command": "openssl x509 -in <cert_file> -noout -sha256 -fingerprint",
+    "params": {
+      "cert_file": {
+        "type": "existing_file",
+        "description": "Certificate file"
+      }
+    }
+  },
+  {
+    "description": "Check a remote server's certificate expiration date",
+    "command": "echo | openssl s_client -connect <host>:<port> 2>/dev/null | openssl x509 -noout -enddate",
+    "defaults": {
+      "port": "443"
+    },
+    "params": {
+      "host": {
+        "description": "Server hostname"
+      },
+      "port": {
+        "type": "integer",
+        "description": "Server port"
+      }
+    }
+  },
+  {
+    "description": "Generate Diffie-Hellman parameters",
+    "command": "openssl dhparam -outform PEM -out <out_file> <bits>",
+    "defaults": {
+      "out_file": "dhparams.pem",
+      "bits": "2048"
+    },
+    "params": {
+      "out_file": {
+        "type": "path",
+        "description": "Output DH params file"
+      },
+      "bits": {
+        "type": "integer",
+        "description": "Parameter size in bits"
+      }
+    }
+  },
+  {
+    "description": "Test an HTTPS server (TLS handshake)",
+    "command": "openssl s_client -connect <host>:<port>",
+    "defaults": {
+      "port": "443"
+    },
+    "params": {
+      "host": {
+        "description": "Server hostname or IP"
+      },
+      "port": {
+        "type": "integer",
+        "description": "Server port"
+      }
+    }
+  },
+  {
+    "description": "AES-256-CBC symmetric encryption with strong KDF",
+    "command": "openssl enc -e -aes-256-cbc -salt -pbkdf2 -iter 1000000 -md sha512 -base64 -in <input> -out <output>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Plaintext input"
+      },
+      "output": {
+        "type": "path",
+        "description": "Encrypted output"
+      }
+    }
+  },
+  {
+    "description": "AES-256-CBC symmetric decryption",
+    "command": "openssl enc -d -aes-256-cbc -salt -pbkdf2 -iter 1000000 -md sha512 -base64 -in <input> -out <output>",
+    "params": {
+      "input": {
+        "type": "existing_file",
+        "description": "Encrypted input"
+      },
+      "output": {
+        "type": "path",
+        "description": "Decrypted output"
+      }
+    }
+  }
+]

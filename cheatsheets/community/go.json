@@ -1,0 +1,212 @@
+[
+  {
+    "description": "Run the package in the current directory",
+    "command": "go run ."
+  },
+  {
+    "description": "Run a package in a specific directory",
+    "command": "go run <package_dir>",
+    "defaults": {
+      "package_dir": "./cmd/foo/"
+    },
+    "params": {
+      "package_dir": {
+        "type": "existing_dir",
+        "description": "Package directory"
+      }
+    }
+  },
+  {
+    "description": "Fetch a dependency at a specific version or commit",
+    "command": "go get <module>@<version>",
+    "params": {
+      "module": {
+        "description": "Module path (e.g. github.com/foo/bar)"
+      },
+      "version": {
+        "description": "Tag, branch, or commit SHA"
+      }
+    }
+  },
+  {
+    "description": "Upgrade a dependency to the latest",
+    "command": "go get -u <module>",
+    "params": {
+      "module": {
+        "description": "Module path"
+      }
+    }
+  },
+  {
+    "description": "Build the current package to a binary",
+    "command": "go build -o=<output> .",
+    "params": {
+      "output": {
+        "type": "path",
+        "description": "Output binary path"
+      }
+    }
+  },
+  {
+    "description": "Force rebuild of all packages",
+    "command": "go build -a -o=<output> .",
+    "params": {
+      "output": {
+        "type": "path",
+        "description": "Output binary path"
+      }
+    }
+  },
+  {
+    "description": "Show the build cache location",
+    "command": "go env GOCACHE"
+  },
+  {
+    "description": "Clear the build cache",
+    "command": "go clean -cache"
+  },
+  {
+    "description": "Cross-compile for a specific OS / arch",
+    "command": "GOOS=<os> GOARCH=<arch> go build -o=<output> .",
+    "defaults": {
+      "os": "linux",
+      "arch": "amd64"
+    },
+    "params": {
+      "os": {
+        "description": "Target OS (linux, windows, darwin, ...)"
+      },
+      "arch": {
+        "description": "Target arch (amd64, arm64, 386, ...)"
+      },
+      "output": {
+        "type": "path",
+        "description": "Output binary path"
+      }
+    }
+  },
+  {
+    "description": "List all supported OS/architecture combos",
+    "command": "go tool dist list"
+  },
+  {
+    "description": "List all module dependencies of the current module",
+    "command": "go list -m all"
+  },
+  {
+    "description": "Show why a module is a dependency",
+    "command": "go mod why -m <module>",
+    "params": {
+      "module": {
+        "description": "Module path"
+      }
+    }
+  },
+  {
+    "description": "Clear the module cache",
+    "command": "go clean -modcache"
+  },
+  {
+    "description": "Show documentation for a package",
+    "command": "go doc <symbol>",
+    "defaults": {
+      "symbol": "strings"
+    },
+    "params": {
+      "symbol": {
+        "description": "Package, type, or function (e.g. strings, sql.DB, strings.Replace)"
+      }
+    }
+  },
+  {
+    "description": "Show full documentation (all symbols) for a package",
+    "command": "go doc -all <package>",
+    "defaults": {
+      "package": "strings"
+    },
+    "params": {
+      "package": {
+        "description": "Package name"
+      }
+    }
+  },
+  {
+    "description": "Run tests in the current directory",
+    "command": "go test ."
+  },
+  {
+    "description": "Run all tests recursively",
+    "command": "go test ./..."
+  },
+  {
+    "description": "Run tests with the race detector",
+    "command": "go test -race ./..."
+  },
+  {
+    "description": "Bypass the test cache (always re-run)",
+    "command": "go test -count=1 ./..."
+  },
+  {
+    "description": "Run only a specific test by exact name",
+    "command": "go test -v -run='^<test_name>$' .",
+    "params": {
+      "test_name": {
+        "description": "Exact test name (e.g. TestFooBar)"
+      }
+    }
+  },
+  {
+    "description": "Run only the subtest Baz of TestFoo",
+    "command": "go test -v -run='^<test_name>$/^<subtest>$' .",
+    "params": {
+      "test_name": {
+        "description": "Parent test name"
+      },
+      "subtest": {
+        "description": "Subtest name"
+      }
+    }
+  },
+  {
+    "description": "Skip long-running tests",
+    "command": "go test -short ./..."
+  },
+  {
+    "description": "Stop after the first test failure",
+    "command": "go test -failfast ./..."
+  },
+  {
+    "description": "Run all benchmarks (no tests)",
+    "command": "go test -run=^$ -bench=. ./..."
+  },
+  {
+    "description": "Run benchmarks for a specific name with mem stats",
+    "command": "go test -run=^$ -bench=^<bench_name>$ -benchmem ./...",
+    "params": {
+      "bench_name": {
+        "description": "Benchmark function name"
+      }
+    }
+  },
+  {
+    "description": "Auto-fix code for a newer Go release",
+    "command": "go fix ./..."
+  },
+  {
+    "description": "List all environment variables go knows about",
+    "command": "go env"
+  },
+  {
+    "description": "Set a go environment variable persistently",
+    "command": "go env -w <variable>=<value>",
+    "params": {
+      "variable": {
+        "description": "Variable name (e.g. GOPATH, GOPROXY)"
+      },
+      "value": {
+        "type": "string",
+        "description": "Value to set"
+      }
+    }
+  }
+]

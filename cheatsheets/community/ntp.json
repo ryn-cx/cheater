@@ -1,0 +1,47 @@
+[
+  {
+    "description": "Check whether the NTP service is running",
+    "command": "service ntp status"
+  },
+  {
+    "description": "Start the NTP service",
+    "command": "sudo service ntp start"
+  },
+  {
+    "description": "Show the current hardware clock value",
+    "command": "sudo hwclock -r"
+  },
+  {
+    "description": "Sync the hardware clock to the system clock",
+    "command": "sudo hwclock --systohc"
+  },
+  {
+    "description": "Sync the system clock from the hardware clock",
+    "command": "sudo hwclock --hctosys"
+  },
+  {
+    "description": "Tell the hwclock its stored value is local time",
+    "command": "sudo hwclock --localtime"
+  },
+  {
+    "description": "Tell the hwclock its stored value is UTC",
+    "command": "sudo hwclock --utc"
+  },
+  {
+    "description": "Set the hardware clock manually",
+    "command": "sudo hwclock --set --date=\"<datetime>\"",
+    "defaults": {
+      "datetime": "8/10/25 13:10:05"
+    },
+    "params": {
+      "datetime": {
+        "type": "string",
+        "description": "Date/time string (e.g. 8/10/25 13:10:05)"
+      }
+    }
+  },
+  {
+    "description": "Query peers (surrounding stratum servers)",
+    "command": "ntpq -pn"
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "description": "Send stdin to a file AND stdout",
+    "command": "<command> | tee <file>",
+    "params": {
+      "command": {
+        "type": "string",
+        "description": "Producer command"
+      },
+      "file": {
+        "type": "path",
+        "description": "Output file"
+      }
+    }
+  },
+  {
+    "description": "Append stdin to a file AND stdout",
+    "command": "<command> | tee -a <file>",
+    "params": {
+      "command": {
+        "type": "string",
+        "description": "Producer command"
+      },
+      "file": {
+        "type": "path",
+        "description": "Output file"
+      }
+    }
+  },
+  {
+    "description": "Tee to a file requiring sudo (writes via sudo'd tee)",
+    "command": "<command> | sudo tee <file>",
+    "params": {
+      "command": {
+        "type": "string",
+        "description": "Producer command"
+      },
+      "file": {
+        "type": "path",
+        "description": "Output file (root-owned)"
+      }
+    }
+  },
+  {
+    "description": "Tee to multiple files at once",
+    "command": "<command> | tee <files>",
+    "params": {
+      "command": {
+        "type": "string",
+        "description": "Producer command"
+      },
+      "files": {
+        "type": "string",
+        "description": "Space-separated output paths"
+      }
+    }
+  }
+]

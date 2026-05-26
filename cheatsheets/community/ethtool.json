@@ -1,0 +1,57 @@
+[
+  {
+    "description": "Show statistics for an interface",
+    "command": "ethtool -S <interface>",
+    "params": {
+      "interface": {
+        "description": "Network interface (e.g. eth0)"
+      }
+    }
+  },
+  {
+    "description": "Show the permanent MAC address of an interface",
+    "command": "ethtool -P <interface>",
+    "params": {
+      "interface": {
+        "description": "Network interface"
+      }
+    }
+  },
+  {
+    "description": "Set the link speed of an interface",
+    "command": "ethtool -s <interface> speed <speed>",
+    "params": {
+      "interface": {
+        "description": "Network interface"
+      },
+      "speed": {
+        "type": "integer",
+        "description": "Speed in Mbit/s (e.g. 100, 1000)"
+      }
+    }
+  },
+  {
+    "description": "Enable or disable autonegotiation on an interface",
+    "command": "ethtool -s <interface> autoneg <state>",
+    "defaults": {
+      "state": "on"
+    },
+    "params": {
+      "interface": {
+        "description": "Network interface"
+      },
+      "state": {
+        "description": "on or off"
+      }
+    }
+  },
+  {
+    "description": "Show only error counters for an interface",
+    "command": "ethtool -S <interface> | grep error",
+    "params": {
+      "interface": {
+        "description": "Network interface"
+      }
+    }
+  }
+]
