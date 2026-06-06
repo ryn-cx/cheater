@@ -5,7 +5,10 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
+	"io/fs"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"strconv"
 	"strings"
@@ -248,6 +251,72 @@ func Save(dir, app string, cheats []Cheat) error {
 		return fmt.Errorf("serializing cheats: %w", err)
 	}
 	return os.WriteFile(path, buf.Bytes(), 0o644)
+}
+
+// ImportRepo clones the git repository at url into a temporary directory, then
+// copies every file that parses as a valid cheatsheet into dst. Files already
+// present in dst are left untouched (existing wins on conflict). It returns the
+// number of cheatsheets imported and the number skipped due to a name conflict.
+func ImportRepo(url, dst string, w io.Writer) (imported, skipped int, err error) {
+	tmp, err := os.MkdirTemp("", "cheater-import-*")
+	if err != nil {
+		return 0, 0, fmt.Errorf("creating temp dir: %w", err)
+	}
+	defer os.RemoveAll(tmp)
+
+	cmd := exec.Command("git", "clone", "--depth", "1", url, tmp)
+	cmd.Stdout = w
+	cmd.Stderr = w
+	if err := cmd.Run(); err != nil {
+		return 0, 0, fmt.Errorf("cloning %s: %w", url, err)
+	}
+
+	if err := os.MkdirAll(dst, 0o755); err != nil {
+		return 0, 0, fmt.Errorf("cannot create %s: %w", dst, err)
+	}
+
+	walkErr := filepath.WalkDir(tmp, func(path string, d fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+		if d.IsDir() {
+			if d.Name() == ".git" {
+				return filepath.SkipDir
+			}
+			return nil
+		}
+		if filepath.Ext(d.Name()) != ".json" {
+			return nil
+		}
+		raw, err := os.ReadFile(path)
+		if err != nil {
+			return err
+		}
+		// Only treat files that parse as a non-empty cheatsheet as importable;
+		// this skips unrelated JSON (package.json, configs, etc.).
+		cheats, err := parseCheats(raw, path)
+		if err != nil || len(cheats) == 0 {
+			return nil
+		}
+		target := filepath.Join(dst, d.Name())
+		if _, err := os.Stat(target); err == nil {
+			fmt.Fprintf(w, "skipped %s (already exists)\n", d.Name())
+			skipped++
+			return nil
+		} else if !errors.Is(err, os.ErrNotExist) {
+			return err
+		}
+		if err := os.WriteFile(target, raw, 0o644); err != nil {
+			return err
+		}
+		fmt.Fprintf(w, "imported %s\n", d.Name())
+		imported++
+		return nil
+	})
+	if walkErr != nil {
+		return imported, skipped, walkErr
+	}
+	return imported, skipped, nil
 }
 
 func LoadBoth(d Dirs, app string) (personal, community []Cheat, err error) {

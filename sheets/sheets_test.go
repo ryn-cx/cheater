@@ -2,7 +2,10 @@ package sheets
 
 import (
 	"encoding/json"
+	"errors"
+	"io"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"runtime"
 	"strings"
@@ -401,5 +404,82 @@ func TestValidate_Integer(t *testing.T) {
 		if err := Integer.Validate(v); err == nil {
 			t.Errorf("%q: expected error", v)
 		}
+	}
+}
+
+func gitInit(t *testing.T, dir string) {
+	t.Helper()
+	for _, args := range [][]string{
+		{"init"},
+		{"config", "user.email", "test@example.com"},
+		{"config", "user.name", "test"},
+		{"add", "-A"},
+		{"commit", "-m", "init"},
+	} {
+		cmd := exec.Command("git", args...)
+		cmd.Dir = dir
+		if out, err := cmd.CombinedOutput(); err != nil {
+			t.Fatalf("git %v: %v\n%s", args, err, out)
+		}
+	}
+}
+
+func TestImportRepo(t *testing.T) {
+	if _, err := exec.LookPath("git"); err != nil {
+		t.Skip("git not available")
+	}
+
+	src := t.TempDir()
+	// A valid cheatsheet at the repo root.
+	if err := Save(src, "foo", []Cheat{{Description: "d", Command: "foo <x>"}}); err != nil {
+		t.Fatal(err)
+	}
+	// A valid cheatsheet nested in a subdirectory.
+	sub := filepath.Join(src, "extra")
+	if err := Save(sub, "bar", []Cheat{{Description: "d", Command: "bar"}}); err != nil {
+		t.Fatal(err)
+	}
+	// Non-cheatsheet JSON that must be ignored.
+	if err := os.WriteFile(filepath.Join(src, "package.json"), []byte(`{"name":"x"}`), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	gitInit(t, src)
+
+	dst := t.TempDir()
+	// Pre-existing personal cheat that must survive a conflict.
+	existing := []Cheat{{Description: "mine", Command: "foo keep"}}
+	if err := Save(dst, "foo", existing); err != nil {
+		t.Fatal(err)
+	}
+
+	imported, skipped, err := ImportRepo(src, dst, io.Discard)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if imported != 1 || skipped != 1 {
+		t.Fatalf("imported=%d skipped=%d, want imported=1 skipped=1", imported, skipped)
+	}
+
+	// foo.json existed already, so it must be untouched.
+	got, err := Load(dst, "foo")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(got) != 1 || got[0].Description != "mine" {
+		t.Fatalf("foo was overwritten: %+v", got)
+	}
+
+	// bar.json should have been imported from the subdirectory.
+	bar, err := Load(dst, "bar")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(bar) != 1 || bar[0].Command != "bar" {
+		t.Fatalf("bar not imported correctly: %+v", bar)
+	}
+
+	// package.json must not have been imported.
+	if _, err := os.Stat(filepath.Join(dst, "package.json")); !errors.Is(err, os.ErrNotExist) {
+		t.Fatalf("package.json should not be imported (err=%v)", err)
 	}
 }
