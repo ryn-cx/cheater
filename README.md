@@ -17,6 +17,7 @@ go install .
 cheater 7z          # open the interactive menu for 7z
 cheater --list      # show every stored app + cheat count
 cheater --import https://github.com/user/cheats   # add a repo's cheats to personal
+cheater --import https://github.com/user/cheats --force  # Overwrite conflicting entries
 cheater --help      # usage
 ```
 

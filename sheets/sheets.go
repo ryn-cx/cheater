@@ -253,11 +253,7 @@ func Save(dir, app string, cheats []Cheat) error {
 	return os.WriteFile(path, buf.Bytes(), 0o644)
 }
 
-// ImportRepo clones the git repository at url into a temporary directory, then
-// copies every file that parses as a valid cheatsheet into dst. Files already
-// present in dst are left untouched (existing wins on conflict). It returns the
-// number of cheatsheets imported and the number skipped due to a name conflict.
-func ImportRepo(url, dst string, w io.Writer) (imported, skipped int, err error) {
+func ImportRepo(url, dst string, force bool, w io.Writer) (imported, skipped int, err error) {
 	tmp, err := os.MkdirTemp("", "cheater-import-*")
 	if err != nil {
 		return 0, 0, fmt.Errorf("creating temp dir: %w", err)
@@ -292,24 +288,30 @@ func ImportRepo(url, dst string, w io.Writer) (imported, skipped int, err error)
 		if err != nil {
 			return err
 		}
-		// Only treat files that parse as a non-empty cheatsheet as importable;
-		// this skips unrelated JSON (package.json, configs, etc.).
 		cheats, err := parseCheats(raw, path)
 		if err != nil || len(cheats) == 0 {
 			return nil
 		}
 		target := filepath.Join(dst, d.Name())
-		if _, err := os.Stat(target); err == nil {
+		exists := true
+		if _, err := os.Stat(target); errors.Is(err, os.ErrNotExist) {
+			exists = false
+		} else if err != nil {
+			return err
+		}
+		if exists && !force {
 			fmt.Fprintf(w, "skipped %s (already exists)\n", d.Name())
 			skipped++
 			return nil
-		} else if !errors.Is(err, os.ErrNotExist) {
-			return err
 		}
 		if err := os.WriteFile(target, raw, 0o644); err != nil {
 			return err
 		}
-		fmt.Fprintf(w, "imported %s\n", d.Name())
+		if exists {
+			fmt.Fprintf(w, "overwrote %s\n", d.Name())
+		} else {
+			fmt.Fprintf(w, "imported %s\n", d.Name())
+		}
 		imported++
 		return nil
 	})

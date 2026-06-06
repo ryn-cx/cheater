@@ -34,11 +34,15 @@ Examples:
   To import cheatsheets from a git repository into your personal cheats:
     cheater -i https://github.com/user/cheats
 
+  To import and overwrite any of your existing cheats that conflict:
+    cheater -i https://github.com/user/cheats --force
+
 Flags:
   -h, --help            help for cheater
   -l, --list            List cheatsheets
   -i, --import <repo>   Clone a git repository and add its cheatsheets to your
                         personal cheats (existing files are kept on conflict)
+  -f, --force           With --import, overwrite existing cheats on conflict
 `
 
 func main() {
@@ -66,11 +70,25 @@ func main() {
 			os.Exit(1)
 		}
 	case args[0] == "--import", args[0] == "-i":
-		if len(args) != 2 {
-			fmt.Fprintln(os.Stderr, "error: --import requires a single git repository URL")
+		var url string
+		var force bool
+		for _, a := range args[1:] {
+			switch a {
+			case "--force", "-f":
+				force = true
+			default:
+				if url != "" {
+					fmt.Fprintln(os.Stderr, "error: --import accepts a single git repository URL")
+					os.Exit(1)
+				}
+				url = a
+			}
+		}
+		if url == "" {
+			fmt.Fprintln(os.Stderr, "error: --import requires a git repository URL")
 			os.Exit(1)
 		}
-		imported, skipped, err := sheets.ImportRepo(args[1], dirs.Personal, os.Stdout)
+		imported, skipped, err := sheets.ImportRepo(url, dirs.Personal, force, os.Stdout)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "error: %v\n", err)
 			os.Exit(1)

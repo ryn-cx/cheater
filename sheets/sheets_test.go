@@ -452,7 +452,7 @@ func TestImportRepo(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	imported, skipped, err := ImportRepo(src, dst, io.Discard)
+	imported, skipped, err := ImportRepo(src, dst, false, io.Discard)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -481,5 +481,21 @@ func TestImportRepo(t *testing.T) {
 	// package.json must not have been imported.
 	if _, err := os.Stat(filepath.Join(dst, "package.json")); !errors.Is(err, os.ErrNotExist) {
 		t.Fatalf("package.json should not be imported (err=%v)", err)
+	}
+
+	// With force, the conflicting foo.json is overwritten from the repo.
+	imported, skipped, err = ImportRepo(src, dst, true, io.Discard)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if imported != 2 || skipped != 0 {
+		t.Fatalf("force: imported=%d skipped=%d, want imported=2 skipped=0", imported, skipped)
+	}
+	got, err = Load(dst, "foo")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(got) != 1 || got[0].Command != "foo <x>" {
+		t.Fatalf("foo was not overwritten by --force: %+v", got)
 	}
 }
